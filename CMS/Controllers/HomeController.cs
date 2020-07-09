@@ -11,7 +11,6 @@ namespace CMS.Controllers
         {
             // Set Title
             ViewBag.title = "Trang chủ";
-            ViewBag.image = "";
 
             return View();
         }
