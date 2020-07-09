@@ -1,0 +1,22 @@
+﻿@model CMS.Models.ResendValidationEmailViewModel
+@{
+    ViewBag.Title = "Chưa xác thực Email";
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+}
+
+<h3 class="form-title font-green">Chưa xác thực Email</h3>
+
+<p>Email chưa được xác thực. <br /> 
+    Vui lòng kiểm tra <strong>Hòm thư Email</strong> của bạn.
+
+@if (Model.UserId != null)
+{
+    using (Html.BeginForm("ResendValidationEmail", "Account", FormMethod.Post, new { id = "resendValidationForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x => x.UserId)
+    }
+
+    <a class="btn green uppercase" href="javascript:document.getElementById('resendValidationForm').submit()">Gửi lại Email xác thực</a>
+
+}

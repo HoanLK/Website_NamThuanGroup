@@ -1,0 +1,58 @@
+﻿@model CMS.Models.IndexViewModel
+@{
+    ViewBag.Title = "Quản lý Tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a style="font-size: 16px; font-weight: bold;">@ViewBag.Title</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row page-main" id="mangeAccount">
+    <div class="portlet light bordered">
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <div>
+            <br />
+            <dl class="dl-horizontal">
+                <dt>Mật khẩu:</dt>
+                <dd>
+                    [
+                    @if (Model.HasPassword)
+                    {
+                        @Html.ActionLink("Đổi mật khẩu", "ChangePassword")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Tạo mật khẩu", "SetPassword")
+                    }
+                    ]
+                </dd>
+
+                <br />
+                <dt>
+                    Bảo mật Google:
+                </dt>
+                <dd>
+                    @if (Model.IsGoogleAuthenticatorEnabled)
+                    {
+                        @Html.ActionLink("[Hủy kích hoạt]", "DisableGoogleAuthenticator")
+                    }
+                    else
+                    {
+                        @Html.ActionLink("[Kích hoạt]", "EnableGoogleAuthenticator")
+                    }
+                </dd>
+
+            </dl>
+
+
+        </div>
+    </div>
+</div>
+
+

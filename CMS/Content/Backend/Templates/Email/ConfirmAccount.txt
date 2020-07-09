@@ -1,0 +1,162 @@
+﻿<head>
+  <title>Facebook</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</head>
+
+<body style="max-width:532px;margin:0 auto;padding:0;" dir="ltr" bgcolor="#ffffff">
+  <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+    <tbody>
+      <tr>
+        <td width="100%" align="center" style="">
+          <table border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse:collapse;">
+            <tbody>
+              <tr>
+                <td width="1064" align="center" style="">
+                  <table border="0" cellspacing="0" cellpadding="0" align="center" id="email_table" style="border-collapse:collapse;max-width:532px;margin:0 auto;">
+                    <tbody>
+                      <tr>
+                        <td id="email_content" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;background:#ffffff;">
+                          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                            <tbody>
+                              <tr>
+                                <td height="1" colspan="5" style="line-height:1px;"><span style="color:#FFFFFF;display:none !important;font-size:1px;">&nbsp; Tài khoản Email này sẽ là Username để đăng nhập và giúp bạn khôi phục mật khẩu.</span></td>
+                              </tr>
+
+                              <tr>
+                                <td colspan="5" style="">
+                                  <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;background-color:#083064;background-size:100%;">
+                                    <tbody>
+                                      <tr>
+                                        <td style=""></td>
+                                        <td style="">
+                                          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;background-color:#25A385;background-size:100%;">
+                                            <tbody>
+                                              <tr style="">
+                                                <td height="32" style="line-height:32px;" colspan="3">&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td width="8" style="display:block;width:8px;">&nbsp;&nbsp;&nbsp;</td>
+                                                <td width="20" style="display:block;width:20px;" class="mb_hide">&nbsp;&nbsp;&nbsp;</td>
+                                                <td align="center" style="">
+                                                  <table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td style="font-size:11px;font-family:LucidaGrande,tahoma,verdana,arial,sans-serif;padding-bottom:10px;">
+                                                          <center>
+															<span class="mb_work_text" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:20px;line-height:24px;font-weight:normal;color:#FFFFFF;letter-spacing:0.2px;text-shadow:1px 1px 2px rgba(0,0,0,0.19);">Xin chào {0}!</span><br>
+															<span class="mb_work_text" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:20px;line-height:24px;font-weight:normal;color:#FFFFFF;letter-spacing:0.2px;text-shadow:1px 1px 2px rgba(0,0,0,0.19);">Nhấn vào "Xác nhận Email" để kích hoạt tài khoản.</span>
+															</center>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td style="font-size:11px;font-family:LucidaGrande,tahoma,verdana,arial,sans-serif;padding-top:10px;">
+                                                          <center>
+                                                            <a href="#"
+                                                              style="color:#3b5998;text-decoration:none;" target="_blank">
+                                                              <table border="0" width="200px" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td style="border-collapse:collapse;border-radius:2px;text-align:center;display:block;border-radius:4px;box-shadow:0 1px 6px rgba(0, 0, 0, 0.08);background:#083064;margin:0px 0px 0px 0px;padding:4px 0px 4px 0px;padding:14px 16px 14px 16px;"><a href={1}
+                                                                        style="color:#3b5998;text-decoration:none;" target="_blank"><span style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;white-space:nowrap;font-weight:bold;vertical-align:middle;font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;color:#ffffff;font-size:16px;line-height:18px;font-weight:500;">Xác nhận Email</span></a></td>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                            </a>
+                                                          </center>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                                <td width="8" style="display:block;width:8px;">&nbsp;&nbsp;&nbsp;</td>
+                                                <td width="20" style="display:block;width:20px;" class="mb_hide">&nbsp;&nbsp;&nbsp;</td>
+                                              </tr>
+                                              <tr style="">
+                                                <td height="24" style="line-height:24px;" colspan="3">&nbsp;</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td style=""></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr style="">
+                                <td height="4" style="line-height:4px;" colspan="3">&nbsp;</td>
+                              </tr>
+                              <tr class="mb_hide" style="">
+                                <td height="4" style="line-height:4px;" colspan="3">&nbsp;</td>
+                              </tr>
+                              <tr style="align:center;">
+                                <td width="8" style="display:block;width:8px;">&nbsp;&nbsp;&nbsp;</td>
+                                <td width="16" style="display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td>
+                                <td style="">
+                                  <table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;">
+                                    <tbody>
+                                      <tr>
+                                        <td style="font-size:11px;font-family:LucidaGrande,tahoma,verdana,arial,sans-serif;padding:0px 0px 0px 0px;background-color:#ffffff;border-left:1px solid #ccc;border-right:1px solid #ccc;border-top:1px solid #ccc;border-bottom:1px solid #ccc;border-radius:0px;border:0px;">
+                                          <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                                            <tbody>
+                                              <tr style="">
+                                                <td height="28" style="line-height:28px;">&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td style="">
+                                                  <table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" style="">
+                                                          <table border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse;width:100%;">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td style="font-size:11px;font-family:LucidaGrande,tahoma,verdana,arial,sans-serif;padding-bottom:12px;">
+                                                                  <table border="0" cellspacing="0" cellpadding="0" align="center" style="border-collapse:collapse;">
+                                                                    <tbody>
+                                                                      <tr>
+                                                                        <td align="center" style=""><span class="mb_work_text" style="font-family:Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif;font-size:16px;line-height:20px;color:#3D4452;letter-spacing:0.2px;"> Tài khoản Email này sẽ là <b>Username</b> để đăng nhập vào hệ thống và giúp bạn <b>Khôi phục mật khẩu</b> trong trường hợp mất mật khẩu.</span></td>
+                                                                      </tr>
+                                                                    </tbody>
+                                                                  </table>
+                                                                </td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                              <tr style="">
+                                                <td height="14" style="line-height:14px;">&nbsp;</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                                <td width="16" style="display:block;width:16px;">&nbsp;&nbsp;&nbsp;</td>
+                                <td width="8" style="display:block;width:8px;">&nbsp;&nbsp;&nbsp;</td>
+                              </tr>
+                            </tbody>
+                          </table>
+						  </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>

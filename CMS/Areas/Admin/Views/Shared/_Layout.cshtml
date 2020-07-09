@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="vi" class="no-focus" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+    <title>{{title}}</title>
+
+    <meta name="description" content="" />
+    <meta name="author" content="pixelcave" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="~/Content/Backend/Templates/Codebase/media/favicons/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Content/Backend/Templates/Codebase/media/favicons/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Content/Backend/Templates/Codebase/media/favicons/apple-touch-icon-180x180.png" />
+
+    <!-- LOADER [MY] -->
+    <link href="~/Content/Backend/Templates/loadSpinner.css" rel="stylesheet" />
+    <script>
+        var loadSpinner;
+
+        function LoadSpinner() {
+            setTimeout(ShowContent, 500);
+        }
+
+        function ShowContent() {
+            document.getElementById("spinLoader").style.opacity = 0;
+            document.getElementById("page-container").style.opacity = 1;
+        }
+    </script>
+
+    <!-- Stylesheets -->
+    <!-- Fonts and Codebase framework -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700&display=swap" />
+    <link href="~/Content/Backend/Templates/Codebase/css/codebase.min.css" rel="stylesheet" />
+
+    <!-- DEVEXTREME [MY] -->
+    <link href="~/Content/Vendors/devextreme/css/dx.common.min.css" rel="stylesheet" />
+    <link href="~/Content/Vendors/devextreme/css/dx.material.teal.light.compact.min.css" rel="stylesheet" />
+
+    <!-- TOAST [MY] -->
+    <link href="~/Content/Vendors/toastr/toastr.min.css" rel="stylesheet" />
+
+    <!-- Customize [MY] -->
+    <style>
+        .cke_maximized {
+            /*top: 47px !important;*/
+            z-index: 10000 !important;
+        }
+    </style>
+
+    <!-- CUSTOMS -->
+    <link href="~/Content/Backend/Templates/customs.template.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/customs.devextreme.css" rel="stylesheet" />
+</head>
+<body onload="LoadSpinner()">
+    <!--Load Spinner-->
+    @Html.Partial("~/Areas/Admin/Views/Shared/_LoadSpinner.cshtml")
+
+    <div id="page-container"
+         class="sidebar-o enable-page-overlay side-scroll page-header-fixed page-header-modern side-trans-enabled sidebar-inverse">
+        <!-- RIGHT SIDEBAR-->
+        @Html.Partial("~/Areas/Admin/Views/Shared/_RightSidebar.cshtml")
+
+        <!-- Sidebar -->
+        @Html.Partial("~/Areas/Admin/Views/Shared/_LeftSidebar.cshtml")
+
+        <!-- HEADER -->
+        @Html.Partial("~/Areas/Admin/Views/Shared/_Header.cshtml")
+
+        <!-- MAIN -->
+        <main id="main-container">
+            <!-- Page Content -->
+            <div class="content">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <!-- JS -->
+    <!-- Codebase JS -->
+    <script src="~/Content/Backend/Templates/Codebase/js/codebase.core.min.js"></script>
+    <script src="~/Content/Backend/Templates/Codebase/js/codebase.app.min.js"></script>
+
+    <!--CKEditor-->
+    <script type="text/javascript"
+            src='@Url.Content("~/ckfinder/ckfinder.js")'></script>
+    <script type="text/javascript"
+            src='@Url.Content("~/ckeditor/ckeditor.js")'></script>
+    <script type="text/javascript">
+      CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder/")');
+    </script>
+
+    <!--TOAST-->
+    <script src="~/Content/Vendors/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            toastr.options = {
+                positionClass: "toast-bottom-right",
+                timeOut: "1500",
+                progressBar: true
+            };
+        });
+    </script>
+
+    <!-- JSZIP -->
+    <script src="~/Content/Vendors/jszip/jszip.min.js"></script>
+
+    <!-- SPA -->
+    <script src="~/Scripts/dist/main.js"></script>
+
+    <!-- LOCALIZATION DX -->
+    <script src="~/Content/Vendors/devextreme/js/localization/dx.messages.vi.js"></script>
+
+    <!--NG-CKEditor-->
+    <script src="~/Content/Vendors/ng-ckeditor.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Xác thực thành công";
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+}
+
+<h3 class="form-title font-green">Xác thực thành công</h3>
+
+<div>
+    Bạn đã xác nhận <strong>Email</strong> thành công.<br /><br />
+    Nhấn @Html.ActionLink("vào đây", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", title = "Link đăng nhập" }) để <strong>Đăng nhập</strong>
+</div>

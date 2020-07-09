@@ -1,0 +1,245 @@
+﻿<!-- PAGE BAR -->
+<div class="page-bar my-page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a style="font-size: 16px; font-weight: bold;">{{page.title}}</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" ng-click="Save('Edit')">
+                <span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><i class="fa fa-save"></i> <span class="hidden-xs">Lưu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </button>
+            <button type="button" class="btn btn-default" ng-click="Save('Exit')">
+                <i class="fa fa-check"></i> <span class="hidden-xs">Lưu & Thoát</span>
+            </button>
+            <button type="button" class="btn btn-default" ng-click="Save('New')">
+                <i class="fa fa-plus"></i> <span class="hidden-xs">Lưu & Thêm mới</span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-click="Cancel()">
+                <i class="fa fa-close"></i> <span class="hidden-xs">Hủy bỏ</span>
+            </button>
+        </div>
+    </div>
+</div>
+<!--Main-->
+<div class="row">
+    <div id="project" class="my-content-page">
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div class="row">
+                    <!--Tiêu đề-->
+                    <div class="col-md-7">
+                        <div class="form-group form-md-line-input" ng-class="{'has-error':!CheckNullTitle()}">
+                            <input type="text" class="form-control" name="title" id="title" ng-model="project.Title">
+                            <label for="title">
+                                <b>Tiêu đề</b>
+                                <span class="required" aria-required="true">*</span>
+                            </label>
+                            <span class="help-block">Nhập tiêu đề...</span>
+                        </div>
+                    </div>
+                    <!--Alias-->
+                    <div class="col-md-5">
+                        <div class="form-group form-md-line-input" ng-class="{'has-error':!CheckNullAlias()}">
+                            <div class="input-group">
+                                <div class="input-group-control">
+                                    <input type="text" class="form-control" id="alias" placeholder="Có thể tự sinh theo tiêu đề" ng-model="project.Alias">
+                                    <label for="alias"><b>Alias</b></label>
+                                </div>
+                                <span class="input-group-btn btn-right">
+                                    <button type="button" class="btn btn-default" ng-click="GenAlias()">Sinh alias</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--Spinner-->
+                        <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                        <!--Tabs-->
+                        <div class="tabbable-line boxless tabbable-reversed">
+                            <ul class="nav nav-tabs">
+                                <li class="" ng-class="{'active': IsSet(1)}">
+                                    <a data-toggle="tab" aria-expanded="{{IsSet(1)}}" ng-click="SetTab(1)"> <b>Nội dung</b> </a>
+                                </li>
+                                <li class="" ng-class="{'active': IsSet(2)}">
+                                    <a data-toggle="tab" aria-expanded="{{IsSet(2)}}" ng-click="SetTab(2)"> <b>Hình ảnh</b> </a>
+                                </li>
+                                <li class="" ng-class="{'active': IsSet(3)}">
+                                    <a data-toggle="tab" aria-expanded="{{IsSet(3)}}" ng-click="SetTab(3)"> <b>Xuất bản</b> </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" style="padding-top: 20px">
+                                <div class="tab-pane" ng-class="{'active': IsSet(1)}">
+                                    <div class="row">
+                                        <!--Mô tả-->
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+                                                <label for="tongquan"><b>Tổng quan</b></label>
+                                                <textarea id="ckeditor" data-ck-editor class="form-control" ng-model="project.TongQuan" name="tongquan"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="matbang"><b>Mặt bằng</b></label>
+                                                <textarea id="ckeditor" data-ck-editor class="form-control" ng-model="project.MatBang" name="matbang"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="chinhsach"><b>Chính sách</b></label>
+                                                <textarea id="ckeditor" data-ck-editor class="form-control" ng-model="project.ChinhSach" name="chinhsach"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="bangiao"><b>Bàn giao</b></label>
+                                                <textarea id="ckeditor" data-ck-editor class="form-control" ng-model="project.BanGiao" name="bangiao"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <!--Mức giá-->
+                                            <div class="form-group form-md-line-input" >
+                                                <input type="text" class="form-control" name="mucgia" id="mucgia" ng-model="project.MucGia">
+                                                <label for="mucgia"><b>Mức giá</b></label>
+                                            </div>
+                                            <!--Danh mục-->
+                                            <div class="form-group form-md-line-input" style="margin-bottom: 20px">
+                                                <select class="form-control" id="parent" ng-model="project.CategoryId">
+                                                    <option value="" selected>- Không có danh mục -</option>
+                                                    <option ng-value="option.Id" ng-repeat="option in categoryProjects" ng-selected="project.CategoryId == option.Id">{{option.Title}}</option>
+                                                </select>
+                                                <label for="parent"><b>Danh mục</b></label>
+                                            </div>
+                                            <!--Trạng thái-->
+                                            <div class="form-group form-md-line-input" style="margin-bottom: 20px" ng-class="{'has-error': !project.Published, 'has-success': project.Published}">
+                                                <select class="form-control" id="status" ng-model="project.Published">
+                                                    <option ng-value="option.value" ng-repeat="option in statuses" ng-selected="project.Published == option.value">{{option.text}}</option>
+                                                </select>
+                                                <label for="status"><b>Trạng thái</b></label>
+                                            </div>
+                                            <!--Featured-->
+                                            <div class="form-group form-md-line-input">
+                                                <div class="md-checkbox-inline">
+                                                    <div class="md-checkbox">
+                                                        <input type="checkbox" id="checkbox33" class="md-check" ng-checked="project.Featured" ng-model="project.Featured">
+                                                        <label for="checkbox33">
+                                                            <span></span>
+                                                            <span class="check"></span>
+                                                            <span class="box"></span> <b>Nổi bật</b>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Ghi chú-->
+                                            <div class="form-group form-md-line-input">
+                                                <textarea class="form-control" rows="3" id="note" ng-model="project.Note"></textarea>
+                                                <label for="note"><b>Ghi chú</b></label>
+                                            </div>
+                                            <!--Ảnh đại diện-->
+                                            <div class="form-group form-md-line-input">
+                                                <div class="input-group">
+                                                    <div class="input-group-control">
+                                                        <input type="text" class="form-control" id="image" ng-model="project.Image">
+                                                        <label for="image"><b>Ảnh đại diện <em>(425 x 260)</em></b></label>
+                                                    </div>
+                                                    <span class="input-group-btn btn-right">
+                                                        <button type="button" class="btn btn-default" ng-click="ChooseImage()">Chọn</button>
+                                                    </span>
+                                                </div>
+                                                <img class="img-responsive" src="{{project.Image}}" ng-show="project.Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" ng-class="{'active': IsSet(2)}">
+                                    <div class="col-md-6" style="border: 1px solid #d9d4d4; padding-bottom: 10px" ng-repeat="(index, value) in images">
+                                        <img src="{{value.Image}}" class="img-responsive" style="height: 200px; margin: 0px auto " title="{{value.Title}}" />
+                                        <p style="text-align: center; font-weight: bold; height: 40px" title="{{value.Title}}">{{value.Title | limitTo: 20}}<span ng-show="value.Title.length > 20">...</span></p>
+                                        <p>
+                                            <button type="button" class="btn ink-reaction btn-raised btn-primary pull-left" ng-click="EditImage(index)"><i class="fa fa-edit"></i> Sửa</button>
+                                            <button type="button" class="btn ink-reaction btn-raised btn-danger pull-right" ng-click="DeleteImage(index)"><i class="fa fa-remove"></i> Xóa</button>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3" style="text-align: center; padding-top: 2em;">
+                                        <button type="button" class="btn ink-reaction btn-floating-action btn-lg btn-info" style="height: 5em; width: 5em" title="Thêm ảnh" ng-click="AddImage()">
+                                            <i class="fa fa-plus" style="font-size:2em"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" ng-class="{'active': IsSet(3)}">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <!--Thẻ từ khóa-->
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="metaKeywords" ng-model="project.MetaKewords">
+                                                <label for="metaKeywords"><b>Thẻ từ khóa</b></label>
+                                            </div>
+                                            <!--Tác giả-->
+                                            <div class="form-group form-md-line-input">
+                                                <input type="text" class="form-control" id="author" ng-model="project.Author">
+                                                <label for="author"><b>Tác giả</b></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group form-md-line-input">
+                                                <textarea class="form-control" rows="6" id="metaDescription" ng-model="project.MetaDescription"></textarea>
+                                                <label for="metaDescription"><b>Thẻ mô tả</b></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Popup Edit Image-->
+<div class="popup" dx-popup="popupModifyImage">
+    <div data-options="dxTemplate: { name:'templateModifyImage' }">
+        <div class="row">
+            <!--Tiêu đề-->
+            <div class="col-md-6">
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" name="title" id="title" ng-model="image.Title">
+                    <label for="title">
+                        <b>Tiêu đề</b>
+                    </label>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <textarea class="form-control" rows="3" id="description" ng-model="image.Description"></textarea>
+                    <label for="description">Mô tả</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--Hình ảnh-->
+                <div class="form-group form-md-line-input" ng-class="{'has-error':!CheckNullImage()}">
+                    <div class="input-group">
+                        <div class="input-group-control">
+                            <input type="text" class="form-control" id="imageProject" ng-model="image.Image">
+                            <label for="image">Hình ảnh</label>
+                        </div>
+                        <span class="input-group-btn btn-right">
+                            <button type="button" class="btn btn-default" ng-click="ChooseImageProject()">Chọn</button>
+                        </span>
+                    </div>
+                    <img class="img-responsive" src="{{image.Image}}" ng-show="image.Image" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="pull-left" dx-button="{ text: 'Lưu', icon: 'floppy', type: 'success', onClick: SaveImage }"></div> &nbsp;&nbsp;&nbsp;
+            <div class="pull-right" dx-button="{ text: 'Hủy bỏ', icon: 'clear', type: 'danger', onClick: CancelSaveImage }"></div>
+        </div>
+    </div>
+</div>
+<!--Popup Delete Item-->
+<div class="popup" dx-popup="popupDeleteImage">
+    <div data-options="dxTemplate: { name:'templateDeleteImage' }">
+        <div style="text-align: center" ng-cloak>{{titleDeleteImage}}</div>
+        <br />
+        <div dx-button="{ text: 'Có', icon: 'floppy', onClick: ConfirmDeleteImage, type: 'success' }"></div>
+        <div dx-button="{ text: 'Không', icon: 'clear', onClick: CancelDeleteImage, type: 'danger' }"></div>
+    </div>
+</div>

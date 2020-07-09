@@ -1,0 +1,29 @@
+﻿<!--Main-->
+<div class="datagrid-page">
+    <div dx-data-grid="$ctrl.datagrid" dx-item-alias="item" id="post">
+        <!--Template Published-->
+        <div data-options="dxTemplate:{ name:'publishedCellTemplate' }">
+            <button type="button" class="btn btn-sm btn-circle btn-alt-success mr-5 mb-5" ng-if="item.value">
+                <i class="fa fa-check"></i>
+            </button>
+            <button type="button" class="btn btn-sm btn-circle btn-alt-danger mr-5 mb-5" ng-if="!item.value">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <!--Template Views-->
+        <div data-options="dxTemplate:{ name:'viewsCellTemplate' }">
+            <span class="badge badge-info">{{item.value}}</span>
+        </div>
+    </div>
+</div>
+
+<!--Popup Delete-->
+<div class="popup" dx-popup="deletePost.popup">
+    <div data-options="dxTemplate: { name:'templateDeletePost' }">
+        <div style="text-align: center" ng-cloak>{{deletePost.title}}</div>
+        <br />
+        <div class="pull-left" dx-button="{ text: 'Có', icon: 'floppy', onClick: ConfirmDelete, type: 'success' }"></div>
+        <div class="pull-right" dx-button="{ text: 'Không', icon: 'clear', onClick: CancelDelete, type: 'danger' }"></div>
+        <br />
+    </div>
+</div>

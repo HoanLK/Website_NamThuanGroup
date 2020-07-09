@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="FASTUP" name="author" />
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="~/Content/Backend/Templates/metronic475/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- THEME GLOBAL STYLES -->
+    <link href="~/Content/Backend/Templates/metronic475/global/css/components-md.min.css" rel="stylesheet" />
+
+    <!-- PAGE LEVEL STYLES -->
+    <link href="~/Content/Backend/Templates/metronic475/pages/css/login.min.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="/Content/Backend/Images/favicon.ico" />
+</head>
+<!-- END HEAD -->
+<body class=" login">
+    <!-- LOGIN -->
+    <div class="content">
+
+        @RenderBody()
+
+    </div>
+    <div class="copyright"> 2017 © Fastup. Admin Dashboard Template. </div>
+
+    @RenderSection("scripts", required: false)
+    <!--[if lt IE 9]>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/respond.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/excanvas.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+</body>
+</html>

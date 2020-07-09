@@ -1,0 +1,19 @@
+﻿@model CMS.Models.ResendValidationEmailViewModel
+@{
+    ViewBag.Title = "Xác thực Email";
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+}
+
+<h3 class="form-title green">Xác thực Email</h3>
+
+<p>
+    Email xác thực đã được gửi. <br />
+    Vui lòng kiểm tra <strong>Hòm thư Email</strong> của bạn.
+</p>
+
+@if (Model.CallbackUrl != null)
+{
+    <p>
+        Hoặc nhấn <a href="@Model.CallbackUrl" title="Link xác thực">vào đây</a> để xác thực.
+    </p>
+}

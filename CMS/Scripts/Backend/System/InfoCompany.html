@@ -1,0 +1,172 @@
+﻿<!-- PAGE BAR -->
+<div class="page-bar my-page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a style="font-size: 16px; font-weight: bold;">{{page.title}}</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-success" ng-click="Save('Edit')">
+                <span class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><i class="fa fa-save"></i> <span class="hidden-xs">Lưu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </button>
+            <button type="button" class="btn btn-default" ng-click="Save('Exit')">
+                <i class="fa fa-check"></i> <span class="hidden-xs">Lưu & Thoát</span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-click="Cancel()">
+                <i class="fa fa-close"></i> <span class="hidden-xs">Hủy bỏ</span>
+            </button>
+        </div>
+    </div>
+</div>
+<!--Main-->
+<div class="row">
+    <div id="infoCompany" class="my-content-page">
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div class="row">
+                    <!--Spinner-->
+                    <span us-spinner="{radius:15, width:4, length: 8}"></span>
+                    <div class="col-md-8">
+                        <!--Name company-->
+                        <div class="form-group form-md-line-input" ng-class="{'has-error':!CheckNullNameCompany()}">
+                            <input type="text" class="form-control" name="nameCompany" id="nameCompany" ng-model="infoCompany.NameCompany">
+                            <label for="nameCompany">
+                                <b>Tên doanh nghiệp</b>
+                                <span class="required" aria-required="true">*</span>
+                            </label>
+                            <span class="help-block">Nhập tên doanh nghiệp...</span>
+                        </div>
+                        <!--Địa chỉ-->
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="address" ng-model="infoCompany.Address">
+                            <label for="address">
+                                <b>Địa chỉ</b>
+                            </label>
+                        </div>
+                        <div class="row">
+                            <!--Số điện thoại-->
+                            <div class="col-md-4">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" id="Tel" ng-model="infoCompany.Tel">
+                                    <label for="Tel">
+                                        <b>Điện thoại</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <!--Hotline-->
+                            <div class="col-md-4">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" id="Hotline" ng-model="infoCompany.Hotline">
+                                    <label for="Hotline">
+                                        <b>Hotline</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <!--Fax-->
+                            <div class="col-md-4">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" id="Fax" ng-model="infoCompany.Fax">
+                                    <label for="Fax">
+                                        <b>Fax</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--Email-->
+                            <div class="col-md-6">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" id="Email" ng-model="infoCompany.Email">
+                                    <label for="Email">
+                                        <b>Email</b>
+                                    </label>
+                                </div>
+                            </div>
+                            <!--Mã số thuế-->
+                            <div class="col-md-6">
+                                <div class="form-group form-md-line-input">
+                                    <input type="text" class="form-control" id="MasoThue" ng-model="infoCompany.MasoThue">
+                                    <label for="MasoThue">
+                                        <b>Mã số thuế</b>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <!--Logo-->
+                        <div class="form-group form-md-line-input">
+                            <div class="input-group">
+                                <div class="input-group-control">
+                                    <input type="text" class="form-control" id="image" ng-model="infoCompany.Logo">
+                                    <label for="image"><b>Logo</b></label>
+                                </div>
+                                <span class="input-group-btn btn-right">
+                                    <button type="button" class="btn btn-default" ng-click="ChooseLogo()">Chọn</button>
+                                </span>
+                            </div>
+                            <img class="img-responsive" src="{{infoCompany.Logo}}" ng-show="infoCompany.Logo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--Facebook-->
+                    <div class="col-md-4">
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="Facebook" ng-model="infoCompany.Facebook">
+                            <label for="Facebook">
+                                <b>Facebook</b>
+                            </label>
+                        </div>
+                    </div>
+                    <!--Youtube-->
+                    <div class="col-md-4">
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="Youtube" ng-model="infoCompany.Youtube">
+                            <label for="Youtube">
+                                <b>Youtube</b>
+                            </label>
+                        </div>
+                    </div>
+                    <!--Twitter-->
+                    <div class="col-md-4">
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="Twitter" ng-model="infoCompany.Twitter">
+                            <label for="Twitter">
+                                <b>Twitter</b>
+                            </label>
+                        </div>
+                    </div>
+                    <!--GooglePlus-->
+                    <div class="col-md-4">
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="GooglePlus" ng-model="infoCompany.GooglePlus">
+                            <label for="GooglePlus">
+                                <b>Google Plus</b>
+                            </label>
+                        </div>
+                    </div>
+                    <!--Pinterest-->
+                    <div class="col-md-4">
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="Pinterest" ng-model="infoCompany.Pinterest">
+                            <label for="Pinterest">
+                                <b>Pinterest</b>
+                            </label>
+                        </div>
+                    </div>
+                    <!--Map-->
+                    <div class="col-md-4">
+                        <div class="form-group form-md-line-input">
+                            <input type="text" class="form-control" id="Map" ng-model="infoCompany.Map">
+                            <label for="Map">
+                                <b>Map</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

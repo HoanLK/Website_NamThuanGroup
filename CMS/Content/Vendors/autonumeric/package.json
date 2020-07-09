@@ -1,0 +1,207 @@
+{
+  "_args": [
+    [
+      "autonumeric@4.1.0-beta.1",
+      "D:\\Work\\Software\\So Giao thong van tai\\Source\\Software2017\\Web"
+    ]
+  ],
+  "_from": "autonumeric@4.1.0-beta.1",
+  "_id": "autonumeric@4.1.0-beta.1",
+  "_inCache": true,
+  "_location": "/autonumeric",
+  "_nodeVersion": "7.8.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/autonumeric-4.1.0-beta.1.tgz_1502488425867_0.3723088426049799"
+  },
+  "_npmUser": {
+    "email": "alexandre.bonneau@linuxfr.eu",
+    "name": "acd"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "autonumeric",
+    "raw": "autonumeric@4.1.0-beta.1",
+    "rawSpec": "4.1.0-beta.1",
+    "scope": null,
+    "spec": "4.1.0-beta.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/autonumeric/-/autonumeric-4.1.0-beta.1.tgz",
+  "_shasum": "cadc9f80169d25b0744d86279f641a7f7581222c",
+  "_shrinkwrap": null,
+  "_spec": "autonumeric@4.1.0-beta.1",
+  "_where": "D:\\Work\\Software\\So Giao thong van tai\\Source\\Software2017\\Web",
+  "author": {
+    "email": "bob@decorplanit.com",
+    "name": "Robert Knothe"
+  },
+  "autoupdate": {
+    "basePath": "",
+    "files": [
+      "src/AutoNumeric.js",
+      "src/AutoNumericDefaultSettings.js",
+      "src/AutoNumericEnum.js",
+      "src/AutoNumericEvents.js",
+      "src/AutoNumericHelper.js",
+      "src/AutoNumericOptions.js",
+      "src/AutoNumericPredefinedOptions.js",
+      "src/main.js"
+    ],
+    "source": "git",
+    "target": "git://github.com/autoNumeric/autoNumeric.git"
+  },
+  "bugs": {
+    "url": "https://github.com/autoNumeric/autoNumeric/issues"
+  },
+  "contributors": [
+    {
+      "name": "Sasha Koss"
+    },
+    {
+      "name": "Alexandre Bonneau",
+      "email": "alexandre.bonneau@linuxfr.eu"
+    },
+    {
+      "name": "Carlos Gonzales"
+    },
+    {
+      "name": "Ney Estrabelli"
+    },
+    {
+      "name": "Carlos Ghan"
+    },
+    {
+      "name": "Boris Cherny"
+    },
+    {
+      "name": "Maxwell Barvian"
+    },
+    {
+      "name": "Sokolov Yura"
+    },
+    {
+      "name": "Mic Biert"
+    },
+    {
+      "name": "Peter Boccia"
+    },
+    {
+      "name": "Bruno Batista"
+    },
+    {
+      "name": "Jarin Udom"
+    },
+    {
+      "name": "Raymond Lehnhoff"
+    },
+    {
+      "name": "Cory Foy"
+    }
+  ],
+  "dependencies": {},
+  "description": "autoNumeric is a standalone Javascript library that provides live *as-you-type* formatting for international numbers and currencies. It supports most international numeric formats and currencies including those used in Europe, Asia, and North and South Am",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-istanbul": "^0.12.2",
+    "babel-istanbul-loader": "^0.1.0",
+    "babel-loader": "6.2.10",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.22.0",
+    "coveralls": "^2.11.15",
+    "eslint": "^4.4.1",
+    "imports-loader": "^0.7.1",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.1",
+    "loader-utils": "^1.1.0",
+    "phantomjs-prebuilt": "^2.1.14",
+    "rimraf": "^2.6.1",
+    "uglify-js": "^3.0.26",
+    "wdio-jasmine-framework": "^0.2.19",
+    "wdio-selenium-standalone-service": "^0.0.7",
+    "wdio-spec-reporter": "^0.0.5",
+    "wdio-static-server-service": "^1.0.1",
+    "webdriverio": "4.7.x",
+    "webpack": "1.14.x"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "cadc9f80169d25b0744d86279f641a7f7581222c",
+    "tarball": "https://registry.npmjs.org/autonumeric/-/autonumeric-4.1.0-beta.1.tgz"
+  },
+  "gitHead": "dca06f04ad3b18c14ad920b4c03173d688e5f5f4",
+  "homepage": "https://github.com/autoNumeric/autoNumeric/",
+  "installable": true,
+  "keywords": [
+    "Dollar",
+    "Euro",
+    "Pound",
+    "as-you-type",
+    "currency",
+    "form",
+    "format",
+    "input",
+    "live",
+    "mask",
+    "monetary",
+    "money",
+    "number",
+    "numeric"
+  ],
+  "license": "MIT",
+  "main": "dist/autoNumeric.js",
+  "maintainers": [
+    {
+      "name": "acd",
+      "email": "alexandre.bonneau@linuxfr.eu"
+    },
+    {
+      "name": "rknothe",
+      "email": "bob@decorplanit.com"
+    }
+  ],
+  "name": "autonumeric",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/autoNumeric/autoNumeric.git"
+  },
+  "scripts": {
+    "authors": "sh tools/authors.sh",
+    "build": "yarn clean:build && yarn build:dev && yarn build:prd",
+    "build:dev": "webpack src/AutoNumeric.js dist/autoNumeric.js --config config/webpack.config.dev.js",
+    "build:prd": "webpack src/AutoNumeric.js dist/autoNumeric.min.js --config config/webpack.config.prd.js",
+    "clean": "yarn clean:build && yarn clean:coverage && yarn clean:log && yarn clean:e2e",
+    "clean:build": "rimraf dist",
+    "clean:coverage": "rimraf test/unit/coverage",
+    "clean:e2e": "rimraf test/e2e/reports/* && rimraf test/e2e/screenshots/*",
+    "clean:log": "rimraf npm-debug.log selenium-debug.log test/e2e/selenium.log yarn-error.log",
+    "lint": "eslint --ext .js src test/unit test/e2e",
+    "lintfix": "eslint --fix --ext .js src test/unit test/e2e",
+    "postinstall": "node yarnfix.js",
+    "test": "yarn test:unit && yarn test:e2e",
+    "test:e2e": "wdio test/e2e/wdio.local.conf.js",
+    "test:unit": "karma start karma.conf.js --single-run",
+    "test:unitc": "karma start karma.conf.js --single-run --browsers Chrome",
+    "test:unitf": "karma start karma.conf.js --single-run --browsers Firefox",
+    "test:unitp": "karma start karma.conf.js --single-run --browsers PhantomJS",
+    "travis:lint": "yarn lint",
+    "travis:test": "yarn test:unitp"
+  },
+  "version": "4.1.0-beta.1"
+}

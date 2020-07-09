@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Tạo tài khoản";
+    Layout = "~/Views/Shared/_LayoutNoSidebar.cshtml";
+}
+
+<h3>Tạo tài khoản thành công</h3>
+
+<div>
+    Tài khoản của bạn được tạo thành công. <br />
+    @ViewBag.Message <br />
+    @if (TempData["ViewBagLink"] != null)
+    {
+        <p>
+            Hoặc nhấn<a title="Link xác nhận" href="@TempData["ViewBagLink"]"> vào đây </a>.
+        </p>
+    }
+
+    <br />
+    <a class="btn green uppercase" href="/Admin" title="Trang quản trị">Trang quản trị</a>
+
+</div>
+

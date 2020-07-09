@@ -1,0 +1,15 @@
+﻿.datagrid-page {
+  height: calc(100vh - 125px);
+}
+/* BLOCK */
+.block-header {
+  padding: 5px 10px;
+}
+.block-content {
+  padding: 5px 0px 0px;
+}
+@media (min-width: 768px) {
+  .content .block {
+    margin-bottom: 0px;
+  }
+}

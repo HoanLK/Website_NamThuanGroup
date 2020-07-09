@@ -1,0 +1,60 @@
+﻿@model CMS.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Tạo tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a style="font-size: 16px; font-weight: bold;">@ViewBag.Title</a>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="portlet light bordered">
+            <div class="portlet-body form">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "email", type = "Email" })
+                            <label for="email">Email</label>
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger"})
+                        </div>
+                        <div class="form-group form-md-line-input">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @id = "password" })
+                            <label for="password">Mật khẩu</label>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-md-line-input">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @id = "confirmPassword" })
+                            <label for="confirmPassword">Xác nhận Mật khẩu</label>
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group form-md-checkboxes">
+                            <div class="md-checkbox">
+                                @Html.CheckBoxFor(m => m.AutoConfirm, new { @class = "md-check", @id = "autoConfirm" })
+                                <label for="autoConfirm">
+                                    <span class="inc"></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span> Tự động xác nhận Email
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" class="btn btn-success" value="Tạo tài khoản" />
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
