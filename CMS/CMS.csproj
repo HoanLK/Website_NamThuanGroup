@@ -267,6 +267,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -6348,6 +6349,7 @@
     <Content Include="Content\Frontend\css\skins\skin-restaurant.css" />
     <Content Include="Content\Frontend\css\theme-elements.css" />
     <Content Include="Content\Frontend\css\theme.css" />
+    <Content Include="Content\Frontend\css\theme.min.css" />
     <Content Include="Content\Frontend\img\about\co-so-ha-tang-1.jpg" />
     <Content Include="Content\Frontend\img\about\co-so-ha-tang-2.jpg" />
     <Content Include="Content\Frontend\img\about\co-so-ha-tang-3.jpg" />
@@ -6526,6 +6528,7 @@
     <Content Include="Content\Frontend\img\demos\restaurant\styled-border-1.png" />
     <Content Include="Content\Frontend\img\demos\restaurant\styled-border-2.png" />
     <Content Include="Content\Frontend\img\favicon.ico" />
+    <Content Include="Content\Frontend\img\favicon.png" />
     <Content Include="Content\Frontend\img\flags.png" />
     <Content Include="Content\Frontend\img\footer\background-1.png" />
     <Content Include="Content\Frontend\img\footer\background-2.jpg" />
@@ -6566,9 +6569,12 @@
     <Content Include="Content\Frontend\img\gif\people.gif" />
     <Content Include="Content\Frontend\img\icons\balloon.svg" />
     <Content Include="Content\Frontend\img\icons\cart-bag.svg" />
+    <Content Include="Content\Frontend\img\icons\clothes.png" />
     <Content Include="Content\Frontend\img\icons\clothes.svg" />
     <Content Include="Content\Frontend\img\icons\envelope.svg" />
+    <Content Include="Content\Frontend\img\icons\fabric.png" />
     <Content Include="Content\Frontend\img\icons\fabric.svg" />
+    <Content Include="Content\Frontend\img\icons\fashion.png" />
     <Content Include="Content\Frontend\img\icons\fashion.svg" />
     <Content Include="Content\Frontend\img\icons\free-shipping.svg" />
     <Content Include="Content\Frontend\img\icons\home.svg" />
@@ -10795,14 +10801,12 @@
     <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Shared\_MainMenu.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\_SidebarService.cshtml" />
-    <Content Include="Views\Shared\_Service.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Shared\_Product.cshtml" />
     <Content Include="Views\Products\List.cshtml" />
     <Content Include="Views\Shared\_LayoutNoSidebar.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Content\" />
