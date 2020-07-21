@@ -1,1 +1,40 @@
 /* Add here all your CSS customizations */
+
+/*About Us*/
+.sidebar-about li:hover {
+    background-color: #2388ed;
+    border-color: #2388ed;
+    color: #fff;
+}
+
+    .sidebar-about li:hover a {
+        color: #fff;
+    }
+
+.sidebar-about li a {
+    color: #000;
+}
+
+    .sidebar-about li a:hover {
+        color: unset !important;
+    }
+
+.sidebar-about .active a {
+    color: #fff;
+}
+
+.about .title {
+    display: block;
+    border-bottom: 2px solid #c3c3c3;
+    width: fit-content;
+    padding-bottom: 10px;
+    font-size: 1.15em;
+    color: #2388ed;
+}
+
+.about .sub-title {
+    font-size: 14px;
+    color: #2388ed;
+    font-weight: 700;
+    text-transform: uppercase;
+}

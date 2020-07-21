@@ -1,39 +1,121 @@
 ﻿<!-- Banner -->
-<section class="page-header parallax page-header-text-light overlay overlay-color-dark overlay-show overlay-op-8 py-5 mb-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'parallaxHeight': '115%'}" data-image-src="img/parallax/parallax-7.jpg">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-12 mt-5">
-                <div class="overflow-hidden mb-2">
-                    <ul class="breadcrumb justify-content-start mb-0 appear-animation" data-appear-animation="maskUp">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Pages</a></li>
-                        <li class="active">About Me</li>
-                    </ul>
+@Html.Partial("~/Views/Shared/_BannerAboutUs.cshtml")
+
+<!-- CONTENT -->
+<div class="container about" style="margin-bottom: 40px">
+    <div class="row">
+        <!-- Sidebar -->
+        @Html.Partial("~/Views/Shared/_SidebarAboutUs.cshtml", "AboutUs")
+
+        <!-- Main -->
+        <div class="col-md-9 col-lg-9 order-1 order-md-2 mb-5 mb-md-0">
+            <section class="section pb-lg-0" style="padding-top: 30px;">
+                <div class="container">
+                    <div class="row">
+                        <!-- Tầm nhìn & Sứ mệnh -->
+                        <div class="col-md-6 order-2 order-md-1">
+                            <!-- Tầm nhìn -->
+                            <div class="overflow-hidden mb-3">
+                                <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                    <span class="title text-uppercase">
+                                        @Html.Raw("Tầm nhìn")
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="overflow-hidden mb-3">
+                                <p class="mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="600">
+                                    <q> @Html.Raw("Trở thành biểu tượng niềm tin hàng đầu Việt Nam về sản phẩm may mặc và thời trang phục vụ cuộc sống con người") </q>
+                                </p>
+                            </div>
+
+                            <!-- Sứ mệnh -->
+                            <div class="overflow-hidden mb-3" style="margin-top: 50px">
+                                <h2 class="font-weight-bold text-5 mb-0 appear-animation float-right" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                    <span class="title text-uppercase">
+                                        @Html.Raw("Sứ mệnh")
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="overflow-hidden mb-3">
+                                <p class="mb-0 appear-animation text-right" data-appear-animation="maskUp" data-appear-animation-delay="600">
+                                    <q> @Html.Raw("Nam Thuận Group cam kết mang đến cho cộng đồng sản phẩm may mặc chất lượng cao cấp hàng đầu bằng chính sự trân trọng, tình yêu và trách nhiệm cao của mình với cuộc sống con người và xã hội") </q>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="col-md-6 order-1 order-md-2 overflow-hidden">
+                            <img style="margin: 30px 0px" src="~/Content/Frontend/img/about/about-1.jpg" class="img-fluid appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0" title="@Html.Raw(Resources.NamThuanGroup)" alt="@Html.Raw(Resources.NamThuanGroup)" />
+                        </div>
+
+                        <!-- Giá trị cốt lõi -->
+                        <div class="col-md-12 order-3" style="margin-top: 50px">
+                            <div class="overflow-hidden mb-3">
+                                <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                    <span class="title text-uppercase">
+                                        @Html.Raw("Giá trị cốt lõi")
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="overflow-hidden mb-3">
+                                <p class="mb-0 overflow-hidden" data-appear-animation="maskUp" data-appear-animation-delay="600">
+                                    <div class="appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0" style="margin-bottom: 20px;">
+                                        <q> @Html.Raw("Trở thành biểu tượng niềm tin hàng đầu về sản phẩm may mặc và thời trang") </q>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row overflow-hidden">
+                                            <div class="col-md-4 text-center mb-5 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0">
+                                                <img alt="Chính trực" title="Chính trực" src="~/Content/Frontend/img/about/tq_img_1.png">
+                                                <div class="sub-title mt-2 mb-2">Chính trực</div>
+                                                <div>Liêm chính, Trung thực trong ứng xử và trong tất cả các giao dịch.</div>
+                                            </div>
+                                            <div class="col-md-4 text-center mb-5 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0">
+                                                <img alt="Tôn trọng" title="Tôn trọng" src="~/Content/Frontend/img/about/tq_img_2.png">
+                                                <div class="sub-title mt-2 mb-2">Tôn trọng</div>
+                                                <div>Tôn trọng bản thân, Tôn trọng đồng nghiệp, Tôn trọng Công ty, Tôn trọng đối tác, Hợp tác trong sự tôn trọng.</div>
+                                            </div>
+                                            <div class="col-md-4 text-center mb-5 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0">
+                                                <img alt="Công bằng" title="Công bằng" src="~/Content/Frontend/img/about/tq_img_3.png">
+                                                <div class="sub-title mt-2 mb-2">Công bằng</div>
+                                                <div>Công bằng với nhân viên, khách hàng, nhà cung cấp và các bên liên quan khác.</div>
+                                            </div>
+                                            <div class="col-md-6 text-center mb-5 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0">
+                                                <img alt="Đạo đức" title="Đạo đức" src="~/Content/Frontend/img/about/tq_img_4.png">
+                                                <div class="sub-title mt-2 mb-2">Đạo đức</div>
+                                                <div>Tôn trọng các tiêu chuẩn đã được thiết lập và hành động một cách đạo đức.</div>
+                                            </div>
+                                            <div class="col-md-6 text-center mb-5 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0">
+                                                <img alt="Tuân thủ" title="Tuân thủ" src="~/Content/Frontend/img/about/tq_img_5.png">
+                                                <div class="sub-title mt-2 mb-2">Tuân thủ</div>
+                                                <div>Tuân thủ Luật pháp, Bộ Quy Tắc Ứng Xử và các quy chế, chính sách, quy định của Công ty.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Triết lý kinh doanh -->
+                        <div class="col-md-7 order-4" style="margin-top: 40px">
+                            <div class="overflow-hidden mb-3">
+                                <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                    <span class="title text-uppercase">
+                                        @Html.Raw("Triết lý kinh doanh")
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="overflow-hidden mb-3">
+                                <p class="mb-0 appear-animation text-justify" data-appear-animation="maskUp" data-appear-animation-delay="600">
+                                    @Html.Raw("Nam Thuận Group mong muốn trở thành đơn vị may mặc được yêu thích ở mọi khu vực, lãnh thổ. Vì thế chúng tôi tâm niệm rằng chất lượng và sáng tạo là người bạn đồng hành của Nam Thuận Group. Nam Thuận Group xem khách hàng là trung tâm và cam kết đáp ứng mọi nhu cầu của khách hàng.")
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 order-5 text-center overflow-hidden">
+                            <img style="margin: 30px 0px" src="~/Content/Frontend/img/about/triet-ly-kd.png" class="img-fluid appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0" title="@Html.Raw(Resources.NamThuanGroup)" alt="@Html.Raw(Resources.NamThuanGroup)" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row text-left mb-3">
-            <div class="col-md-8">
-                <div class="overflow-hidden mb-2">
-                    <h1 class="line-height-2 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">I’m <strong>John Doe</strong>. An American passionate Digital Art Designer living in New York, currently working as Designer at Okler.</h1>
-                </div>
-            </div>
-        </div>
-        <div class="row text-left appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
-            <div class="col pb-4 mb-5">
-                <ul class="social-icons social-icons-border social-icons-icon-light d-inline-flex">
-                    <li class="social-icons-facebook">
-                        <a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li class="social-icons-twitter">
-                        <a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="social-icons-instagram">
-                        <a href="http://www.instagram.com/" target="_blank" title="Instragram"><i class="fab fa-instagram"></i></a>
-                    </li>
-                </ul>
-                <a href="contact-us-2.html" class="btn btn-primary btn-rounded btn-v-3 btn-h-3 font-weight-bold ml-3">GET IN TOUCH</a>
-            </div>
+            </section>
         </div>
     </div>
-</section>
+</div>

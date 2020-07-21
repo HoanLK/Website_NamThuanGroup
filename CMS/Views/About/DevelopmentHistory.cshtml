@@ -1,0 +1,104 @@
+﻿<!-- Banner -->
+@Html.Partial("~/Views/Shared/_BannerAboutUs.cshtml")
+
+<!-- CONTENT -->
+<div class="container about" style="margin-bottom: 40px">
+    <div class="row">
+        <!-- Sidebar -->
+        @Html.Partial("~/Views/Shared/_SidebarAboutUs.cshtml", "DevelopmentHistory")
+
+        <!-- Main -->
+        <div class="col-md-9 col-lg-9 order-1 order-md-2 mb-5 mb-md-0">
+            <section class="section pb-lg-0" style="padding-top: 30px;">
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col">
+                            <div class="timeline" id="timeline">
+                                <div class="timeline-body">
+                                    <!-- Sự kiện 01 -->
+                                    <article class="timeline-box blog-post left appear-animation" data-appear-animation="fadeIn">
+                                        <div class="timeline-box-arrow"></div>
+                                        <h2 class="font-weight-semibold text-4">
+                                            <a class="link-color-dark" title="@Html.Raw("Sự kiện 01")" style="cursor:pointer">
+                                                <b class="text-5">@Html.Raw("[ 2004 ]")</b> @Html.Raw("Sự kiện 01")
+                                            </a>
+                                        </h2>
+                                        <header class="blog-post-header mb-4">
+                                            <img class="img-fluid" src="~/Content/Frontend/img/about/2004.jpg" />
+                                        </header>
+                                        <p>@Html.Raw("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus vestibulum lacus non sodales...")</p>
+                                    </article>
+                                    <!-- Sự kiện 02 -->
+                                    <article class="timeline-box blog-post right appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="200">
+                                        <div class="timeline-box-arrow"></div>
+                                        <h2 class="font-weight-semibold text-4">
+                                            <a class="link-color-dark" title="@Html.Raw("Sự kiện 01")" style="cursor:pointer">
+                                                <b class="text-5">@Html.Raw("[ 2010 ]")</b> @Html.Raw("Sự kiện 01")
+                                            </a>
+                                        </h2>
+                                        <header class="blog-post-header mb-4">
+                                            <img class="img-fluid" src="~/Content/Frontend/img/about/2004.jpg" />
+                                        </header>
+                                        <p>@Html.Raw("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus vestibulum lacus non sodales...")</p>
+                                    </article>
+                                    <!-- Sự kiện 03 -->
+                                    <article class="timeline-box blog-post left appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="300">
+                                        <div class="timeline-box-arrow"></div>
+                                        <h2 class="font-weight-semibold text-4">
+                                            <a class="link-color-dark" title="@Html.Raw("Sự kiện 03")" style="cursor:pointer">
+                                                <b class="text-5">@Html.Raw("[ 2012 ]")</b> @Html.Raw("Sự kiện 03")
+                                            </a>
+                                        </h2>
+                                        <header class="blog-post-header mb-4">
+                                            <img class="img-fluid" src="~/Content/Frontend/img/about/2004.jpg" />
+                                        </header>
+                                        <p>@Html.Raw("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus vestibulum lacus non sodales...")</p>
+                                    </article>
+                                    <!-- Sự kiện 04 -->
+                                    <article class="timeline-box blog-post right appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="400">
+                                        <div class="timeline-box-arrow"></div>
+                                        <h2 class="font-weight-semibold text-4">
+                                            <a class="link-color-dark" title="@Html.Raw("Sự kiện 04")" style="cursor:pointer">
+                                                <b class="text-5">@Html.Raw("[ 2015 ]")</b> @Html.Raw("Sự kiện 04")
+                                            </a>
+                                        </h2>
+                                        <header class="blog-post-header mb-4">
+                                            <img class="img-fluid" src="~/Content/Frontend/img/about/2004.jpg" />
+                                        </header>
+                                        <p>@Html.Raw("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus vestibulum lacus non sodales...")</p>
+                                    </article>
+                                    <!-- Sự kiện 05 -->
+                                    <article class="timeline-box blog-post left appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="500">
+                                        <div class="timeline-box-arrow"></div>
+                                        <h2 class="font-weight-semibold text-4">
+                                            <a class="link-color-dark" title="@Html.Raw("Sự kiện 05")" style="cursor:pointer">
+                                                <b class="text-5">@Html.Raw("[ 2019 ]")</b> @Html.Raw("Sự kiện 05")
+                                            </a>
+                                        </h2>
+                                        <header class="blog-post-header mb-4">
+                                            <img class="img-fluid" src="~/Content/Frontend/img/about/2004.jpg" />
+                                        </header>
+                                        <p>@Html.Raw("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus vestibulum lacus non sodales...")</p>
+                                    </article>
+                                    <!-- Sự kiện 06 -->
+                                    <article class="timeline-box blog-post right appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="600">
+                                        <div class="timeline-box-arrow"></div>
+                                        <h2 class="font-weight-semibold text-4">
+                                            <a class="link-color-dark" title="@Html.Raw("Sự kiện 05")" style="cursor:pointer">
+                                                <b class="text-5">@Html.Raw("[ 2020 ]")</b> @Html.Raw("Sự kiện 05")
+                                            </a>
+                                        </h2>
+                                        <header class="blog-post-header mb-4">
+                                            <img class="img-fluid" src="~/Content/Frontend/img/about/2004.jpg" />
+                                        </header>
+                                        <p>@Html.Raw("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam finibus vestibulum lacus non sodales...")</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

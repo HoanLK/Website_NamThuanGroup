@@ -6,72 +6,76 @@
         <div class="row">
             <div class="col-lg-5 mb-4 mb-lg-0">
                 <a href="/" class="logo">
-                    <img alt="EZY Website Template"
+                    <img alt="@Html.Raw(Resources.CompanyName)"
+                         title="@Html.Raw(Resources.CompanyName)"
                          class="img-fluid mb-3"
                          src="~/Content/Frontend/img/logo-footer.png" />
                 </a>
-                <h4 style="padding: 10px 0px;">CÔNG TY TNHH NAM THUẬN</h4>
+                <h4 class="text-uppercase" style="padding: 10px 0px;">@Html.Raw(Resources.CompanyName)</h4>
                 <ul class="list list-icon list-unstyled">
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <span class="text-color-light">Địa chỉ:</span> Rực Liễn, Thủy
-                        Sơn, Thủy Nguyên, Hải Phòng
+                        <span class="text-color-light">@Html.Raw(Resources.Address):</span> @Html.Raw(Resources.CompanyAddress)
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <span class="text-color-light">Điện thoại:</span>
-                        <a href="tel:+842259642408">0225 3642 408</a>
+                        <span class="text-color-light">@Html.Raw(Resources.PhoneNumber):</span>
+                        <a href="tel:@Html.Raw(Resources.CompanyPhoneNumber)" title="@Html.Raw(Resources.CompanyPhoneNumber)">@Html.Raw(Resources.CompanyPhoneNumber)</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
                         <span class="text-color-light">Email:</span>
-                        <a href="mailto:mail@example.com" class="link-underline-light">mail@example.com</a>
+                        <a href="mailto:@Html.Raw(Resources.CompanyEmail)" title="@Html.Raw(Resources.CompanyEmail)" class="link-underline-light">@Html.Raw(Resources.CompanyEmail)</a>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-3 mb-4 mb-lg-0">
-                <h2 class="text-3 mb-3">LIÊN KẾT TRANG</h2>
+                <h2 class="text-3 mb-3 text-uppercase">@Html.Raw(Resources.LinkPage)</h2>
                 <ul class="list list-icon list-unstyled">
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Giới thiệu</a>
+                        <a href="/about-us" title="@Html.Raw(Resources.MenuHome)">@Html.Raw(Resources.MenuHome)</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">CSR</a>
+                        <a href="/product-categories" title="@Html.Raw(@Resources.MenuProduct)">@Html.Raw(@Resources.MenuProduct)</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Tiêu chuẩn chất lượng</a>
+                        <a href="/csr" title="CSR">CSR</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Liên hệ</a>
+                        <a href="/certificates" title="@Html.Raw(@Resources.Certificate)">@Html.Raw(@Resources.Certificate)</a>
+                    </li>
+                    <li class="mb-2">
+                        <i class="fas fa-angle-right mr-2 ml-1"></i>
+                        <a href="/contact" title="@Html.Raw(@Resources.Contact)">@Html.Raw(@Resources.Contact)</a>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-3">
-                <h2 class="text-3 mb-3">SẢN PHẨM</h2>
+                <h2 class="text-3 mb-3 text-uppercase">@Html.Raw(Resources.Product)</h2>
                 <ul class="list list-icon list-unstyled">
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Sợi</a>
+                        <a href="#" title="">Sợi</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Quần áo</a>
+                        <a href="#" title="">Quần áo</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Vải dệt kim</a>
+                        <a href="#" title="">Vải dệt kim</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Giày dép</a>
+                        <a href="#" title="">Giày dép</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#">Khăn</a>
+                        <a href="#" title="">Khăn</a>
                     </li>
                 </ul>
             </div>
@@ -107,7 +111,7 @@
                 </div>
                 <div class="col-md-5 col-lg-4">
                     <p class="text-md-right pb-0 mb-0">
-                        Copyrights © 2020. All Rights Reserved by Nam Thuan Garment
+                        Copyrights © 2020. All Rights Reserved by Nam Thuan Group
                     </p>
                 </div>
             </div>

@@ -274,13 +274,13 @@ namespace CMS.Controllers
                     {
                         var callbackUrl = await generateConfirmAccountEmail(user.Id);
 
-                    #if DEBUG
+#if DEBUG
                         TempData["ViewBagLink"] = callbackUrl;
-                    #endif
+#endif
 
                         ViewBag.Message = "Xin vui lòng kiểm tra Email để xác nhận.";
 
-                        
+
                     }
 
                     return View("Info");
@@ -306,7 +306,7 @@ namespace CMS.Controllers
 
             var user = UserManager.FindById(userId);
 
-            if(user == null)
+            if (user == null)
             {
                 ViewBag.Title = "Tài khoản không tồn tại";
                 ViewBag.Message = "Vui lòng liên hệ với Quản trị viên";
@@ -548,10 +548,10 @@ namespace CMS.Controllers
             var model = (
                 from u in _db.AspNetUsers
                 where u.Id == idUser
-                select new AltCureentAccount()
+                select new
                 {
-                    Id = u.Id,
-                    Email = u.Email,
+                    u.Id,
+                    u.Email,
                 }
             ).FirstOrDefault();
 

@@ -56,12 +56,6 @@ namespace CMS.Areas.Admin.Models
         public DateTime TimeCreated { get; set; }
     }
 
-    public class ProjectFullViewModel
-    {
-        public Project Project { get; set; }
-        public List<ImageProject> Images { get; set; }
-    }
-
     public class VideoViewModel
     {
         public int Id { get; set; }

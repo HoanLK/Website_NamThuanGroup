@@ -35,37 +35,34 @@
         return output;
     };
 
-    //Generate Varchar
-    genVarchar(input) {
-        //Đổi chữ thành chữ hoa
-        let output = input.toUpperCase();
+    //Generate Alias
+    genAlias(input) {
+        //Đổi chữ hoa thành chữ thường
+        var slug = input.toLowerCase();
 
         //Đổi ký tự có dấu thành không dấu
-        output = output.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
-        output = output.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
-        output = output.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
-        output = output.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
-        output = output.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
-        output = output.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
-        output = output.replace(/đ/gi, 'd');
+        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+        slug = slug.replace(/đ/gi, 'd');
         //Xóa các ký tự đặt biệt
-        output = output.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+        slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
         //Đổi khoảng trắng thành ký tự gạch ngang
-        output = output.replace(/ /gi, "-");
-        //Đổi nhiều ký tự gạch ngang liên tiếp thành ký tự trắng
+        slug = slug.replace(/ /gi, "-");
+        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
         //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
-        output = output.replace(/\-\-\-\-\-/gi, '');
-        output = output.replace(/\-\-\-\-/gi, '');
-        output = output.replace(/\-\-\-/gi, '');
-        output = output.replace(/\-\-/gi, '');
+        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-/gi, '-');
         //Xóa các ký tự gạch ngang ở đầu và cuối
-        output = '@' + output + '@';
-        output = output.replace(/\@\-|\-\@|\@/gi, '');
+        slug = '@' + slug + '@';
+        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
 
-        output = output.replace(/[&\/\\#,+()$~%.'":*?\-_<>{}]/g, '');
-        output = output.toLowerCase();
-
-        return output;
+        return slug;
     };
 
     // Standard Date

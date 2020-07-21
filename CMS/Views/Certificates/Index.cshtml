@@ -1,0 +1,33 @@
+﻿<!-- Banner -->
+@Html.Partial("~/Views/Shared/_BannerProductCategories.cshtml")
+
+<!-- Content -->
+<section id="demos" class="section section-height-2">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <div class="col-md-4l mb-5 mb-md-0 text-center">
+                        <h5 class="mb-4"></h5>
+                        <div class="image-frame overlay overlay-show overlay-op-2 image-frame-style-1 image-frame-effect-1 image-frame-style-5">
+                            <div class="image-frame-wrapper">
+                                <img src="~/Content/Frontend/img/certificates/certificate_1.jpg" class="img-fluid" alt="@Html.Raw("Chứng chỉ khẩu trang")" title="@Html.Raw("Chứng chỉ khẩu trang")">
+                                <div class="image-frame-info image-frame-info-show" style="top: 110px;"><i class="fad fa-file-certificate" style="font-size: 35px; margin-bottom: 10px"></i></div>
+                                <div class="image-frame-info image-frame-info-show" style="opacity: 0.8">
+                                    <div class="image-frame-info-box-style-1" style="background-color: #2388ed">
+                                        <h4 class="font-weight-bold text-uppercase m-0 p-0">
+                                            <a style="color: #fff" href="/" title="@Html.Raw("Chứng chỉ khẩu trang")">
+                                                @Html.Raw("Chứng chỉ khẩu trang")
+                                            </a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

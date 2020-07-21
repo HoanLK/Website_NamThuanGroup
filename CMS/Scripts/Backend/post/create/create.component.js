@@ -1,15 +1,238 @@
 ﻿import templateUrl from "./create.component.html";
 
 export default class PostCreateController {
-    constructor($scope, $http, $window, $cookies, $routeParams, CommonService, PostService) {
-        this.commonService = CommonService;
-        this.postService = PostService;
-    }
+  constructor(
+    $rootScope,
+    $scope,
+    $http,
+    $window,
+    CommonService,
+    PostService,
+    PostCategoryService
+  ) {
+    "ngInject";
+
+    this.$scope = $scope;
+    this.$http = $http;
+    this.$window = $window;
+    this.commonService = CommonService;
+    this.postService = PostService;
+    this.postCategoryService = PostCategoryService;
+
+    this.$scope.categories = [];
+    this.$scope.treeViewInstance = {};
+    this.$scope.statuses = [
+      {
+        value: true,
+        text: "Xuất bản",
+      },
+      {
+        value: false,
+        text: "Không xuất bản",
+      },
+    ];
+    this.$scope.data = {
+      Title: null,
+      Alias: null,
+      Description: null,
+      Content: null,
+      CategoryId: null,
+      Published: true,
+      Featured: false,
+      Image: null,
+      Tags: null,
+    };
+
+    // SET TITLE
+    $rootScope.title = "Thêm bài viết";
+    this.header = "THÊM BÀI VIẾT";
+  }
+
+  // INIT
+  $onInit() {
+    this.getPostCategories();
+    this.initControls();
+  }
+
+  // INIT CONTROLS
+  initControls() {
+    this.controls = {
+      tbTitle: {
+        showClearButton: true,
+        bindingOptions: {
+          value: "data.Title",
+        },
+        onFocusOut: (e) => {
+          if (!this.commonService.isNullOrEmpty(this.$scope.data.Title)) {
+            this.$scope.data.Alias = this.commonService.genAlias(
+              this.$scope.data.Title
+            );
+          }
+        },
+      },
+      tbAlias: {
+        showClearButton: true,
+        readOnly: true,
+        bindingOptions: {
+          value: "data.Alias",
+        },
+      },
+      taDescription: {
+        height: 100,
+        bindingOptions: {
+          value: "data.Description",
+        },
+      },
+      ddbCategory: {
+        bindingOptions: {
+          dataSource: "categories",
+          value: "data.CategoryId",
+        },
+        valueExpr: "Id",
+        displayExpr: "Title",
+        placeholder: "Chọn danh mục ...",
+        showClearButton: true,
+        onValueChanged: (e) => {
+          if (!this.$scope.data.CategoryId) {
+            this.$scope.treeViewInstance.unselectAll();
+          } else {
+            this.$scope.treeViewInstance.selectItem(
+              this.$scope.data.CategoryId
+            );
+          }
+        },
+        treeView: {
+          bindingOptions: {
+            dataSource: "categories",
+          },
+          dataStructure: "plain",
+          displayExpr: "Title",
+          expandedExpr: "Expanded",
+          expandAllEnabled: true,
+          keyExpr: "Id",
+          parentIdExpr: "ParentId",
+          selectByClick: true,
+          selectNodesRecursive: false,
+          selectionMode: "single",
+          showCheckBoxesMode: "normal",
+          onContentReady: (e) => {
+            this.$scope.treeViewInstance = e.component;
+
+            if (!this.$scope.data.CategoryId) {
+              this.$scope.treeViewInstance.unselectAll();
+            } else {
+              this.$scope.treeViewInstance.selectItem(
+                this.$scope.data.CategoryId
+              );
+            }
+          },
+          onItemSelectionChanged: (args) => {
+            this.$scope.data.CategoryId = args.component.getSelectedNodeKeys()[0];
+          },
+        },
+      },
+      slbStatus: {
+        bindingOptions: {
+          value: "data.Published",
+          dataSource: "statuses",
+        },
+        displayExpr: "text",
+        valueExpr: "value",
+      },
+      cbFeatured: {
+        bindingOptions: {
+          value: "data.Featured",
+        },
+        text: " Nổi bật",
+      },
+      tbImage: {
+        bindingOptions: {
+          value: "data.Image",
+        },
+        buttons: [
+          {
+            location: "after",
+            name: "chooseImage",
+            options: {
+              icon: "image",
+              hint: "Chọn hình ảnh",
+              onClick: (e) => {
+                var finder = new CKFinder();
+                finder.selectActionFunction = (fileUrl) => {
+                  this.$scope.data.Image = fileUrl;
+                  this.$scope.$apply();
+                };
+                finder.SelectFunction = "ShowFileInfo";
+                finder.popup();
+              },
+            },
+          },
+        ],
+      },
+      taNote: {
+        height: 80,
+        bindingOptions: {
+          value: "data.Note",
+        },
+      },
+      btnSave: {
+        icon: "fa fa-save",
+        text: "LƯU",
+        type: "success",
+        useSubmitBehavior: true,
+      },
+    };
+    this.validators = {
+      title: {
+        validationRules: [
+          {
+            type: "required",
+            message: "Nhập tiêu đề",
+          },
+        ],
+      },
+    };
+  }
+
+  // Get Categories
+  getPostCategories() {
+    // Get Categories
+    this.postCategoryService
+      .gets(["Id", "Title", "ParentId"])
+      .load()
+      .then(
+        (res) => {
+          this.$scope.categories = res.data;
+          this.$scope.categories.forEach((e) => {
+            e.Expanded = true;
+          });
+        },
+        (res) => {
+          toastr.error("Không lấy được danh sách Danh mục");
+        }
+      );
+  }
+
+  // SAVE
+  onSave(e) {
+    console.log(this.$scope.data);
+  }
 }
+
+PostCreateController.$inject = [
+  "$rootScope",
+  "$scope",
+  "$http",
+  "$window",
+  "CommonService",
+  "PostService",
+  "PostCategoryService",
+];
+
 export const PostCreateComponent = {
-    template: templateUrl,
-    controller: PostCreateController
-}
+  template: templateUrl,
+  controller: PostCreateController,
+};
 
 /*
 (function (app) {

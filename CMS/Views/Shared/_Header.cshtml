@@ -7,29 +7,29 @@
                 <div class="header-row">
                     <!-- Info -->
                     <div class="header-column justify-content-start">
-                        <h1 class="align-items-center"
+                        <h1 class="align-items-center text-uppercase"
                             style="margin-right: 20px; font-size: 1em;">
                             <i class="far fa-building"></i>
-                            &nbsp;CÔNG TY TNHH NAM THUẬN
+                            &nbsp; @Html.Raw(@Resources.CompanyName)
                         </h1>
                         <span class="d-none d-sm-flex align-items-center">
                             <i class="fas fa-map-marker-alt mr-1"></i>
-                            Rực Liễn, Thủy Sơn, Thủy Nguyên, Hải Phòng
+                            @Html.Raw(@Resources.CompanyAddress)
                         </span>
                     </div>
                     <!-- Language -->
                     <div class="header-column justify-content-end">
                         <ul class="header-top-social-icons social-icons social-icons-transparent">
-                            <li class="social-icons-facebook">
-                                <a href="#" title="Tiếng Việt">
+                            <li class="social-icons-facebook" style="cursor: pointer" onclick="onChangeLanguage('vi')">
+                                <a title="Tiếng Việt">
                                     <img src="~/Content/Frontend/img/blank.gif"
                                          class="flag flag-vn"
                                          alt="Tiếng Việt"
                                          title="Tiếng Việt" />
                                 </a>
                             </li>
-                            <li class="social-icons-facebook">
-                                <a href="#" title="English">
+                            <li class="social-icons-facebook" style="cursor: pointer" onclick="onChangeLanguage('en')">
+                                <a title="English">
                                     <img src="~/Content/Frontend/img/blank.gif"
                                          class="flag flag-us"
                                          alt="English"
@@ -49,8 +49,8 @@
                         <a href="#">
                             <img src="~/Content/Frontend/img/logo.png"
                                  height="60"
-                                 alt="Logo"
-                                 title="Logo" />
+                                 alt="@Html.Raw(Resources.CompanyName)"
+                                 title="@Html.Raw(Resources.CompanyName)" />
                         </a>
                     </div>
                     <ul class="header-social-icons social-icons social-icons-transparent d-none d-lg-flex px-2 px-xl-4">
@@ -82,23 +82,32 @@
                     <div class="header-nav justify-content-lg-center">
                         <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
                             <nav class="collapse">
-                                <ul class="nav flex-column flex-lg-row align-items-center"
-                                    id="mainNav">
+                                @helper a(string url, string title, bool isActive = false, bool hasChild = false)
+                                {
+                                    string active = (isActive == true) ? "active" : "";
+                                    string dropdownToggle = (hasChild == true) ? "dropdown-toggle" : "";
+
+                                    <a class="dropdown-item @dropdownToggle @active" title="@Html.Raw(title)" href="@url">@Html.Raw(title)</a>
+                                }
+                                <ul class="nav flex-column flex-lg-row align-items-center" id="mainNav">
                                     <!-- Trang chủ -->
                                     <li class="order-1">
-                                        <a class="dropdown-item" title="Trang chủ" href="/">Trang chủ</a>
+                                        @a("/", Resources.MenuHome, ViewBag.currentMenu == "Home")
                                     </li>
                                     <!-- Giới thiệu -->
-                                    <li class="order-2">
-                                        <a class="dropdown-item" title="Giới thiệu" href="/about-us">Giới thiệu</a>
+                                    <li class="dropdown order-2">
+                                        @a("/about-us", @Resources.MenuAboutUs, ViewBag.currentMenu == "AboutUs", true)
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" title="@Html.Raw(Resources.AboutUs)" href="/about-us">@Html.Raw(Resources.AboutUs)</a></li>
+                                            <li><a class="dropdown-item" title="@Html.Raw(Resources.DevelopmentHistory)" href="/about-us/development-history">@Html.Raw(Resources.DevelopmentHistory)</a></li>
+                                            <li><a class="dropdown-item" title="@Html.Raw(Resources.DevelopmentStrategy)" href="/about-us/development-strategy">@Html.Raw(Resources.DevelopmentStrategy)</a></li>
+                                            <li><a class="dropdown-item" title="@Html.Raw(Resources.CorporateGovernance)" href="/about-us/corporate-governance">@Html.Raw(Resources.CorporateGovernance)</a></li>
+                                            <li><a class="dropdown-item" title="@Html.Raw(Resources.SubordinateUnits)" href="/about-us/subordinate-units">@Html.Raw(Resources.SubordinateUnits)</a></li>
+                                        </ul>
                                     </li>
                                     <!-- Sản phẩm -->
                                     <li class="dropdown dropdown-mega order-3">
-                                        <a class="dropdown-item dropdown-toggle"
-                                           title="Sản phẩm"
-                                           href="/">
-                                            Sản phẩm
-                                        </a>
+                                        @a("/product-categories", @Resources.MenuProduct, ViewBag.currentMenu == "Products", true)
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <div class="dropdown-mega-content">
@@ -107,42 +116,27 @@
                                                         <div class="col-lg-3 dropdown-mega-sub-content-block overlay overlay-show overlay-color-primary d-none d-lg-block"
                                                              data-plugin-image-background
                                                              data-plugin-options="{'imageUrl': '/Content/Frontend/img/menu/product.jpg'}">
-                                                            <span class="top-sub-title text-color-light-2 d-block">
-                                                                CÁC DÒNG
-                                                            </span>
-                                                            <span class="text-color-light font-weight-bold d-block text-4 mb-2">
-                                                                SẢN PHẨM CỦA CHÚNG TÔI
-                                                            </span>
-                                                            <!-- <p class="text-color-light-2">
-                                                              A revolutionary theme trusted by tons of
-                                                              customers</p> -->
+                                                            <span class="top-sub-title text-color-light-2 d-block text-uppercase">@Html.Raw(Resources.Category)</span>
+                                                            <span class="text-color-light font-weight-bold d-block text-4 mb-2">@Html.Raw(Resources.OurProduct)</span>
                                                             <br />
                                                             <a class="btn btn-dark btn-rounded btn-v-3 btn-h-2 content-block-button font-weight-semibold"
-                                                               title="Xem tất cả"
-                                                               href="#">
-                                                                Xem tất cả
+                                                               title="@Html.Raw(Resources.ShowAll)"
+                                                               href="/product-categories">
+                                                                @Html.Raw(Resources.ShowAll)
                                                             </a>
                                                         </div>
                                                         <!-- List -->
                                                         <div class="col-lg-3 ml-auto">
-                                                            <span class="dropdown-mega-sub-title">
-                                                                SỢI
-                                                            </span>
+                                                            <span class="dropdown-mega-sub-title">SỢI</span>
                                                             <ul class="dropdown-mega-sub-nav">
                                                                 <li>
-                                                                    <a class="dropdown-item" href="/">
-                                                                        Sợi nồi cọc
-                                                                    </a>
+                                                                    <a class="dropdown-item" title="@Html.Raw("")" href="/">@Html.Raw("Sợi nồi cọc")</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="/">
-                                                                        Sợi OE
-                                                                    </a>
+                                                                    <a class="dropdown-item" title="@Html.Raw("")" href="/">@Html.Raw("Sợi OE")</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="/">
-                                                                        Sợi Se
-                                                                    </a>
+                                                                    <a class="dropdown-item" title="@Html.Raw("")" href="/">@Html.Raw("Sợi Se")</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -150,49 +144,33 @@
                                                             <span class="dropdown-mega-sub-title">QUẦN ÁO DỆT KIM</span>
                                                             <ul class="dropdown-mega-sub-nav">
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Quần áo nam
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Quần áo nam</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Quần áo nữ
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Quần áo nữ</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Quần áo trẻ em
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Quần áo trẻ em</a>
                                                                 </li>
                                                             </ul>
                                                             <span class="dropdown-mega-sub-title">VẢI DỆT KIM</span>
                                                             <ul class="dropdown-mega-sub-nav">
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Sản phẩm 1
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Sản phẩm 1</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Sản phẩm 2
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Sản phẩm 2</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-lg-3">
-                                                            <span class="dropdown-mega-sub-title">
-                                                                KHĂN
-                                                            </span>
+                                                            <span class="dropdown-mega-sub-title">KHĂN</span>
                                                             <ul class="dropdown-mega-sub-nav">
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Khăn bông
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Khăn bông</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a class="dropdown-item" href="#">
-                                                                        Khăn tắm
-                                                                    </a>
+                                                                    <a class="dropdown-item" href="#">Khăn tắm</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -203,30 +181,21 @@
                                     </li>
                                     <!-- CSR -->
                                     <li class="order-5">
-                                        <a class="dropdown-item" title="CSR" href="/">CSR</a>
+                                        @a("/csr", @Resources.CSR, ViewBag.currentMenu == "CSR")
                                     </li>
                                     <!-- Tiêu chuẩn chất lượng -->
                                     <li class="order-6">
-                                        <a class="dropdown-item"
-                                           title="Tiêu chuẩn chất lượng"
-                                           href="/">
-                                            Tiêu chuẩn chất lượng
-                                        </a>
+                                        @a("/certificates", @Resources.Certificate, ViewBag.currentMenu == "Certificate")
                                     </li>
                                     <!-- Liên hệ -->
                                     <li class="order-7">
-                                        <a class="dropdown-item" title="Liên hệ" href="/">
-                                            Liên hệ
-                                        </a>
+                                        @a("/contact", @Resources.Contact, ViewBag.currentMenu == "Contact")
                                     </li>
                                     <!-- LOGO -->
                                     <li class="d-none d-lg-flex order-4 px-4">
                                         <span class="header-logo border-0">
-                                            <a href="#" title="Logo">
-                                                <img src="~/Content/Frontend/img/logo.png"
-                                                     title="Logo"
-                                                     alt="Logo"
-                                                     height="60" />
+                                            <a href="/" title="@Html.Raw(Resources.CompanyName)">
+                                                <img src="~/Content/Frontend/img/new-logo.jpg" title="@Html.Raw(Resources.CompanyName)" alt="@Html.Raw(Resources.CompanyName)" height="60" />
                                             </a>
                                         </span>
                                     </li>
@@ -238,10 +207,11 @@
                 <!-- Call -->
                 <div class="header-column justify-content-end">
                     <div class="header-button d-none d-sm-flex px-2 px-xl-4">
-                        <a href="tel:02253642408"
+                        <a href="tel:@Html.Raw(Resources.CompanyPhoneNumber)"
+                           title="@Html.Raw(Resources.CompanyPhoneNumber)"
                            class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1">
                             <span class="wrap">
-                                <span>0225 3642 408</span>
+                                <span>@Html.Raw(Resources.CompanyPhoneNumber)</span>
                                 <i class="fas fa-phone"></i>
                             </span>
                         </a>
@@ -264,3 +234,16 @@
         </div>
     </div>
 </header>
+
+<script type="text/javascript">
+    function onChangeLanguage(lang) {
+        $.ajax({
+            type: 'GET',
+            url: '/Home/SetCulture?culture=' + lang,
+            dataType: 'json',
+            success: function (data) {
+                location.reload();
+            }
+        })
+    };
+</script>

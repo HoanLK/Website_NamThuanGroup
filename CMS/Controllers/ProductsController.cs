@@ -27,15 +27,5 @@ namespace CMS.Controllers
 
             return View();
         }
-
-        // GET: /san-pham/thang-may-gia-dinh
-        [Route("thang-may-gia-dinh")]
-        public ActionResult ThangMayGiaDinh()
-        {
-            ViewBag.title = "Thang máy gia đình";
-
-            return View();
-        }
-        
     }
 }

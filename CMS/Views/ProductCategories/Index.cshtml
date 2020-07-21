@@ -1,0 +1,37 @@
+﻿<!-- Banner -->
+@Html.Partial("~/Views/Shared/_BannerProductCategories.cshtml")
+
+<!-- Content -->
+<section id="demos" class="section section-height-2">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <div class="col-md-6 mb-3">
+                        <div class="appear-animation">
+                            <div class="portfolio-item hover-effect-3 text-center">
+                                <div class="image-frame image-frame-style-8 overlay overlay-op-2 mb-3">
+                                    <div class="image-frame-wrapper">
+                                        <a href="multi-purpose-1.html" class="sw-view-site">
+                                            <img src="~/Content/Frontend/img/previews/multi-purpose-1.jpg" class="img-fluid rounded" alt="@Html.Raw("Tên danh mục")" title="@Html.Raw("Tên danh mục")" />
+                                        </a>
+                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                            <a href="#" class="btn sw-view-site btn-dark font-weight-semibold btn-rounded btn-h-3 btn-v-3 align-items-center text-uppercase" title="@Html.Raw("Xem chi tiết")">
+                                                @Html.Raw("Xem chi tiết") <i class="fas fa-angle-right ml-2"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="font-weight-semibold text-2">
+                                    <a href="multi-purpose-1.html" title="@Html.Raw("Multi Purpose 1")">@Html.Raw("Multi Purpose 1")</a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</section>

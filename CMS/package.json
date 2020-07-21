@@ -7,8 +7,8 @@
     "build": "webpack --mode production"
   },
   "devDependencies": {
-    "@babel/cli": "7.10.4",
-    "@babel/core": "7.10.4",
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.10.5",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-env": "7.10.4",
     "babel-eslint": "10.1.0",
@@ -18,7 +18,7 @@
     "browser-sync-webpack-plugin": "2.2.2",
     "css-loader": "3.6.0",
     "del": "5.1.0",
-    "eslint": "7.3.1",
+    "eslint": "7.4.0",
     "eslint-config-defaults": "9.0.0",
     "eslint-config-standard": "14.1.1",
     "eslint-plugin-angular": "4.0.1",
@@ -36,7 +36,7 @@
     "merge-stream": "2.0.0",
     "style-loader": "1.2.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
-    "webpack": "5.0.0-beta.20",
+    "webpack": "5.0.0-beta.22",
     "webpack-cli": "4.0.0-beta.8",
     "webpack-dev-server": "3.11.0",
     "webpack-notifier": "1.8.0"
@@ -47,7 +47,7 @@
     "angular-ui-router": "1.0.26",
     "angular-cookies": "1.8.0",
     "angular-sanitize": "1.8.0",
-    "devextreme": "20.2.1-alpha-20167-0318",
+    "devextreme": "20.2.1-alpha-20195-1008",
     "devextreme-aspnet-data": "2.6.2",
     "jszip": "3.5.0",
     "ng-ckeditor": "2.0.5"

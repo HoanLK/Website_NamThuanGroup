@@ -17,10 +17,10 @@ DevExpress.localization.locale("vi");
 export const App = angular
     .module('app', [
         'dx',
+        'ng.ckeditor',
         uiRouter,
         ngCookies,
         ngSanitize,
-        //ngCkEditor,
         PostModule
     ])
     .service('CommonService', CommonService)
