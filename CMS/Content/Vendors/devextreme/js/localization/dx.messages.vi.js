@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.vi.js)
-* Version: 20.1.1 (build 20064-2016)
-* Build date: Wed Mar 04 2020
+* Version: 20.2.0 (build 20195-1008)
+* Build date: Mon Jul 13 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -295,6 +295,7 @@
             "dxFileManager-errorMaxFileSizeExceeded": "K\xedch th\u01b0\u1edbc c\u1ee7a t\u1eadp tin v\u01b0\u1ee3t qu\xe1 k\xedch th\u01b0\u1edbc t\u1ed1i \u0111a cho ph\xe9p",
             "dxFileManager-errorInvalidSymbols": "TODO",
             "dxFileManager-errorDefault": "L\u1ed7i kh\xf4ng x\xe1c \u0111\u1ecbnh.",
+            "dxFileManager-errorDirectoryOpenFailed": "TODO",
             "dxDiagram-categoryGeneral": "Chung",
             "dxDiagram-categoryFlowchart": "L\u01b0u \u0111\u1ed3",
             "dxDiagram-categoryOrgChart": "S\u01a1 \u0111\u1ed3 t\u1ed5 ch\u1ee9c",
@@ -357,6 +358,10 @@
             "dxDiagram-commandInsertShapeImage": "Ch\xe8n \u1ea3nh...",
             "dxDiagram-commandEditShapeImage": "\u0110\u1ed5i \u1ea3nh...",
             "dxDiagram-commandDeleteShapeImage": "X\xf3a \u1ea3nh",
+            "dxDiagram-commandLayoutLeftToRight": "TODO",
+            "dxDiagram-commandLayoutRightToLeft": "TODO",
+            "dxDiagram-commandLayoutTopToBottom": "TODO",
+            "dxDiagram-commandLayoutBottomToTop": "TODO",
             "dxDiagram-unitIn": "in",
             "dxDiagram-unitCm": "cm",
             "dxDiagram-unitPx": "px",
@@ -368,16 +373,13 @@
             "dxDiagram-dialogEditShapeImageLabelText": "ho\u1eb7c th\u1ea3 t\u1eadp tin v\xe0o \u0111\xe2y",
             "dxDiagram-uiExport": "Xu\u1ea5t ra",
             "dxDiagram-uiProperties": "Thu\u1ed9c t\xednh",
+            "dxDiagram-uiSettings": "TODO",
             "dxDiagram-uiShowToolbox": "TODO",
             "dxDiagram-uiSearch": "TODO",
             "dxDiagram-uiStyle": "TODO",
             "dxDiagram-uiLayout": "TODO",
             "dxDiagram-uiLayoutTree": "C\xe2y",
             "dxDiagram-uiLayoutLayered": "\u0110\u01b0\u1ee3c x\u1ebfp t\u1ea7ng",
-            "dxDiagram-uiLayoutLeftToRight": "TODO",
-            "dxDiagram-uiLayoutRightToLeft": "TODO",
-            "dxDiagram-uiLayoutTopToBottom": "TODO",
-            "dxDiagram-uiLayoutBottomToTop": "TODO",
             "dxDiagram-uiDiagram": "TODO",
             "dxDiagram-uiText": "TODO",
             "dxDiagram-uiObject": "TODO",
@@ -427,7 +429,38 @@
             "dxDiagram-shapeCardDefaultText": "TODO",
             "dxDiagram-shapeCardWithImageOnLeft": "TODO",
             "dxDiagram-shapeCardWithImageOnTop": "TODO",
-            "dxDiagram-shapeCardWithImageOnRight": "TODO"
+            "dxDiagram-shapeCardWithImageOnRight": "TODO",
+            "dxGantt-dialogTitle": "TODO",
+            "dxGantt-dialogStartTitle": "TODO",
+            "dxGantt-dialogEndTitle": "TODO",
+            "dxGantt-dialogProgressTitle": "TODO",
+            "dxGantt-dialogResourcesTitle": "TODO",
+            "dxGantt-dialogResourceManagerTitle": "TODO",
+            "dxGantt-dialogTaskDetailsTitle": "TODO",
+            "dxGantt-dialogEditResourceListHint": "TODO",
+            "dxGantt-dialogEditNoResources": "TODO",
+            "dxGantt-dialogButtonAdd": "TODO",
+            "dxGantt-contextMenuNewTask": "TODO",
+            "dxGantt-contextMenuNewSubtask": "TODO",
+            "dxGantt-contextMenuDeleteTask": "TODO",
+            "dxGantt-contextMenuDeleteDependency": "TODO",
+            "dxGantt-dialogTaskDeleteConfirmation": "TODO",
+            "dxGantt-dialogDependencyDeleteConfirmation": "TODO",
+            "dxGantt-dialogResourcesDeleteConfirmation": "TODO",
+            "dxGantt-dialogConstraintCriticalViolationMessage": "TODO",
+            "dxGantt-dialogConstraintViolationMessage": "TODO",
+            "dxGantt-dialogCancelOperationMessage": "TODO",
+            "dxGantt-dialogDeleteDependencyMessage": "TODO",
+            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO",
+            "dxGantt-undo": "TODO",
+            "dxGantt-redo": "TODO",
+            "dxGantt-expandAll": "TODO",
+            "dxGantt-collapseAll": "TODO",
+            "dxGantt-addNewTask": "TODO",
+            "dxGantt-deleteSelectedTask": "TODO",
+            "dxGantt-zoomIn": "TODO",
+            "dxGantt-zoomOut": "TODO",
+            "dxGantt-fullScreen": "TODO"
         }
     })
 });

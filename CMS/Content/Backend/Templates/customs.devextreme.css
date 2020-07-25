@@ -1,5 +1,6 @@
 ﻿/*DEVEXTREME*/
-.dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+.dx-datagrid-headers .dx-datagrid-table .dx-row > td,
+.dx-treelist-headers .dx-treelist-table .dx-row > td {
     font-size: 13px;
     color: #000;
 }

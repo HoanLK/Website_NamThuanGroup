@@ -1,5 +1,8 @@
 /* Add here all your CSS customizations */
 
+.text-color-light p {
+    color: #fff !important;
+}
 /*About Us*/
 .sidebar-about li:hover {
     background-color: #2388ed;

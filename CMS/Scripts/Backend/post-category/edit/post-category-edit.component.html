@@ -1,0 +1,309 @@
+﻿<form ng-submit="$ctrl.onSave($event)" dx-validation-group="{validation}">
+  <div class="block">
+    <!-- HEARDER -->
+    <div class="block-header block-header-default">
+      <h3 class="block-title font-weight-bold">SỬA DANH MỤC</h3>
+      <div class="block-options">
+        <!-- Save -->
+        <div dx-button="$ctrl.controls.btnSave"></div>
+        <!-- Close -->
+        <div dx-button="$ctrl.controls.btnClose"></div>
+        <!-- Full Screen -->
+        <button
+          type="button"
+          class="btn-block-option"
+          data-toggle="block-option"
+          data-action="fullscreen_toggle"
+          title="Phóng to / Thu nhỏ"
+        >
+          <i class="si si-size-fullscreen"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="block-content pt-20">
+      <div class="row">
+        <!--Main-->
+        <div class="col-md-12 mb-20">
+          <div class="row">
+            <!-- Title -->
+            <div class="col-md-7 form-group">
+              <label class="col-12">
+                Tiêu đề <span style="color: red;">*</span>
+              </label>
+              <div class="col-md-12">
+                <div
+                  dx-text-box="$ctrl.controls.tbTitle"
+                  dx-validator="$ctrl.validators.title"
+                ></div>
+              </div>
+            </div>
+            <!-- Alias -->
+            <div class="col-md-5 form-group">
+              <label class="col-12">Alias</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbAlias"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9" style="padding-right: 0px;">
+          <div class="row">
+            <!-- Description -->
+            <div class="col-md-12 form-group mb-20">
+              <label class="col-12">Mô tả</label>
+              <div class="col-md-12">
+                <div dx-text-area="$ctrl.controls.taDescription"></div>
+              </div>
+            </div>
+
+            <!--Validation Summary-->
+            <div class="col-md-12">
+              <div
+                dx-validation-summary="{validation}"
+                style="padding: 20px;"
+              ></div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-md-12 form-group">
+              <label class="col-12">Nội dung</label>
+              <div class="col-md-12">
+                <ng-ckeditor ng-model="data.Content"></ng-ckeditor>
+              </div>
+            </div>
+
+            <!-- SEO -->
+            <div class="col-md-12" style="margin-top: 50px;">
+              <div class="block">
+                <!-- HEARDER -->
+                <div
+                  class="block-header block-header-default bg-corporate"
+                  style="
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                      0 1px 2px rgba(0, 0, 0, 0.24);
+                  "
+                >
+                  <h3 class="block-title font-weight-bold text-white">SEO</h3>
+                  <div class="block-options">
+                    <button
+                      type="button"
+                      class="btn-block-option"
+                      data-toggle="block-option"
+                      data-action="content_toggle"
+                      title="Thu gọn / Mở rộng"
+                    >
+                      <i class="si si-arrow-up text-white"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-block-option"
+                      data-toggle="block-option"
+                      data-action="fullscreen_toggle"
+                      title="Phóng to / Thu nhỏ"
+                    >
+                      <i class="si si-size-fullscreen text-white"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="block-content pt-20">
+                  <div class="row">
+                    <!--Main-->
+                    <div class="col-md-12" style="padding-right: 0px;">
+                      <div class="row">
+                        <!-- Title SEO -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">Tiêu đề SEO</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbSEOTitle"></div>
+                          </div>
+                        </div>
+                        <!-- Description SEO -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">Thẻ mô tả</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-area="$ctrl.controls.taSEODescription"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom -->
+        <div class="col-md-3" style="padding-left: 0px;">
+          <div class="row">
+            <!-- Category -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Danh mục</label>
+              <div class="col-md-12">
+                <div dx-drop-down-box="$ctrl.controls.ddbCategory">
+                  <div data-options="dxTemplate: { name: 'content' }">
+                    <div
+                      dx-tree-view="$ctrl.controls.ddbCategory.treeView"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Published -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Trạng thái</label>
+              <div class="col-md-12">
+                <div dx-select-box="$ctrl.controls.slbStatus"></div>
+              </div>
+            </div>
+            <!-- Featured -->
+            <div class="col-md-12 form-group mb-30">
+              <!-- <label class="col-12">Nổi bật</label> -->
+              <div class="col-md-12">
+                <div dx-check-box="$ctrl.controls.cbFeatured"></div>
+              </div>
+            </div>
+            <!-- Image -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Ảnh đại diện</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbImage"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="
+                    data.Image === null ||
+                    data.Image === '' ||
+                    data.Image === undefined
+                  "
+                >
+                  <a
+                    ng-click="$ctrl.chooseImage()"
+                    style="
+                      color: #0073aa;
+                      text-decoration: underline;
+                      font-style: italic;
+                      cursor: pointer;
+                    "
+                  >
+                    Chọn ảnh đại diện
+                  </a>
+                </div>
+                <div
+                  ng-if="
+                    data.Image !== null &&
+                    data.Image !== '' &&
+                    data.Image != undefined
+                  "
+                >
+                  <div style="text-align: center;">
+                    <img
+                      style="cursor: pointer; margin-top: 10px;"
+                      ng-click="$ctrl.chooseImage()"
+                      class="img-fluid"
+                      ng-src="{{ data.Image }}"
+                      alt="Ảnh đại diện"
+                      title="Chọn hình ảnh"
+                    />
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <i>Nhấn vào ảnh để sửa hoặc cập nhật</i>
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <a
+                      ng-click="$ctrl.clearImage()"
+                      style="
+                        color: #0073aa;
+                        text-decoration: underline;
+                        font-style: italic;
+                        cursor: pointer;
+                      "
+                    >
+                      Xóa ảnh đại diện
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Image Banner -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Ảnh banner</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbImageBanner"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="
+                    data.ImageBanner === null ||
+                    data.ImageBanner === '' ||
+                    data.ImageBanner === undefined
+                  "
+                >
+                  <a
+                    ng-click="$ctrl.chooseImageBanner()"
+                    style="
+                      color: #0073aa;
+                      text-decoration: underline;
+                      font-style: italic;
+                      cursor: pointer;
+                    "
+                  >
+                    Chọn ảnh banner
+                  </a>
+                </div>
+                <div
+                  ng-if="
+                    data.ImageBanner !== null &&
+                    data.ImageBanner !== '' &&
+                    data.ImageBanner != undefined
+                  "
+                >
+                  <div style="text-align: center;">
+                    <img
+                      style="cursor: pointer; margin-top: 10px;"
+                      ng-click="$ctrl.chooseImageBanner()"
+                      class="img-fluid"
+                      ng-src="{{ data.ImageBanner }}"
+                      alt="Ảnh banner"
+                      title="Chọn hình ảnh"
+                    />
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <i>Nhấn vào ảnh để sửa hoặc cập nhật</i>
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <a
+                      ng-click="$ctrl.clearImage()"
+                      style="
+                        color: #0073aa;
+                        text-decoration: underline;
+                        font-style: italic;
+                        cursor: pointer;
+                      "
+                    >
+                      Xóa ảnh banner
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Note -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Ghi chú</label>
+              <div class="col-md-12">
+                <div dx-text-area="$ctrl.controls.taNote"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- LoadPanel -->
+<div class="loadpanel" dx-load-panel="$ctrl.loadPanel"></div>

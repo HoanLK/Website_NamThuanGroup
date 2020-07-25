@@ -11,19 +11,22 @@ import DevextremeService from "./services/devextreme.service";
 import CommonService from "./services/common.service";
 
 import { PostModule } from "./post/post.module";
+import { PostCategoryModule } from "./post-category/post-category.module";
+import { ComponentModule } from "./component/component.module";
 
 DevExpress.localization.locale("vi");
 
 export const App = angular
-    .module('app', [
-        'dx',
-        'ng.ckeditor',
-        uiRouter,
-        ngCookies,
-        ngSanitize,
-        PostModule
-    ])
-    .service('CommonService', CommonService)
-    .service('DevextremeService', DevextremeService)
-    .config(config)
-    .name;
+  .module("app", [
+    "dx",
+    "ng.ckeditor",
+    uiRouter,
+    ngCookies,
+    ngSanitize,
+    PostModule,
+    PostCategoryModule,
+    ComponentModule,
+  ])
+  .service("CommonService", CommonService)
+  .service("DevextremeService", DevextremeService)
+  .config(config).name;

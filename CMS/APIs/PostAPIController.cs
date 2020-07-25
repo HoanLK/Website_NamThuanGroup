@@ -7,10 +7,10 @@ using System;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace CMS.APIs
 {
+    [Authorize]
     public class PostAPIController : ApiController
     {
         private readonly CMSEntities db = new CMSEntities();
@@ -25,7 +25,7 @@ namespace CMS.APIs
         }
 
         // GET: api/PostAPI/5
-        public async Task<IHttpActionResult> Get(int id)
+        public async Task<IHttpActionResult> GetAsync(int id)
         {
             Post post = await db.Posts.FindAsync(id);
             if (post == null)
@@ -33,30 +33,46 @@ namespace CMS.APIs
                 return NotFound();
             }
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Post, PostResource>());
+            // Mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Post, PostEditResource>());
             var mapper = new Mapper(config);
 
-            return Ok(mapper.Map<Post, PostResource>(post));
+            return Ok(mapper.Map<Post, PostEditResource>(post));
         }
 
         // PUT: api/PostAPI/5
-        public IHttpActionResult Put(int id, Post post)
+        public async Task<IHttpActionResult> PutAsync(int id, PostEditResource resource)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != post.Id)
+            if (id != resource.Id)
             {
                 return BadRequest();
             }
+
+            var post = await db.Posts.FindAsync(id);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            // Mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostEditResource, Post>());
+            var mapper = new Mapper(config);
+
+            mapper.Map<PostEditResource, Post>(resource, post);
+            post.ModifyUser = User.Identity.GetUserId();
+            post.ModifyTime = DateTime.Now;
 
             db.Entry(post).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -67,13 +83,18 @@ namespace CMS.APIs
         }
 
         // POST: api/PostAPI
-        public IHttpActionResult Post(Post post)
+        public async Task<IHttpActionResult> PostAsync(PostCreateResource resource)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            // Mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCreateResource, Post>());
+            var mapper = new Mapper(config);
+
+            var post = mapper.Map<PostCreateResource, Post>(resource);
             post.CreateUser = User.Identity.GetUserId();
             post.CreateTime = DateTime.Now;
 
@@ -81,19 +102,18 @@ namespace CMS.APIs
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return Ok();
+            return Ok(post.Id);
         }
 
         // DELETE: api/PostAPI/5
-        [ResponseType(typeof(Post))]
-        public async Task<IHttpActionResult> Delete(int id)
+        public async Task<IHttpActionResult> DeleteAsync(int id)
         {
             Post post = await db.Posts.FindAsync(id);
             if (post == null)
@@ -105,7 +125,7 @@ namespace CMS.APIs
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (Exception)
             {

@@ -1,15 +1,21 @@
-﻿import PostService from "./post.service";
-
-import { PostDatagridModule } from "./datagrid/datagrid.module";
+﻿import { PostDatagridModule } from "./datagrid/post-datagrid.module";
+import { PostCreateModule } from "./create/post-create.module";
+import { PostEditModule } from "./edit/post-edit.module";
+import { PostDeleteModule } from "./delete/post-delete.module";
 
 import { PostComponent } from "./post.component";
-import { PostCreateComponent } from "./create/create.component";
+
+import PostService from "./post.service";
 import PostCategoryService from "../post-category/post-category.service";
 
 export const PostModule = angular
-  .module("post", [PostDatagridModule])
+  .module("post", [
+    PostDatagridModule,
+    PostCreateModule,
+    PostEditModule,
+    PostDeleteModule,
+  ])
   .component("post", PostComponent)
-  .component("create", PostCreateComponent)
   .config(($stateProvider, $urlRouterProvider) => {
     "ngInject";
     $stateProvider
@@ -19,7 +25,13 @@ export const PostModule = angular
       })
       .state("post-create", {
         url: "/post/create",
-        component: "create",
+        component: "postCreate",
+        module: PostCreateModule,
+      })
+      .state("post-edit", {
+        url: "/post/edit/:id",
+        component: "postEdit",
+        module: PostEditModule,
       });
     $urlRouterProvider.otherwise("/");
   })

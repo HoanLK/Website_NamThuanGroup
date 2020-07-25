@@ -106,7 +106,7 @@ namespace CMS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to mail@example.com.
+        ///   Looks up a localized string similar to info@namthuangroup.com.
         /// </summary>
         public static string CompanyEmail {
             get {
@@ -484,7 +484,7 @@ namespace CMS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xem tất cả.
+        ///   Looks up a localized string similar to Tất cả.
         /// </summary>
         public static string ShowAll {
             get {

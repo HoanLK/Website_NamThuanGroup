@@ -4,7 +4,6 @@ export default class PostController {
   constructor($rootScope) {
     // SET TITLE
     $rootScope.title = "Bài viết";
-    this.header = "QUẢN LÝ BÀI VIẾT";
   }
 }
 

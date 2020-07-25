@@ -1,22 +1,19 @@
-﻿using CMS.Areas.Admin.Models;
+﻿using AutoMapper;
 using CMS.Models;
+using CMS.Models.Resources.PostCategory;
 using DevExtreme.AspNet.Data;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
+using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace CMS.APIs
 {
+    [Authorize]
     public class PostCategoryAPIController : ApiController
     {
-        private CMSEntities db = new CMSEntities();
+        private readonly CMSEntities db = new CMSEntities();
 
         // GET: api/PostCategoryAPI
         public object Gets(DataSourceLoadOptions loadOptions)
@@ -24,234 +21,118 @@ namespace CMS.APIs
             loadOptions.PrimaryKey = new[] { "Id" };
             loadOptions.PaginateViaPrimaryKey = true;
 
-            return DataSourceLoader.Load(db.CategoryPosts, loadOptions);
+            return DataSourceLoader.Load(db.PostCategories, loadOptions);
         }
 
-        //Get for ModelView
-        // GET: api/CategoryPostAPI
-        public IQueryable<CategoryPostViewModel> GetCategoryPosts(bool viewmodel, string type)
+        // GET: api/PostCategoryAPI/5
+        public async Task<IHttpActionResult> GetAsync(int id)
         {
-            if (viewmodel)
-            {
-                if (type == "select")
-                {
-                    var model = (
-                        from cp in db.CategoryPosts
-                        select new CategoryPostViewModel()
-                        {
-                            Id = cp.Id,
-                            ParentId = cp.ParentId,
-                            Title = cp.Title
-                        }
-                    );
-
-                    return model;
-                }
-                if (type == "table")
-                {
-                    var model = (
-                        from cp in db.CategoryPosts
-                        select new CategoryPostViewModel()
-                        {
-                            Id = cp.Id,
-                            ParentId = cp.ParentId,
-                            Title = cp.Title,
-                            Note = cp.Note,
-                            Published = cp.Published,
-                            Alias = cp.Alias,
-                            PostNumber = db.Posts.Where(p => p.CategoryId == cp.Id).Count()
-                        }
-                    );
-
-                    return model;
-                }
-            }
-
-            return null;
-        }
-
-        // GET: api/CategoryPostAPI/5
-        [ResponseType(typeof(CategoryPost))]
-        public IHttpActionResult GetCategoryPost(int id)
-        {
-            CategoryPost categoryPost = db.CategoryPosts.Find(id);
-            if (categoryPost == null)
+            PostCategory postCategory = await db.PostCategories.FindAsync(id);
+            if (postCategory == null)
             {
                 return NotFound();
             }
 
-            return Ok(categoryPost);
+            // Mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCategory, PostCategoryEditResource>());
+            var mapper = new Mapper(config);
+
+            return Ok(mapper.Map<PostCategory, PostCategoryEditResource>(postCategory));
         }
 
-        // PUT: api/CategoryPostAPI/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutCategoryPost(int id, CategoryPost categoryPost)
+        // PUT: api/PostCategoryAPI/5
+        public async Task<IHttpActionResult> PutAsync(int id, PostCategoryEditResource resource)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != categoryPost.Id)
+            if (id != resource.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(categoryPost).State = EntityState.Modified;
+            var postCategory = await db.PostCategories.FindAsync(id);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CategoryPostExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/CategoryPostAPI
-        [ResponseType(typeof(CategoryPost))]
-        public IHttpActionResult PostCategoryPost(CategoryPost categoryPost)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            string idCurrentUser = User.Identity.GetUserId();
-
-            if (!string.IsNullOrEmpty(idCurrentUser))
-            {
-                categoryPost.UserId = idCurrentUser;
-                categoryPost.TimeCreated = DateTime.Now;
-            }
-            else
-            {
-                return BadRequest();
-            }
-
-            db.CategoryPosts.Add(categoryPost);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = categoryPost.Id }, categoryPost);
-        }
-
-        //Delete 1 record
-        // DELETE: api/CategoryPostAPI/5
-        [ResponseType(typeof(CategoryPost))]
-        public IHttpActionResult DeleteCategoryPost(int id)
-        {
-            CategoryPost categoryPost = db.CategoryPosts.Find(id);
-            if (categoryPost == null)
+            if (postCategory == null)
             {
                 return NotFound();
             }
 
-            RemoveParent(categoryPost.Id);
-            RemoveCategoryId(categoryPost.Id);
+            // Mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCategoryEditResource, PostCategory>());
+            var mapper = new Mapper(config);
 
-            db.CategoryPosts.Remove(categoryPost);
-            db.SaveChanges();
+            mapper.Map<PostCategoryEditResource, PostCategory>(resource, postCategory);
+            postCategory.ModifyUser = User.Identity.GetUserId();
+            postCategory.ModifyTime = DateTime.Now;
 
-            return Ok(categoryPost);
-        }
-
-        //Delete list
-        // DELETE: api/CategoryPostAPI?ids=...
-        public IHttpActionResult DeleteCategoryPost(string ids)
-        {
-            var listIds = ids.Split(',');
-            List<CategoryPost> categoryPosts = new List<CategoryPost>();
-
-            foreach (var item in listIds)
-            {
-                if (int.TryParse(item, out int id))
-                {
-                    var categoryPost = db.CategoryPosts.Find(id);
-                    if (categoryPost != null)
-                    {
-                        RemoveParent(categoryPost.Id);
-                        RemoveCategoryId(categoryPost.Id);
-                        categoryPosts.Add(categoryPost);
-                    }
-                    else
-                    {
-                        return NotFound();
-                    }
-                }
-                else
-                {
-                    return BadRequest();
-                }
-            }
-
-            db.CategoryPosts.RemoveRange(categoryPosts);
+            db.Entry(postCategory).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
-                return Ok();
+                await db.SaveChangesAsync();
             }
             catch (Exception)
             {
                 throw;
             }
+
+            return Ok();
         }
 
-        protected override void Dispose(bool disposing)
+        // POST: api/PostCategoryAPI
+        public async Task<IHttpActionResult> PostAsync(PostCategoryCreateResource resource)
         {
-            if (disposing)
+            if (!ModelState.IsValid)
             {
-                db.Dispose();
+                return BadRequest(ModelState);
             }
-            base.Dispose(disposing);
-        }
 
-        //Check Exits
-        private bool CategoryPostExists(int id)
-        {
-            return db.CategoryPosts.Count(e => e.Id == id) > 0;
-        }
+            // Mapper
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCategoryCreateResource, PostCategory>());
+            var mapper = new Mapper(config);
 
-        //Remove Parent
-        private void RemoveParent(int id)
-        {
-            var categoryPosts = db.CategoryPosts.Where(p => p.ParentId == id).ToList();
+            var postCategory = mapper.Map<PostCategoryCreateResource, PostCategory>(resource);
+            postCategory.CreateUser = User.Identity.GetUserId();
+            postCategory.CreateTime = DateTime.Now;
 
-            if (categoryPosts != null)
+            db.PostCategories.Add(postCategory);
+
+            try
             {
-                foreach (var item in categoryPosts)
-                {
-                    item.ParentId = null;
-                }
-
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return Ok(postCategory.Id);
         }
 
-        //Remove Category
-        private void RemoveCategoryId(int id)
+        // DELETE: api/PostCategoryAPI/5
+        public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            var posts = db.Posts.Where(p => p.CategoryId == id).ToList();
-
-            if (posts != null)
+            PostCategory postCategory = await db.PostCategories.FindAsync(id);
+            if (postCategory == null)
             {
-                foreach (var item in posts)
-                {
-                    item.CategoryId = null;
-                }
-
-                db.SaveChanges();
+                return NotFound();
             }
+
+            db.PostCategories.Remove(postCategory);
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return Ok();
         }
     }
 }

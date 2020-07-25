@@ -133,7 +133,7 @@
     <value>Rực Liễn, Thủy Sơn, Thủy Nguyên, Hải Phòng</value>
   </data>
   <data name="CompanyEmail" xml:space="preserve">
-    <value>mail@example.com</value>
+    <value>info@namthuangroup.com</value>
   </data>
   <data name="CompanyName" xml:space="preserve">
     <value>Công ty TNHH Nam Thuận</value>
@@ -259,7 +259,7 @@
     <value>Gửi</value>
   </data>
   <data name="ShowAll" xml:space="preserve">
-    <value>Xem tất cả</value>
+    <value>Tất cả</value>
   </data>
   <data name="Staff" xml:space="preserve">
     <value>Đội ngũ nhân sự</value>

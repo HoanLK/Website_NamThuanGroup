@@ -1,4 +1,44 @@
-﻿<!-- Slide -->
+﻿@using CMS.Models.ViewModels
+@model HomeViewModel
+
+<!-- CatText -->
+@helper catText(ComponentViewModel component)
+{
+    if (component != null)
+    {
+        <div class="col-md-6 col-lg-4 col-xl-3 p-0">
+            <div class="card bg-primary-2 border-0 h-100 py-2">
+                <div class="card-body appear-animation" data-appear-animation="fadeInRightShorter">
+                    <span class="top-sub-title text-color-light opacity-5 text-uppercase">@Html.Raw(component.SubTitle)</span>
+                    <h2 class="font-weight-bold text-color-light text-5 mb-3 text-uppercase">
+                        @Html.Raw(component.Name)
+                    </h2>
+                    <p class="text-color-light opacity-7 mb-0">
+                        @Html.Raw(component.Content)
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!-- CatImage -->
+@helper catImage(ComponentViewModel component, string text, string animateIn, string animateOut, int timeout)
+{
+    if (component != null)
+    {
+        <div class="col-md-6 col-lg-4 col-xl-3 p-0">
+            <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': false, 'animateIn': '@animateIn', 'animateOut': '@animateOut', 'autoplay': true, 'autoplayTimeout': @timeout, 'autoplayHoverPause': true}">
+                @foreach (var image in component.ComponentImages)
+                {
+                    <div><img src="@image.Link" class="img-fluid" alt="@Html.Raw(text)" title="@Html.Raw(text)"></div>
+                }
+            </div>
+        </div>
+    }
+}
+
+<!-- Slide -->
 <div class="slider-container slider-container-height-550 rev_slider_wrapper">
     <div id="revolutionSlider"
          class="slider rev_slider"
@@ -253,109 +293,32 @@
 </div>
 
 <!-- Choose Us -->
-<section class="appear-animation"
-         data-appear-animation="fadeIn"
-         data-appear-animation-duration="1s">
+<section class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-duration="1s">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                <div class="card bg-primary-2 border-0 h-100 py-2">
-                    <div class="card-body p-5 appear-animation"
-                         data-appear-animation="fadeInRightShorter">
-                        <span class="top-sub-title text-color-light opacity-5">CƠ SỞ HẠ TẦNG</span>
-                        <h2 class="font-weight-bold text-color-light text-5 mb-3">
-                            HIỆN ĐẠI
-                        </h2>
-                        <p class="text-color-light opacity-7 mb-0">
-                            Diện tích sản xuất lên tới <strong>1.4ha</strong>.
-                            Đầy đủ các phòng ban chức năng đạt chuẩn. Hệ thống <strong>máy móc thiết bị hiện đại</strong>, được đánh giá cao trong ngành may mặc.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                @*<div class="image-frame min-height-300 h-100"
-                    data-plugin-image-background
-                    data-plugin-options="{'imageUrl': '/Content/Frontend/img/about/co-so-ha-tang-1.jpg'}"></div>*@
-                <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': false, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'autoplay': true, 'autoplayTimeout': 5000, 'autoplayHoverPause': true}">
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-01.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-02.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-03.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-04.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                @*<div class="image-frame min-height-300 h-100"
-                    data-plugin-image-background
-                    data-plugin-options="{'imageUrl': '/Content/Frontend/img/about/co-so-ha-tang-2.jpg'}"></div>*@
-                <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': false, 'animateIn': 'fadeInDown', 'animateOut': 'fadeOutDown', 'autoplay': true, 'autoplayTimeout': 7000, 'autoplayHoverPause': true}">
-                    <div><img src="~/Content/Frontend/img/about/doi-ngu-nhan-su-01.jpg" class="img-fluid" alt="Đội ngũ nhân sự Tay nghề cao" title="Đội ngũ nhân sự Tay nghề cao"></div>
-                    <div><img src="~/Content/Frontend/img/about/doi-ngu-nhan-su-02.jpg" class="img-fluid" alt="Đội ngũ nhân sự Tay nghề cao" title="Đội ngũ nhân sự Tay nghề cao"></div>
-                    <div><img src="~/Content/Frontend/img/about/doi-ngu-nhan-su-03.jpg" class="img-fluid" alt="Đội ngũ nhân sự Tay nghề cao" title="Đội ngũ nhân sự Tay nghề cao"></div>
-                    <div><img src="~/Content/Frontend/img/about/doi-ngu-nhan-su-04.jpg" class="img-fluid" alt="Đội ngũ nhân sự Tay nghề cao" title="Đội ngũ nhân sự Tay nghề cao"></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                <div class="card bg-primary border-0 h-100 py-2">
-                    <div class="card-body p-5 appear-animation"
-                         data-appear-animation="fadeInLeftShorter">
-                        <span class="top-sub-title text-color-light opacity-5">ĐỘI NGŨ NHÂN SỰ</span>
-                        <h2 class="font-weight-bold text-color-light text-5 mb-3">
-                            TAY NGHỀ CAO
-                        </h2>
-                        <p class="text-color-light opacity-7 mb-0">
-                            Với <strong>hơn 1100 lao động</strong>, Nam Thuận Group luôn chú trọng đến việc đào tạo, bồi dưỡng nguồn nhân lực.
-                            Những nhân viên ưu tú của Nam Thuận không chỉ có <strong>tay nghề cao</strong>, <strong>chuyên môn vững vàng</strong> mà còn luôn có sự sáng tạo, chủ động trong công việc.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                @*<div class="image-frame min-height-300 h-100"
-                    data-plugin-image-background
-                    data-plugin-options="{'imageUrl': '/Content/Frontend/img/about/co-so-ha-tang-4.jpg'}"></div>*@
-                <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': false, 'animateIn': 'fadeInLeft', 'animateOut': 'fadeOutRight', 'autoplay': true, 'autoplayTimeout': 6000, 'autoplayHoverPause': true}">
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-05.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-06.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-07.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                    <div><img src="/Content/Frontend/img/about/co-so-ha-tang-08.jpg" class="img-fluid" alt="Cơ sở hạ tầng Hiện đại" title="Cơ sở hạ tầng Hiện đại"></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                @*<div class="image-frame min-height-300 h-100"
-                    data-plugin-image-background
-                    data-plugin-options="{'imageUrl': '/Content/Frontend/img/about/co-so-ha-tang-3.jpg'}"></div>*@
-                <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': false, 'animateIn': 'fadeInRight', 'animateOut': 'fadeOutLeft', 'autoplay': true, 'autoplayTimeout': 5000, 'autoplayHoverPause': true}">
-                    <div><img src="~/Content/Frontend/img/about/san-pham-da-dang-chat-luong-01.jpg" class="img-fluid" alt="Sản phẩm Đa dạng & Chất lượng" title="Sản phẩm Đa dạng & Chất lượng"></div>
-                    <div><img src="~/Content/Frontend/img/about/san-pham-da-dang-chat-luong-02.jpg" class="img-fluid" alt="Sản phẩm Đa dạng & Chất lượng" title="Sản phẩm Đa dạng & Chất lượng"></div>
-                    <div><img src="~/Content/Frontend/img/about/san-pham-da-dang-chat-luong-03.jpg" class="img-fluid" alt="Sản phẩm Đa dạng & Chất lượng" title="Sản phẩm Đa dạng & Chất lượng"></div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                <div class="card bg-primary-2 border-0 opacity-9 h-100 py-2">
-                    <div class="card-body p-5 appear-animation"
-                         data-appear-animation="fadeInUpShorter">
-                        <span class="top-sub-title text-color-light opacity-5">SẢN PHẨM</span>
-                        <h2 class="font-weight-bold text-color-light text-5 mb-3">
-                            ĐA DẠNG & CHẤT LƯỢNG
-                        </h2>
-                        <p class="text-color-light opacity-7 mb-0">
-                            Nam Thuận Group tập trung sản xuất ra những sản phẩm đa dạng từ kiểu dáng, thiết kế phù hợp với mọi nhu cầu của khách hàng đồng thời,
-                            Công ty cũng linh hoạt trong các thiết kế, tạo ra những sản phẩm mới lạ, độc đáo.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3 p-0">
-                @*<div class="image-frame min-height-300 h-100"
-                    data-plugin-image-background
-                    data-plugin-options="{'imageUrl': '/Content/Frontend/img/about/co-so-ha-tang-5.jpg'}"></div>*@
-                <div class="owl-carousel owl-theme dots-style-2 nav-style-2" data-plugin-options="{'items': 1, 'dots': true, 'nav': false, 'animateIn': 'fadeInUp', 'animateOut': 'fadeOutDown', 'autoplay': true, 'autoplayTimeout': 7000, 'autoplayHoverPause': true}">
-                    <div><img src="~/Content/Frontend/img/about/san-pham-da-dang-chat-luong-04.jpg" class="img-fluid" alt="Sản phẩm Đa dạng & Chất lượng" title="Sản phẩm Đa dạng & Chất lượng"></div>
-                    <div><img src="~/Content/Frontend/img/about/san-pham-da-dang-chat-luong-05.jpg" class="img-fluid" alt="Sản phẩm Đa dạng & Chất lượng" title="Sản phẩm Đa dạng & Chất lượng"></div>
-                    <div><img src="~/Content/Frontend/img/about/san-pham-da-dang-chat-luong-06.jpg" class="img-fluid" alt="Sản phẩm Đa dạng & Chất lượng" title="Sản phẩm Đa dạng & Chất lượng"></div>
-                </div>
-            </div>
+            <!-- Hiện đại text -->
+            @catText(Model.HienDaiTextComponent)
+
+            <!-- Hiện đại image 1 -->
+            @catImage(Model.HienDaiImage1Component, "Cơ sở hạ tầng hiện đại", "fadeIn", "fadeOut", 5000)
+
+            <!-- Tay nghề cao image -->
+            @catImage(Model.TayNgheCaoImageComponent, "Đội ngũ nhân sự tay nghề cao", "fadeInDown", "fadeOutDown", 7000)
+
+            <!-- Tay nghề cao text -->
+            @catText(Model.TayNgheCaoTextComponent)
+
+            <!-- Hiện đại image 2 -->
+            @catImage(Model.HienDaiImage2Component, "Cơ sở hạ tầng hiện đại", "fadeIn", "fadeOut", 6000)
+
+            <!-- Đa dạng chất lượng image 1 -->
+            @catImage(Model.DaDangChatLuongImage1Component, "Sản phẩm Đa dạng & Chất lượng", "fadeInRight", "fadeOutLeft", 5000)
+
+            <!-- Đa dạng chất lương text -->
+            @catText(Model.DaDangChatLuongTextComponent)
+
+            <!-- Đa dạng chất lượng image 2 -->
+            @catImage(Model.DaDangChatLuongImage2Component, "Sản phẩm Đa dạng & Chất lượng", "fadeInUp", "fadeOutDown", 7000)
         </div>
     </div>
 </section>
@@ -368,43 +331,26 @@
                 <div class="appear-animation"
                      data-appear-animation="fadeInUpShorter"
                      data-appear-animation-delay="100">
-                    <span class="top-sub-title text-color-primary">
-                        GIỚI THIỆU VỀ
-                    </span>
+                    <span class="top-sub-title text-color-primary text-uppercase">@Html.Raw(Model.NamThuanGroupComponent.SubTitle)</span>
 
                     <h2 class="word-rotator letters type font-weight-bold text-5 mb-3">
-                        <span>NAM THUẬN GROUP</span>
-                        <!-- <span class="word-rotator-words waiting">
-                          <b class="is-visible">think.</b>
-                          <b>believe.</b>
-                          <b>dreamed.</b>
-                        </span> -->
+                        <span class="text-uppercase">@Html.Raw(Model.NamThuanGroupComponent.Name)</span>
                     </h2>
                 </div>
-                <p class="lead mb-3 appear-animation"
-                   data-appear-animation="fadeInUpShorter"
-                   data-appear-animation-delay="300">
-                    Được thành lập từ năm 2004, Công ty TNHH Nam Thuận đã
-                    không ngừng tự hoàn thiện và phát triển, cải thiện về mọi mặt để đạt được sự chuyên nghiệp, hiện đại và năng động trong sản xuất, tận tâm phục vụ khách hàng.
-                </p>
 
-                <p class="mb-3 appear-animation"
-                   data-appear-animation="fadeInUpShorter"
-                   data-appear-animation-delay="500">
-                    Trải qua 16 năm hình thành và phát triển, Nam Thuận đã từng bước đặt nền móng để trở thành lựa chọn số 1 không chỉ đối với người lao động mà còn đối với khách hàng và nhà cung cấp, đối tác tại Việt Nam.
-                </p>
+                @Html.Raw(Model.NamThuanGroupComponent.Content)
 
                 <div class="d-block d-sm-inline-block text-center appear-animation"
                      data-appear-animation="fadeInUpShorter"
                      data-appear-animation-delay="700">
                     <a href="/about-us"
                        class="btn btn-outline btn-rounded btn-primary btn-v-3 btn-h-4 font-weight-bold mt-3 text-0">
-                        XEM THÊM
+                        @Html.Raw(Model.NamThuanGroupComponent.TextButton)
                     </a>
                     <span class="d-block mt-3">
-                        hoặc
-                        <a class="text-underline ml-2 text-0" href="/contact">
-                            LIÊN HỆ VỚI CHÚNG TÔI
+                        @Html.Raw(Resources.Or)
+                        <a class="text-underline ml-2 text-0" href="@Html.Raw(Model.NamThuanGroupComponent.Link)">
+                            @Html.Raw(Resources.ContactUs)
                         </a>
                     </span>
                 </div>
@@ -412,301 +358,21 @@
             <div class="col-10 col-md-5 mx-auto ml-md-auto appear-animation"
                  data-appear-animation="fadeInUpShorter"
                  data-appear-animation-delay="500">
-                <div class="particles d-flex align-items-center pr-0 pr-lg-3 pr-xl-5">
-                    <svg class="svg-particles d-none d-sm-block"
-                         xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 493.72 405.79">
-                        <g class="g-particles g-particles-group-1 appear-animation"
-                           data-appear-animation="expandParticles"
-                           data-appear-animation-delay="500">
-                            <line class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  x1="150.28"
-                                  y1="108.35"
-                                  x2="159.03"
-                                  y2="102.1" />
-                            <line class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  x1="325.51"
-                                  y1="118.98"
-                                  x2="334.26"
-                                  y2="112.73" />
-                            <line class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  x1="483.33"
-                                  y1="94.52"
-                                  x2="492.08"
-                                  y2="88.27" />
-                            <line class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  x1="321.14"
-                                  y1="279.22"
-                                  x2="329.89"
-                                  y2="272.97" />
-                            <line class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  x1="148.47"
-                                  y1="279.22"
-                                  x2="157.22"
-                                  y2="272.97" />
-                            <line class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  x1="11.14"
-                                  y1="305.17"
-                                  x2="19.89"
-                                  y2="298.92" />
-                        </g>
-                        <g class="g-particles g-particles-group-2 appear-animation"
-                           data-appear-animation="expandParticles"
-                           data-appear-animation-delay="800">
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M51.78,105.64s-.37-12.75,5.25-3.5.38,7.13,0,7.13"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M229.34,103.24s-.37-12.75,5.25-3.5.38,7.12,0,7.12"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M401,103.24s-.37-12.75,5.25-3.5.38,7.12,0,7.12"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M401,274.1s-.37-12.75,5.25-3.5.38,7.13,0,7.13"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M227.33,276.14s-.37-12.75,5.25-3.5.38,7.13,0,7.13"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M55.49,276.14s-.37-12.75,5.25-3.5.38,7.13,0,7.13"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M97.76,41.59s-2.5,4.83,2.83,2.33.67,2.67.67,2.67"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M448.14,22.85s-2.5,4.83,2.83,2.33.67,2.67.67,2.67"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-1"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  stroke-miterlimit="10"
-                                  d="M246,44.18s.1,5.85,4.41-.28,2.26,1.66,2.26,1.66"
-                                  transform="translate(-3.14 -1.85)" />
-                        </g>
-                        <g class="g-particles g-particles-group-3 appear-animation"
-                           data-appear-animation="expandParticles"
-                           data-appear-animation-delay="1100">
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="4.77"
-                                    cy="151"
-                                    r="1.14"
-                                    transform="translate(-108.51 45.76) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="149.72"
-                                    cy="30.16"
-                                    r="1.14"
-                                    transform="translate(19.39 112.85) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="304.7"
-                                    cy="3.48"
-                                    r="1.14"
-                                    transform="translate(83.64 214.63) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="495.22"
-                                    cy="155.04"
-                                    r="1.14"
-                                    transform="translate(32.28 393.74) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="315.2"
-                                    cy="163.8"
-                                    r="1.14"
-                                    transform="translate(-26.64 269.01) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="153.42"
-                                    cy="344.7"
-                                    r="1.14"
-                                    transform="translate(-201.94 207.59) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="249.61"
-                                    cy="406"
-                                    r="1.14"
-                                    transform="translate(-217.11 293.57) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="313.32"
-                                    cy="336.94"
-                                    r="1.14"
-                                    transform="translate(-149.62 318.39) rotate(-45)" />
-                            <circle class="cls-2"
-                                    fill="#969da0"
-                                    stroke="#969da0"
-                                    cx="148.58"
-                                    cy="172.2"
-                                    r="1.14"
-                                    transform="translate(-81.38 153.65) rotate(-45)" />
-                        </g>
-                        <g class="g-particles g-particles-group-4 appear-animation"
-                           data-appear-animation="expandParticles"
-                           data-appear-animation-delay="1400">
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="200.87 18.34 197.2 18.34 199.03 21" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="179.66 368.64 180.47 364.7 176.12 365.86" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="369.87 368.64 370.67 364.7 366.31 365.86" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="369.31 5.73 371.83 1.9 367.27 1.65" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="217.7 153.19 210.32 153.19 214.01 158.56" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="385.03 153.19 377.66 153.19 381.34 158.56" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="385.03 324.15 377.66 324.15 381.34 329.52" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="213.01 324.15 205.64 324.15 209.32 329.52" />
-                            <polyline class="cls-3"
-                                      fill="none"
-                                      stroke="#969da0"
-                                      points="52.35 324.15 44.98 324.15 48.66 329.52" />
-                        </g>
-                        <g class="g-particles g-particles-group-5 appear-animation"
-                           data-appear-animation="expandParticles"
-                           data-appear-animation-delay="1700">
-                            <path class="cls-4"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  d="M264.48,188.12s-4,8.83,3.33,6.17,5.67-.5,5.67-.5-1.33,3.67-2.17,3.5"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-4"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  d="M444.52,179.07s-4,8.83,3.33,6.17,5.67-.5,5.67-.5-1.33,3.67-2.17,3.5"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-4"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  d="M94.23,196.91s-4,8.83,3.33,6.17,5.67-.5,5.67-.5-1.33,3.67-2.17,3.5"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-4"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  d="M92.81,369.86s-2.63,6.55,2.19,4.57,3.73-.37,3.73-.37-.88,2.72-1.43,2.6"
-                                  transform="translate(-3.14 -1.85)" />
-                            <path class="cls-4"
-                                  fill="none"
-                                  stroke="#969da0"
-                                  d="M269.94,368.71c.06-.09,3.2,5.44,4.68,2,2-4.8,2.54-2.76,2.54-2.76s1.15,2.61.66,2.89"
-                                  transform="translate(-3.14 -1.85)" />
-                        </g>
-                        <g class="g-particles g-particles-group-6 appear-animation"
-                           data-appear-animation="expandParticles"
-                           data-appear-animation-delay="2000">
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="8.58 76.55 13.71 78.42 12.58 72.8" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="8.58 228.65 13.71 230.53 12.58 224.9" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="178.55 238.99 183.68 240.86 182.55 235.24" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="349.47 240.53 354.59 242.4 353.47 236.78" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="338.72 402.28 343.84 404.15 342.72 398.53" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="147.72 399.46 152.84 401.34 151.72 395.71" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="482.39 209.27 485.95 213.4 487.71 207.94" />
-                            <polyline class="cls-5"
-                                      fill="#969da0"
-                                      stroke="#969da0"
-                                      points="349.58 66.58 354.83 68.06 353.29 62.54" />
-                        </g>
-                    </svg>
-                    <div class="particles-rect bg-primary d-none d-md-block"
-                         data-plugin-float-element
-                         data-plugin-options="{'startPos': 'top', 'speed': 4, 'transition': true}"></div>
-                    <img src="~/Content/Frontend/img/about/hdqt.jpg"
-                         class="img-fluid"
-                         alt=""
-                         data-plugin-float-element
-                         data-plugin-options="{'startPos': 'top', 'speed': 4, 'horizontal': true, 'transition': true}" />
+                <div class="card card-style-4 border-0 absolute-y-center">
+                    <div class="image-frame rounded">
+                        <span class="image-frame-wrapper">
+                            <img src="~/Content/Frontend/img/about/background-video.jpg" class="card-img-top rounded" alt="@Html.Raw(Resources.CompanyName)" title="@Html.Raw(Resources.CompanyName)" />
+                            <span class="image-frame-info image-frame-info-show flex-column align-items-center">
+                                <a href="@Html.Raw(Model.NamThuanGroupComponent.LinkMedia)" class="popup-vimeo">
+                                    <span class="icon-box icon-box-style-4 hover-anim hover-anim-effect-1">
+                                        <span class="icon-box-icon bg-primary">
+                                            <i class="fas fa-play text-5"></i>
+                                        </span>
+                                    </span>
+                                </a>
+                            </span>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -715,42 +381,58 @@
     <!-- Counter -->
     <div class="counters container">
         <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="counter text-dark appear-animation"
-                     data-appear-animation="fadeInLeftShorter"
-                     data-appear-animation-delay="100">
-                    <i class="fad fa-users"></i>
-                    <strong data-to="4000" data-append="+">0</strong>
-                    <label class="font-weight-light">Công nhân viên</label>
+            @if (Model.CongNhanVienComponent != null)
+            {
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="counter text-dark appear-animation"
+                         data-appear-animation="fadeInLeftShorter"
+                         data-appear-animation-delay="100">
+                        <i class="fad fa-users"></i>
+                        <strong data-to="@Html.Raw(Model.CongNhanVienComponent.SubTitle)" data-append="+">0</strong>
+                        <label class="font-weight-light">@Html.Raw(Model.CongNhanVienComponent.Name)</label>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="counter text-dark appear-animation"
-                     data-appear-animation="fadeInLeftShorter"
-                     data-appear-animation-delay="300">
-                    <i class="fad fa-warehouse-alt"></i>
-                    <strong data-to="68000" data-append="+">0</strong>
-                    <label class="font-weight-light">Diện tích nhà máy (m<sup>2</sup>)</label>
+            }
+
+            @if (Model.DienTichNhaMayComponent != null)
+            {
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="counter text-dark appear-animation"
+                         data-appear-animation="fadeInLeftShorter"
+                         data-appear-animation-delay="300">
+                        <i class="fad fa-warehouse-alt"></i>
+                        <strong data-to="@Html.Raw(Model.DienTichNhaMayComponent.SubTitle)" data-append="+">0</strong>
+                        <label class="font-weight-light">@Html.Raw(Model.DienTichNhaMayComponent.Name) (m<sup>2</sup>)</label>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="counter text-dark appear-animation"
-                     data-appear-animation="fadeInLeftShorter"
-                     data-appear-animation-delay="500">
-                    <i class="fad fa-industry-alt"></i>
-                    <strong data-to="28">0</strong>
-                    <label class="font-weight-light">Chi nhánh</label>
+            }
+
+            @if (Model.ChiNhanhComponent != null)
+            {
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="counter text-dark appear-animation"
+                         data-appear-animation="fadeInLeftShorter"
+                         data-appear-animation-delay="500">
+                        <i class="fad fa-industry-alt"></i>
+                        <strong data-to="@Html.Raw(Model.ChiNhanhComponent.SubTitle)">0</strong>
+                        <label class="font-weight-light">@Html.Raw(Model.ChiNhanhComponent.Name)</label>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="counter text-dark appear-animation"
-                     data-appear-animation="fadeInLeftShorter"
-                     data-appear-animation-delay="700">
-                    <i class="fad fa-tshirt"></i>
-                    <strong data-to="20000000" data-append="+">0</strong>
-                    <label class="font-weight-light">Sản phẩm/năm</label>
+            }
+
+            @if (Model.SanPhamNamComponent != null)
+            {
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="counter text-dark appear-animation"
+                         data-appear-animation="fadeInLeftShorter"
+                         data-appear-animation-delay="700">
+                        <i class="fad fa-tshirt"></i>
+                        <strong data-to="@Html.Raw(Model.SanPhamNamComponent.SubTitle)" data-append="+">0</strong>
+                        <label class="font-weight-light">@Html.Raw(Model.SanPhamNamComponent.Name)</label>
+                    </div>
                 </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>
@@ -762,17 +444,17 @@
         <div class="row text-center mb-4">
             <div class="col">
                 <div class="overflow-hidden">
-                    <span class="d-block top-sub-title text-color-light appear-animation"
+                    <span class="d-block top-sub-title text-color-light appear-animation text-uppercase"
                           data-appear-animation="maskUp"
                           data-appear-animation-delay="200">
-                        DANH MỤC
+                        @Html.Raw(Resources.Category)
                     </span>
                 </div>
                 <div class="overflow-hidden mb-2">
-                    <h2 class="text-color-light font-weight-bold mb-0 appear-animation"
+                    <h2 class="text-color-light font-weight-bold mb-0 appear-animation text-uppercase"
                         data-appear-animation="maskUp"
                         data-appear-animation-delay="400">
-                        LOẠI SẢN PHẨM
+                        @Html.Raw(Resources.ProductType)
                     </h2>
                 </div>
             </div>
@@ -811,7 +493,29 @@
                                 <div class="icon-box icon-box-style-5 p-4">
                                     <div class="icon-box-icon mb-3">
                                         <img style="width: 70px"
-                                             src="~/Content/Frontend/img/product-categories/tshirt-jacket.png"
+                                             src="~/Content/Frontend/img/product-categories/ao-long-polo.png"
+                                             title="@Html.Raw("Áo lông - polo")"
+                                             alt="@Html.Raw("Áo lông - polo")" />
+                                    </div>
+                                    <div class="icon-box-info">
+                                        <div class="icon-box-info-title">
+                                            <h4 class="text-color-light mb-0">@Html.Raw("ÁO LÔNG - POLO")</h4>
+                                        </div>
+                                        <p class="text-color-light font-primary">
+                                            @Html.Raw("30 Sản phẩm")
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="px-3">
+                        <a href="#">
+                            <div class="icon-box-animation-1 icon-box-animation-1-light">
+                                <div class="icon-box icon-box-style-5 p-4">
+                                    <div class="icon-box-icon mb-3">
+                                        <img style="width: 70px"
+                                             src="~/Content/Frontend/img/product-categories/skirt-pants.png"
                                              title="@Html.Raw("Váy - Quần âu")"
                                              alt="@Html.Raw("Váy - Quần âu")" />
                                     </div>
@@ -820,7 +524,7 @@
                                             <h4 class="text-color-light mb-0">@Html.Raw("VÁY - QUẦN ÂU")</h4>
                                         </div>
                                         <p class="text-color-light font-primary">
-                                            @Html.Raw("55 Sản phẩm")
+                                            @Html.Raw("23 Sản phẩm")
                                         </p>
                                     </div>
                                 </div>
@@ -832,16 +536,17 @@
                             <div class="icon-box-animation-1 icon-box-animation-1-light">
                                 <div class="icon-box icon-box-style-5 p-4">
                                     <div class="icon-box-icon mb-3">
-                                        <img width="70"
-                                             src="~/Content/Frontend/img/icons/fabric.png"
-                                             alt="" />
+                                        <img style="width: 70px"
+                                             src="~/Content/Frontend/img/product-categories/do-bao-ho.png"
+                                             title="@Html.Raw("Đồ bảo hộ")"
+                                             alt="@Html.Raw("Đồ bảo hộ")" />
                                     </div>
                                     <div class="icon-box-info">
                                         <div class="icon-box-info-title">
-                                            <h4 class="text-color-light mb-0">ĐỒ BẢO HỘ</h4>
+                                            <h4 class="text-color-light mb-0">@Html.Raw("ĐỒ BẢO HỘ")</h4>
                                         </div>
                                         <p class="text-color-light font-primary">
-                                            15 Sản phẩm
+                                            @Html.Raw("25 Sản phẩm")
                                         </p>
                                     </div>
                                 </div>
@@ -853,16 +558,17 @@
                             <div class="icon-box-animation-1 icon-box-animation-1-light">
                                 <div class="icon-box icon-box-style-5 p-4">
                                     <div class="icon-box-icon mb-3">
-                                        <img width="70"
-                                             src="~/Content/Frontend/img/icons/fashion.png"
-                                             alt="" />
+                                        <img style="width: 100px"
+                                             src="~/Content/Frontend/img/product-categories/khau-trang.png"
+                                             title="@Html.Raw("Khẩu trang")"
+                                             alt="@Html.Raw("Khẩu trang")" />
                                     </div>
                                     <div class="icon-box-info">
                                         <div class="icon-box-info-title">
-                                            <h4 class="text-color-light mb-0">KHẨU TRANG</h4>
+                                            <h4 class="text-color-light mb-0">@Html.Raw("KHẨU TRANG")</h4>
                                         </div>
                                         <p class="text-color-light font-primary">
-                                            25 Sản phẩm
+                                            @Html.Raw("32 Sản phẩm")
                                         </p>
                                     </div>
                                 </div>
@@ -879,9 +585,10 @@
 <section class="section pt-5 pb-0">
     <div class="container">
         <div class="row align-items-end mb-5">
-            <div class="col-md-5 mb-4 mb-md-0">
+            <div class="col-md-3 mb-4 mb-md-0">
                 <div class="overflow-hidden mb-2">
                     <h2 class="font-weight-bold mb-0 appear-animation"
+                        style="font-size: 1.5rem"
                         data-appear-animation="maskUp">
                         SẢN PHẨM NỔI BẬT
                     </h2>
@@ -896,7 +603,7 @@
                   </p>
                 </div> -->
             </div>
-            <div class="col-md-7 appear-animation"
+            <div class="col-md-9 appear-animation"
                  data-appear-animation="fadeInRightShorter"
                  data-appear-animation-delay="400">
                 <ul class="nav sort-source custom-nav-style-1 justify-content-center justify-content-md-end"
@@ -904,19 +611,22 @@
                     data-option-key="filter"
                     data-plugin-options="{'layoutMode': 'masonry', 'filter': '*'}">
                     <li class="nav-item" data-option-value="*">
-                        <a class="nav-link active pl-3" href="#">SHOW ALL</a>
+                        <a class="nav-link active pl-3 text-uppercase" href="#">@Resources.ShowAll</a>
                     </li>
-                    <li class="nav-item" data-option-value=".building">
-                        <a class="nav-link" href="#">BUILDING</a>
+                    <li class="nav-item" data-option-value=".tshirt-jacket">
+                        <a class="nav-link" href="#">ÁO PHÔNG - JACKET</a>
                     </li>
-                    <li class="nav-item" data-option-value=".consulting">
-                        <a class="nav-link" href="#">CONSULTING</a>
+                    <li class="nav-item" data-option-value=".long-polo">
+                        <a class="nav-link" href="#">ÁO LÔNG - POLO</a>
                     </li>
-                    <li class="nav-item" data-option-value=".interior">
-                        <a class="nav-link" href="#">INTERIOR</a>
+                    <li class="nav-item" data-option-value=".skirt-pants">
+                        <a class="nav-link" href="#">VÁY - QUẦN ÂU</a>
                     </li>
-                    <li class="nav-item" data-option-value=".office">
-                        <a class="nav-link" href="#">OFFICE</a>
+                    <li class="nav-item" data-option-value=".do-bao-ho">
+                        <a class="nav-link" href="#">ĐỒ BẢO HỘ</a>
+                    </li>
+                    <li class="nav-item" data-option-value=".khau-trang">
+                        <a class="nav-link" href="#">KHẨU TRANG</a>
                     </li>
                 </ul>
             </div>
@@ -926,164 +636,235 @@
         <div class="row">
             <div class="col p-0">
                 <div class="sort-destination-loader sort-destination-loader-showing">
-                    <div class="portfolio-list sort-destination"
+                    <div class="portfolio-list sort-destination lightbox"
+                         data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}"
                          data-sort-id="portfolio">
-                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item building">
-                            <div class="portfolio-item appear-animation"
-                                 data-appear-animation="fadeInUpShorter"
-                                 data-appear-animation-delay="600">
-                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
-                                    <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-2.jpg"
-                                             class="img-fluid"
-                                             alt="" />
-                                        <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                Okler Headquarter
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Building
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item consulting">
-                            <div class="portfolio-item appear-animation"
-                                 data-appear-animation="fadeInUpShorter"
-                                 data-appear-animation-delay="800">
-                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
-                                    <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-3.jpg"
-                                             class="img-fluid"
-                                             alt="" />
-                                        <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                Modern House
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Building
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item consulting">
-                            <div class="portfolio-item appear-animation"
-                                 data-appear-animation="fadeInUpShorter"
-                                 data-appear-animation-delay="1000">
-                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
-                                    <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-4.jpg"
-                                             class="img-fluid"
-                                             alt="" />
-                                        <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                Building Consulting
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Consulting
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2-5 p-0 isotope-item interior">
-                            <div class="portfolio-item appear-animation"
-                                 data-appear-animation="fadeInUpShorter"
-                                 data-appear-animation-delay="1200">
-                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
-                                    <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-1.jpg"
-                                             class="img-fluid"
-                                             alt="" />
-                                        <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                Decoration
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Interior
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item interior">
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item tshirt-jacket">
                             <div class="portfolio-item appear-animation"
                                  data-appear-animation="fadeInUpShorter"
                                  data-appear-animation-delay="200">
                                 <div class="image-frame image-frame-style-1 image-frame-effect-1">
                                     <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-5.jpg"
-                                             class="img-fluid"
-                                             alt="" />
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-01.jpg" alt="Sản Phẩm 01">
                                         <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                House Decor
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Interior
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 01</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-01.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 01">
+                                                <i class="fas fa-search"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item construction">
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item skirt-pants">
                             <div class="portfolio-item appear-animation"
                                  data-appear-animation="fadeInUpShorter"
                                  data-appear-animation-delay="400">
                                 <div class="image-frame image-frame-style-1 image-frame-effect-1">
                                     <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-6.jpg"
-                                             class="img-fluid"
-                                             alt="" />
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-02.jpg" alt="Sản Phẩm 02">
                                         <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                Structure Building
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Building
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 02</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-02.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 02">
+                                                <i class="fas fa-search"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item office">
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item tshirt-jacket">
                             <div class="portfolio-item appear-animation"
                                  data-appear-animation="fadeInUpShorter"
                                  data-appear-animation-delay="600">
                                 <div class="image-frame image-frame-style-1 image-frame-effect-1">
                                     <div class="image-frame-wrapper">
-                                        <img src="~/Content/Frontend/img/demos/construction/projects/project-7.jpg"
-                                             class="img-fluid"
-                                             alt="" />
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-03.jpg" alt="Sản Phẩm 03">
                                         <div class="image-frame-info flex-column align-items-center">
-                                            <h3 class="text-color-light font-weight-bold text-4 mb-0">
-                                                Office Building
-                                            </h3>
-                                            <div class="category text-color-light mb-4">
-                                                Office
-                                            </div>
-                                            <a href="portfolio-detail-1.html"
-                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold">VIEW MORE</a>
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 03</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-03.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 03">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item long-polo">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="800">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-04.jpg" alt="Sản Phẩm 04">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 04</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-04.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 04">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item do-bao-ho">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="1000">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-05.jpg" alt="Sản Phẩm 05">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 05</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-05.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 05">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item skirt-pants">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="200">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-06.jpg" alt="Sản Phẩm 06">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 06</h3>
+                                            <div class="category text-color-light mb-4">Áo phông - jacket</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-06.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 06">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item tshirt-jacket">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="400">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-07.jpg" alt="Sản Phẩm 07">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 07</h3>
+                                            <div class="category text-color-light mb-4">Áo phông - jacket</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-07.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 07">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item tshirt-jacket">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="600">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-08.jpg" alt="Sản Phẩm 08">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 08</h3>
+                                            <div class="category text-color-light mb-4">Áo phông - jacket</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-08.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 08">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2-5 p-0 isotope-item long-polo">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="1200">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-big.jpg" alt="Sản Phẩm Nổi Bật">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm Nổi Bật</h3>
+                                            <div class="category text-color-light mb-4">Áo phông - jacket</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-big.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm Nổi Bật">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item do-bao-ho">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="200">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-09.jpg" alt="Sản Phẩm 09">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 09</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-09.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 09">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item khau-trang">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="400">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-10.jpg" alt="Sản Phẩm 10">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 10</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-10.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 10">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-1-5 p-0 isotope-item khau-trang">
+                            <div class="portfolio-item appear-animation"
+                                 data-appear-animation="fadeInUpShorter"
+                                 data-appear-animation-delay="600">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img class="img-fluid" src="~/Content/Frontend/img/featured-products/product-11.jpg" alt="Sản Phẩm 11">
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Sản Phẩm 11</h3>
+                                            <div class="category text-color-light mb-4">Áo lông - polo</div>
+                                            <a href="~/Content/Frontend/img/featured-products/product-11.jpg"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold" title="Sản Phẩm 11">
+                                                <i class="fas fa-search"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

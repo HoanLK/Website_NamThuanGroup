@@ -25,16 +25,17 @@ namespace CMS.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AlbumImage> AlbumImages { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
-        public virtual DbSet<CategoryPost> CategoryPosts { get; set; }
         public virtual DbSet<CategoryProject> CategoryProjects { get; set; }
+        public virtual DbSet<ComponentImage> ComponentImages { get; set; }
+        public virtual DbSet<Component> Components { get; set; }
         public virtual DbSet<ImageBanner> ImageBanners { get; set; }
         public virtual DbSet<Info> Infoes { get; set; }
+        public virtual DbSet<PostCategory> PostCategories { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
     }
 }

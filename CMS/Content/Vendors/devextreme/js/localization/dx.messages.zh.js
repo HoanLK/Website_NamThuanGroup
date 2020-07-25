@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.zh.js)
-* Version: 20.1.1 (build 20064-2016)
-* Build date: Wed Mar 04 2020
+* Version: 20.2.0 (build 20195-1008)
+* Build date: Mon Jul 13 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -295,6 +295,7 @@
             "dxFileManager-errorMaxFileSizeExceeded": "TODO",
             "dxFileManager-errorInvalidSymbols": "TODO",
             "dxFileManager-errorDefault": "TODO",
+            "dxFileManager-errorDirectoryOpenFailed": "TODO",
             "dxDiagram-categoryGeneral": "TODO",
             "dxDiagram-categoryFlowchart": "TODO",
             "dxDiagram-categoryOrgChart": "TODO",
@@ -357,6 +358,10 @@
             "dxDiagram-commandInsertShapeImage": "TODO",
             "dxDiagram-commandEditShapeImage": "TODO",
             "dxDiagram-commandDeleteShapeImage": "TODO",
+            "dxDiagram-commandLayoutLeftToRight": "TODO",
+            "dxDiagram-commandLayoutRightToLeft": "TODO",
+            "dxDiagram-commandLayoutTopToBottom": "TODO",
+            "dxDiagram-commandLayoutBottomToTop": "TODO",
             "dxDiagram-unitIn": "TODO",
             "dxDiagram-unitCm": "TODO",
             "dxDiagram-unitPx": "TODO",
@@ -368,16 +373,13 @@
             "dxDiagram-dialogEditShapeImageLabelText": "TODO",
             "dxDiagram-uiExport": "TODO",
             "dxDiagram-uiProperties": "TODO",
+            "dxDiagram-uiSettings": "TODO",
             "dxDiagram-uiShowToolbox": "TODO",
             "dxDiagram-uiSearch": "TODO",
             "dxDiagram-uiStyle": "TODO",
             "dxDiagram-uiLayout": "TODO",
             "dxDiagram-uiLayoutTree": "TODO",
             "dxDiagram-uiLayoutLayered": "TODO",
-            "dxDiagram-uiLayoutLeftToRight": "TODO",
-            "dxDiagram-uiLayoutRightToLeft": "TODO",
-            "dxDiagram-uiLayoutTopToBottom": "TODO",
-            "dxDiagram-uiLayoutBottomToTop": "TODO",
             "dxDiagram-uiDiagram": "TODO",
             "dxDiagram-uiText": "TODO",
             "dxDiagram-uiObject": "TODO",
@@ -427,7 +429,38 @@
             "dxDiagram-shapeCardDefaultText": "TODO",
             "dxDiagram-shapeCardWithImageOnLeft": "TODO",
             "dxDiagram-shapeCardWithImageOnTop": "TODO",
-            "dxDiagram-shapeCardWithImageOnRight": "TODO"
+            "dxDiagram-shapeCardWithImageOnRight": "TODO",
+            "dxGantt-dialogTitle": "TODO",
+            "dxGantt-dialogStartTitle": "TODO",
+            "dxGantt-dialogEndTitle": "TODO",
+            "dxGantt-dialogProgressTitle": "TODO",
+            "dxGantt-dialogResourcesTitle": "TODO",
+            "dxGantt-dialogResourceManagerTitle": "TODO",
+            "dxGantt-dialogTaskDetailsTitle": "TODO",
+            "dxGantt-dialogEditResourceListHint": "TODO",
+            "dxGantt-dialogEditNoResources": "TODO",
+            "dxGantt-dialogButtonAdd": "TODO",
+            "dxGantt-contextMenuNewTask": "TODO",
+            "dxGantt-contextMenuNewSubtask": "TODO",
+            "dxGantt-contextMenuDeleteTask": "TODO",
+            "dxGantt-contextMenuDeleteDependency": "TODO",
+            "dxGantt-dialogTaskDeleteConfirmation": "TODO",
+            "dxGantt-dialogDependencyDeleteConfirmation": "TODO",
+            "dxGantt-dialogResourcesDeleteConfirmation": "TODO",
+            "dxGantt-dialogConstraintCriticalViolationMessage": "TODO",
+            "dxGantt-dialogConstraintViolationMessage": "TODO",
+            "dxGantt-dialogCancelOperationMessage": "TODO",
+            "dxGantt-dialogDeleteDependencyMessage": "TODO",
+            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO",
+            "dxGantt-undo": "TODO",
+            "dxGantt-redo": "TODO",
+            "dxGantt-expandAll": "TODO",
+            "dxGantt-collapseAll": "TODO",
+            "dxGantt-addNewTask": "TODO",
+            "dxGantt-deleteSelectedTask": "TODO",
+            "dxGantt-zoomIn": "TODO",
+            "dxGantt-zoomOut": "TODO",
+            "dxGantt-fullScreen": "TODO"
         }
     })
 });

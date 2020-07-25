@@ -67,55 +67,26 @@ export default class PostService {
     return this.$http.put(`${API_URL}/${id}`, data);
   }
 
+  // EDIT
+  delete(id) {
+    return this.$http.delete(`${API_URL}/${id}`);
+  }
+
   //--- REDIRECT ---
 
   // REDIRECT LIST
   redirectList() {
-    this.$window.location.href = "/Admin#!/Post";
+    this.$window.location.href = "/admin#!/post";
   }
 
   // REDIRECT EDIT
   redirectEdit(id) {
-    this.$window.location.href = `/Admin#!/post/edit/${id}`;
-  }
-
-  // REDIRECT AFTER EDIT
-  redirectAfterEdit(request) {
-    switch (request) {
-      case "Edit":
-        Init();
-        break;
-      case "New":
-        this.$window.location.href = "/Admin#!/post/edit";
-        break;
-      case "Exit":
-        this.$window.location.href = "/Admin#!/post";
-        break;
-    }
+    this.$window.location.href = `/admin#!/post/edit/${id}`;
   }
 
   // REDIRECT CREATE
   redirectCreate() {
-    this.$window.location.href = "/Admin#!/post/edit";
-  }
-
-  // REDIRECT AFTER CREATE
-  redirectAfterCreate(request, id) {
-    switch (request) {
-      case "Edit":
-        $window.location.href = `/Admin#!/post/edit/${id}`;
-        break;
-      case "New":
-        Init();
-        break;
-      case "Exit":
-        $window.location.href = "/Admin#!/post";
-        break;
-    }
-  }
-  // REDIRECT CANCEL
-  redirectCancel() {
-    this.$window.location.href = "/Admin#!/post";
+    this.$window.location.href = "/admin#!/post/create";
   }
 }
 

@@ -8,6 +8,15 @@
 .block-content {
   padding: 5px 0px 0px;
 }
+
+/* MEDIA IMAGE */
+.media-image-link {
+  color: #0073aa !important;
+  text-decoration: underline;
+  font-style: italic;
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .content .block {
     margin-bottom: 0px;

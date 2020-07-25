@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.hu.js)
-* Version: 20.1.1 (build 20064-2016)
-* Build date: Wed Mar 04 2020
+* Version: 20.2.0 (build 20195-1008)
+* Build date: Mon Jul 13 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -294,6 +294,7 @@
             "dxFileManager-errorWrongFileExtension": "Nem enged\xe9lyezett f\xe1jlt\xedpus",
             "dxFileManager-errorMaxFileSizeExceeded": "A f\xe1jlm\xe9ret meghaladja a megengedett legnagyobb m\xe9retet",
             "dxFileManager-errorDefault": "Ismeretlen hiba.",
+            "dxFileManager-errorDirectoryOpenFailed": "TODO",
             "dxDiagram-categoryGeneral": "\xc1ltal\xe1nos",
             "dxDiagram-categoryFlowchart": "Folyamat\xe1bra",
             "dxDiagram-categoryOrgChart": "Szervezeti \xe1bra",
@@ -356,6 +357,10 @@
             "dxDiagram-commandInsertShapeImage": "K\xe9p besz\xfar\xe1sa...",
             "dxDiagram-commandEditShapeImage": "K\xe9p cser\xe9je...",
             "dxDiagram-commandDeleteShapeImage": "K\xe9p t\xf6rl\xe9se",
+            "dxDiagram-commandLayoutLeftToRight": "TODO",
+            "dxDiagram-commandLayoutRightToLeft": "TODO",
+            "dxDiagram-commandLayoutTopToBottom": "TODO",
+            "dxDiagram-commandLayoutBottomToTop": "TODO",
             "dxDiagram-unitIn": "in",
             "dxDiagram-unitCm": "cm",
             "dxDiagram-unitPx": "px",
@@ -367,16 +372,13 @@
             "dxDiagram-dialogEditShapeImageLabelText": "vagy h\xfazza a f\xe1jlt ide",
             "dxDiagram-uiExport": "Export\xe1l\xe1s",
             "dxDiagram-uiProperties": "Tulajdons\xe1gok",
+            "dxDiagram-uiSettings": "TODO",
             "dxDiagram-uiShowToolbox": "TODO",
             "dxDiagram-uiSearch": "TODO",
             "dxDiagram-uiStyle": "TODO",
             "dxDiagram-uiLayout": "TODO",
             "dxDiagram-uiLayoutTree": "Fa",
             "dxDiagram-uiLayoutLayered": "R\xe9teges",
-            "dxDiagram-uiLayoutLeftToRight": "TODO",
-            "dxDiagram-uiLayoutRightToLeft": "TODO",
-            "dxDiagram-uiLayoutTopToBottom": "TODO",
-            "dxDiagram-uiLayoutBottomToTop": "TODO",
             "dxDiagram-uiDiagram": "TODO",
             "dxDiagram-uiText": "TODO",
             "dxDiagram-uiObject": "TODO",
@@ -426,7 +428,38 @@
             "dxDiagram-shapeCardDefaultText": "TODO",
             "dxDiagram-shapeCardWithImageOnLeft": "TODO",
             "dxDiagram-shapeCardWithImageOnTop": "TODO",
-            "dxDiagram-shapeCardWithImageOnRight": "TODO"
+            "dxDiagram-shapeCardWithImageOnRight": "TODO",
+            "dxGantt-dialogTitle": "TODO",
+            "dxGantt-dialogStartTitle": "TODO",
+            "dxGantt-dialogEndTitle": "TODO",
+            "dxGantt-dialogProgressTitle": "TODO",
+            "dxGantt-dialogResourcesTitle": "TODO",
+            "dxGantt-dialogResourceManagerTitle": "TODO",
+            "dxGantt-dialogTaskDetailsTitle": "TODO",
+            "dxGantt-dialogEditResourceListHint": "TODO",
+            "dxGantt-dialogEditNoResources": "TODO",
+            "dxGantt-dialogButtonAdd": "TODO",
+            "dxGantt-contextMenuNewTask": "TODO",
+            "dxGantt-contextMenuNewSubtask": "TODO",
+            "dxGantt-contextMenuDeleteTask": "TODO",
+            "dxGantt-contextMenuDeleteDependency": "TODO",
+            "dxGantt-dialogTaskDeleteConfirmation": "TODO",
+            "dxGantt-dialogDependencyDeleteConfirmation": "TODO",
+            "dxGantt-dialogResourcesDeleteConfirmation": "TODO",
+            "dxGantt-dialogConstraintCriticalViolationMessage": "TODO",
+            "dxGantt-dialogConstraintViolationMessage": "TODO",
+            "dxGantt-dialogCancelOperationMessage": "TODO",
+            "dxGantt-dialogDeleteDependencyMessage": "TODO",
+            "dxGantt-dialogMoveTaskAndKeepDependencyMessage": "TODO",
+            "dxGantt-undo": "TODO",
+            "dxGantt-redo": "TODO",
+            "dxGantt-expandAll": "TODO",
+            "dxGantt-collapseAll": "TODO",
+            "dxGantt-addNewTask": "TODO",
+            "dxGantt-deleteSelectedTask": "TODO",
+            "dxGantt-zoomIn": "TODO",
+            "dxGantt-zoomOut": "TODO",
+            "dxGantt-fullScreen": "TODO"
         }
     })
 });
