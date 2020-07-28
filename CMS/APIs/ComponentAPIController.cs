@@ -15,33 +15,49 @@ namespace CMS.APIs
     [Authorize]
     public class ComponentAPIController : ApiController
     {
-        private readonly CMSEntities db = new CMSEntities();
+        private readonly CMSEntities _db = new CMSEntities();
+        private readonly Mapper _mapper;
+
+        public ComponentAPIController()
+        {
+            // MAPPER
+            var config = new MapperConfiguration(
+                cfg =>
+                {
+                    // Create
+                    cfg.CreateMap<ComponentCreateResource, Component>();
+                    // Edit
+                    cfg.CreateMap<ComponentEditResource, Component>();
+                    cfg.CreateMap<Component, ComponentEditResource>().ForMember(r => r.Images, opt => opt.MapFrom(c => c.ComponentImages.Select(p => p.Link)));
+                }
+            );
+            _mapper = new Mapper(config);
+        }
 
         // GET: api/ComponentAPI
         public object Gets(DataSourceLoadOptions loadOptions)
         {
+            if (loadOptions is null)
+            {
+                return BadRequest();
+            }
+
             loadOptions.PrimaryKey = new[] { "Id" };
             loadOptions.PaginateViaPrimaryKey = true;
 
-            return DataSourceLoader.Load(db.Components, loadOptions);
+            return DataSourceLoader.Load(_db.Components, loadOptions);
         }
 
         // GET: api/ComponentAPI/5
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            Component component = await db.Components.FindAsync(id);
-            if (component == null)
+            Component data = await _db.Components.FindAsync(id);
+            if (data is null)
             {
                 return NotFound();
             }
 
-            // Mapper
-            var config = new MapperConfiguration(
-                cfg => cfg.CreateMap<Component, ComponentEditResource>().ForMember(r => r.Links, opt => opt.MapFrom(c => c.ComponentImages.Select(p => p.Link)))
-            );
-            var mapper = new Mapper(config);
-
-            return Ok(mapper.Map<Component, ComponentEditResource>(component));
+            return Ok(_mapper.Map<Component, ComponentEditResource>(data));
         }
 
         // PUT: api/ComponentAPI/5
@@ -57,42 +73,43 @@ namespace CMS.APIs
                 return BadRequest();
             }
 
-            Component component = await db.Components.FindAsync(id);
+            if (resource is null)
+            {
+                return BadRequest();
+            }
 
-            if (component == null)
+            Component data = await _db.Components.FindAsync(id);
+
+            if (data is null)
             {
                 return NotFound();
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ComponentEditResource, Component>());
-            var mapper = new Mapper(config);
+            _mapper.Map(resource, data);
+            data.ModifyUser = User.Identity.GetUserId();
+            data.ModifyTime = DateTime.Now;
 
-            mapper.Map<ComponentEditResource, Component>(resource, component);
-            component.ModifyUser = User.Identity.GetUserId();
-            component.ModifyTime = DateTime.Now;
-
-            db.Entry(component).State = EntityState.Modified;
+            _db.Entry(data).State = EntityState.Modified;
 
             // Delete Old Images
-            var oldImages = db.ComponentImages.Where(p => p.ComponentId == component.Id);
-            db.ComponentImages.RemoveRange(oldImages);
+            IQueryable<ComponentImage> oldImages = _db.ComponentImages.Where(p => p.ComponentId == data.Id);
+            _db.ComponentImages.RemoveRange(oldImages);
 
             // Add New Images
             List<ComponentImage> images = new List<ComponentImage>();
-            foreach (var link in resource.Links)
+            foreach (string link in resource.Images)
             {
                 images.Add(new ComponentImage
                 {
-                    ComponentId = component.Id,
+                    ComponentId = data.Id,
                     Link = link
                 });
             }
-            db.ComponentImages.AddRange(images);
+            _db.ComponentImages.AddRange(images);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -105,64 +122,65 @@ namespace CMS.APIs
         // POST: api/ComponentAPI
         public async Task<IHttpActionResult> PostAsync(ComponentCreateResource resource)
         {
+            if (resource is null)
+            {
+                return BadRequest();
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ComponentCreateResource, Component>());
-            var mapper = new Mapper(config);
+            Component data = _mapper.Map<ComponentCreateResource, Component>(resource);
+            data.CreateUser = User.Identity.GetUserId();
+            data.CreateTime = DateTime.Now;
 
-            var component = mapper.Map<ComponentCreateResource, Component>(resource);
-            component.CreateUser = User.Identity.GetUserId();
-            component.CreateTime = DateTime.Now;
-
-            db.Components.Add(component);
+            _db.Components.Add(data);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
 
                 // Add Media Links
                 List<ComponentImage> images = new List<ComponentImage>();
-                foreach (var link in resource.Links)
+                foreach (string link in resource.Images)
                 {
                     images.Add(new ComponentImage
                     {
-                        ComponentId = component.Id,
+                        ComponentId = data.Id,
                         Link = link
                     });
                 }
-                db.ComponentImages.AddRange(images);
-                await db.SaveChangesAsync();
+                _db.ComponentImages.AddRange(images);
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return Ok(component.Id);
+            return Ok(data.Id);
         }
 
         // DELETE: api/ComponentAPI/5
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            Component component = await db.Components.FindAsync(id);
-            if (component == null)
+            Component data = await _db.Components.FindAsync(id);
+            if (data is null)
             {
                 return NotFound();
             }
 
             // Delete Component Images
-            db.ComponentImages.RemoveRange(db.ComponentImages.Where(p => p.ComponentId == id));
+            _db.ComponentImages.RemoveRange(_db.ComponentImages.Where(p => p.ComponentId == id));
 
             // Delete Component
-            db.Components.Remove(component);
+            _db.Components.Remove(data);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {

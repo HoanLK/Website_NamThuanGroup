@@ -1,0 +1,48 @@
+﻿<!-- Main -->
+<div class="datagrid-page">
+  <div dx-data-grid="$ctrl.datagrid" dx-item-alias="item">
+    <!-- Template Funtion Button -->
+    <div data-options="dxTemplate:{ name:'functionBtnTemplate' }">
+      <!-- Edit -->
+      <button
+        type="button"
+        class="btn btn-sm btn-circle btn-alt-warning mr-5 mb-5"
+        title="Sửa thành phần"
+        ng-click="$ctrl.onEdit(item.data.Id)"
+      >
+        <i class="fa fa-edit"></i>
+      </button>
+      <!-- Delete -->
+      <button
+        type="button"
+        class="btn btn-sm btn-circle btn-alt-danger mr-5 mb-5"
+        title="Xóa thành phần"
+        ng-click="$ctrl.onDelete(item.data.Id)"
+      >
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+    <!-- Template Published -->
+    <div data-options="dxTemplate:{ name:'publishedCellTemplate' }">
+      <i
+        class="mr-5 mb-5 text-success fa fa-check"
+        title="Đã xuất bản"
+        ng-if="item.value"
+      ></i>
+      <i
+        class="mr-5 mb-5 text-danger fa fa-times"
+        title="Chưa xuất bản"
+        ng-if="!item.value"
+      ></i>
+    </div>
+  </div>
+</div>
+
+<!-- Delete -->
+<module-delete
+  ng-if="$ctrl.delete.visible === true"
+  id="$ctrl.delete.id"
+  visible="$ctrl.delete.visible"
+  on-deleted="$ctrl.onDeleted()"
+  on-close="$ctrl.onClosedDelete()"
+></module-delete>

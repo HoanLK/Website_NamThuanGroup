@@ -3052,7 +3052,7 @@ Theme Version:	1.1.0
 					darkDots   = $el.find('.dots-color-dark'),
 					darkDotsLeft = ( !firstTime ) ? parseFloat( nextItem2.css('left') ) / nextItem2.parent().width() * 100 : parseFloat( nextItem.css('left') ) / nextItem.parent().width() * 100,
 					darkDotsWidth = 140,
-					darkDotsTransitionDuration = self.options.delay - 1000;
+					darkDotsTransitionDuration = self.options.delay - 400;
 
 				// If mobile
 				if( $window.width() < 992 ) {

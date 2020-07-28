@@ -9,17 +9,19 @@
         <EntityTypeShape EntityType="BDSHDModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.625" />
         <EntityTypeShape EntityType="BDSHDModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="BDSHDModel.AspNetUser" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="BDSHDModel.Banner" Width="1.5" PointX="5.75" PointY="6.75" />
-        <EntityTypeShape EntityType="BDSHDModel.CategoryProject" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BDSHDModel.ComponentImage" Width="1.5" PointX="3" PointY="8.25" />
-        <EntityTypeShape EntityType="BDSHDModel.Component" Width="1.5" PointX="0.75" PointY="7" />
-        <EntityTypeShape EntityType="BDSHDModel.ImageBanner" Width="1.5" PointX="7.75" PointY="5.75" />
-        <EntityTypeShape EntityType="BDSHDModel.Info" Width="1.5" PointX="7.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BDSHDModel.PostCategory" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BDSHDModel.Post" Width="1.5" PointX="9.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Banner" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDSHDModel.CategoryProject" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BDSHDModel.ComponentImage" Width="1.5" PointX="5.25" PointY="9.25" />
+        <EntityTypeShape EntityType="BDSHDModel.Component" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="BDSHDModel.ImageBanner" Width="1.5" PointX="7.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Info" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Module" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="BDSHDModel.PostCategory" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Post" Width="1.5" PointX="11.75" PointY="6.75" />
         <AssociationConnector Association="BDSHDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BDSHDModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BDSHDModel.FK_ComponentImages_Components" />
+        <AssociationConnector Association="BDSHDModel.FK_Components_Modules" />
         <AssociationConnector Association="BDSHDModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>

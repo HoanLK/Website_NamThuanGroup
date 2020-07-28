@@ -11,7 +11,7 @@
                 <div class="card-body appear-animation" data-appear-animation="fadeInRightShorter">
                     <span class="top-sub-title text-color-light opacity-5 text-uppercase">@Html.Raw(component.SubTitle)</span>
                     <h2 class="font-weight-bold text-color-light text-5 mb-3 text-uppercase">
-                        @Html.Raw(component.Name)
+                        @Html.Raw(component.MainTitle)
                     </h2>
                     <p class="text-color-light opacity-7 mb-0">
                         @Html.Raw(component.Content)
@@ -23,7 +23,7 @@
 }
 
 <!-- CatImage -->
-@helper catImage(ComponentViewModel component, string text, string animateIn, string animateOut, int timeout)
+@helper catImage(ComponentViewModel component, string text, string animateIn, string animateOut, double timeout)
 {
     if (component != null)
     {
@@ -296,29 +296,17 @@
 <section class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-duration="1s">
     <div class="container-fluid">
         <div class="row">
-            <!-- Hiện đại text -->
-            @catText(Model.HienDaiTextComponent)
-
-            <!-- Hiện đại image 1 -->
-            @catImage(Model.HienDaiImage1Component, "Cơ sở hạ tầng hiện đại", "fadeIn", "fadeOut", 5000)
-
-            <!-- Tay nghề cao image -->
-            @catImage(Model.TayNgheCaoImageComponent, "Đội ngũ nhân sự tay nghề cao", "fadeInDown", "fadeOutDown", 7000)
-
-            <!-- Tay nghề cao text -->
-            @catText(Model.TayNgheCaoTextComponent)
-
-            <!-- Hiện đại image 2 -->
-            @catImage(Model.HienDaiImage2Component, "Cơ sở hạ tầng hiện đại", "fadeIn", "fadeOut", 6000)
-
-            <!-- Đa dạng chất lượng image 1 -->
-            @catImage(Model.DaDangChatLuongImage1Component, "Sản phẩm Đa dạng & Chất lượng", "fadeInRight", "fadeOutLeft", 5000)
-
-            <!-- Đa dạng chất lương text -->
-            @catText(Model.DaDangChatLuongTextComponent)
-
-            <!-- Đa dạng chất lượng image 2 -->
-            @catImage(Model.DaDangChatLuongImage2Component, "Sản phẩm Đa dạng & Chất lượng", "fadeInUp", "fadeOutDown", 7000)
+            @foreach (var component in Model.GioiThieuDacDiem.Components.OrderBy(p => p.SortOrder))
+            {
+                if (!string.IsNullOrEmpty(component.MainTitle))
+                {
+                    @catText(component)
+                }
+                else
+                {
+                    @catImage(component, component.MainTitle + " " + component.SubTitle, component.AnimateIn, component.AnimateOut, component.Timeout)
+                }
+            }
         </div>
     </div>
 </section>
@@ -331,25 +319,25 @@
                 <div class="appear-animation"
                      data-appear-animation="fadeInUpShorter"
                      data-appear-animation-delay="100">
-                    <span class="top-sub-title text-color-primary text-uppercase">@Html.Raw(Model.NamThuanGroupComponent.SubTitle)</span>
+                    <span class="top-sub-title text-color-primary text-uppercase">@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].SubTitle)</span>
 
                     <h2 class="word-rotator letters type font-weight-bold text-5 mb-3">
-                        <span class="text-uppercase">@Html.Raw(Model.NamThuanGroupComponent.Name)</span>
+                        <span class="text-uppercase">@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].MainTitle)</span>
                     </h2>
                 </div>
 
-                @Html.Raw(Model.NamThuanGroupComponent.Content)
+                @Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].Content)
 
                 <div class="d-block d-sm-inline-block text-center appear-animation"
                      data-appear-animation="fadeInUpShorter"
                      data-appear-animation-delay="700">
                     <a href="/about-us"
                        class="btn btn-outline btn-rounded btn-primary btn-v-3 btn-h-4 font-weight-bold mt-3 text-0">
-                        @Html.Raw(Model.NamThuanGroupComponent.TextButton)
+                        @Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].TextButton)
                     </a>
                     <span class="d-block mt-3">
                         @Html.Raw(Resources.Or)
-                        <a class="text-underline ml-2 text-0" href="@Html.Raw(Model.NamThuanGroupComponent.Link)">
+                        <a class="text-underline ml-2 text-0" href="@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].Link)">
                             @Html.Raw(Resources.ContactUs)
                         </a>
                     </span>
@@ -363,7 +351,7 @@
                         <span class="image-frame-wrapper">
                             <img src="~/Content/Frontend/img/about/background-video.jpg" class="card-img-top rounded" alt="@Html.Raw(Resources.CompanyName)" title="@Html.Raw(Resources.CompanyName)" />
                             <span class="image-frame-info image-frame-info-show flex-column align-items-center">
-                                <a href="@Html.Raw(Model.NamThuanGroupComponent.LinkMedia)" class="popup-vimeo">
+                                <a href="@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].LinkMedia)" class="popup-vimeo">
                                     <span class="icon-box icon-box-style-4 hover-anim hover-anim-effect-1">
                                         <span class="icon-box-icon bg-primary">
                                             <i class="fas fa-play text-5"></i>
@@ -380,60 +368,60 @@
 
     <!-- Counter -->
     <div class="counters container">
-        <div class="row">
-            @if (Model.CongNhanVienComponent != null)
-            {
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="counter text-dark appear-animation"
-                         data-appear-animation="fadeInLeftShorter"
-                         data-appear-animation-delay="100">
-                        <i class="fad fa-users"></i>
-                        <strong data-to="@Html.Raw(Model.CongNhanVienComponent.SubTitle)" data-append="+">0</strong>
-                        <label class="font-weight-light">@Html.Raw(Model.CongNhanVienComponent.Name)</label>
+        @*<div class="row">
+                @if (Model.CongNhanVienComponent != null)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="counter text-dark appear-animation"
+                             data-appear-animation="fadeInLeftShorter"
+                             data-appear-animation-delay="100">
+                            <i class="fad fa-users"></i>
+                            <strong data-to="@Html.Raw(Model.CongNhanVienComponent.SubTitle)" data-append="+">0</strong>
+                            <label class="font-weight-light">@Html.Raw(Model.CongNhanVienComponent.MainTitle)</label>
+                        </div>
                     </div>
-                </div>
-            }
+                }
 
-            @if (Model.DienTichNhaMayComponent != null)
-            {
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="counter text-dark appear-animation"
-                         data-appear-animation="fadeInLeftShorter"
-                         data-appear-animation-delay="300">
-                        <i class="fad fa-warehouse-alt"></i>
-                        <strong data-to="@Html.Raw(Model.DienTichNhaMayComponent.SubTitle)" data-append="+">0</strong>
-                        <label class="font-weight-light">@Html.Raw(Model.DienTichNhaMayComponent.Name) (m<sup>2</sup>)</label>
+                @if (Model.DienTichNhaMayComponent != null)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="counter text-dark appear-animation"
+                             data-appear-animation="fadeInLeftShorter"
+                             data-appear-animation-delay="300">
+                            <i class="fad fa-warehouse-alt"></i>
+                            <strong data-to="@Html.Raw(Model.DienTichNhaMayComponent.SubTitle)" data-append="+">0</strong>
+                            <label class="font-weight-light">@Html.Raw(Model.DienTichNhaMayComponent.MainTitle)</label>
+                        </div>
                     </div>
-                </div>
-            }
+                }
 
-            @if (Model.ChiNhanhComponent != null)
-            {
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="counter text-dark appear-animation"
-                         data-appear-animation="fadeInLeftShorter"
-                         data-appear-animation-delay="500">
-                        <i class="fad fa-industry-alt"></i>
-                        <strong data-to="@Html.Raw(Model.ChiNhanhComponent.SubTitle)">0</strong>
-                        <label class="font-weight-light">@Html.Raw(Model.ChiNhanhComponent.Name)</label>
+                @if (Model.ChiNhanhComponent != null)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="counter text-dark appear-animation"
+                             data-appear-animation="fadeInLeftShorter"
+                             data-appear-animation-delay="500">
+                            <i class="fad fa-industry-alt"></i>
+                            <strong data-to="@Html.Raw(Model.ChiNhanhComponent.SubTitle)">0</strong>
+                            <label class="font-weight-light">@Html.Raw(Model.ChiNhanhComponent.MainTitle)</label>
+                        </div>
                     </div>
-                </div>
-            }
+                }
 
-            @if (Model.SanPhamNamComponent != null)
-            {
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="counter text-dark appear-animation"
-                         data-appear-animation="fadeInLeftShorter"
-                         data-appear-animation-delay="700">
-                        <i class="fad fa-tshirt"></i>
-                        <strong data-to="@Html.Raw(Model.SanPhamNamComponent.SubTitle)" data-append="+">0</strong>
-                        <label class="font-weight-light">@Html.Raw(Model.SanPhamNamComponent.Name)</label>
+                @if (Model.SanPhamNamComponent != null)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="counter text-dark appear-animation"
+                             data-appear-animation="fadeInLeftShorter"
+                             data-appear-animation-delay="700">
+                            <i class="fad fa-tshirt"></i>
+                            <strong data-to="@Html.Raw(Model.SanPhamNamComponent.SubTitle)" data-append="+">0</strong>
+                            <label class="font-weight-light">@Html.Raw(Model.SanPhamNamComponent.MainTitle)</label>
+                        </div>
                     </div>
-                </div>
-            }
+                }
 
-        </div>
+            </div>*@
     </div>
 </section>
 
@@ -877,16 +865,109 @@
     </div>
 </section>
 
+<!-- Quy trình sản xuất -->
+@if (Model.QuyTrinhSanXuat != null)
+{
+    <div class="section bg-light-5" style="padding-bottom: 0px;">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <div class="overflow-hidden mb-2">
+                        <h2 class="font-weight-bold mb-0 appear-animation text-uppercase"
+                            data-appear-animation="maskUp"
+                            data-appear-animation-delay="200">
+                            Quy trình sản xuất
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center">
+                <div class="col-md-12 appear-animation"
+                     data-appear-animation="fadeInUpShorter">
+                    <div class="row">
+                        @foreach (var component in Model.QuyTrinhSanXuat.Components)
+                        {
+                            string imageStyle = "image-frame-style-" + ((component.SortOrder % 2 == 0) ? "3" : "4");
+
+                            <div class="col-md-3 mb-5">
+                                <div class="icon-box icon-box-style-5 appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="300">
+                                    <div class="icon-box-icon bg-primary hover-anim hover-anim-effect-1">
+                                        <img src="@component.Icon" class="img-fluid" alt="@Html.Raw(component.MainTitle)" title="@Html.Raw(component.MainTitle)" />
+                                    </div>
+                                    <div class="icon-box-info">
+                                        <div class="icon-box-info-title">
+                                            <h4 class="text-uppercase">@Html.Raw(component.MainTitle)</h4>
+                                        </div>
+                                        <div class="image-frame @imageStyle">
+                                            <img src="@component.LinkMedia" class="img-fluid" alt="@Html.Raw(component.MainTitle)" title="@Html.Raw(component.MainTitle)">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Quy trình kiểm soát chất lượng -->
+@if (Model.QuyTrinhKiemSoatChatLuong != null)
+{
+    <div class="section bg-light" style="padding-bottom: 0px;">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col">
+                    <div class="overflow-hidden mb-2">
+                        <h2 class="font-weight-bold mb-0 appear-animation text-uppercase"
+                            data-appear-animation="maskUp"
+                            data-appear-animation-delay="200">
+                            Quy trình kiểm soát chất lượng
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-3">
+            <div class="row justify-content-center">
+                <div class="col-md-12 appear-animation"
+                     data-appear-animation="fadeInUpShorter">
+                    <div class="row">
+                        <div class="col">
+                            <div class="steps steps-primary steps-style-2">
+                                <div class="dots appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="1200">
+                                    <img class="dots-mask" src="~/Content/Frontend/img/svg/steps-dots-bg-light.svg" alt="Quy trình kiểm soát chất lượng" title="Quy trình kiểm soát chất lượng" />
+                                    <div class="dots-color"></div>
+                                    <div class="dots-color-dark"></div>
+                                </div>
+                                @foreach (var component in Model.QuyTrinhKiemSoatChatLuong.Components)
+                                {
+                                    <div class="item appear-animation" data-appear-animation="stepsFadeInUp" data-plugin-options="{'accY': -200}">
+                                        <h5 class="item-title"><span>@component.SortOrder.<br /></span>@Html.Raw(component.MainTitle)</h5>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 <!-- Customer -->
 <div class="section bg-light-5">
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col">
                 <div class="overflow-hidden mb-2">
-                    <h2 class="font-weight-bold mb-0 appear-animation"
+                    <h2 class="font-weight-bold mb-0 appear-animation text-uppercase"
                         data-appear-animation="maskUp"
                         data-appear-animation-delay="200">
-                        ĐỐI TÁC CỦA CHÚNG TÔI
+                        Đối tác của chúng tôi
                     </h2>
                 </div>
             </div>
@@ -901,156 +982,149 @@
                      data-plugin-options="{'autoplay': true, 'autoplaySpeed': 2000, 'autoplayHoverPause': true, 'dragEndSpeed': 1000, 'dots': false, 'nav': false, 'loop': true, 'margin': 40, 'responsive': { '0': {'items': 3, 'margin': 20}, '576': {'items': 3}, '768': {'items': 3}, '992': {'items': 5}, '1200': {'items': 5}}}">
                     <div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/fabletics-960x638.jpg"
+                            <img src="~/Content/Frontend/img/logo/fabletics-960x638.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.jpg"
+                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/kuhl-960x566.jpg"
+                            <img src="~/Content/Frontend/img/logo/kuhl-960x566.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/mountain-960x638.jpg"
+                            <img src="~/Content/Frontend/img/logo/mountain-960x638.png"
+                                 class="img-fluid rounded"
+                                 alt="" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/customers/uniqlo-real.png"
+                                 class="img-fluid rounded"
+                                 alt="Uniqlo" />
+                        </div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/customers/zaza-real.png"
+                                 class="img-fluid rounded"
+                                 alt="Zaza" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/customers/hm-real.png"
+                                 class="img-fluid rounded"
+                                 alt="HM" />
+                        </div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/customers/mango-real.png"
+                                 class="img-fluid rounded"
+                                 alt="Mango" />
+                        </div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/customers/jcp-real.png"
+                                 class="img-fluid rounded"
+                                 alt="JCP" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/customers/gap-real.png"
+                                 class="img-fluid rounded"
+                                 alt="GAP" />
+                        </div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/logo/mountain-960x638.png"
+                                 class="img-fluid rounded"
+                                 alt="" />
+                        </div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                     </div>
                     <div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/lululemon-960x404.jpg"
+                            <img src="~/Content/Frontend/img/logo/kuhl-960x566.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/asics-855x300.jpg"
+                            <img src="~/Content/Frontend/img/logo/vaude-960x638.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/fabletics-960x638.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/ov-902x567.jpg"
+                            <img src="~/Content/Frontend/img/logo/asics-855x300.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/spyder-960x367.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/nike-960x465.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/alo-720x553.jpg"
+                            <img src="~/Content/Frontend/img/logo/lululemon-960x404.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                     </div>
                     <div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/gymshark-960x501.jpg"
+                            <img src="~/Content/Frontend/img/logo/nike-960x465.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/mountain-960x638.jpg"
+                            <img src="~/Content/Frontend/img/logo/alo-720x553.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/kuhl-960x566.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/vaude-960x638.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/asics-855x300.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/lululemon-960x404.jpg"
+                            <img src="~/Content/Frontend/img/logo/gymshark-960x501.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                     </div>
                     <div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/nike-960x465.jpg"
+                            <img src="~/Content/Frontend/img/logo/asics-855x300.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/alo-720x553.jpg"
+                            <img src="~/Content/Frontend/img/logo/fabletics-960x638.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/gymshark-960x501.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/asics-855x300.jpg"
+                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/fabletics-960x638.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.jpg"
-                                 class="img-fluid rounded"
-                                 alt="" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/mountain-960x638.jpg"
+                            <img src="~/Content/Frontend/img/logo/mountain-960x638.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                     </div>
                     <div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.jpg"
+                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/ov-902x567.jpg"
+                            <img src="~/Content/Frontend/img/logo/ov-902x567.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/nike-960x465.jpg"
+                            <img src="~/Content/Frontend/img/logo/nike-960x465.png"
                                  class="img-fluid rounded"
                                  alt="" />
                         </div>

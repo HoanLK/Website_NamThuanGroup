@@ -1,13 +1,20 @@
 ﻿import templateUrl from "./component-datagrid.component.html";
 
 export default class ComponentDatagridController {
-  constructor($scope, CommonService, DevextremeService, ComponentService) {
+  constructor(
+    $scope,
+    CommonService,
+    DevextremeService,
+    ComponentService,
+    ModuleService
+  ) {
     "ngInject";
 
     this.$scope = $scope;
     this.commonService = CommonService;
     this.devextremeService = DevextremeService;
     this.componentService = ComponentService;
+    this.moduleService = ModuleService;
 
     // VAR
     this.datagrid = {};
@@ -18,6 +25,7 @@ export default class ComponentDatagridController {
     };
 
     this.$scope.showFilter = true;
+    this.$scope.modules = [];
 
     // Init Datagrid
     this.datagrid = angular.extend(this.devextremeService.getDefaultGrid(), {
@@ -26,13 +34,16 @@ export default class ComponentDatagridController {
       },
       bindingOptions: {
         "filterRow.visible": "showFilter",
+        "columns[4].lookup.dataSource": "modules",
       },
       dataSource: this.componentService.gets([
         "Id",
-        "VN_Name",
-        "EN_Name",
-        "VN_SubTitle",
+        "ModuleId",
+        "Name",
+        "VN_MainTitle",
         "IsSingleMedia",
+        "SortOrder",
+        "Published",
         "CreateTime",
       ]),
       columns: [
@@ -56,10 +67,10 @@ export default class ComponentDatagridController {
         },
         {
           //1
+          allowEditing: false,
           caption: "ID",
           dataField: "Id",
           dataType: "number",
-          sortOrder: "desc",
           visible: false,
           width: 60,
         },
@@ -67,27 +78,33 @@ export default class ComponentDatagridController {
           //2
           cssClass: "font-weight-bold",
           caption: "TÊN THÀNH PHẦN",
-          dataField: "VN_Name",
+          dataField: "Name",
           dataType: "string",
           minWidth: 150,
         },
         {
           //3
-          cssClass: "font-weight-bold",
-          caption: "TÊN THÀNH PHẦN [EN]",
-          dataField: "EN_Name",
+          caption: "TIÊU ĐỀ",
+          dataField: "VN_MainTitle",
           dataType: "string",
           minWidth: 150,
         },
         {
           //4
-          caption: "TIÊU ĐỀ PHỤ",
-          dataField: "VN_SubTitle",
-          dataType: "string",
-          minWidth: 150,
+          allowEditing: false,
+          caption: "MODULE",
+          dataField: "ModuleId",
+          dataType: "number",
+          groupIndex: 0,
+          lookup: {
+            displayExpr: "Name",
+            valueExpr: "Id",
+          },
+          width: 150,
         },
         {
-          //4
+          //5
+          allowEditing: false,
           caption: "LOẠI MEDIA",
           dataField: "IsSingleMedia",
           dataType: "boolean",
@@ -97,7 +114,26 @@ export default class ComponentDatagridController {
           width: 100,
         },
         {
-          //5
+          //6
+          caption: "THỨ TỰ",
+          dataField: "SortOrder",
+          dataType: "number",
+          sortOrder: "asc",
+          width: 100,
+        },
+        {
+          //7
+          caption: "XUẤT BẢN",
+          dataField: "Published",
+          dataType: "boolean",
+          cellTemplate: "publishedCellTemplate",
+          trueText: "Xuất bản",
+          falseText: "Chưa xuất bản",
+          width: 100,
+        },
+        {
+          //8
+          allowEditing: false,
           alignment: "left",
           caption: "THỜI GIAN",
           dataField: "CreateTime",
@@ -109,6 +145,12 @@ export default class ComponentDatagridController {
           width: 100,
         },
       ],
+      editing: {
+        mode: "cell",
+        allowAdding: false,
+        allowDeleting: false,
+        allowUpdating: true,
+      },
       summary: {
         texts: {
           count: "{0}",
@@ -174,13 +216,30 @@ export default class ComponentDatagridController {
         );
       },
       onRowDblClick: (e) => {
-        this.onEdit(e.data.Id);
+        // this.onEdit(e.data.Id);
       },
     });
   }
 
   // INIT
-  $onInit() {}
+  $onInit() {
+    this.getModules();
+  }
+
+  // GET MODULES
+  getModules() {
+    this.moduleService
+      .gets(["Id", "Name"])
+      .load()
+      .then(
+        (res) => {
+          this.$scope.modules = res.data;
+        },
+        (res) => {
+          toastr.error("Lấy danh sách Module", "Thất bại");
+        }
+      );
+  }
 
   // CREATE
   onCreate() {
@@ -217,6 +276,7 @@ ComponentDatagridController.$inject = [
   "CommonService",
   "DevextremeService",
   "ComponentService",
+  "ModuleService",
 ];
 
 export const ComponentDatagridComponent = {

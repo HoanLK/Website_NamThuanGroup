@@ -8000,7 +8000,7 @@ html.ie11 .scroll-to-top {
 .flag {
     width: 16px;
     height: 11px;
-    background: url(../img/flags.png) no-repeat;
+    background: url('/Content/Frontend/img/flags.png') no-repeat;
     margin-top: -1px;
 }
 
@@ -9346,15 +9346,19 @@ html.ie .particles .img-fluid {
         }
 
         .steps .item:nth-child(2) {
-            left: 10.4%;
+            left: 5%;
         }
 
         .steps .item:nth-child(3) {
-            left: 50%;
+            left: 35%;
         }
 
         .steps .item:nth-child(4) {
-            left: 89.5%;
+            left: 65%;
+        }
+
+        .steps .item:nth-child(5) {
+            left: 94%;
         }
 
         .steps .item .item-title {
@@ -9522,7 +9526,7 @@ html.ie .particles .img-fluid {
 
     .steps.steps-style-2 .item {
         width: 280px;
-        height: 280px;
+        height: 260px;
         border: none;
     }
 
@@ -9538,12 +9542,13 @@ html.ie .particles .img-fluid {
             top: 30%;
             color: #1c1f21;
             font-size: 16px;
-            font-size: 1rem;
+            font-size: 1.5rem;
+            line-height: 2rem;
         }
 
             .steps.steps-style-2 .item .item-title span {
                 position: static;
-                font-size: 4em;
+                font-size: 2em;
                 font-weight: 900;
                 margin-right: 7px;
                 -webkit-transition: ease color 300ms;
@@ -9606,7 +9611,7 @@ html.ie .particles .img-fluid {
             }
 
     .steps.steps-style-2 .dots {
-        top: 38%;
+        top: 45%;
         width: 85%;
     }
 
@@ -9717,7 +9722,7 @@ html.ie .particles .img-fluid {
 /* Responsive */
 @media (max-width: 991px) {
     .steps {
-        min-height: 750px;
+        min-height: 1050px;
         margin-top: 70px;
         margin-bottom: 30px;
         /* Steps Style 2 */
@@ -9729,16 +9734,21 @@ html.ie .particles .img-fluid {
         }
 
             .steps .item:nth-child(2) {
-                top: 10%;
+                top: 5%;
             }
 
             .steps .item:nth-child(3) {
-                top: 50%;
+                top: 35%;
             }
 
             .steps .item:nth-child(4) {
-                top: 90%;
+                top: 65%;
             }
+
+            .steps .item:nth-child(5) {
+                top: 94%;
+            }
+            
 
         .steps .dots {
             top: 48%;
@@ -9749,11 +9759,11 @@ html.ie .particles .img-fluid {
         .steps.steps-style-2 .item:after {
             content: '';
             position: absolute;
-            top: 30px;
+            top: 0px;
             bottom: 30px;
             left: 0;
             width: 100%;
-            height: 82%;
+            height: 65%;
             background: #FFF;
             z-index: -1;
             -webkit-transform: translate3d(0, 0, 0);
@@ -9795,7 +9805,7 @@ html.ie .particles .img-fluid {
         }
 
         .steps.steps-style-2 .dots {
-            width: 590px;
+            width: 1000px;
         }
 
         .steps.steps-style-3 .dots {

@@ -13,31 +13,49 @@ namespace CMS.APIs
     [Authorize]
     public class PostAPIController : ApiController
     {
-        private readonly CMSEntities db = new CMSEntities();
+        private readonly CMSEntities _db = new CMSEntities();
+        private readonly Mapper _mapper;
+
+        public PostAPIController()
+        {
+            // MAPPER
+            var config = new MapperConfiguration(
+                cfg =>
+                {
+                    // Create
+                    cfg.CreateMap<PostCreateResource, Post>();
+                    // Edit
+                    cfg.CreateMap<PostEditResource, Post>();
+                    cfg.CreateMap<Post, PostEditResource>();
+                }
+            );
+            _mapper = new Mapper(config);
+        }
 
         // GET: api/PostAPI
         public object Gets(DataSourceLoadOptions loadOptions)
         {
+            if (loadOptions is null)
+            {
+                return BadRequest();
+            }
+
             loadOptions.PrimaryKey = new[] { "Id" };
             loadOptions.PaginateViaPrimaryKey = true;
 
-            return DataSourceLoader.Load(db.Posts, loadOptions);
+            return DataSourceLoader.Load(_db.Posts, loadOptions);
         }
 
         // GET: api/PostAPI/5
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            Post post = await db.Posts.FindAsync(id);
-            if (post == null)
+            Post data = await _db.Posts.FindAsync(id);
+            if (data is null)
             {
                 return NotFound();
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Post, PostEditResource>());
-            var mapper = new Mapper(config);
-
-            return Ok(mapper.Map<Post, PostEditResource>(post));
+            return Ok(_mapper.Map<Post, PostEditResource>(data));
         }
 
         // PUT: api/PostAPI/5
@@ -53,26 +71,27 @@ namespace CMS.APIs
                 return BadRequest();
             }
 
-            var post = await db.Posts.FindAsync(id);
+            if (resource is null)
+            {
+                return BadRequest();
+            }
 
-            if (post == null)
+            Post data = await _db.Posts.FindAsync(id);
+
+            if (data == null)
             {
                 return NotFound();
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostEditResource, Post>());
-            var mapper = new Mapper(config);
+            _mapper.Map(resource, data);
+            data.ModifyUser = User.Identity.GetUserId();
+            data.ModifyTime = DateTime.Now;
 
-            mapper.Map<PostEditResource, Post>(resource, post);
-            post.ModifyUser = User.Identity.GetUserId();
-            post.ModifyTime = DateTime.Now;
-
-            db.Entry(post).State = EntityState.Modified;
+            _db.Entry(data).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -85,47 +104,48 @@ namespace CMS.APIs
         // POST: api/PostAPI
         public async Task<IHttpActionResult> PostAsync(PostCreateResource resource)
         {
+            if (resource is null)
+            {
+                return BadRequest();
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCreateResource, Post>());
-            var mapper = new Mapper(config);
+            Post data = _mapper.Map<PostCreateResource, Post>(resource);
+            data.CreateUser = User.Identity.GetUserId();
+            data.CreateTime = DateTime.Now;
 
-            var post = mapper.Map<PostCreateResource, Post>(resource);
-            post.CreateUser = User.Identity.GetUserId();
-            post.CreateTime = DateTime.Now;
-
-            db.Posts.Add(post);
+            _db.Posts.Add(data);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return Ok(post.Id);
+            return Ok(data.Id);
         }
 
         // DELETE: api/PostAPI/5
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            Post post = await db.Posts.FindAsync(id);
-            if (post == null)
+            Post data = await _db.Posts.FindAsync(id);
+            if (data is null)
             {
                 return NotFound();
             }
 
-            db.Posts.Remove(post);
+            _db.Posts.Remove(data);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {

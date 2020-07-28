@@ -9,7 +9,7 @@ namespace CMS.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("CMSConnection", throwIfV1Schema: false)
         {
         }
 

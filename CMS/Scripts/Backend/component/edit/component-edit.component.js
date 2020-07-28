@@ -8,7 +8,8 @@ export default class ComponentEditController {
     $timeout,
     DevextremeService,
     CommonService,
-    ComponentService
+    ComponentService,
+    ModuleService
   ) {
     "ngInject";
 
@@ -18,11 +19,13 @@ export default class ComponentEditController {
     this.devextremeService = DevextremeService;
     this.commonService = CommonService;
     this.componentService = ComponentService;
+    this.moduleService = ModuleService;
 
     this.loadPanelInstance = {};
 
     this.$scope.id = this.$stateParams.id;
     this.$scope.data = {};
+    this.$scope.modules = [];
 
     // SET TITLE
     $rootScope.title = "Sửa thành phần";
@@ -31,17 +34,47 @@ export default class ComponentEditController {
   // INIT
   $onInit() {
     this.initControls();
+    this.getModules();
     this.getComponent();
   }
 
   // INIT CONTROLS
   initControls() {
     this.controls = {
-      // VN
-      tbVNName: {
+      tbName: {
         showClearButton: true,
         bindingOptions: {
-          value: "data.VN_Name",
+          value: "data.Name",
+        },
+      },
+      slbModule: {
+        displayExpr: "Name",
+        valueExpr: "Id",
+        searchEnabled: true,
+        placeholder: "Chọn module ...",
+        showClearButton: true,
+        bindingOptions: {
+          dataSource: "modules",
+          value: "data.ModuleId",
+        },
+      },
+      nbSortOrder: {
+        showClearButton: true,
+        bindingOptions: {
+          value: "data.SortOrder",
+        },
+      },
+      cbPublished: {
+        bindingOptions: {
+          value: "data.Published",
+        },
+        text: " Xuất bản",
+      },
+      // VN
+      tbVNMainTitle: {
+        showClearButton: true,
+        bindingOptions: {
+          value: "data.VN_MainTitle",
         },
       },
       tbVNSubTitle: {
@@ -63,10 +96,10 @@ export default class ComponentEditController {
         },
       },
       // EN
-      tbENName: {
+      tbENMainTitle: {
         showClearButton: true,
         bindingOptions: {
-          value: "data.EN_Name",
+          value: "data.EN_MainTitle",
         },
       },
       tbENSubTitle: {
@@ -118,6 +151,7 @@ export default class ComponentEditController {
           value: "data.Note",
         },
       },
+      // Media
       btnAddMedia: {
         icon: "fa fa-image",
         text: "CHỌN MEDIA",
@@ -125,6 +159,42 @@ export default class ComponentEditController {
         onClick: () => {
           this.addMedia();
         },
+      },
+      tbAnimateIn: {
+        showClearButton: true,
+        bindingOptions: {
+          value: "data.AnimateIn",
+        },
+      },
+      tbAnimateOut: {
+        showClearButton: true,
+        bindingOptions: {
+          value: "data.AnimateOut",
+        },
+      },
+      nbTimeout: {
+        showClearButton: true,
+        bindingOptions: {
+          value: "data.Timeout",
+        },
+      },
+      tbIcon: {
+        bindingOptions: {
+          value: "data.Icon",
+        },
+        buttons: [
+          {
+            location: "after",
+            name: "chooseIcon",
+            options: {
+              icon: "image",
+              hint: "Chọn icon",
+              onClick: (e) => {
+                this.chooseIcon();
+              },
+            },
+          },
+        ],
       },
       btnSave: {
         icon: "fa fa-save",
@@ -162,6 +232,21 @@ export default class ComponentEditController {
         },
       }
     );
+  }
+
+  // Get Modules
+  getModules() {
+    this.moduleService
+      .gets(["Id", "Name"])
+      .load()
+      .then(
+        (res) => {
+          this.$scope.modules = res.data;
+        },
+        (res) => {
+          toastr.error("Lấy danh sách Module", "Thất bại");
+        }
+      );
   }
 
   // Get Component
@@ -206,7 +291,7 @@ export default class ComponentEditController {
   addMedia() {
     var finder = new CKFinder();
     finder.selectActionFunction = (fileUrl) => {
-      this.$scope.data.Links.push(fileUrl);
+      this.$scope.data.Images.push(fileUrl);
       this.$scope.$apply();
     };
     finder.SelectFunction = "ShowFileInfo";
@@ -216,7 +301,7 @@ export default class ComponentEditController {
   updateMedia(index) {
     var finder = new CKFinder();
     finder.selectActionFunction = (fileUrl) => {
-      this.$scope.data.Links[index] = fileUrl;
+      this.$scope.data.Images[index] = fileUrl;
       this.$scope.$apply();
     };
     finder.SelectFunction = "ShowFileInfo";
@@ -224,8 +309,24 @@ export default class ComponentEditController {
   }
   // Remove Media
   removeMedia(index) {
-    this.$scope.data.Links.splice(index, 1);
+    this.$scope.data.Images.splice(index, 1);
     this.$scope.$apply();
+  }
+
+  // --- ICON ---
+  // Choose Icon
+  chooseIcon() {
+    var finder = new CKFinder();
+    finder.selectActionFunction = (fileUrl) => {
+      this.$scope.data.Icon = fileUrl;
+      this.$scope.$apply();
+    };
+    finder.SelectFunction = "ShowFileInfo";
+    finder.popup();
+  }
+  // Clear Icon
+  clearIcon() {
+    this.$scope.data.Icon = "";
   }
 
   // SAVE
@@ -255,6 +356,7 @@ ComponentEditController.$inject = [
   "DevextremeService",
   "CommonService",
   "ComponentService",
+  "ModuleService",
 ];
 
 export const ComponentEditComponent = {

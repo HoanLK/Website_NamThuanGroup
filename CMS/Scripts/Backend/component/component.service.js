@@ -1,4 +1,5 @@
 ﻿const API_URL = "/api/ComponentAPI";
+const ODATA_URL = "/odata/ComponentOData";
 const LIST_FUNCTION = [
   "skip",
   "take",
@@ -48,6 +49,17 @@ export default class ComponentService {
         );
 
         return defer.promise;
+      },
+
+      update: (key, values) => {
+        return this.$http.patch(`${ODATA_URL}('${key}')`, values).then(
+          (res) => {
+            toastr.success("Lưu thành công");
+          },
+          (res) => {
+            toastr.error("Lưu thất bại");
+          }
+        );
       },
     });
   }

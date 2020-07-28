@@ -13,31 +13,50 @@ namespace CMS.APIs
     [Authorize]
     public class PostCategoryAPIController : ApiController
     {
-        private readonly CMSEntities db = new CMSEntities();
+        private readonly CMSEntities _db = new CMSEntities();
+        private readonly Mapper _mapper;
+
+        public PostCategoryAPIController()
+        {
+            // MAPPER
+            var config = new MapperConfiguration(
+                cfg =>
+                {
+                    // Create
+                    cfg.CreateMap<PostCategoryCreateResource, PostCategory>();
+                    // Edit
+                    cfg.CreateMap<PostCategoryEditResource, PostCategory>();
+                    cfg.CreateMap<PostCategory, PostCategoryEditResource>();
+                }
+            );
+            _mapper = new Mapper(config);
+        }
 
         // GET: api/PostCategoryAPI
         public object Gets(DataSourceLoadOptions loadOptions)
         {
+            if (loadOptions is null)
+            {
+                return BadRequest();
+            }
+
             loadOptions.PrimaryKey = new[] { "Id" };
             loadOptions.PaginateViaPrimaryKey = true;
 
-            return DataSourceLoader.Load(db.PostCategories, loadOptions);
+            return DataSourceLoader.Load(_db.PostCategories, loadOptions);
         }
 
         // GET: api/PostCategoryAPI/5
         public async Task<IHttpActionResult> GetAsync(int id)
         {
-            PostCategory postCategory = await db.PostCategories.FindAsync(id);
-            if (postCategory == null)
+            PostCategory data = await _db.PostCategories.FindAsync(id);
+
+            if (data is null)
             {
                 return NotFound();
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCategory, PostCategoryEditResource>());
-            var mapper = new Mapper(config);
-
-            return Ok(mapper.Map<PostCategory, PostCategoryEditResource>(postCategory));
+            return Ok(_mapper.Map<PostCategory, PostCategoryEditResource>(data));
         }
 
         // PUT: api/PostCategoryAPI/5
@@ -53,26 +72,27 @@ namespace CMS.APIs
                 return BadRequest();
             }
 
-            var postCategory = await db.PostCategories.FindAsync(id);
+            if (resource is null)
+            {
+                return BadRequest();
+            }
 
-            if (postCategory == null)
+            PostCategory data = await _db.PostCategories.FindAsync(id);
+
+            if (data is null)
             {
                 return NotFound();
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCategoryEditResource, PostCategory>());
-            var mapper = new Mapper(config);
+            _mapper.Map(resource, data);
+            data.ModifyUser = User.Identity.GetUserId();
+            data.ModifyTime = DateTime.Now;
 
-            mapper.Map<PostCategoryEditResource, PostCategory>(resource, postCategory);
-            postCategory.ModifyUser = User.Identity.GetUserId();
-            postCategory.ModifyTime = DateTime.Now;
-
-            db.Entry(postCategory).State = EntityState.Modified;
+            _db.Entry(data).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -85,47 +105,48 @@ namespace CMS.APIs
         // POST: api/PostCategoryAPI
         public async Task<IHttpActionResult> PostAsync(PostCategoryCreateResource resource)
         {
+            if (resource is null)
+            {
+                return BadRequest();
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            // Mapper
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<PostCategoryCreateResource, PostCategory>());
-            var mapper = new Mapper(config);
+            PostCategory data = _mapper.Map<PostCategoryCreateResource, PostCategory>(resource);
+            data.CreateUser = User.Identity.GetUserId();
+            data.CreateTime = DateTime.Now;
 
-            var postCategory = mapper.Map<PostCategoryCreateResource, PostCategory>(resource);
-            postCategory.CreateUser = User.Identity.GetUserId();
-            postCategory.CreateTime = DateTime.Now;
-
-            db.PostCategories.Add(postCategory);
+            _db.PostCategories.Add(data);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return Ok(postCategory.Id);
+            return Ok(data.Id);
         }
 
         // DELETE: api/PostCategoryAPI/5
         public async Task<IHttpActionResult> DeleteAsync(int id)
         {
-            PostCategory postCategory = await db.PostCategories.FindAsync(id);
-            if (postCategory == null)
+            PostCategory data = await _db.PostCategories.FindAsync(id);
+            if (data is null)
             {
                 return NotFound();
             }
 
-            db.PostCategories.Remove(postCategory);
+            _db.PostCategories.Remove(data);
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (Exception)
             {

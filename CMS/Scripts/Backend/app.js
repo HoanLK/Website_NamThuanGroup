@@ -6,13 +6,13 @@ import ngSanitize from "angular-sanitize";
 import "devextreme/dist/js/dx.all";
 import config from "./config";
 
-//import ngCkEditor from "ng-ckeditor";
 import DevextremeService from "./services/devextreme.service";
 import CommonService from "./services/common.service";
 
 import { PostModule } from "./post/post.module";
 import { PostCategoryModule } from "./post-category/post-category.module";
 import { ComponentModule } from "./component/component.module";
+import { ModuleModule } from "./module/module.module";
 
 DevExpress.localization.locale("vi");
 
@@ -26,6 +26,7 @@ export const App = angular
     PostModule,
     PostCategoryModule,
     ComponentModule,
+    ModuleModule,
   ])
   .service("CommonService", CommonService)
   .service("DevextremeService", DevextremeService)

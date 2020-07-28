@@ -34,6 +34,43 @@
         <!--Main-->
         <div class="col-md-12 mb-20">
           <div class="row">
+            <!-- Name -->
+            <div class="col-md-4 form-group mb-30">
+              <label class="col-12">
+                Tên thành phần <span style="color: red;">*</span>
+              </label>
+              <div class="col-md-12">
+                <div
+                  dx-text-box="$ctrl.controls.tbName"
+                  dx-validator="$ctrl.validators.name"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Module -->
+            <div class="col-md-4 form-group mb-30">
+              <label class="col-12">Module</label>
+              <div class="col-md-12">
+                <div dx-select-box="$ctrl.controls.slbModule"></div>
+              </div>
+            </div>
+
+            <!-- Sort Order -->
+            <div class="col-md-2 form-group mb-30">
+              <label class="col-12">Thứ tự</label>
+              <div class="col-md-12">
+                <div dx-number-box="$ctrl.controls.nbSortOrder"></div>
+              </div>
+            </div>
+
+            <!-- Is Single Media -->
+            <div class="col-md-2 form-group mb-30">
+              <label class="col-12">&nbsp;</label>
+              <div class="col-md-12">
+                <div dx-check-box="$ctrl.controls.cbPublished"></div>
+              </div>
+            </div>
+
             <!-- Tiếng Việt -->
             <div class="col-md-6 pb-20">
               <div class="block">
@@ -76,15 +113,12 @@
                     <!--Main-->
                     <div class="col-md-12" style="padding-right: 0px;">
                       <div class="row">
-                        <!-- Name -->
+                        <!-- Main Title -->
                         <div class="col-md-6 form-group mb-30">
-                          <label class="col-12">
-                            Tên thành phần <span style="color: red;">*</span>
-                          </label>
+                          <label class="col-12">Tiêu đề chính</label>
                           <div class="col-md-12">
                             <div
-                              dx-text-box="$ctrl.controls.tbVNName"
-                              dx-validator="$ctrl.validators.name"
+                              dx-text-box="$ctrl.controls.tbVNMainTitle"
                             ></div>
                           </div>
                         </div>
@@ -171,13 +205,13 @@
                     <!--Main-->
                     <div class="col-md-12" style="padding-right: 0px;">
                       <div class="row">
-                        <!-- Name -->
+                        <!-- Main Title -->
                         <div class="col-md-6 form-group mb-30">
-                          <label class="col-12">
-                            Tên thành phần <span style="color: red;">*</span>
-                          </label>
+                          <label class="col-12">Tiêu đề chính</label>
                           <div class="col-md-12">
-                            <div dx-text-box="$ctrl.controls.tbENName"></div>
+                            <div
+                              dx-text-box="$ctrl.controls.tbENMainTitle"
+                            ></div>
                           </div>
                         </div>
                         <!-- Sub Title -->
@@ -285,7 +319,7 @@
                 <div class="row">
                   <div
                     class="col-md-3"
-                    ng-repeat="link in data.Links track by $index"
+                    ng-repeat="link in data.Images track by $index"
                   >
                     <div ng-if="!$ctrl.commonService.isNullOrEmpty(link)">
                       <div style="text-align: center;">
@@ -310,6 +344,64 @@
                         </a>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated In -->
+            <div class="col-md-3 form-group mb-30">
+              <label class="col-12">Animated In</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbAnimateIn"></div>
+              </div>
+            </div>
+            <!-- Animated Out -->
+            <div class="col-md-3 form-group mb-30">
+              <label class="col-12">Animated Out</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbAnimateOut"></div>
+              </div>
+            </div>
+            <!-- Timeout -->
+            <div class="col-md-3 form-group mb-30">
+              <label class="col-12">Timeout</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.nbTimeout"></div>
+              </div>
+            </div>
+
+            <!-- Icon -->
+            <div class="col-md-4 form-group mb-30">
+              <label class="col-12">Icon</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbIcon"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="$ctrl.commonService.isNullOrEmpty(data.Icon)"
+                >
+                  <a ng-click="$ctrl.chooseIcon()" class="media-image-link">
+                    Chọn Icon
+                  </a>
+                </div>
+                <div ng-if="!$ctrl.commonService.isNullOrEmpty(data.Icon)">
+                  <div style="text-align: center;">
+                    <img
+                      style="cursor: pointer; margin-top: 10px;"
+                      ng-click="$ctrl.chooseIcon()"
+                      class="img-fluid"
+                      ng-src="{{ data.Icon }}"
+                      alt="Icon"
+                      title="Chọn icon"
+                    />
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <i>Nhấn vào để sửa hoặc cập nhật</i>
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <a ng-click="$ctrl.clearIcon()" class="media-image-link">
+                      Xóa icon
+                    </a>
                   </div>
                 </div>
               </div>

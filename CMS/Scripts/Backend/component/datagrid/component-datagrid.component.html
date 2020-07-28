@@ -22,7 +22,20 @@
         <i class="fa fa-trash"></i>
       </button>
     </div>
-    <!-- Template Featured -->
+    <!-- Template Published -->
+    <div data-options="dxTemplate:{ name:'publishedCellTemplate' }">
+      <i
+        class="mr-5 mb-5 text-success fa fa-check"
+        title="Đã xuất bản"
+        ng-if="item.value"
+      ></i>
+      <i
+        class="mr-5 mb-5 text-danger fa fa-times"
+        title="Chưa xuất bản"
+        ng-if="!item.value"
+      ></i>
+    </div>
+    <!-- Template Media Type -->
     <div data-options="dxTemplate:{ name:'singleMediaCellTemplate' }">
       <i
         class="mr-5 mb-5 fas fa-image"

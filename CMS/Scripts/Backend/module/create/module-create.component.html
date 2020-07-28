@@ -1,0 +1,86 @@
+﻿<form ng-submit="$ctrl.onSave($event)" dx-validation-group="{validation}">
+  <div class="block">
+    <!-- HEARDER -->
+    <div
+      class="block-header block-header-default"
+      style="
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      "
+    >
+      <h3 class="block-title font-weight-bold" style="color: #2facb2;">
+        THÊM MODULE
+      </h3>
+      <div class="block-options">
+        <!-- Save -->
+        <div dx-button="$ctrl.controls.btnSave"></div>
+        <!-- Close -->
+        <div dx-button="$ctrl.controls.btnClose"></div>
+        <!-- Full Screen -->
+        <button
+          type="button"
+          class="btn-block-option"
+          data-toggle="block-option"
+          data-action="fullscreen_toggle"
+          title="Phóng to / Thu nhỏ"
+        >
+          <i class="si si-size-fullscreen"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="block-content pt-20">
+      <div class="row">
+        <!--Main-->
+        <div class="col-md-12 mb-20">
+          <div class="row">
+            <!-- Name -->
+            <div class="col-md-8 form-group mb-30">
+              <label class="col-12">
+                Tên module <span style="color: red;">*</span>
+              </label>
+              <div class="col-md-12">
+                <div
+                  dx-text-box="$ctrl.controls.tbName"
+                  dx-validator="$ctrl.validators.name"
+                ></div>
+              </div>
+            </div>
+            <!-- Sort Order -->
+            <div class="col-md-2 form-group mb-30">
+              <label class="col-12">Thứ tự</label>
+              <div class="col-md-12">
+                <div dx-number-box="$ctrl.controls.nbSortOrder"></div>
+              </div>
+            </div>
+            <!-- Is Single Media -->
+            <div class="col-md-2 form-group mb-30">
+              <label class="col-12">&nbsp;</label>
+              <div class="col-md-12">
+                <div dx-check-box="$ctrl.controls.cbPublished"></div>
+              </div>
+            </div>
+            <!-- Note -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Ghi chú</label>
+              <div class="col-md-12">
+                <div dx-text-area="$ctrl.controls.taNote"></div>
+              </div>
+            </div>
+
+            <!--Validation Summary-->
+            <div class="col-md-12">
+              <div
+                dx-validation-summary="{validation}"
+                style="padding: 20px;"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- LoadPanel -->
+<div class="loadpanel" dx-load-panel="$ctrl.loadPanel"></div>
