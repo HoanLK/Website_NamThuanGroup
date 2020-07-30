@@ -33,10 +33,12 @@ namespace CMS.Models
         public virtual DbSet<CategoryProject> CategoryProjects { get; set; }
         public virtual DbSet<ComponentImage> ComponentImages { get; set; }
         public virtual DbSet<Component> Components { get; set; }
-        public virtual DbSet<ImageBanner> ImageBanners { get; set; }
         public virtual DbSet<Info> Infoes { get; set; }
         public virtual DbSet<Module> Modules { get; set; }
         public virtual DbSet<PostCategory> PostCategories { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<ProductImage> ProductImages { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

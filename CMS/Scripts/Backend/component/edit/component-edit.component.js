@@ -25,7 +25,16 @@ export default class ComponentEditController {
 
     this.$scope.id = this.$stateParams.id;
     this.$scope.data = {};
+    // Modules
     this.$scope.modules = [];
+    this.$scope.$watch(
+      () => {
+        return this.moduleService.getModules();
+      },
+      (newValue, oldValue) => {
+        this.$scope.modules = newValue;
+      }
+    );
 
     // SET TITLE
     $rootScope.title = "Sửa thành phần";
@@ -34,7 +43,6 @@ export default class ComponentEditController {
   // INIT
   $onInit() {
     this.initControls();
-    this.getModules();
     this.getComponent();
   }
 
@@ -232,21 +240,6 @@ export default class ComponentEditController {
         },
       }
     );
-  }
-
-  // Get Modules
-  getModules() {
-    this.moduleService
-      .gets(["Id", "Name"])
-      .load()
-      .then(
-        (res) => {
-          this.$scope.modules = res.data;
-        },
-        (res) => {
-          toastr.error("Lấy danh sách Module", "Thất bại");
-        }
-      );
   }
 
   // Get Component

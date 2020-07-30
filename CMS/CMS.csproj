@@ -234,6 +234,8 @@
     <Compile Include="APIs\ComponentAPIController.cs" />
     <Compile Include="APIs\ComponentODataController.cs" />
     <Compile Include="APIs\ModuleODataController.cs" />
+    <Compile Include="APIs\ProductAPIController.cs" />
+    <Compile Include="APIs\ProductCategoryAPIController.cs" />
     <Compile Include="APIs\PostCategoryAPIController.cs" />
     <Compile Include="APIs\PostAPIController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -325,9 +327,6 @@
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataSourceLoadOptions.cs" />
-    <Compile Include="Models\ImageBanner.cs">
-      <DependentUpon>CMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Info.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
@@ -340,16 +339,26 @@
     <Compile Include="Models\PostCategory.cs">
       <DependentUpon>CMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductCategory.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductImage.cs">
+      <DependentUpon>CMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Resources\Component\ComponentCreateResource.cs" />
     <Compile Include="Models\Resources\Component\ComponentEditResource.cs" />
-    <Compile Include="Models\Resources\Component\ComponentResource.cs" />
     <Compile Include="Models\Resources\Module\ModuleCreateResource.cs" />
     <Compile Include="Models\Resources\Module\ModuleEditResource.cs" />
-    <Compile Include="Models\Resources\Module\ModuleResource.cs" />
     <Compile Include="Models\Resources\PostCategory\PostCategoryCreateResource.cs" />
     <Compile Include="Models\Resources\PostCategory\PostCategoryEditResource.cs" />
-    <Compile Include="Models\Resources\PostCategory\PostCategoryResource.cs" />
     <Compile Include="Models\Resources\Post\PostEditResource.cs" />
+    <Compile Include="Models\Resources\ProductCategory\ProductCategoryCreateResource.cs" />
+    <Compile Include="Models\Resources\ProductCategory\ProductCategoryEditResource.cs" />
+    <Compile Include="Models\Resources\Product\ProductCreateResource.cs" />
+    <Compile Include="Models\Resources\Product\ProductEditResource.cs" />
     <Compile Include="Models\ViewModels\ComponentViewModel.cs" />
     <Compile Include="Models\ViewModels\HomeViewModel.cs" />
     <Compile Include="Models\ViewModels\ModuleViewModel.cs" />
@@ -364,7 +373,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.en.resx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Resources\Post\PostResource.cs" />
     <Compile Include="TwoFactor\classes\auth\ApplicationSignInManager.cs" />
     <Compile Include="TwoFactor\classes\auth\ApplicationUserManager.cs" />
     <Compile Include="TwoFactor\classes\auth\GoogleAuthenticatorTokenProvider.cs" />
@@ -7353,6 +7361,38 @@
     <Content Include="Scripts\Backend\module\edit\module-edit.component.html" />
     <Content Include="Scripts\Backend\module\edit\module-edit.component.js" />
     <Content Include="Scripts\Backend\module\edit\module-edit.module.js" />
+    <Content Include="Scripts\Backend\product\create\product-create.component.html" />
+    <Content Include="Scripts\Backend\product\create\product-create.component.js" />
+    <Content Include="Scripts\Backend\product\create\product-create.module.js" />
+    <Content Include="Scripts\Backend\product\datagrid\product-datagrid.component.html" />
+    <Content Include="Scripts\Backend\product\datagrid\product-datagrid.component.js" />
+    <Content Include="Scripts\Backend\product\datagrid\product-datagrid.module.js" />
+    <Content Include="Scripts\Backend\product\delete\product-delete.component.html" />
+    <Content Include="Scripts\Backend\product\delete\product-delete.component.js" />
+    <Content Include="Scripts\Backend\product\delete\product-delete.module.js" />
+    <Content Include="Scripts\Backend\product\edit\product-edit.component.html" />
+    <Content Include="Scripts\Backend\product\edit\product-edit.component.js" />
+    <Content Include="Scripts\Backend\product\edit\product-edit.module.js" />
+    <Content Include="Scripts\Backend\product\product.component.html" />
+    <Content Include="Scripts\Backend\product\product.component.js" />
+    <Content Include="Scripts\Backend\product\product.module.js" />
+    <Content Include="Scripts\Backend\product\product.service.js" />
+    <Content Include="Scripts\Backend\product-category\create\product-category-create.component.html" />
+    <Content Include="Scripts\Backend\product-category\create\product-category-create.component.js" />
+    <Content Include="Scripts\Backend\product-category\create\product-category-create.module.js" />
+    <Content Include="Scripts\Backend\product-category\datagrid\product-category-datagrid.component.html" />
+    <Content Include="Scripts\Backend\product-category\datagrid\product-category-datagrid.component.js" />
+    <Content Include="Scripts\Backend\product-category\datagrid\product-category-datagrid.module.js" />
+    <Content Include="Scripts\Backend\product-category\delete\product-category-delete.component.html" />
+    <Content Include="Scripts\Backend\product-category\delete\product-category-delete.component.js" />
+    <Content Include="Scripts\Backend\product-category\delete\product-category-delete.module.js" />
+    <Content Include="Scripts\Backend\product-category\edit\product-category-edit.component.html" />
+    <Content Include="Scripts\Backend\product-category\edit\product-category-edit.component.js" />
+    <Content Include="Scripts\Backend\product-category\edit\product-category-edit.module.js" />
+    <Content Include="Scripts\Backend\product-category\product-category.component.html" />
+    <Content Include="Scripts\Backend\product-category\product-category.component.js" />
+    <Content Include="Scripts\Backend\product-category\product-category.module.js" />
+    <Content Include="Scripts\Backend\product-category\product-category.service.js" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-duotone-900.svg" />
     <Content Include="webfonts\fa-light-300.svg" />

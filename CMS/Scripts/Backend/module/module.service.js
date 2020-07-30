@@ -19,6 +19,24 @@ export default class ModuleService {
     this.$window = $window;
     this.$http = $http;
     this.commonService = CommonService;
+
+    // Modules
+    this.modules = [];
+    this.gets(["Id", "Name"])
+      .load()
+      .then(
+        (res) => {
+          this.modules = res.data;
+        },
+        (res) => {
+          toastr.error("Lấy danh sách danh mục", "Thất bại");
+        }
+      );
+  }
+
+  // GET MODULES
+  getModules() {
+    return this.modules;
   }
 
   // GETS

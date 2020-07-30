@@ -2,7 +2,6 @@
 
 var path = require("path");
 var WebpackNotifierPlugin = require("webpack-notifier");
-var BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 module.exports = {
     mode: 'development',
@@ -59,5 +58,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [new WebpackNotifierPlugin(), new BrowserSyncPlugin()]
+    plugins: [new WebpackNotifierPlugin()]
 };

@@ -12,13 +12,14 @@ namespace CMS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ImageBanner
+    public partial class ProductImage
     {
         public int Id { get; set; }
-        public int BannerId { get; set; }
+        public Nullable<int> ProductId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Link { get; set; }
-        public string Image { get; set; }
+    
+        public virtual Product Product { get; set; }
     }
 }

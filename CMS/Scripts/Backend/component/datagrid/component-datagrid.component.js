@@ -25,7 +25,16 @@ export default class ComponentDatagridController {
     };
 
     this.$scope.showFilter = true;
+    // Modules
     this.$scope.modules = [];
+    this.$scope.$watch(
+      () => {
+        return this.moduleService.getModules();
+      },
+      (newValue, oldValue) => {
+        this.$scope.modules = newValue;
+      }
+    );
 
     // Init Datagrid
     this.datagrid = angular.extend(this.devextremeService.getDefaultGrid(), {
@@ -222,24 +231,7 @@ export default class ComponentDatagridController {
   }
 
   // INIT
-  $onInit() {
-    this.getModules();
-  }
-
-  // GET MODULES
-  getModules() {
-    this.moduleService
-      .gets(["Id", "Name"])
-      .load()
-      .then(
-        (res) => {
-          this.$scope.modules = res.data;
-        },
-        (res) => {
-          toastr.error("Lấy danh sách Module", "Thất bại");
-        }
-      );
-  }
+  $onInit() {}
 
   // CREATE
   onCreate() {

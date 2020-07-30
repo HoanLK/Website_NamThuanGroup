@@ -130,17 +130,6 @@
           <Property Name="ModifyUser" Type="nvarchar" MaxLength="128" />
           <Property Name="ModifyTime" Type="datetime" />
         </EntityType>
-        <EntityType Name="ImageBanners">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BannerId" Type="int" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="250" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Link" Type="nvarchar(max)" />
-          <Property Name="Image" Type="nvarchar(max)" />
-        </EntityType>
         <EntityType Name="Info">
           <Key>
             <PropertyRef Name="Id" />
@@ -208,7 +197,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="1024" />
           <Property Name="Published" Type="bit" Nullable="false" />
-          <Property Name="SortOrder" Type="int" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="CreateUser" Type="nvarchar" MaxLength="128" />
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="ModifyUser" Type="nvarchar" MaxLength="128" />
@@ -255,6 +244,73 @@
           <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="ImageBanner" Type="nvarchar(max)" />
           <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SEO_Title" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SEO_Description" Type="nvarchar(max)" />
+          <Property Name="SEO_Keywords" Type="nvarchar" MaxLength="256" />
+          <Property Name="SEO_Image" Type="nvarchar(max)" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ModifyUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="Views" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VN_Name" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="VN_Description" Type="nvarchar(max)" />
+          <Property Name="VN_Content" Type="nvarchar(max)" />
+          <Property Name="EN_Name" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="EN_Description" Type="nvarchar(max)" />
+          <Property Name="EN_Content" Type="nvarchar(max)" />
+          <Property Name="Published" Type="bit" Nullable="false" />
+          <Property Name="Featured" Type="bit" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="ImageBanner" Type="nvarchar(max)" />
+          <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SEO_Title" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SEO_Description" Type="nvarchar(max)" />
+          <Property Name="SEO_Keywords" Type="nvarchar" MaxLength="256" />
+          <Property Name="SEO_Image" Type="nvarchar(max)" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ModifyUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="Views" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Link" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="VN_Name" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="VN_Description" Type="nvarchar(max)" />
+          <Property Name="VN_Content" Type="nvarchar(max)" />
+          <Property Name="EN_Name" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="EN_Description" Type="nvarchar(max)" />
+          <Property Name="EN_Content" Type="nvarchar(max)" />
+          <Property Name="Published" Type="bit" Nullable="false" />
+          <Property Name="Featured" Type="bit" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="ImageBanner" Type="nvarchar(max)" />
+          <Property Name="Tags" Type="nvarchar(max)" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="1024" />
           <Property Name="SEO_Title" Type="nvarchar" MaxLength="1024" />
           <Property Name="SEO_Description" Type="nvarchar(max)" />
@@ -346,6 +402,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductImages_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="ProductImages" Type="Self.ProductImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductImages">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductCategories">
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BDSHDModelStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -356,11 +436,13 @@
           <EntitySet Name="CategoryProjects" EntityType="Self.CategoryProjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ComponentImages" EntityType="Self.ComponentImages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Components" EntityType="Self.Components" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ImageBanners" EntityType="Self.ImageBanners" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostCategories" EntityType="Self.PostCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ComponentImages_Components" Association="Self.FK_ComponentImages_Components">
             <End Role="Components" EntitySet="Components" />
             <End Role="ComponentImages" EntitySet="ComponentImages" />
@@ -385,6 +467,14 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductImages_Products" Association="Self.FK_ProductImages_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductImages" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductCategories" Association="Self.FK_Products_ProductCategories">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -399,11 +489,13 @@
           <EntitySet Name="CategoryProjects" EntityType="BDSHDModel.CategoryProject" />
           <EntitySet Name="ComponentImages" EntityType="BDSHDModel.ComponentImage" />
           <EntitySet Name="Components" EntityType="BDSHDModel.Component" />
-          <EntitySet Name="ImageBanners" EntityType="BDSHDModel.ImageBanner" />
           <EntitySet Name="Infoes" EntityType="BDSHDModel.Info" />
           <EntitySet Name="Modules" EntityType="BDSHDModel.Module" />
           <EntitySet Name="PostCategories" EntityType="BDSHDModel.PostCategory" />
           <EntitySet Name="Posts" EntityType="BDSHDModel.Post" />
+          <EntitySet Name="ProductCategories" EntityType="BDSHDModel.ProductCategory" />
+          <EntitySet Name="ProductImages" EntityType="BDSHDModel.ProductImage" />
+          <EntitySet Name="Products" EntityType="BDSHDModel.Product" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="BDSHDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
@@ -419,6 +511,14 @@
           <AssociationSet Name="FK_Components_Modules" Association="BDSHDModel.FK_Components_Modules">
             <End Role="Module" EntitySet="Modules" />
             <End Role="Component" EntitySet="Components" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductCategories" Association="BDSHDModel.FK_Products_ProductCategories">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImages_Products" Association="BDSHDModel.FK_ProductImages_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductImage" EntitySet="ProductImages" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="BDSHDModel.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
@@ -551,17 +651,6 @@
           <NavigationProperty Name="ComponentImages" Relationship="BDSHDModel.FK_ComponentImages_Components" FromRole="Component" ToRole="ComponentImage" />
           <NavigationProperty Name="Module" Relationship="BDSHDModel.FK_Components_Modules" FromRole="Component" ToRole="Module" />
         </EntityType>
-        <EntityType Name="ImageBanner">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BannerId" Type="Int32" Nullable="false" />
-          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Info">
           <Key>
             <PropertyRef Name="Id" />
@@ -629,7 +718,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="Published" Type="Boolean" Nullable="false" />
-          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
           <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ModifyUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
@@ -688,6 +777,77 @@
           <Property Name="ModifyTime" Type="DateTime" Precision="3" />
           <Property Name="Views" Type="Double" Nullable="false" />
         </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VN_Name" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="VN_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VN_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Name" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Published" Type="Boolean" Nullable="false" />
+          <Property Name="Featured" Type="Boolean" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Title" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Keywords" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="Views" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="BDSHDModel.FK_Products_ProductCategories" FromRole="ProductCategory" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="BDSHDModel.FK_ProductImages_Products" FromRole="ProductImage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="VN_Name" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="VN_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VN_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Name" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EN_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Published" Type="Boolean" Nullable="false" />
+          <Property Name="Featured" Type="Boolean" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Title" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Keywords" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="Views" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ProductCategory" Relationship="BDSHDModel.FK_Products_ProductCategories" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductImages" Relationship="BDSHDModel.FK_ProductImages_Products" FromRole="Product" ToRole="ProductImage" />
+        </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="BDSHDModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -737,6 +897,30 @@
             </Principal>
             <Dependent Role="Component">
               <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductCategories">
+          <End Type="BDSHDModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
+          <End Type="BDSHDModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImages_Products">
+          <End Type="BDSHDModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="BDSHDModel.ProductImage" Role="ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -873,18 +1057,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ImageBanners">
-            <EntityTypeMapping TypeName="BDSHDModel.ImageBanner">
-              <MappingFragment StoreEntitySet="ImageBanners">
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="BannerId" ColumnName="BannerId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Infoes">
             <EntityTypeMapping TypeName="BDSHDModel.Info">
               <MappingFragment StoreEntitySet="Info">
@@ -1009,6 +1181,76 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="BDSHDModel.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategories">
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="SEO_Image" ColumnName="SEO_Image" />
+                <ScalarProperty Name="SEO_Keywords" ColumnName="SEO_Keywords" />
+                <ScalarProperty Name="SEO_Description" ColumnName="SEO_Description" />
+                <ScalarProperty Name="SEO_Title" ColumnName="SEO_Title" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Featured" ColumnName="Featured" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="EN_Content" ColumnName="EN_Content" />
+                <ScalarProperty Name="EN_Description" ColumnName="EN_Description" />
+                <ScalarProperty Name="EN_Name" ColumnName="EN_Name" />
+                <ScalarProperty Name="VN_Content" ColumnName="VN_Content" />
+                <ScalarProperty Name="VN_Description" ColumnName="VN_Description" />
+                <ScalarProperty Name="VN_Name" ColumnName="VN_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="BDSHDModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImages">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="BDSHDModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="SEO_Image" ColumnName="SEO_Image" />
+                <ScalarProperty Name="SEO_Keywords" ColumnName="SEO_Keywords" />
+                <ScalarProperty Name="SEO_Description" ColumnName="SEO_Description" />
+                <ScalarProperty Name="SEO_Title" ColumnName="SEO_Title" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Featured" ColumnName="Featured" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="EN_Content" ColumnName="EN_Content" />
+                <ScalarProperty Name="EN_Description" ColumnName="EN_Description" />
+                <ScalarProperty Name="EN_Name" ColumnName="EN_Name" />
+                <ScalarProperty Name="VN_Content" ColumnName="VN_Content" />
+                <ScalarProperty Name="VN_Description" ColumnName="VN_Description" />
+                <ScalarProperty Name="VN_Name" ColumnName="VN_Name" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

@@ -43,7 +43,16 @@ export default class ComponentCreateController {
       Note: null,
       Images: [],
     };
+    // Modules
     this.$scope.modules = [];
+    this.$scope.$watch(
+      () => {
+        return this.moduleService.getModules();
+      },
+      (newValue, oldValue) => {
+        this.$scope.modules = newValue;
+      }
+    );
 
     // SET TITLE
     $rootScope.title = "Thêm thành phần";
@@ -52,7 +61,6 @@ export default class ComponentCreateController {
   // INIT
   $onInit() {
     this.initControls();
-    this.getModules();
   }
 
   // INIT CONTROLS
@@ -249,21 +257,6 @@ export default class ComponentCreateController {
         },
       }
     );
-  }
-
-  // Get Modules
-  getModules() {
-    this.moduleService
-      .gets(["Id", "Name"])
-      .load()
-      .then(
-        (res) => {
-          this.$scope.modules = res.data;
-        },
-        (res) => {
-          toastr.error("Lấy danh sách Module", "Thất bại");
-        }
-      );
   }
 
   // --- SINGLE MEDIA ---

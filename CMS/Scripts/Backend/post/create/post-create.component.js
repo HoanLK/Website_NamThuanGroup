@@ -21,7 +21,6 @@ export default class PostCreateController {
     this.loadPanelInstance = {};
 
     this.$scope.rootValue = null;
-    this.$scope.categories = [];
     this.$scope.statuses = [
       {
         value: true,
@@ -48,6 +47,16 @@ export default class PostCreateController {
       SEO_Keywords: null,
       SEO_Image: null,
     };
+    // Categories
+    this.$scope.categories = [];
+    this.$scope.$watch(
+      () => {
+        return this.postCategoryService.getCategories();
+      },
+      (newValue, oldValue) => {
+        this.$scope.categories = newValue;
+      }
+    );
 
     // SET TITLE
     $rootScope.title = "Thêm bài viết";
@@ -55,7 +64,6 @@ export default class PostCreateController {
 
   // INIT
   $onInit() {
-    this.getPostCategories();
     this.initControls();
   }
 
@@ -220,25 +228,6 @@ export default class PostCreateController {
         },
       }
     );
-  }
-
-  // Get Categories
-  getPostCategories() {
-    // Get Categories
-    this.postCategoryService
-      .gets(["Id", "Title", "ParentId"])
-      .load()
-      .then(
-        (res) => {
-          this.$scope.categories = res.data;
-          this.$scope.categories.forEach((e) => {
-            e.Expanded = true;
-          });
-        },
-        (res) => {
-          toastr.error("Không lấy được danh sách Danh mục");
-        }
-      );
   }
 
   // Choose Image

@@ -25,7 +25,6 @@ export default class PostEditController {
     this.loadPanelInstance = {};
 
     this.$scope.rootValue = null;
-    this.$scope.categories = [];
     this.$scope.statuses = [
       {
         value: true,
@@ -36,9 +35,18 @@ export default class PostEditController {
         text: "Không xuất bản",
       },
     ];
-
     this.$scope.id = this.$stateParams.id;
     this.$scope.data = {};
+    // Categories
+    this.$scope.categories = [];
+    this.$scope.$watch(
+      () => {
+        return this.postCategoryService.getCategories();
+      },
+      (newValue, oldValue) => {
+        this.$scope.categories = newValue;
+      }
+    );
 
     // SET TITLE
     $rootScope.title = "Sửa bài viết";
@@ -48,7 +56,6 @@ export default class PostEditController {
   $onInit() {
     this.initControls();
     this.getPost();
-    this.getPostCategories();
   }
 
   // INIT CONTROLS
@@ -218,25 +225,6 @@ export default class PostEditController {
         this.loadPanelInstance.hide();
       }
     );
-  }
-
-  // Get Categories
-  getPostCategories() {
-    // Get Categories
-    this.postCategoryService
-      .gets(["Id", "Title", "ParentId"])
-      .load()
-      .then(
-        (res) => {
-          this.$scope.categories = res.data;
-          this.$scope.categories.forEach((e) => {
-            e.Expanded = true;
-          });
-        },
-        (res) => {
-          toastr.error("Không lấy được danh sách Danh mục");
-        }
-      );
   }
 
   // Choose Image

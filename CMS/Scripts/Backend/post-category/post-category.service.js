@@ -18,6 +18,27 @@ export default class PostCategoryService {
     this.$window = $window;
     this.$http = $http;
     this.commonService = CommonService;
+
+    // Categories
+    this.categories = [];
+    this.gets(["Id", "Title", "ParentId"])
+      .load()
+      .then(
+        (res) => {
+          this.categories = res.data;
+          this.categories.forEach((e) => {
+            e.Expanded = true;
+          });
+        },
+        (res) => {
+          toastr.error("Lấy danh sách danh mục", "Thất bại");
+        }
+      );
+  }
+
+  // GET CATEGORIES
+  getCategories() {
+    return this.categories;
   }
 
   // GETS

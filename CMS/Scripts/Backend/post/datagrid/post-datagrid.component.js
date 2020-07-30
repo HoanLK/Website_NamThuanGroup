@@ -25,7 +25,16 @@ export default class PostDatagridController {
     };
 
     this.$scope.showFilter = true;
+    // Categories
     this.$scope.categories = [];
+    this.$scope.$watch(
+      () => {
+        return this.postCategoryService.getCategories();
+      },
+      (newValue, oldValue) => {
+        this.$scope.categories = newValue;
+      }
+    );
 
     // Init Datagrid
     this.datagrid = angular.extend(this.devextremeService.getDefaultGrid(), {
@@ -205,20 +214,7 @@ export default class PostDatagridController {
   }
 
   // INIT
-  $onInit() {
-    // Get Categories
-    this.postCategoryService
-      .gets(["Id", "Title"])
-      .load()
-      .then(
-        (res) => {
-          this.$scope.categories = res.data;
-        },
-        (res) => {
-          toastr.error("Lấy danh sách Danh mục", "Thất bại");
-        }
-      );
-  }
+  $onInit() {}
 
   // CREATE
   onCreate() {
