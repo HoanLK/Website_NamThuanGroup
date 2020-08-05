@@ -1,29 +1,67 @@
-﻿<!-- Banner -->
-@Html.Partial("~/Views/Shared/_BannerProductCategories.cshtml")
+﻿@using CMS.Models
+@model List<Certificate>
+
+<!-- Banner -->
+<section class="page-header parallax page-header-text-light overlay overlay-color-dark overlay-show overlay-op-4 mb-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="/Content/Frontend/img/product-categories/banner-product-categories.jpg">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="overflow-hidden mb-2">
+                    <ul class="breadcrumb mb-0 appear-animation" data-appear-animation="maskUp">
+                        <li><a href="/" class="text-color-light-2" title="@Html.Raw(Resources.MenuHome)">@Html.Raw(Resources.MenuHome)</a></li>
+                        <li class="text-color-light-2 active">@Html.Raw(Resources.Certificate)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="overflow-hidden mb-3">
+                    <h1 class="font-weight-bold mb-0 appear-animation text-uppercase" data-appear-animation="maskUp" data-appear-animation-delay="200">@Html.Raw(Resources.Certificate)</h1>
+                </div>
+                <p class="text-color-light-2 text-2 mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">@Html.Raw(Resources.DesProductCategory)</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Content -->
 <section id="demos" class="section section-height-2">
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                @for (int i = 0; i < 4; i++)
+                @foreach (var certificate in Model)
                 {
-                    <div class="col-md-4l mb-5 mb-md-0 text-center">
-                        <h5 class="mb-4"></h5>
-                        <div class="image-frame overlay overlay-show overlay-op-2 image-frame-style-1 image-frame-effect-1 image-frame-style-5">
-                            <div class="image-frame-wrapper">
-                                <img src="~/Content/Frontend/img/certificates/certificate_1.jpg" class="img-fluid" alt="@Html.Raw("Chứng chỉ khẩu trang")" title="@Html.Raw("Chứng chỉ khẩu trang")">
-                                <div class="image-frame-info image-frame-info-show" style="top: 110px;"><i class="fad fa-file-certificate" style="font-size: 35px; margin-bottom: 10px"></i></div>
-                                <div class="image-frame-info image-frame-info-show" style="opacity: 0.8">
-                                    <div class="image-frame-info-box-style-1" style="background-color: #2388ed">
-                                        <h4 class="font-weight-bold text-uppercase m-0 p-0">
-                                            <a style="color: #fff" href="/" title="@Html.Raw("Chứng chỉ khẩu trang")">
-                                                @Html.Raw("Chứng chỉ khẩu trang")
-                                            </a>
-                                        </h4>
+                    <div class="col-md-3 mb-5 mt-3">
+                        <div class="portfolio-item hover-effect-3 text-center">
+                            <div class="image-frame image-frame-style-8 overlay overlay-op-2 mb-3">
+                                <div class="image-frame-wrapper">
+                                    <a class="sw-view-site" title="@Html.Raw(certificate.Name)">
+                                        <img src="@Html.Raw(certificate.Image)"
+                                             loading="lazy"
+                                             class="img-fluid rounded"
+                                             alt="@Html.Raw(certificate.Name)"
+                                             title="@Html.Raw(certificate.Name)" />
+                                    </a>
+                                    <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                        <a class="btn sw-view-site btn-primary font-weight-semibold btn-rounded text-color-light btn-h-3 btn-v-3 align-items-center text-uppercase"
+                                           title="@Html.Raw(Resources.Detail)"
+                                           href="@certificate.Link"
+                                           target="_blank">
+                                            @Html.Raw(Resources.Detail) <i class="fas fa-search ml-2"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                            <h2 class="font-weight-semibold text-2">
+                                <a class="text-uppercase"
+                                   style="cursor: pointer"
+                                   title="@Html.Raw(certificate.Name)"
+                                   href="@certificate.Link"
+                                   target="_blank">
+                                    <b style="font-size: 1.2rem">@Html.Raw(certificate.Name)</b>
+                                </a>
+                            </h2>
                         </div>
                     </div>
                 }

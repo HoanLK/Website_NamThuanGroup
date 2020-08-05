@@ -1,0 +1,66 @@
+﻿@using CMS.Models.ViewModels
+@model DetailProductCategoryViewModel
+
+<!-- Banner -->
+<section class="page-header parallax overlay overlay-color-dark overlay-show overlay-op-4 appear-animation animated fadeIn appear-animation-visible mb-0" data-appear-animation="fadeIn" data-plugin-parallax="" data-plugin-options="{'speed': 1.5, 'parallaxHeight': '120%', 'offset': 60}" data-image-src="/Content/Frontend/img/parallax/parallax-8.jpg" style="position: relative; overflow: hidden; animation-delay: 100ms;">
+    <div class="parallax-background" style="background-image: url('/Content/Frontend/img/product-categories/banner-product-categories.jpg'); background-size: cover; background-position: 50% center; position: absolute; top: 0px; left: 0px; width: 100%; height: 120%; transform: translate3d(0px, -1.71429px, 0px); "></div>
+    <div class="container py-5 my-4">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a class="text-color-light-2" href="/">@Html.Raw(Resources.MenuHome)</a></li>
+                    <li><a class="text-color-light-2" href="/product-categories">@Html.Raw(Resources.MenuProduct)</a></li>
+                    <li class="active text-color-light-2">@Html.Raw(Model.Category.Name)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="font-weight-bold text-color-light">@Html.Raw(Model.Category.Name)</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main -->
+<section class="section bg-light-5 py-0">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-8 order-2 order-md-1">
+                <div class="row lightbox" style="min-height: 400px" data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}">
+
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="col-sm-6 col-md-3 p-0 appear-animation" data-appear-animation="fadeInScale" data-appear-animation-delay="100">
+                            <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                <div class="image-frame-wrapper">
+                                    <img src="@Html.Raw(product.Image)"
+                                         loading="lazy" class="img-fluid"
+                                         alt="@Html.Raw(product.Name)"
+                                         title="@Html.Raw(product.Name)">
+                                    <span class="image-frame-inner-border"></span>
+                                    <div class="image-frame-info flex-column align-items-center">
+                                        <h3 class="text-color-light font-weight-bold text-4 mb-2">@Html.Raw(product.Name)</h3>
+                                        <a href="@Html.Raw(product.Image)"
+                                           class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold"
+                                           title="@Html.Raw(product.Name)">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-md-4 text-center order-1 order-md-2 py-5 py-md-0 px-xl-5">
+                <span class="top-sub-title text-color-primary d-block text-uppercase">@Html.Raw(Resources.Category)</span>
+                <h2 class="font-weight-bold mb-3">@Html.Raw(Model.Category.Name)</h2>
+                <div class="d-block d-sm-inline-block text-center" style="text-align: justify !important">
+                    @Html.Raw("Tập đoàn Nam Thuận tự hào là công ty may mặc cung cấp các dịch vụ chất lượng hàng đầu trong khu vực. Chất lượng của sản phẩm cùng phong cách làm việc đã tạo nên thương hiệu của Tập đoàn Nam Thuận với tinh thần không ngừng học hỏi: “Luôn luôn đổi mới, hướng tới tương lai.”")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

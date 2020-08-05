@@ -89,6 +89,28 @@
           <Property Name="TimeCreated" Type="datetime" Nullable="false" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
+        <EntityType Name="Certificates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Published" Type="bit" Nullable="false" />
+          <Property Name="Featured" Type="bit" Nullable="false" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SEO_Title" Type="nvarchar" MaxLength="1024" />
+          <Property Name="SEO_Description" Type="nvarchar(max)" />
+          <Property Name="SEO_Keywords" Type="nvarchar" MaxLength="256" />
+          <Property Name="SEO_Image" Type="nvarchar(max)" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="ModifyUser" Type="nvarchar" MaxLength="128" />
+          <Property Name="ModifyTime" Type="datetime" />
+          <Property Name="Views" Type="float" Nullable="false" />
+        </EntityType>
         <EntityType Name="ComponentImages">
           <Key>
             <PropertyRef Name="Id" />
@@ -137,23 +159,10 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="SiteName" Type="nvarchar" MaxLength="1024" />
-          <Property Name="Logo1" Type="nvarchar(max)" />
-          <Property Name="Logo2" Type="nvarchar(max)" />
-          <Property Name="Logo3" Type="nvarchar(max)" />
-          <Property Name="Logo4" Type="nvarchar(max)" />
-          <Property Name="Favicon" Type="nchar" MaxLength="10" />
+          <Property Name="Logo" Type="nvarchar(max)" />
+          <Property Name="LogoWhite" Type="nvarchar(max)" />
+          <Property Name="Favicon" Type="nvarchar(max)" />
           <Property Name="AppleIcon" Type="nvarchar(max)" />
-          <Property Name="AppleIcon57x57" Type="nvarchar(max)" />
-          <Property Name="AppleIcon60x60" Type="nvarchar(max)" />
-          <Property Name="AppleIcon72x72" Type="nvarchar(max)" />
-          <Property Name="AppleIcon76x76" Type="nvarchar(max)" />
-          <Property Name="AppleIcon114x114" Type="nvarchar(max)" />
-          <Property Name="AppleIcon120x120" Type="nvarchar(max)" />
-          <Property Name="AppleIcon144x144" Type="nvarchar(max)" />
-          <Property Name="AppleIcon152x152" Type="nvarchar(max)" />
-          <Property Name="AppleIcon180x180" Type="nvarchar(max)" />
-          <Property Name="AppleStartupImage" Type="nvarchar(max)" />
-          <Property Name="AppleIconPrecomposed" Type="nvarchar(max)" />
           <Property Name="Keywords" Type="nvarchar" MaxLength="1024" />
           <Property Name="Description" Type="nvarchar" MaxLength="1024" />
           <Property Name="Author" Type="nvarchar" MaxLength="1024" />
@@ -434,6 +443,7 @@
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Banners" EntityType="Self.Banners" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryProjects" EntityType="Self.CategoryProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certificates" EntityType="Self.Certificates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ComponentImages" EntityType="Self.ComponentImages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Components" EntityType="Self.Components" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
@@ -487,6 +497,7 @@
           <EntitySet Name="AspNetUsers" EntityType="BDSHDModel.AspNetUser" />
           <EntitySet Name="Banners" EntityType="BDSHDModel.Banner" />
           <EntitySet Name="CategoryProjects" EntityType="BDSHDModel.CategoryProject" />
+          <EntitySet Name="Certificates" EntityType="BDSHDModel.Certificate" />
           <EntitySet Name="ComponentImages" EntityType="BDSHDModel.ComponentImage" />
           <EntitySet Name="Components" EntityType="BDSHDModel.Component" />
           <EntitySet Name="Infoes" EntityType="BDSHDModel.Info" />
@@ -607,6 +618,28 @@
           <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Certificate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Published" Type="Boolean" Nullable="false" />
+          <Property Name="Featured" Type="Boolean" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Title" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Keywords" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SEO_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifyUser" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyTime" Type="DateTime" Precision="3" />
+          <Property Name="Views" Type="Double" Nullable="false" />
+        </EntityType>
         <EntityType Name="ComponentImage">
           <Key>
             <PropertyRef Name="Id" />
@@ -658,23 +691,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SiteName" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="Logo1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Logo2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Logo3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Logo4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Favicon" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LogoWhite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Favicon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AppleIcon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon57x57" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon60x60" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon72x72" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon76x76" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon114x114" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon120x120" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon144x144" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon152x152" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIcon180x180" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleStartupImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AppleIconPrecomposed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Keywords" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <Property Name="Author" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
@@ -1014,6 +1034,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Certificates">
+            <EntityTypeMapping TypeName="BDSHDModel.Certificate">
+              <MappingFragment StoreEntitySet="Certificates">
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="ModifyTime" ColumnName="ModifyTime" />
+                <ScalarProperty Name="ModifyUser" ColumnName="ModifyUser" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="SEO_Image" ColumnName="SEO_Image" />
+                <ScalarProperty Name="SEO_Keywords" ColumnName="SEO_Keywords" />
+                <ScalarProperty Name="SEO_Description" ColumnName="SEO_Description" />
+                <ScalarProperty Name="SEO_Title" ColumnName="SEO_Title" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Featured" ColumnName="Featured" />
+                <ScalarProperty Name="Published" ColumnName="Published" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ComponentImages">
             <EntityTypeMapping TypeName="BDSHDModel.ComponentImage">
               <MappingFragment StoreEntitySet="ComponentImages">
@@ -1094,23 +1137,10 @@
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="AppleIconPrecomposed" ColumnName="AppleIconPrecomposed" />
-                <ScalarProperty Name="AppleStartupImage" ColumnName="AppleStartupImage" />
-                <ScalarProperty Name="AppleIcon180x180" ColumnName="AppleIcon180x180" />
-                <ScalarProperty Name="AppleIcon152x152" ColumnName="AppleIcon152x152" />
-                <ScalarProperty Name="AppleIcon144x144" ColumnName="AppleIcon144x144" />
-                <ScalarProperty Name="AppleIcon120x120" ColumnName="AppleIcon120x120" />
-                <ScalarProperty Name="AppleIcon114x114" ColumnName="AppleIcon114x114" />
-                <ScalarProperty Name="AppleIcon76x76" ColumnName="AppleIcon76x76" />
-                <ScalarProperty Name="AppleIcon72x72" ColumnName="AppleIcon72x72" />
-                <ScalarProperty Name="AppleIcon60x60" ColumnName="AppleIcon60x60" />
-                <ScalarProperty Name="AppleIcon57x57" ColumnName="AppleIcon57x57" />
                 <ScalarProperty Name="AppleIcon" ColumnName="AppleIcon" />
                 <ScalarProperty Name="Favicon" ColumnName="Favicon" />
-                <ScalarProperty Name="Logo4" ColumnName="Logo4" />
-                <ScalarProperty Name="Logo3" ColumnName="Logo3" />
-                <ScalarProperty Name="Logo2" ColumnName="Logo2" />
-                <ScalarProperty Name="Logo1" ColumnName="Logo1" />
+                <ScalarProperty Name="LogoWhite" ColumnName="LogoWhite" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
                 <ScalarProperty Name="SiteName" ColumnName="SiteName" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

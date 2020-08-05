@@ -17,23 +17,10 @@ namespace CMS.Models
         public int Id { get; set; }
         public string Image { get; set; }
         public string SiteName { get; set; }
-        public string Logo1 { get; set; }
-        public string Logo2 { get; set; }
-        public string Logo3 { get; set; }
-        public string Logo4 { get; set; }
+        public string Logo { get; set; }
+        public string LogoWhite { get; set; }
         public string Favicon { get; set; }
         public string AppleIcon { get; set; }
-        public string AppleIcon57x57 { get; set; }
-        public string AppleIcon60x60 { get; set; }
-        public string AppleIcon72x72 { get; set; }
-        public string AppleIcon76x76 { get; set; }
-        public string AppleIcon114x114 { get; set; }
-        public string AppleIcon120x120 { get; set; }
-        public string AppleIcon144x144 { get; set; }
-        public string AppleIcon152x152 { get; set; }
-        public string AppleIcon180x180 { get; set; }
-        public string AppleStartupImage { get; set; }
-        public string AppleIconPrecomposed { get; set; }
         public string Keywords { get; set; }
         public string Description { get; set; }
         public string Author { get; set; }

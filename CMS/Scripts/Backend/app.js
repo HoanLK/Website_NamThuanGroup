@@ -15,6 +15,8 @@ import { ComponentModule } from "./component/component.module";
 import { ModuleModule } from "./module/module.module";
 import { ProductCategoryModule } from "./product-category/product-category.module";
 import { ProductModule } from "./product/product.module";
+import { CertificateModule } from "./certificate/certificate.module";
+import { InfoModule } from "./info/info.module";
 
 DevExpress.localization.locale("vi");
 
@@ -31,6 +33,8 @@ export const App = angular
     ModuleModule,
     ProductCategoryModule,
     ProductModule,
+    CertificateModule,
+    InfoModule,
   ])
   .service("CommonService", CommonService)
   .service("DevextremeService", DevextremeService)

@@ -31,6 +31,7 @@ namespace CMS.Models
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<CategoryProject> CategoryProjects { get; set; }
+        public virtual DbSet<Certificate> Certificates { get; set; }
         public virtual DbSet<ComponentImage> ComponentImages { get; set; }
         public virtual DbSet<Component> Components { get; set; }
         public virtual DbSet<Info> Infoes { get; set; }

@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Language" content="VN">
 
-    <title>Trang chủ | namthuangroup</title>
+    <title>@ViewBag.title | namthuangroup</title>
 
     <meta name="keywords" content="" />
     <meta name="description" content="@Html.Raw("")" />
@@ -118,7 +118,7 @@
 <body>
     <div class="body">
         <!-- HEADER -->
-        @Html.Partial("~/Views/Shared/_Header.cshtml")
+        @Html.Partial("_Header")
 
         <!-- MAIN -->
         <div role="main" class="main">
@@ -126,7 +126,7 @@
         </div>
 
         <!-- FOOTER -->
-        @Html.Partial("~/Views/Shared/_Footer.cshtml")
+        @Html.Action("Footer", "Layout")
     </div>
 
     <!-- [ SCRIPT ] -->
@@ -143,6 +143,9 @@
 
     <!-- Theme -->
     @Scripts.Render("~/theme/js")
+
+    <!-- Custome -->
+    <script src="~/Content/Frontend/js/custom.js"></script>
 
     @RenderSection("scripts", required: false)
 </body>

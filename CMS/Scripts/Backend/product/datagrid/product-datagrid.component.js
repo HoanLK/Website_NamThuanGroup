@@ -44,17 +44,20 @@ export default class ProductDatagridController {
       },
       bindingOptions: {
         "filterRow.visible": "showFilter",
-        "columns[3].lookup.dataSource": "categories",
+        "columns[5].lookup.dataSource": "categories",
       },
       dataSource: this.productService.gets([
         "Id",
+        "Image",
         "CategoryId",
         "VN_Name",
+        "EN_Name",
         "Published",
         "Featured",
         "SortOrder",
         "Note",
         "CreateTime",
+        "Views",
       ]),
       columns: [
         {
@@ -86,14 +89,30 @@ export default class ProductDatagridController {
         },
         {
           //2
+          caption: "HÌNH ẢNH",
+          dataField: "Image",
+          dataType: "string",
+          cellTemplate: "imageCellTemplate",
+          width: 100,
+        },
+        {
+          //3
           cssClass: "font-weight-bold",
-          caption: "TÊN",
+          caption: "[VN] TÊN",
           dataField: "VN_Name",
           dataType: "string",
           minWidth: 150,
         },
         {
-          //3
+          //4
+          cssClass: "font-weight-bold",
+          caption: "[EN] TÊN",
+          dataField: "EN_Name",
+          dataType: "string",
+          minWidth: 150,
+        },
+        {
+          //5
           allowEditing: false,
           caption: "DANH MỤC",
           dataField: "CategoryId",
@@ -105,7 +124,7 @@ export default class ProductDatagridController {
           width: 150,
         },
         {
-          //4
+          //6
           caption: "XUẤT BẢN",
           dataField: "Published",
           dataType: "boolean",
@@ -115,7 +134,7 @@ export default class ProductDatagridController {
           width: 120,
         },
         {
-          //5
+          //7
           caption: "NỔI BẬT",
           dataField: "Featured",
           dataType: "boolean",
@@ -125,7 +144,7 @@ export default class ProductDatagridController {
           width: 100,
         },
         {
-          //6
+          //8
           caption: "THỨ TỰ",
           dataField: "SortOrder",
           dataType: "number",
@@ -133,14 +152,14 @@ export default class ProductDatagridController {
           width: 100,
         },
         {
-          //7
+          //9
           caption: "GHI CHÚ",
           dataField: "Note",
           dataType: "string",
           width: 150,
         },
         {
-          //8
+          //10
           allowEditing: false,
           alignment: "left",
           caption: "THỜI GIAN",
@@ -153,7 +172,7 @@ export default class ProductDatagridController {
           width: 100,
         },
         {
-          //9
+          //11
           alignment: "center",
           caption: "VIEWS",
           dataField: "Views",

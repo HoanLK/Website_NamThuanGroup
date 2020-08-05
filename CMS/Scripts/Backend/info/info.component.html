@@ -1,0 +1,719 @@
+﻿<form ng-submit="$ctrl.onSave($event)" dx-validation-group="{validation}">
+  <div class="block">
+    <!-- HEARDER -->
+    <div
+      class="block-header block-header-default"
+      style="
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      "
+    >
+      <h3 class="block-title font-weight-bold" style="color: #2facb2;">
+        THÔNG TIN WEBSITE
+      </h3>
+      <div class="block-options">
+        <!-- Save -->
+        <div dx-button="$ctrl.controls.btnSave"></div>
+        <!-- Full Screen -->
+        <button
+          type="button"
+          class="btn-block-option"
+          data-toggle="block-option"
+          data-action="fullscreen_toggle"
+          title="Phóng to / Thu nhỏ"
+        >
+          <i class="si si-size-fullscreen"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="block-content pt-20">
+      <div class="row">
+        <!--Main-->
+        <div class="col-md-9">
+          <div class="row">
+            <!-- Name -->
+            <div class="col-md-6 form-group mb-30">
+              <label class="col-12">
+                Tên Website
+                <em class="float-right">
+                  ( {{ data.SiteName.length }} / 60 )
+                </em>
+              </label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbName"></div>
+              </div>
+            </div>
+
+            <!-- URL -->
+            <div class="col-md-6 form-group mb-30">
+              <label class="col-12">URL</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbURL"></div>
+              </div>
+            </div>
+
+            <!-- SEO INFO -->
+            <div class="col-md-12" style="margin-top: 20px;">
+              <div class="block">
+                <!-- HEARDER -->
+                <div
+                  class="block-header block-header-default bg-corporate"
+                  style="
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                      0 1px 2px rgba(0, 0, 0, 0.24);
+                  "
+                >
+                  <h3 class="block-title font-weight-bold text-white">
+                    THÔNG TIN SEO
+                  </h3>
+                  <div class="block-options">
+                    <button
+                      type="button"
+                      class="btn-block-option"
+                      data-toggle="block-option"
+                      data-action="content_toggle"
+                      title="Thu gọn / Mở rộng"
+                    >
+                      <i class="si si-arrow-up text-white"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-block-option"
+                      data-toggle="block-option"
+                      data-action="fullscreen_toggle"
+                      title="Phóng to / Thu nhỏ"
+                    >
+                      <i class="si si-size-fullscreen text-white"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="block-content pt-20">
+                  <div class="row">
+                    <!--Main-->
+                    <div class="col-md-12">
+                      <div class="row">
+                        <!-- Keywords -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">
+                            Keywords
+                            <em class="float-right">
+                              ( {{ data.Keywords.length }} / 160 )
+                            </em>
+                          </label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbKeywords"></div>
+                          </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">
+                            Description
+                            <em class="float-right">
+                              ( {{ data.Description.length }} / 160 )
+                            </em>
+                          </label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-area="$ctrl.controls.taDescription"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Author -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Author</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbAuthor"></div>
+                          </div>
+                        </div>
+
+                        <!-- Designer -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Designer</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbDesigner"></div>
+                          </div>
+                        </div>
+
+                        <!-- Copyright -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Copyright</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbCopyright"></div>
+                          </div>
+                        </div>
+
+                        <!-- ReplyTo -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">ReplyTo</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbReplyTo"></div>
+                          </div>
+                        </div>
+
+                        <!-- Owner -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Owner</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbOwner"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COMPANY INFO -->
+            <div class="col-md-12" style="margin-top: 30px;">
+              <div class="block">
+                <!-- HEARDER -->
+                <div
+                  class="block-header block-header-default bg-corporate"
+                  style="
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                      0 1px 2px rgba(0, 0, 0, 0.24);
+                  "
+                >
+                  <h3 class="block-title font-weight-bold text-white">
+                    THÔNG TIN CÔNG TY
+                  </h3>
+                  <div class="block-options">
+                    <button
+                      type="button"
+                      class="btn-block-option"
+                      data-toggle="block-option"
+                      data-action="content_toggle"
+                      title="Thu gọn / Mở rộng"
+                    >
+                      <i class="si si-arrow-up text-white"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-block-option"
+                      data-toggle="block-option"
+                      data-action="fullscreen_toggle"
+                      title="Phóng to / Thu nhỏ"
+                    >
+                      <i class="si si-size-fullscreen text-white"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="block-content pt-20">
+                  <div class="row">
+                    <!--Main-->
+                    <div class="col-md-12">
+                      <div class="row">
+                        <!-- CompanyName -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">Tên công ty</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbCompanyName"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">Địa chỉ</label>
+                          <div class="col-md-12">
+                            <div dx-text-area="$ctrl.controls.taAddress"></div>
+                          </div>
+                        </div>
+
+                        <!-- PhoneNumber -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Điện thoại</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbPhoneNumber"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Hotline -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Hotline</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbHotline"></div>
+                          </div>
+                        </div>
+
+                        <!-- Fax -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Fax</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbFax"></div>
+                          </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Email</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbEmail"></div>
+                          </div>
+                        </div>
+
+                        <!-- MST -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Mã số thuế</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbMST"></div>
+                          </div>
+                        </div>
+
+                        <!-- Link Facebook -->
+                        <div class="col-md-8 form-group mb-30">
+                          <label class="col-12">Link Facebook</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbLinkFacebook"
+                            ></div>
+                          </div>
+                        </div>
+                        <!-- ID Facebook -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">ID Facebook</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbIdFacebook"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Link Youtube -->
+                        <div class="col-md-8 form-group mb-30">
+                          <label class="col-12">Link Youtube</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbLinkYoutube"
+                            ></div>
+                          </div>
+                        </div>
+                        <!-- ID Youtube -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">ID Youtube</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbIdYoutube"></div>
+                          </div>
+                        </div>
+
+                        <!-- Link Twitter -->
+                        <div class="col-md-8 form-group mb-30">
+                          <label class="col-12">Link Twitter</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbLinkTwitter"
+                            ></div>
+                          </div>
+                        </div>
+                        <!-- ID Twitter -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">ID Twitter</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbIdTwitter"></div>
+                          </div>
+                        </div>
+
+                        <!-- Link Instagram -->
+                        <div class="col-md-8 form-group mb-30">
+                          <label class="col-12">Link Instagram</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbLinkInstagram"
+                            ></div>
+                          </div>
+                        </div>
+                        <!-- ID Instagram -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">ID Instagram</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbIdInstagram"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Link Pinterest -->
+                        <div class="col-md-8 form-group mb-30">
+                          <label class="col-12">Link Pinterest</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbLinkPinterest"
+                            ></div>
+                          </div>
+                        </div>
+                        <!-- ID Pinterest -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">ID Pinterest</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbIdPinterest"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Nhúng Google Map -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">Nhúng Google Map</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-area="$ctrl.controls.taEmbedGoogleMap"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Latitude -->
+                        <div class="col-md-6 form-group mb-30">
+                          <label class="col-12">Latitude</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbLatitude"></div>
+                          </div>
+                        </div>
+
+                        <!-- Longitude -->
+                        <div class="col-md-6 form-group mb-30">
+                          <label class="col-12">Longitude</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbLongitude"></div>
+                          </div>
+                        </div>
+
+                        <!-- StreetAddress -->
+                        <div class="col-md-12 form-group mb-30">
+                          <label class="col-12">Street Address</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbStreetAddress"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- Locality -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Locality</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbLocality"></div>
+                          </div>
+                        </div>
+
+                        <!-- Region -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Region</label>
+                          <div class="col-md-12">
+                            <div dx-text-box="$ctrl.controls.tbRegion"></div>
+                          </div>
+                        </div>
+
+                        <!-- CountryName -->
+                        <div class="col-md-4 form-group mb-30">
+                          <label class="col-12">Country Name</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbCountryName"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- PostalCode -->
+                        <div class="col-md-6 form-group mb-30">
+                          <label class="col-12">Postal Code</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbPostalCode"
+                            ></div>
+                          </div>
+                        </div>
+
+                        <!-- GoogleSiteVerification -->
+                        <div class="col-md-6 form-group mb-30">
+                          <label class="col-12">Google Site Verification</label>
+                          <div class="col-md-12">
+                            <div
+                              dx-text-box="$ctrl.controls.tbGoogleSiteVerification"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Validation Summary-->
+            <div class="col-md-12">
+              <div
+                dx-validation-summary="{validation}"
+                style="padding: 20px;"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom -->
+        <div class="col-md-3" style="padding-left: 0px;">
+          <div class="row">
+            <!-- Image -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Ảnh đại diện <i>(400x300)</i></label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbImage"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="$ctrl.commonService.isNullOrEmpty(data.Image)"
+                >
+                  <a ng-click="$ctrl.chooseImage()" class="choose-image-link">
+                    Chọn ảnh đại diện
+                  </a>
+                </div>
+                <div ng-if="!$ctrl.commonService.isNullOrEmpty(data.Image)">
+                  <div style="text-align: center;">
+                    <div class="animated fadeIn">
+                      <div class="options-container">
+                        <img
+                          class="img-fluid options-item"
+                          ng-src="{{ data.Image }}"
+                          alt=""
+                        />
+                        <div class="options-overlay bg-black-op-75">
+                          <div class="options-overlay-content">
+                            <h3 class="h4 text-white mb-5">Ảnh đại diện</h3>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-primary min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.chooseImage()"
+                            >
+                              <i class="fa fa-pencil"></i> Sửa
+                            </a>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-danger min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.clearImage()"
+                            >
+                              <i class="fa fa-times"></i> Xóa
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logo -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Logo</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbLogo"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="$ctrl.commonService.isNullOrEmpty(data.Logo)"
+                >
+                  <a ng-click="$ctrl.chooseLogo()" class="choose-image-link">
+                    Chọn Logo
+                  </a>
+                </div>
+                <div ng-if="!$ctrl.commonService.isNullOrEmpty(data.Logo)">
+                  <div style="text-align: center;">
+                    <div class="animated fadeIn">
+                      <div class="options-container">
+                        <img
+                          class="img-fluid options-item"
+                          ng-src="{{ data.Logo }}"
+                          alt=""
+                        />
+                        <div class="options-overlay bg-black-op-75">
+                          <div class="options-overlay-content">
+                            <h3 class="h4 text-white mb-5">Logo</h3>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-primary min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.chooseLogo()"
+                            >
+                              <i class="fa fa-pencil"></i> Sửa
+                            </a>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-danger min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.clearLogo()"
+                            >
+                              <i class="fa fa-times"></i> Xóa
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logo trắng -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Logo trắng</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbLogoWhite"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="$ctrl.commonService.isNullOrEmpty(data.LogoWhite)"
+                >
+                  <a
+                    ng-click="$ctrl.chooseLogoWhite()"
+                    class="choose-image-link"
+                  >
+                    Chọn Logo trắng
+                  </a>
+                </div>
+                <div ng-if="!$ctrl.commonService.isNullOrEmpty(data.LogoWhite)">
+                  <div style="text-align: center;">
+                    <div class="animated fadeIn">
+                      <div class="options-container">
+                        <img
+                          class="img-fluid options-item"
+                          ng-src="{{ data.LogoWhite }}"
+                          alt=""
+                        />
+                        <div class="options-overlay bg-black-op-75">
+                          <div class="options-overlay-content">
+                            <h3 class="h4 text-white mb-5">Logo trắng</h3>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-primary min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.chooseLogoWhite()"
+                            >
+                              <i class="fa fa-pencil"></i> Sửa
+                            </a>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-danger min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.clearLogoWhite()"
+                            >
+                              <i class="fa fa-times"></i> Xóa
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Favicon -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Favicon</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbFavicon"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="$ctrl.commonService.isNullOrEmpty(data.Favicon)"
+                >
+                  <a ng-click="$ctrl.chooseFavicon()" class="choose-image-link">
+                    Chọn Favicon
+                  </a>
+                </div>
+                <div ng-if="!$ctrl.commonService.isNullOrEmpty(data.Favicon)">
+                  <div style="text-align: center;">
+                    <div class="animated fadeIn">
+                      <div class="options-container">
+                        <img
+                          class="img-fluid options-item"
+                          ng-src="{{ data.Favicon }}"
+                          alt=""
+                        />
+                        <div class="options-overlay bg-black-op-75">
+                          <div class="options-overlay-content">
+                            <h3 class="h4 text-white mb-5">Favicon</h3>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-primary min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.chooseFavicon()"
+                            >
+                              <i class="fa fa-pencil"></i> Sửa
+                            </a>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-danger min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.clearFavicon()"
+                            >
+                              <i class="fa fa-times"></i> Xóa
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Apple Icon -->
+            <div class="col-md-12 form-group mb-30">
+              <label class="col-12">Apple Icon</label>
+              <div class="col-md-12">
+                <div dx-text-box="$ctrl.controls.tbAppleIcon"></div>
+                <div
+                  style="margin-top: 15px;"
+                  ng-if="$ctrl.commonService.isNullOrEmpty(data.AppleIcon)"
+                >
+                  <a
+                    ng-click="$ctrl.chooseAppleIcon()"
+                    class="choose-image-link"
+                  >
+                    Chọn Apple Icon
+                  </a>
+                </div>
+                <div ng-if="!$ctrl.commonService.isNullOrEmpty(data.AppleIcon)">
+                  <div style="text-align: center;">
+                    <div class="animated fadeIn">
+                      <div class="options-container">
+                        <img
+                          class="img-fluid options-item"
+                          ng-src="{{ data.AppleIcon }}"
+                          alt=""
+                        />
+                        <div class="options-overlay bg-black-op-75">
+                          <div class="options-overlay-content">
+                            <h3 class="h4 text-white mb-5">Apple Icon</h3>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-primary min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.chooseAppleIcon()"
+                            >
+                              <i class="fa fa-pencil"></i> Sửa
+                            </a>
+                            <a
+                              class="btn btn-sm btn-rounded btn-alt-danger min-width-75"
+                              href="javascript:void(0)"
+                              ng-click="$ctrl.clearAppleIcon()"
+                            >
+                              <i class="fa fa-times"></i> Xóa
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- LoadPanel -->
+<div class="loadpanel" dx-load-panel="$ctrl.loadPanel"></div>

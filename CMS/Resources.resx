@@ -129,6 +129,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>Tiêu chuẩn chất lượng</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
   <data name="CompanyAddress" xml:space="preserve">
     <value>Rực Liễn, Thủy Sơn, Thủy Nguyên, Hải Phòng</value>
   </data>
@@ -156,14 +159,14 @@
   <data name="Customer" xml:space="preserve">
     <value>Khách hàng</value>
   </data>
-  <data name="DesInfrastructureModern" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet.</value>
+  <data name="DesAboutUs" xml:space="preserve">
+    <value>Tập đoàn Nam Thuận tự hào là công ty may mặc cung cấp các dịch vụ chất lượng hàng đầu trong khu vực. Chất lượng của sản phẩm cùng phong cách làm việc đã tạo nên thương hiệu của Tập đoàn Nam Thuận với tinh thần không ngừng học hỏi: &lt;q&gt;Luôn luôn đổi mới, hướng tới tương lai&lt;/q&gt;.</value>
   </data>
-  <data name="DesProductDiversityAndQuality" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</value>
+  <data name="DesProductCategory" xml:space="preserve">
+    <value>Đa dạng hóa kiểu dáng, chất lượng - Thiết kế bắt kịp xu hướng - Giá thành hợp lý - Năng lực sản xuất lớn</value>
   </data>
-  <data name="DesProfessional" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet.</value>
+  <data name="Detail" xml:space="preserve">
+    <value>Chi tiết</value>
   </data>
   <data name="DevelopmentHistory" xml:space="preserve">
     <value>Lịch sử phát triển</value>
@@ -189,23 +192,14 @@
   <data name="FormPhoneNumber" xml:space="preserve">
     <value>Số điện thoại</value>
   </data>
-  <data name="Infrastructure" xml:space="preserve">
-    <value>Cơ sở hạ tầng</value>
-  </data>
   <data name="IntroduceAbout" xml:space="preserve">
     <value>Giới thiệu về</value>
-  </data>
-  <data name="IntroHome1" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</value>
   </data>
   <data name="IntroHome2" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget. Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis.</value>
   </data>
   <data name="LinkPage" xml:space="preserve">
     <value>Liên kết trang</value>
-  </data>
-  <data name="ManufactureFactory" xml:space="preserve">
-    <value>Cơ sở sản xuất</value>
   </data>
   <data name="MenuAboutUs" xml:space="preserve">
     <value>Giới thiệu</value>
@@ -215,9 +209,6 @@
   </data>
   <data name="MenuProduct" xml:space="preserve">
     <value>Sản phẩm</value>
-  </data>
-  <data name="Modern" xml:space="preserve">
-    <value>Hiện đại</value>
   </data>
   <data name="NamThuanGroup" xml:space="preserve">
     <value>Nam Thuận Group</value>
@@ -243,11 +234,14 @@
   <data name="ProductCategories" xml:space="preserve">
     <value>Danh mục sản phẩm</value>
   </data>
+  <data name="ProductionProcess" xml:space="preserve">
+    <value>Quy trình sản xuất</value>
+  </data>
   <data name="ProductType" xml:space="preserve">
     <value>Loại sản phẩm</value>
   </data>
-  <data name="Professional" xml:space="preserve">
-    <value>Tay nghề cao</value>
+  <data name="QualityControlProcess" xml:space="preserve">
+    <value>Quy trình kiểm soát chất lượng</value>
   </data>
   <data name="QuickContact" xml:space="preserve">
     <value>Liên hệ nhanh</value>
@@ -257,6 +251,9 @@
   </data>
   <data name="Send" xml:space="preserve">
     <value>Gửi</value>
+  </data>
+  <data name="Sending" xml:space="preserve">
+    <value>Đang gửi</value>
   </data>
   <data name="ShowAll" xml:space="preserve">
     <value>Tất cả</value>

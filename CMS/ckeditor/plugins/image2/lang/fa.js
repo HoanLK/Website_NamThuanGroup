@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.plugins.setLang( 'image2', 'fa', {
@@ -17,5 +17,5 @@ CKEDITOR.plugins.setLang( 'image2', 'fa', {
 	title: 'ویژگی​های تصویر',
 	uploadTab: 'بالاگذاری',
 	urlMissing: 'آدرس URL اصلی تصویر یافت نشد.',
-	altMissing: 'Alternative text is missing.' // MISSING
+	altMissing: 'متن جایگزین یافت نشد.'
 } );

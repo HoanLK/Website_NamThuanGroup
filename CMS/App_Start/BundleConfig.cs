@@ -46,6 +46,7 @@ namespace CMS
                 "~/Content/Vendors/bootstrap/js/bootstrap.bundle.min.js",
                 "~/Content/Vendors/common/common.min.js",
                 "~/Content/Vendors/isotope/jquery.isotope.min.js",
+                "~/Scripts/jquery.unobtrusive-ajax.min.js",
                 "~/Content/Vendors/owl.carousel/owl.carousel.min.js",
                 "~/Content/Vendors/magnific-popup/jquery.magnific-popup.min.js"
             ));

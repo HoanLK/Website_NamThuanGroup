@@ -1,37 +1,66 @@
-﻿<!-- Banner -->
-@Html.Partial("~/Views/Shared/_BannerProductCategories.cshtml")
+﻿@using CMS.Models.ViewModels
+@model List<ProductCategoryViewModel>
+
+<!-- Banner -->
+<section class="page-header parallax page-header-text-light overlay overlay-color-dark overlay-show overlay-op-4 mb-0 appear-animation" data-appear-animation="fadeIn" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="/Content/Frontend/img/product-categories/banner-product-categories.jpg">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="overflow-hidden mb-2">
+                    <ul class="breadcrumb mb-0 appear-animation" data-appear-animation="maskUp">
+                        <li><a href="/" class="text-color-light-2" title="@Html.Raw(Resources.MenuHome)">@Html.Raw(Resources.MenuHome)</a></li>
+                        <li class="text-color-light-2 active">@Html.Raw(Resources.ProductCategories)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="overflow-hidden mb-3">
+                    <h1 class="font-weight-bold mb-0 appear-animation text-uppercase" data-appear-animation="maskUp" data-appear-animation-delay="200">@Html.Raw(Resources.ProductCategories)</h1>
+                </div>
+                <p class="text-color-light-2 text-2 mb-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">@Html.Raw(Resources.DesProductCategory)</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Content -->
 <section id="demos" class="section section-height-2">
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                @for (int i = 0; i < 4; i++)
+                @foreach (var category in Model)
                 {
-                    <div class="col-md-6 mb-3">
-                        <div class="appear-animation">
-                            <div class="portfolio-item hover-effect-3 text-center">
-                                <div class="image-frame image-frame-style-8 overlay overlay-op-2 mb-3">
-                                    <div class="image-frame-wrapper">
-                                        <a href="multi-purpose-1.html" class="sw-view-site">
-                                            <img src="~/Content/Frontend/img/previews/multi-purpose-1.jpg" class="img-fluid rounded" alt="@Html.Raw("Tên danh mục")" title="@Html.Raw("Tên danh mục")" />
+                    <div class="col-md-6 mb-5 mt-3">
+                        <div class="portfolio-item hover-effect-3 text-center">
+                            <div class="image-frame image-frame-style-8 overlay overlay-op-2 mb-3">
+                                <div class="image-frame-wrapper">
+                                    <a href="/product-categories/@category.Id" class="sw-view-site" title="@Html.Raw(category.Name)">
+                                        <img src="@Html.Raw(category.Image)"
+                                             loading="lazy"
+                                             class="img-fluid rounded"
+                                             alt="@Html.Raw(category.Name)"
+                                             title="@Html.Raw(category.Name)" />
+                                    </a>
+                                    <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
+                                        <a href="/product-categories/@category.Id"
+                                           class="btn sw-view-site btn-primary font-weight-semibold btn-rounded text-color-light btn-h-3 btn-v-3 align-items-center text-uppercase"
+                                           title="@Html.Raw(Resources.Detail)">
+                                            @Html.Raw(Resources.Detail) <i class="fas fa-angle-right ml-2"></i>
                                         </a>
-                                        <div class="image-frame-action image-frame-action-effect-1 image-frame-action-sm">
-                                            <a href="#" class="btn sw-view-site btn-dark font-weight-semibold btn-rounded btn-h-3 btn-v-3 align-items-center text-uppercase" title="@Html.Raw("Xem chi tiết")">
-                                                @Html.Raw("Xem chi tiết") <i class="fas fa-angle-right ml-2"></i>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
-                                <h2 class="font-weight-semibold text-2">
-                                    <a href="multi-purpose-1.html" title="@Html.Raw("Multi Purpose 1")">@Html.Raw("Multi Purpose 1")</a>
-                                </h2>
                             </div>
+                            <h2 class="font-weight-semibold text-2">
+                                <a href="/product-categories/@category.Id" class="text-uppercase" title="@Html.Raw(category.Name)">
+                                    <b style="font-size: 1.2rem">@Html.Raw(category.Name)</b>
+                                </a>
+                            </h2>
                         </div>
                     </div>
                 }
             </div>
         </div>
-
     </div>
 </section>

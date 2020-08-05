@@ -2,11 +2,13 @@
 using CMS.Helpers;
 using CMS.Models;
 using CMS.Models.ViewModels;
+using CMS.Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -69,16 +71,72 @@ namespace CMS.Controllers
 
             HomeViewModel model = new HomeViewModel()
             {
+                EmailContact = new SendEmailContactViewModel(),
                 GioiThieuDacDiem = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:GioiThieuDacDiem"))),
                 GioiThieuNamThuanGroup = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:GioiThieuNamThuanGroup"))),
                 Counter = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:Counter"))),
                 QuyTrinhSanXuat = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:QuyTrinhSanXuat"))),
                 QuyTrinhKiemSoatChatLuong = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:QuyTrinhKiemSoatChatLuong"))),
+                ProductCategories = await _db.ProductCategories.Where(p => p.Published == true)
+                                                               .OrderBy(p => p.SortOrder)
+                                                               .Select(p => new ProductCategoryViewModel
+                                                               {
+                                                                   Id = p.Id,
+                                                                   Name = (_culture.Name == "vi") ? p.VN_Name : p.EN_Name,
+                                                                   Image = p.Image,
+                                                                   Featured = p.Featured,
+                                                                   SortOrder = p.SortOrder
+                                                               }).AsNoTracking().ToListAsync(),
+                Products = await _db.Products.Where(p => p.Published == true & p.Featured == true && p.ProductCategory.Featured == true)
+                                                               .OrderBy(p => p.ProductCategory.SortOrder)
+                                                                    .ThenBy(p => p.SortOrder)
+                                                               .Select(p => new ProductViewModel
+                                                               {
+                                                                   Id = p.Id,
+                                                                   Name = (_culture.Name == "vi") ? p.VN_Name : p.EN_Name,
+                                                                   Image = p.Image,
+                                                                   CategoryId = p.CategoryId,
+                                                                   CategoryName = (_culture.Name == "vi") ? p.ProductCategory.VN_Name : p.ProductCategory.EN_Name,
+                                                                   SortOrder = p.SortOrder
+                                                               })
+                                                               .Take(12)
+                                                               .AsNoTracking().ToListAsync(),
+                Certificates = await _db.Certificates.Where(p => p.Published == true && p.Featured == true)
+                                                     .AsNoTracking()
+                                                     .ToListAsync()
             };
 
             return View(model);
         }
 
+        // POST: EmailContact
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EmailContact(SendEmailContactViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Get Template Email
+                string template;
+                using (var sr = new StreamReader(Server.MapPath("\\Content\\Email\\") + "Contact.html"))
+                {
+                    template = await sr.ReadToEndAsync();
+
+                    string bodyEmail = string.Format(template, model.Name, model.Email, model.PhoneNumber, model.Company, model.Content);
+
+                    // Send Email
+                    EmailService emailService = new EmailService();
+                    var result = await emailService.SendEmailAsync(Resources.CompanyEmail, "Thông tin khách liên hệ", bodyEmail);
+
+                    if (result == true)
+                    {
+                        return Json(new { result = 1 });
+                    }
+                }
+            }
+
+            return Json(new { result = 0 });
+        }
 
         // Set Culture
         public ActionResult SetCulture(string culture)
@@ -93,8 +151,9 @@ namespace CMS.Controllers
             {
                 cookie = new HttpCookie("_culture");
                 cookie.Value = culture;
-                cookie.Expires = DateTime.Now.AddYears(1);
+                cookie.Expires = DateTime.Now.AddMonths(1);
             }
+            cookie.SameSite = SameSiteMode.Lax;
             Response.Cookies.Add(cookie);
 
             return Json(culture, JsonRequestBehavior.AllowGet);

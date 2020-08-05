@@ -1,0 +1,13 @@
+﻿@using CMS.Models.ViewModels;
+@model List<ProductCategoryViewModel>
+
+<ul class="dropdown-menu">
+    @foreach (var category in Model)
+    {
+        <li>
+            <a class="dropdown-item" title="@Html.Raw(category.Name)" href="/product-categories/@category.Id">
+                @Html.Raw(category.Name)
+            </a>
+        </li>
+    }
+</ul>

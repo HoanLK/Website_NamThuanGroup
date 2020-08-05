@@ -10,10 +10,10 @@ namespace CMS.Controllers
     {
         protected override IAsyncResult BeginExecuteCore(AsyncCallback callback, object state)
         {
-            string cultureName = null;
 
             // Attempt to read the culture cookie from Request
             HttpCookie cultureCookie = Request.Cookies["_culture"];
+            string cultureName;
             if (cultureCookie != null)
                 cultureName = cultureCookie.Value;
             else

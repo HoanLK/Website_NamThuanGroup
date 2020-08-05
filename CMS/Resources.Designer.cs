@@ -97,6 +97,15 @@ namespace CMS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Đóng.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rực Liễn, Thủy Sơn, Thủy Nguyên, Hải Phòng.
         /// </summary>
         public static string CompanyAddress {
@@ -178,29 +187,29 @@ namespace CMS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet..
+        ///   Looks up a localized string similar to Tập đoàn Nam Thuận tự hào là công ty may mặc cung cấp các dịch vụ chất lượng hàng đầu trong khu vực. Chất lượng của sản phẩm cùng phong cách làm việc đã tạo nên thương hiệu của Tập đoàn Nam Thuận với tinh thần không ngừng học hỏi: &lt;q&gt;Luôn luôn đổi mới, hướng tới tương lai&lt;/q&gt;..
         /// </summary>
-        public static string DesInfrastructureModern {
+        public static string DesAboutUs {
             get {
-                return ResourceManager.GetString("DesInfrastructureModern", resourceCulture);
+                return ResourceManager.GetString("DesAboutUs", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc..
+        ///   Looks up a localized string similar to Đa dạng hóa kiểu dáng, chất lượng - Thiết kế bắt kịp xu hướng - Giá thành hợp lý - Năng lực sản xuất lớn.
         /// </summary>
-        public static string DesProductDiversityAndQuality {
+        public static string DesProductCategory {
             get {
-                return ResourceManager.GetString("DesProductDiversityAndQuality", resourceCulture);
+                return ResourceManager.GetString("DesProductCategory", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet..
+        ///   Looks up a localized string similar to Chi tiết.
         /// </summary>
-        public static string DesProfessional {
+        public static string Detail {
             get {
-                return ResourceManager.GetString("DesProfessional", resourceCulture);
+                return ResourceManager.GetString("Detail", resourceCulture);
             }
         }
         
@@ -277,29 +286,11 @@ namespace CMS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cơ sở hạ tầng.
-        /// </summary>
-        public static string Infrastructure {
-            get {
-                return ResourceManager.GetString("Infrastructure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Giới thiệu về.
         /// </summary>
         public static string IntroduceAbout {
             get {
                 return ResourceManager.GetString("IntroduceAbout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc..
-        /// </summary>
-        public static string IntroHome1 {
-            get {
-                return ResourceManager.GetString("IntroHome1", resourceCulture);
             }
         }
         
@@ -318,15 +309,6 @@ namespace CMS {
         public static string LinkPage {
             get {
                 return ResourceManager.GetString("LinkPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cơ sở sản xuất.
-        /// </summary>
-        public static string ManufactureFactory {
-            get {
-                return ResourceManager.GetString("ManufactureFactory", resourceCulture);
             }
         }
         
@@ -354,15 +336,6 @@ namespace CMS {
         public static string MenuProduct {
             get {
                 return ResourceManager.GetString("MenuProduct", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hiện đại.
-        /// </summary>
-        public static string Modern {
-            get {
-                return ResourceManager.GetString("Modern", resourceCulture);
             }
         }
         
@@ -439,6 +412,15 @@ namespace CMS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quy trình sản xuất.
+        /// </summary>
+        public static string ProductionProcess {
+            get {
+                return ResourceManager.GetString("ProductionProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loại sản phẩm.
         /// </summary>
         public static string ProductType {
@@ -448,11 +430,11 @@ namespace CMS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tay nghề cao.
+        ///   Looks up a localized string similar to Quy trình kiểm soát chất lượng.
         /// </summary>
-        public static string Professional {
+        public static string QualityControlProcess {
             get {
-                return ResourceManager.GetString("Professional", resourceCulture);
+                return ResourceManager.GetString("QualityControlProcess", resourceCulture);
             }
         }
         
@@ -480,6 +462,15 @@ namespace CMS {
         public static string Send {
             get {
                 return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đang gửi.
+        /// </summary>
+        public static string Sending {
+            get {
+                return ResourceManager.GetString("Sending", resourceCulture);
             }
         }
         

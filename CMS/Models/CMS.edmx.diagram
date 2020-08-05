@@ -11,12 +11,13 @@
         <EntityTypeShape EntityType="BDSHDModel.AspNetUser" Width="1.5" PointX="3" PointY="1.125" />
         <EntityTypeShape EntityType="BDSHDModel.Banner" Width="1.5" PointX="7.75" PointY="8.75" />
         <EntityTypeShape EntityType="BDSHDModel.CategoryProject" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Certificate" Width="1.5" PointX="11.75" PointY="8.75" />
         <EntityTypeShape EntityType="BDSHDModel.ComponentImage" Width="1.5" PointX="12.25" PointY="3.25" />
         <EntityTypeShape EntityType="BDSHDModel.Component" Width="1.5" PointX="10" PointY="1.125" />
-        <EntityTypeShape EntityType="BDSHDModel.Info" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Info" Width="1.5" PointX="5.75" PointY="12.75" />
         <EntityTypeShape EntityType="BDSHDModel.Module" Width="1.5" PointX="7.75" PointY="2.875" />
-        <EntityTypeShape EntityType="BDSHDModel.PostCategory" Width="1.5" PointX="5.75" PointY="12.75" />
-        <EntityTypeShape EntityType="BDSHDModel.Post" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BDSHDModel.PostCategory" Width="1.5" PointX="13.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BDSHDModel.Post" Width="1.5" PointX="7.75" PointY="13.75" />
         <EntityTypeShape EntityType="BDSHDModel.ProductCategory" Width="1.5" PointX="0.75" PointY="7.375" />
         <EntityTypeShape EntityType="BDSHDModel.ProductImage" Width="1.5" PointX="5.25" PointY="9" />
         <EntityTypeShape EntityType="BDSHDModel.Product" Width="1.5" PointX="3" PointY="7.125" />

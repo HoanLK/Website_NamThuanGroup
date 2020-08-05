@@ -1,4 +1,7 @@
-﻿<footer id="footer"
+﻿@using CMS.Models.ViewModels
+@model FooterViewModel
+
+<footer id="footer"
         class="footer-hover-links-light mt-0"
         data-plugin-image-background
         data-plugin-options="{'imageUrl': '/Content/Frontend/img/footer/background-1.png', 'bgPosition': 'center 100%'}">
@@ -7,6 +10,7 @@
             <div class="col-lg-5 mb-4 mb-lg-0">
                 <a href="/" class="logo">
                     <img alt="@Html.Raw(Resources.CompanyName)"
+                         loading="lazy"
                          title="@Html.Raw(Resources.CompanyName)"
                          class="img-fluid mb-3"
                          src="~/Content/Frontend/img/logo-footer.png" />
@@ -15,7 +19,8 @@
                 <ul class="list list-icon list-unstyled">
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <span class="text-color-light">@Html.Raw(Resources.Address):</span> @Html.Raw(Resources.CompanyAddress)
+                        <span class="text-color-light">@Html.Raw(Resources.Address):</span>
+                        <a style="color: #c1c1c1 !important;">@Html.Raw(Resources.CompanyAddress)</a>
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-angle-right mr-2 ml-1"></i>
@@ -54,31 +59,21 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-3">
-                <h2 class="text-3 mb-3 text-uppercase">@Html.Raw(Resources.Product)</h2>
-                <ul class="list list-icon list-unstyled">
-                    <li class="mb-2">
-                        <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#" title="">Sợi</a>
-                    </li>
-                    <li class="mb-2">
-                        <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#" title="">Quần áo</a>
-                    </li>
-                    <li class="mb-2">
-                        <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#" title="">Vải dệt kim</a>
-                    </li>
-                    <li class="mb-2">
-                        <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#" title="">Giày dép</a>
-                    </li>
-                    <li class="mb-2">
-                        <i class="fas fa-angle-right mr-2 ml-1"></i>
-                        <a href="#" title="">Khăn</a>
-                    </li>
-                </ul>
-            </div>
+            @if (Model.Categories != null)
+            {
+                <div class="col-lg-3">
+                    <h2 class="text-3 mb-3 text-uppercase">@Html.Raw(Resources.Product)</h2>
+                    <ul class="list list-icon list-unstyled">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <li class="mb-2">
+                                <i class="fas fa-angle-right mr-2 ml-1"></i>
+                                <a href="/product-categories/@category.Id" title="@Html.Raw(category.Name)">@Html.Raw(category.Name)</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     </div>
     <div class="footer-copyright">
@@ -110,7 +105,7 @@
                     </ul>
                 </div>
                 <div class="col-md-5 col-lg-4">
-                    <p class="text-md-right pb-0 mb-0">
+                    <p class="text-md-right pb-0 mb-0" style="color: #fff;">
                         Copyrights © 2020. All Rights Reserved by Nam Thuan Group
                     </p>
                 </div>

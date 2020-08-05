@@ -1,16 +1,14 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using CMS.Models;
+using CMS.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-
-using CMS.Models;
+using System;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace CMS.Controllers
 {
@@ -139,7 +137,7 @@ namespace CMS.Controllers
         [HttpPost]
         public async Task<ActionResult> ResendValidationEmail(ResendValidationEmailViewModel ViewModel)
         {
-            string callbackUrl = await generateConfirmAccountEmail(ViewModel.UserId);
+            string callbackUrl = await GenerateConfirmAccountEmail(ViewModel.UserId);
 
 #if DEBUG
             ViewModel.CallbackUrl = callbackUrl;
@@ -149,7 +147,7 @@ namespace CMS.Controllers
         }
 
 
-        private async Task<string> generateConfirmAccountEmail(string userId)
+        private async Task<string> GenerateConfirmAccountEmail(string userId)
         {
             //Get body email
             string body;
@@ -172,8 +170,8 @@ namespace CMS.Controllers
                 string messageBody = string.Format(body, email, callbackUrl.ToString());
 
                 //Send Email
-                Emailer emailer = new Emailer();
-                emailer.sendEmail(email, "Xác nhận Email", messageBody);
+                EmailService emailer = new EmailService();
+                await emailer.SendEmailAsync(email, "Xác nhận Email", messageBody);
 
                 return callbackUrl;
             }
@@ -272,7 +270,7 @@ namespace CMS.Controllers
                     //Không thì gửi mail kích hoạt
                     else
                     {
-                        var callbackUrl = await generateConfirmAccountEmail(user.Id);
+                        var callbackUrl = await GenerateConfirmAccountEmail(user.Id);
 
 #if DEBUG
                         TempData["ViewBagLink"] = callbackUrl;
@@ -345,8 +343,8 @@ namespace CMS.Controllers
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
 
-                Emailer emailer = new Emailer();
-                emailer.sendEmail(model.Email, "Reset Password", "Vui lòng nhấn <a href=\"" + callbackUrl + "\"><b>vào đây</b></a> để thiết lập lại Mật khẩu");
+                EmailService emailer = new EmailService();
+                await emailer.SendEmailAsync(model.Email, "Reset Password", "Vui lòng nhấn <a href=\"" + callbackUrl + "\"><b>vào đây</b></a> để thiết lập lại Mật khẩu");
 
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }

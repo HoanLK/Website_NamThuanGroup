@@ -1,0 +1,115 @@
+﻿@using CMS.Models.ViewModels
+@model SendEmailContactViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 px-0">
+            <section class="section bg-primary">
+                <div class="row justify-content-end m-0">
+                    <div class="col-half-section pr-md-5">
+                        <div class="icon-box icon-box-style-4 align-items-center mb-4 appear-animation" data-appear-animation="fadeInUpShorter">
+                            <div class="icon-box-icon bg-dark-4 p-4">
+                                <i class="fad fa-map-marked-alt text-color-light text-7"></i>
+                            </div>
+                            <div class="icon-box-info">
+                                <div class="icon-box-info-title">
+                                    <h2 class="font-weight-bold text-color-light text-4 mb-0">@Html.Raw(Resources.Address)</h2>
+                                </div>
+                                <p class="text-color-light text-2 opacity-8 mb-0">@Html.Raw(Resources.CompanyAddress)</p>
+                            </div>
+                        </div>
+                        <div class="icon-box icon-box-style-4 align-items-center mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                            <div class="icon-box-icon bg-dark-4 p-4">
+                                <i class="fad fa-envelope text-color-light text-7"></i>
+                            </div>
+                            <div class="icon-box-info">
+                                <div class="icon-box-info-title">
+                                    <h2 class="font-weight-bold text-color-light text-4 mb-0">Email</h2>
+                                </div>
+                                <p class="text-color-light text-2 opacity-8 mb-0">@Html.Raw(Resources.CompanyEmail)</p>
+                            </div>
+                        </div>
+                        <div class="icon-box icon-box-style-4 align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                            <div class="icon-box-icon bg-dark-4 p-4">
+                                <i class="fad fa-phone-alt text-color-light text-7"></i>
+                            </div>
+                            <div class="icon-box-info">
+                                <div class="icon-box-info-title">
+                                    <h2 class="font-weight-bold text-color-light text-4 mb-0">@Html.Raw(Resources.PhoneNumber)</h2>
+                                </div>
+                                <p class="text-color-light text-2 opacity-8 mb-0">@Html.Raw(Resources.CompanyPhoneNumber)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section bg-primary-4">
+                <div class="row justify-content-end m-0">
+                    <div class="col-half-section pr-md-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">
+                        <div class="row">
+                            <div class="col">
+                                <span class="top-sub-title text-color-light opacity-6">@Html.Raw(Resources.QuickContact)</span>
+                                <h2 class="text-color-light font-weight-bold mb-4">@Html.Raw(Resources.ContactUs)</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                @using (Ajax.BeginForm("EmailContact", "ContactUs", new AjaxOptions { HttpMethod = "POST", OnSuccess = "onEmailNotifySuccess" }, new { @id = "EmailNotifyformId", @class = "contact-form form-style-3 form-errors-light", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            @Html.TextBoxFor(m => m.Name, new { placeHolder = Resources.FormName, @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            @Html.TextBoxFor(m => m.Email, new { type = "email", placeHolder = "Email", @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            @Html.TextBoxFor(m => m.PhoneNumber, new { placeHolder = Resources.FormPhoneNumber, @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            @Html.TextBoxFor(m => m.Company, new { placeHolder = Resources.FormCompanyName, @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            @Html.TextAreaFor(m => m.Content, 5, 1, new { placeHolder = Resources.FormMessage, @class = "form-control", required = "required" })
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-2">
+                                        <div class="col">
+                                            <!-- Send Button -->
+                                            <button id="sendBtn" type="submit" class="btn btn-dark btn-rounded btn-4 font-weight-semibold text-0 text-uppercase">
+                                                @Resources.Send
+                                            </button>
+                                            <!-- Sending Button -->
+                                            <button id="sendingBtn" class="btn btn-dark btn-rounded btn-4 font-weight-semibold text-0 text-uppercase" style="display: none" disabled>
+                                                <i class="fa fa-spinner fa-spin" style="font-size: 16px; margin-right: 10px"></i> @Resources.Sending
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-md-6 px-0">
+            <!-- Go to the bottom of the page to change settings and map location. -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.733767915368!2d106.64876371540123!3d20.923028196754192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7bf35dbbc2f5%3A0xece59efad93dba64!2zQ8O0bmcgVHkgVE5ISCBOYW0gVGh14bqtbg!5e0!3m2!1svi!2s!4v1593681382495!5m2!1svi!2s"
+                    frameborder="0"
+                    style="border: 0;height: 100%; width: 100%;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0"></iframe>
+        </div>
+    </div>
+</div>

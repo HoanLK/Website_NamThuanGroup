@@ -1,0 +1,85 @@
+﻿@using CMS.Models.ViewModels
+@model SendEmailContactViewModel
+
+<section class="section bg-light-5 py-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 appear-animation"
+                 data-appear-animation="fadeInUpShorter"
+                 data-appear-animation-delay="200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.733767915368!2d106.64876371540123!3d20.923028196754192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7bf35dbbc2f5%3A0xece59efad93dba64!2zQ8O0bmcgVHkgVE5ISCBOYW0gVGh14bqtbg!5e0!3m2!1svi!2s!4v1593681382495!5m2!1svi!2s"
+                        width="555"
+                        height="555"
+                        frameborder="0"
+                        style="border: 0;"
+                        allowfullscreen=""
+                        aria-hidden="false"
+                        tabindex="0"></iframe>
+            </div>
+            <div class="col-lg-6 py-5 appear-animation"
+                 data-appear-animation="fadeInRightShorter"
+                 data-appear-animation-delay="600">
+                <div class="p-4">
+                    <div class="row">
+                        <div class="col">
+                            <span class="top-sub-title text-color-primary text-uppercase">
+                                @Html.Raw(Resources.QuickContact)
+                            </span>
+                            <h2 class="text-color-dark font-weight-bold mb-4">
+                                @Html.Raw(Resources.ContactUs)
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @using (Ajax.BeginForm("EmailContact", "Home", new AjaxOptions { HttpMethod = "POST", OnSuccess = "onEmailNotifySuccess" }, new { @id = "EmailNotifyformId", @class = "contact-form", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        @Html.TextBoxFor(m => m.Name, new { placeHolder = Resources.FormName, @class = "form-control", required = "required" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        @Html.TextBoxFor(m => m.Email, new { type = "email", placeHolder = "Email", @class = "form-control", required = "required" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        @Html.TextBoxFor(m => m.PhoneNumber, new { placeHolder = Resources.FormPhoneNumber, @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        @Html.TextBoxFor(m => m.Company, new { placeHolder = Resources.FormCompanyName, @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        @Html.TextAreaFor(m => m.Content, 5, 1, new { placeHolder = Resources.FormMessage, @class = "form-control", required = "required" })
+                                    </div>
+                                </div>
+                                <!-- <div class="form-row mt-2">
+                                  <div class="form-group col">
+                                    <div
+                                      class="g-recaptcha"
+                                      data-sitekey="6Lc7ZqwZAAAAAH0I08Ewe0beEJ2KMSojzYQZpSb8"
+                                    ></div>
+                                  </div>
+                                </div> -->
+                                <div class="form-row mt-2">
+                                    <div class="form-group col">
+                                        <!-- Send Button -->
+                                        <button id="sendBtn" type="submit" class="btn btn-primary btn-rounded btn-4 font-weight-semibold text-0 text-uppercase">
+                                            @Resources.Send
+                                        </button>
+                                        <!-- Sending Button -->
+                                        <button id="sendingBtn" class="btn btn-primary btn-rounded btn-4 font-weight-semibold text-0 text-uppercase" style="display: none" disabled>
+                                            <i class="fa fa-spinner fa-spin" style="font-size: 16px; margin-right: 10px"></i> @Resources.Sending
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

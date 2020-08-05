@@ -129,6 +129,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>Certificates</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
   <data name="CompanyAddress" xml:space="preserve">
     <value>Ruc Lien Hamlet, Thuy Son Commune, Thuy Nguyen District, Hai Phong City, Viet Nam</value>
   </data>
@@ -156,14 +159,16 @@
   <data name="Customer" xml:space="preserve">
     <value>Customers</value>
   </data>
-  <data name="DesInfrastructureModern" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet.</value>
+  <data name="DesAboutUs" xml:space="preserve">
+    <value>Nam Thuan Group is proud to be a garment company providing top quality services in the
+region. The quality of the products and the working style have created the brand of Nam Thuan
+Group with the spirit of constantly learning: &lt;q&gt;Always innovating, looking forward to the future&lt;/q&gt;.</value>
   </data>
-  <data name="DesProductDiversityAndQuality" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</value>
+  <data name="DesProductCategory" xml:space="preserve">
+    <value>Diverse in designs and excellence in quality - Keep up with trends - Competitive price - Large production capacity</value>
   </data>
-  <data name="DesProfessional" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Lorem ipsum dolor sit amet.</value>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
   </data>
   <data name="DevelopmentHistory" xml:space="preserve">
     <value>Development history</value>
@@ -175,7 +180,7 @@
     <value>Diversity &amp; Quality</value>
   </data>
   <data name="FeaturedProduct" xml:space="preserve">
-    <value>Featured Product</value>
+    <value>Featured product</value>
   </data>
   <data name="FormCompanyName" xml:space="preserve">
     <value>Company Name</value>
@@ -189,23 +194,14 @@
   <data name="FormPhoneNumber" xml:space="preserve">
     <value>Phone Number</value>
   </data>
-  <data name="Infrastructure" xml:space="preserve">
-    <value>Infrastructure</value>
-  </data>
   <data name="IntroduceAbout" xml:space="preserve">
     <value>Introduce About</value>
-  </data>
-  <data name="IntroHome1" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc.</value>
   </data>
   <data name="IntroHome2" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget. Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis.</value>
   </data>
   <data name="LinkPage" xml:space="preserve">
     <value>Page Links</value>
-  </data>
-  <data name="ManufactureFactory" xml:space="preserve">
-    <value>Manufacture Factory</value>
   </data>
   <data name="MenuAboutUs" xml:space="preserve">
     <value>About Us</value>
@@ -215,9 +211,6 @@
   </data>
   <data name="MenuProduct" xml:space="preserve">
     <value>Products</value>
-  </data>
-  <data name="Modern" xml:space="preserve">
-    <value>Modern</value>
   </data>
   <data name="NamThuanGroup" xml:space="preserve">
     <value>Nam Thuan Group</value>
@@ -243,11 +236,14 @@
   <data name="ProductCategories" xml:space="preserve">
     <value>Product Categories</value>
   </data>
+  <data name="ProductionProcess" xml:space="preserve">
+    <value>Production process</value>
+  </data>
   <data name="ProductType" xml:space="preserve">
     <value>Product Type</value>
   </data>
-  <data name="Professional" xml:space="preserve">
-    <value>Professional</value>
+  <data name="QualityControlProcess" xml:space="preserve">
+    <value>Quality control process</value>
   </data>
   <data name="QuickContact" xml:space="preserve">
     <value>Quick Contact</value>
@@ -257,6 +253,9 @@
   </data>
   <data name="Send" xml:space="preserve">
     <value>Send</value>
+  </data>
+  <data name="Sending" xml:space="preserve">
+    <value>Sending</value>
   </data>
   <data name="ShowAll" xml:space="preserve">
     <value>Show All</value>

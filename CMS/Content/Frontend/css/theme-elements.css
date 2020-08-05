@@ -105,7 +105,7 @@ p {
 
 /* Links */
 a {
-    color: #707070;
+    color: #c1c1c1;
     -webkit-transition: ease color 300ms;
     transition: ease color 300ms;
 }
@@ -9542,7 +9542,7 @@ html.ie .particles .img-fluid {
             top: 30%;
             color: #1c1f21;
             font-size: 16px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             line-height: 2rem;
         }
 
