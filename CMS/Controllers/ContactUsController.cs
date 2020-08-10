@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace CMS.Controllers
 {
     [RoutePrefix("contact-us")]
-    public class ContactUsController : Controller
+    public class ContactUsController : BaseController
     {
         [Route()]
         // GET: ContactUs

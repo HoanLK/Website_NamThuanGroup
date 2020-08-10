@@ -39,260 +39,566 @@
 }
 
 <!-- Slide -->
-<div class="slider-container slider-container-height-550 rev_slider_wrapper">
-    <div id="revolutionSlider"
-         class="slider rev_slider"
-         data-version="5.4.7"
-         data-plugin-revolution-slider
-         data-plugin-options="{'delay': 9000, 'gridwidth': [1140,960,720,540], 'gridheight': [550,550,550,550], 'responsiveLevels': [4096,1200,992,576], 'parallax': { 'type': 'mouse', 'origo': 'slidercenter', 'speed': 2000, 'levels': [2,3,4,5,6,7,12,16,10,50], 'disable_onmobile': 'on' }, 'navigation' : {'arrows': { 'enable': true, 'hide_under': 767, 'style': 'slider-arrows-style-1' }, 'bullets': {'enable': true, 'style': 'bullets-style-1', 'h_align': 'center', 'v_align': 'bottom', 'space': 7, 'v_offset': 25, 'h_offset': 0}}}">
-        <ul>
-            <li class="slide-overlay slide-overlay-level-3"
-                data-transition="fade">
-                <img src="~/Content/Frontend/img/slides/banner/slide1.jpg"
-                     alt=""
-                     data-bgposition="50% 20%"
-                     data-bgfit="cover"
-                     data-bgrepeat="no-repeat"
-                     class="rev-slidebg"
-                     loading="lazy" />
+@if (Resources.Lang == "VI")
+{
+    <div class="slider-container slider-container-height-550 rev_slider_wrapper">
+        <div id="revolutionSlider"
+             class="slider rev_slider"
+             data-version="5.4.7"
+             data-plugin-revolution-slider
+             data-plugin-options="{'delay': 9000, 'gridwidth': [1140,960,720,540], 'gridheight': [550,550,550,550], 'responsiveLevels': [4096,1200,992,576], 'parallax': { 'type': 'mouse', 'origo': 'slidercenter', 'speed': 2000, 'levels': [2,3,4,5,6,7,12,16,10,50], 'disable_onmobile': 'on' }, 'navigation' : {'arrows': { 'enable': true, 'hide_under': 767, 'style': 'slider-arrows-style-1' }, 'bullets': {'enable': true, 'style': 'bullets-style-1', 'h_align': 'center', 'v_align': 'bottom', 'space': 7, 'v_offset': 25, 'h_offset': 0}}}">
+            <ul>
+                <li class="slide-overlay slide-overlay-level-3"
+                    data-transition="fade">
+                    <img src="~/Content/Frontend/img/slides/banner/slide1-1.jpg"
+                         alt=""
+                         data-bgposition="50% 50%"
+                         data-bgfit="cover"
+                         data-bgrepeat="no-repeat"
+                         class="rev-slidebg"
+                         loading="lazy" />
 
-                <div class="tp-caption bg-primary"
-                     data-x="['140','140','54','54']"
-                     data-y="['145','145','180','180']"
-                     data-start="1500"
-                     data-width="['20','20','13','13']"
-                     data-height="['145','145','92','92']"
-                     data-transform_in="x:[-100%];opacity:0;s:500;"
-                     data-transform_idle="skX:19deg"
-                     data-transform_out="x:[-100%];opacity:0;s:500;"></div>
+                    <div class="tp-caption bg-primary"
+                         style="border: 1px solid #fff"
+                         data-x="['140','140','54','54']"
+                         data-y="['145','145','180','180']"
+                         data-start="1500"
+                         data-width="['20','20','13','13']"
+                         data-height="['145','145','92','92']"
+                         data-transform_in="x:[-100%];opacity:0;s:500;"
+                         data-transform_idle="skX:19deg"
+                         data-transform_out="x:[-100%];opacity:0;s:500;"></div>
 
-                <div class="tp-caption text-color-light font-primary font-weight-bold"
-                     data-x="['160','160','65','65']"
-                     data-y="['150','150','180','180']"
-                     data-start="1000"
-                     data-fontsize="['28','28','20','20']"
-                     data-transform_in="opacity:0;s:300;"
-                     data-transform_out="opacity:0;s:300;">
-                    CHÚNG TÔI LÀ DOANH NGHIỆP
-                </div>
+                    <div class="tp-caption text-color-light font-primary font-weight-bold"
+                         data-x="['160','160','65','65']"
+                         data-y="['150','150','180','180']"
+                         data-start="1000"
+                         data-fontsize="['28','28','20','20']"
+                         data-transform_in="opacity:0;s:300;"
+                         data-transform_out="opacity:0;s:300;">
+                        CHÚNG TÔI LÀ DOANH NGHIỆP
+                    </div>
 
-                <div class="tp-caption text-color-light font-weight-bold font-primary"
-                     data-x="['190','190','90','90']"
-                     data-y="['195','195','210','210']"
-                     data-start="1100"
-                     data-fontsize="['110','110','65','65']"
-                     data-lineheight="['103','103','73','73']"
-                     data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                     data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
-                    M
-                </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['190','190','90','90']"
+                         data-y="['195','195','210','210']"
+                         data-start="1100"
+                         data-fontsize="['110','110','65','65']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        M
+                    </div>
 
-                <div class="tp-caption text-color-light font-weight-bold font-primary"
-                     data-x="['295','295','153','153']"
-                     data-y="['195','195','210','210']"
-                     data-start="1200"
-                     data-fontsize="['110','110','65','65']"
-                     data-lineheight="['103','103','73','73']"
-                     data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                     data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
-                    A
-                </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['295','295','153','153']"
+                         data-y="['195','195','210','210']"
+                         data-start="1200"
+                         data-fontsize="['110','110','65','65']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        A
+                    </div>
 
-                <div class="tp-caption text-color-light font-weight-bold font-primary"
-                     data-x="['370','370','195','195']"
-                     data-y="['195','195','210','210']"
-                     data-start="1300"
-                     data-fontsize="['110','110','65','65']"
-                     data-lineheight="['103','103','73','73']"
-                     data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                     data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
-                    Y
-                </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['370','370','195','195']"
+                         data-y="['195','195','210','210']"
+                         data-start="1300"
+                         data-fontsize="['110','110','65','65']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        Y
+                    </div>
 
-                <div class="tp-caption text-color-light font-weight-bold font-primary"
-                     data-x="['490','490','250','250']"
-                     data-y="['195','195','210','210']"
-                     data-start="1400"
-                     data-fontsize="['110','110','65','65']"
-                     data-lineheight="['103','103','73','73']"
-                     data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                     data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
-                    M
-                </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['490','490','250','250']"
+                         data-y="['195','195','210','210']"
+                         data-start="1400"
+                         data-fontsize="['110','110','65','65']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        M
+                    </div>
 
-                <div class="tp-caption text-color-light font-weight-bold font-primary"
-                     data-x="['595','595','315','315']"
-                     data-y="['195','195','210','210']"
-                     data-start="1500"
-                     data-fontsize="['110','110','65','65']"
-                     data-lineheight="['103','103','73','73']"
-                     data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                     data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
-                    Ặ
-                </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['595','595','315','315']"
+                         data-y="['195','195','210','210']"
+                         data-start="1500"
+                         data-fontsize="['110','110','65','65']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        Ặ
+                    </div>
 
-                <div class="tp-caption text-color-light font-weight-bold font-primary"
-                     data-x="['676','676','365','365']"
-                     data-y="['195','195','210','210']"
-                     data-start="1600"
-                     data-fontsize="['110','110','65','65']"
-                     data-lineheight="['103','103','73','73']"
-                     data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                     data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
-                    C
-                </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['676','676','365','365']"
+                         data-y="['195','195','210','210']"
+                         data-start="1600"
+                         data-fontsize="['110','110','65','65']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        C
+                    </div>
 
-                <!-- <div
-                  class="tp-caption text-color-light font-weight-bold font-primary"
-                  data-x="['752','664','460','369']"
-                  data-y="['195','195','195','210']"
-                  data-start="1700"
-                  data-fontsize="['110','110','70','50']"
-                  data-lineheight="['103','103','103','73']"
-                  data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                  data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                >
-                  N
-                </div>
+                    <div class="tp-caption text-color-light font-primary font-weight-normal"
+                         data-x="['700','700','322','322']"
+                         data-y="['310','310','300','300']"
+                         data-start="2000"
+                         data-fontsize="['38','38','30','30']"
+                         data-transform_in="y:[100%];opacity:0;s:500;"
+                         data-transform_out="y:[100%];opacity:0;s:500;">
+                        HÀNG ĐẦU
+                    </div>
 
-                <div
-                  class="tp-caption text-color-light font-weight-bold font-primary"
-                  data-x="['842','754','517','412']"
-                  data-y="['195','195','195','210']"
-                  data-start="1800"
-                  data-fontsize="['110','110','70','50']"
-                  data-lineheight="['103','103','103','73']"
-                  data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                  data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                >
-                  C
-                </div>
+                    <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold"
+                       href="/about-us"
+                       data-hash
+                       data-hash-offset="65"
+                       data-x="center"
+                       data-y="center"
+                       data-voffset="['150','150','150','100']"
+                       data-start="2100"
+                       data-whitespace="nowrap"
+                       data-fontsize="['13','13','13','13']"
+                       data-paddingtop="['13','13','13','13']"
+                       data-paddingbottom="['13','13','13','13']"
+                       data-paddingleft="['65','65','65','75']"
+                       data-paddingright="['65','65','65','75']"
+                       data-transform_in="y:[100%];s:500;"
+                       data-transform_out="y:[100%];s:500;"
+                       data-mask_in="x:0px;y:0px;">XEM GIỚI THIỆU</a>
+                </li>
+                <li data-transition="fade">
+                    <img src="~/Content/Frontend/img/slides/transparent.png"
+                         alt=""
+                         class="rev-slidebg bg-dark-5"
+                         loading="lazy" />
 
-                <div
-                  class="tp-caption text-color-light font-weight-bold font-primary"
-                  data-x="['922','834','567','452']"
-                  data-y="['195','195','195','210']"
-                  data-start="1900"
-                  data-fontsize="['110','110','70','50']"
-                  data-lineheight="['103','103','103','73']"
-                  data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                  data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
-                >
-                  Y
-                </div> -->
+                    <div class="tp-caption"
+                         data-x="left"
+                         data-hoffset="['0','0','0','-60']"
+                         data-y="center"
+                         data-start="1000"
+                         data-width="50vw"
+                         data-height="550"
+                         data-basealign="slide"
+                         data-transform_in="opacity:0;s:500;"
+                         data-transform_out="opacity:0;s:500;"
+                         data-plugin-image-background
+                         data-plugin-options="{'imageUrl': '/Content/Frontend/img/slides/banner/slide2.jpg'}"></div>
 
-                <div class="tp-caption text-color-light font-primary font-weight-normal"
-                     data-x="['700','700','322','322']"
-                     data-y="['310','310','300','300']"
-                     data-start="2000"
-                     data-fontsize="['38','38','30','30']"
-                     data-transform_in="y:[100%];opacity:0;s:500;"
-                     data-transform_out="y:[100%];opacity:0;s:500;">
-                    HÀNG ĐẦU
-                </div>
+                    <div class="tp-caption text-color-light font-primary font-weight-thin"
+                         data-x="right"
+                         data-hoffset="30"
+                         data-y="center"
+                         data-voffset="['-95','-95','-80','-80']"
+                         data-start="1800"
+                         data-fontsize="['22','22','18','18']"
+                         data-transform_in="opacity:0;s:300;"
+                         data-transform_out="opacity:0;s:300;"
+                         data-transform_idle="opacity:0.5">
+                        CHÚNG TÔI ĐẢM BẢO SỰ
+                    </div>
 
-                <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold"
-                   href="#start"
-                   data-hash
-                   data-hash-offset="65"
-                   data-x="center"
-                   data-y="center"
-                   data-voffset="['150','150','150','100']"
-                   data-start="2100"
-                   data-whitespace="nowrap"
-                   data-fontsize="['13','13','13','13']"
-                   data-paddingtop="['13','13','13','13']"
-                   data-paddingbottom="['13','13','13','13']"
-                   data-paddingleft="['65','65','65','75']"
-                   data-paddingright="['65','65','65','75']"
-                   data-transform_in="y:[100%];s:500;"
-                   data-transform_out="y:[100%];s:500;"
-                   data-mask_in="x:0px;y:0px;">XEM GIỚI THIỆU</a>
-            </li>
-            <li data-transition="fade">
-                <img src="~/Content/Frontend/img/slides/transparent.png"
-                     alt=""
-                     class="rev-slidebg bg-dark-5"
-                     loading="lazy" />
+                    <div class="tp-caption text-color-light font-primary font-weight-bold letter-spacing-5"
+                         data-x="right"
+                         data-hoffset="23"
+                         data-y="center"
+                         data-voffset="['-35','-35','-35','-35']"
+                         data-start="1000"
+                         data-fontsize="['50','50','50','50']"
+                         data-lineheight="['90','80','60','60']"
+                         data-transform_in="y:[-100%];s:500;"
+                         data-transform_out="y:[-100%];s:500;"
+                         data-mask_in="x:0px;y:0px;">
+                        CHUYÊN NGHIỆP
+                    </div>
 
-                <div class="tp-caption"
-                     data-x="left"
-                     data-hoffset="['0','0','0','-60']"
-                     data-y="center"
-                     data-start="1000"
-                     data-width="50vw"
-                     data-height="550"
-                     data-basealign="slide"
-                     data-transform_in="opacity:0;s:500;"
-                     data-transform_out="opacity:0;s:500;"
-                     data-plugin-image-background
-                     data-plugin-options="{'imageUrl': '/Content/Frontend/img/slides/banner/slide2.jpg'}"></div>
+                    <div class="tp-caption text-color-light font-secondary font-weight-light letter-spacing-n1"
+                         data-x="right"
+                         data-hoffset="30"
+                         data-y="center"
+                         data-voffset="['35','35','10','10']"
+                         data-start="1300"
+                         data-fontsize="['30','30','24','24']"
+                         data-lineheight="['40','40','27','27']"
+                         data-transform_in="x:[100%];s:500;"
+                         data-transform_out="y:[-100%];s:500;"
+                         data-mask_in="x:0px;y:0px;">
+                        Trong quy trình sản xuất
+                    </div>
 
-                <div class="tp-caption text-color-light font-primary font-weight-thin"
-                     data-x="right"
-                     data-hoffset="30"
-                     data-y="center"
-                     data-voffset="['-95','-95','-80','-80']"
-                     data-start="1800"
-                     data-fontsize="['22','22','18','18']"
-                     data-transform_in="opacity:0;s:300;"
-                     data-transform_out="opacity:0;s:300;"
-                     data-transform_idle="opacity:0.5">
-                    CHÚNG TÔI ĐẢM BẢO SỰ
-                </div>
-
-                <div class="tp-caption text-color-light font-primary font-weight-bold letter-spacing-5"
-                     data-x="right"
-                     data-hoffset="23"
-                     data-y="center"
-                     data-voffset="['-35','-35','-35','-35']"
-                     data-start="1000"
-                     data-fontsize="['50','50','50','50']"
-                     data-lineheight="['90','80','60','60']"
-                     data-transform_in="y:[-100%];s:500;"
-                     data-transform_out="y:[-100%];s:500;"
-                     data-mask_in="x:0px;y:0px;">
-                    CHUYÊN NGHIỆP
-                </div>
-
-                <div class="tp-caption text-color-light font-secondary font-weight-light letter-spacing-n1"
-                     data-x="right"
-                     data-hoffset="30"
-                     data-y="center"
-                     data-voffset="['35','35','10','10']"
-                     data-start="1300"
-                     data-fontsize="['30','30','24','24']"
-                     data-lineheight="['40','40','27','27']"
-                     data-transform_in="x:[100%];s:500;"
-                     data-transform_out="y:[-100%];s:500;"
-                     data-mask_in="x:0px;y:0px;">
-                    Trong quy trình sản xuất
-                </div>
-
-                <a class="tp-caption btn btn-outline btn-rounded btn-primary btn-icon-effect-1 font-weight-semibold text-color-light"
-                   href="#"
-                   data-x="right"
-                   data-hoffset="30"
-                   data-y="center"
-                   data-voffset="['100','100','70','70']"
-                   data-start="1600"
-                   data-fontsize="['13','13','13','13']"
-                   data-paddingtop="['13','13','13','13']"
-                   data-paddingbottom="['13','13','13','13']"
-                   data-paddingleft="['65','65','65','65']"
-                   data-paddingright="['65','65','65','65']"
-                   data-transform_in="x:[100%];s:500;"
-                   data-transform_out="y:[-100%];s:500;"
-                   data-mask_in="x:0px;y:0px;">
-                    <span class="wrap">
-                        <span>XEM TIÊU CHUẨN CHẤT LƯỢNG</span>
-                        <i class="fas fa-angle-right"></i>
-                    </span>
-                </a>
-            </li>
-        </ul>
+                    <a class="tp-caption btn btn-outline btn-rounded btn-primary btn-icon-effect-1 font-weight-semibold text-color-light"
+                       href="/certificates"
+                       data-x="right"
+                       data-hoffset="30"
+                       data-y="center"
+                       data-voffset="['100','100','70','70']"
+                       data-start="1600"
+                       data-fontsize="['13','13','13','13']"
+                       data-paddingtop="['13','13','13','13']"
+                       data-paddingbottom="['13','13','13','13']"
+                       data-paddingleft="['65','65','65','65']"
+                       data-paddingright="['65','65','65','65']"
+                       data-transform_in="x:[100%];s:500;"
+                       data-transform_out="y:[-100%];s:500;"
+                       data-mask_in="x:0px;y:0px;">
+                        <span class="wrap">
+                            <span>XEM TIÊU CHUẨN CHẤT LƯỢNG</span>
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+}
+else
+{
+    <div class="slider-container slider-container-height-550 rev_slider_wrapper">
+        <div id="revolutionSlider"
+             class="slider rev_slider"
+             data-version="5.4.7"
+             data-plugin-revolution-slider
+             data-plugin-options="{'delay': 9000, 'gridwidth': [1140,960,720,540], 'gridheight': [550,550,550,550], 'responsiveLevels': [4096,1200,992,576], 'parallax': { 'type': 'mouse', 'origo': 'slidercenter', 'speed': 2000, 'levels': [2,3,4,5,6,7,12,16,10,50], 'disable_onmobile': 'on' }, 'navigation' : {'arrows': { 'enable': true, 'hide_under': 767, 'style': 'slider-arrows-style-1' }, 'bullets': {'enable': true, 'style': 'bullets-style-1', 'h_align': 'center', 'v_align': 'bottom', 'space': 7, 'v_offset': 25, 'h_offset': 0}}}">
+            <ul>
+                <li class="slide-overlay slide-overlay-level-3"
+                    data-transition="fade">
+                    <img src="~/Content/Frontend/img/slides/banner/slide1-1.jpg"
+                         alt=""
+                         data-bgposition="50% 50%"
+                         data-bgfit="cover"
+                         data-bgrepeat="no-repeat"
+                         class="rev-slidebg"
+                         loading="lazy" />
+
+                    <div class="tp-caption bg-primary"
+                         style="border: 1px solid #fff"
+                         data-x="['140','140','25','25']"
+                         data-y="['145','145','180','180']"
+                         data-start="1500"
+                         data-width="['20','20','13','13']"
+                         data-height="['145','145','92','92']"
+                         data-transform_in="x:[-100%];opacity:0;s:500;"
+                         data-transform_idle="skX:19deg"
+                         data-transform_out="x:[-100%];opacity:0;s:500;"></div>
+
+                    <div class="tp-caption text-color-light font-primary font-weight-bold"
+                         data-x="['160','160','35','35']"
+                         data-y="['150','150','180','180']"
+                         data-start="1000"
+                         data-fontsize="['28','28','20','20']"
+                         data-transform_in="opacity:0;s:300;"
+                         data-transform_out="opacity:0;s:300;">
+                        PROUD TO BE
+                    </div>
+
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['190','190','60','60']"
+                         data-y="['195','195','210','210']"
+                         data-start="1100"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        A
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['245','245','88','88']"
+                         data-y="['195','195','210','210']"
+                         data-start="1200"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        T
+                    </div>
+
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['320','320','124','124']"
+                         data-y="['195','195','210','210']"
+                         data-start="1300"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        T
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['370','370','147','147']"
+                         data-y="['195','195','210','210']"
+                         data-start="1400"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        H
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['430','430','177','177']"
+                         data-y="['195','195','210','210']"
+                         data-start="1500"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        E
+                    </div>
+
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['505','505','215','215']"
+                         data-y="['195','195','210','210']"
+                         data-start="1600"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','73','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        L
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['555','555','240','240']"
+                         data-y="['195','195','195','210']"
+                         data-start="1700"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        E
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['610','610','268','268']"
+                         data-y="['195','195','195','210']"
+                         data-start="1800"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        A
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['670','670','298','298']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        D
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['730','730','328','328']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        I
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['755','755','341','341']"
+                         data-y="['195','195','195','210']"
+                         data-start="1800"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        N
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['815','815','371','371']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        G
+                    </div>
+
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['890','890','408','408']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        C
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['945','945','435','435']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        L
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['1000','1000','463','463']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        A
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['1060','1060','493','493']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        S
+                    </div>
+                    <div class="tp-caption text-color-light font-weight-bold font-primary"
+                         data-x="['1110','1110','518','518']"
+                         data-y="['195','195','195','210']"
+                         data-start="1900"
+                         data-fontsize="['73','73','35','35']"
+                         data-lineheight="['103','103','103','73']"
+                         data-transform_in="rY:95deg;opacity:0;s:600;e:Power4.easeIn;"
+                         data-transform_out="rY:95deg;opacity:0;s:600;e:Power4.easeIn;">
+                        S
+                    </div>
+
+                    <div class="tp-caption text-color-light font-primary font-weight-normal"
+                         data-x="['700','700','200','200']"
+                         data-y="['310','310','300','300']"
+                         data-start="2000"
+                         data-fontsize="['38','38','25','25']"
+                         data-transform_in="y:[100%];opacity:0;s:500;"
+                         data-transform_out="y:[100%];opacity:0;s:500;">
+                        IN THE GARMENT SECTOR
+                    </div>
+
+                    <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold"
+                       href="/about-us"
+                       data-hash
+                       data-hash-offset="65"
+                       data-x="center"
+                       data-y="center"
+                       data-voffset="['150','150','150','100']"
+                       data-start="2100"
+                       data-whitespace="nowrap"
+                       data-fontsize="['13','13','13','13']"
+                       data-paddingtop="['13','13','13','13']"
+                       data-paddingbottom="['13','13','13','13']"
+                       data-paddingleft="['65','65','65','75']"
+                       data-paddingright="['65','65','65','75']"
+                       data-transform_in="y:[100%];s:500;"
+                       data-transform_out="y:[100%];s:500;"
+                       data-mask_in="x:0px;y:0px;">ABOUT US</a>
+                </li>
+                <li data-transition="fade">
+                    <img src="~/Content/Frontend/img/slides/transparent.png"
+                         alt=""
+                         class="rev-slidebg bg-dark-5"
+                         loading="lazy" />
+
+                    <div class="tp-caption"
+                         data-x="left"
+                         data-hoffset="['0','0','0','-60']"
+                         data-y="center"
+                         data-start="1000"
+                         data-width="50vw"
+                         data-height="550"
+                         data-basealign="slide"
+                         data-transform_in="opacity:0;s:500;"
+                         data-transform_out="opacity:0;s:500;"
+                         data-plugin-image-background
+                         data-plugin-options="{'imageUrl': '/Content/Frontend/img/slides/banner/slide2.jpg'}"></div>
+
+                    <div class="tp-caption text-color-light font-primary font-weight-thin"
+                         data-x="right"
+                         data-hoffset="30"
+                         data-y="center"
+                         data-voffset="['-135','-135','-135','-135']"
+                         data-start="1800"
+                         data-fontsize="['22','22','18','18']"
+                         data-transform_in="opacity:0;s:300;"
+                         data-transform_out="opacity:0;s:300;"
+                         data-transform_idle="opacity:0.5">
+                        AT OUR FACTORIES
+                    </div>
+
+                    <div class="tp-caption text-color-light font-primary font-weight-bold letter-spacing-5"
+                         data-x="right"
+                         data-hoffset="23"
+                         data-y="center"
+                         data-voffset="['-55','-55','-55','-55']"
+                         data-start="1000"
+                         data-fontsize="['50','50','50','50']"
+                         data-lineheight="['90','80','60','60']"
+                         data-transform_in="y:[-100%];s:500;"
+                         data-transform_out="y:[-100%];s:500;"
+                         data-mask_in="x:0px;y:0px;">
+                        PROFESSIONAL
+                    </div>
+
+                    <div class="tp-caption text-color-light font-primary font-weight-bold letter-spacing-5"
+                         data-x="right"
+                         data-hoffset="23"
+                         data-y="center"
+                         data-voffset="['25','25','25','25']"
+                         data-start="1000"
+                         data-fontsize="['35','35','35','35']"
+                         data-lineheight="['90','80','60','60']"
+                         data-transform_in="y:[-100%];s:500;"
+                         data-transform_out="y:[-100%];s:500;"
+                         data-mask_in="x:0px;y:0px;">
+                        PRODUCTION PROCESS
+                    </div>
+
+                    <div class="tp-caption text-color-light font-secondary font-weight-light letter-spacing-n1"
+                         data-x="right"
+                         data-hoffset="30"
+                         data-y="center"
+                         data-voffset="['95','95','95','95']"
+                         data-start="1300"
+                         data-fontsize="['30','30','24','24']"
+                         data-lineheight="['40','40','27','27']"
+                         data-transform_in="x:[100%];s:500;"
+                         data-transform_out="y:[-100%];s:500;"
+                         data-mask_in="x:0px;y:0px;">
+                        Is Committed
+                    </div>
+
+                    <a class="tp-caption btn btn-outline btn-rounded btn-primary btn-icon-effect-1 font-weight-semibold text-color-light"
+                       href="/certificates"
+                       data-x="right"
+                       data-hoffset="30"
+                       data-y="center"
+                       data-voffset="['160','160','160','160']"
+                       data-start="1600"
+                       data-fontsize="['13','13','13','13']"
+                       data-paddingtop="['13','13','13','13']"
+                       data-paddingbottom="['13','13','13','13']"
+                       data-paddingleft="['65','65','65','65']"
+                       data-paddingright="['65','65','65','65']"
+                       data-transform_in="x:[100%];s:500;"
+                       data-transform_out="y:[-100%];s:500;"
+                       data-mask_in="x:0px;y:0px;">
+                        <span class="wrap">
+                            <span>QUALITY STANDARD</span>
+                            <i class="fas fa-angle-right"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}
 
 <!-- Choose Us -->
 <section class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-duration="1s">
@@ -308,80 +614,6 @@
                 {
                     @catImage(component, component.MainTitle + " " + component.SubTitle, component.AnimateIn, component.AnimateOut, component.Timeout)
                 }
-            }
-        </div>
-    </div>
-</section>
-
-<!-- About Us -->
-<section class="section" style="padding-bottom: 15px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="appear-animation"
-                     data-appear-animation="fadeInUpShorter"
-                     data-appear-animation-delay="100">
-                    <span class="top-sub-title text-color-primary text-uppercase">@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].SubTitle)</span>
-
-                    <h2 class="word-rotator letters type font-weight-bold text-5 mb-3">
-                        <span class="text-uppercase">@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].MainTitle)</span>
-                    </h2>
-                </div>
-
-                @Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].Content)
-
-                <div class="d-block d-sm-inline-block text-center appear-animation"
-                     data-appear-animation="fadeInUpShorter"
-                     data-appear-animation-delay="700">
-                    <a href="/about-us"
-                       class="btn btn-outline btn-rounded btn-primary btn-v-3 btn-h-4 font-weight-bold mt-3 text-0">
-                        @Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].TextButton)
-                    </a>
-                    <span class="d-block mt-3">
-                        @Html.Raw(Resources.Or)
-                        <a class="text-underline ml-2 text-0" href="@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].Link)">
-                            @Html.Raw(Resources.ContactUs)
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="col-10 col-md-5 mx-auto ml-md-auto appear-animation"
-                 data-appear-animation="fadeInUpShorter"
-                 data-appear-animation-delay="500">
-                <div class="card card-style-4 border-0 absolute-y-center">
-                    <div class="image-frame rounded">
-                        <span class="image-frame-wrapper">
-                            <img src="~/Content/Frontend/img/about/background-video.jpg" loading="lazy" class="card-img-top rounded" alt="@Html.Raw(Resources.CompanyName)" title="@Html.Raw(Resources.CompanyName)" />
-                            <span class="image-frame-info image-frame-info-show flex-column align-items-center">
-                                <a href="@Html.Raw(Model.GioiThieuNamThuanGroup.Components[0].LinkMedia)" class="popup-vimeo">
-                                    <span class="icon-box icon-box-style-4 hover-anim hover-anim-effect-1">
-                                        <span class="icon-box-icon bg-primary">
-                                            <i class="fas fa-play text-5"></i>
-                                        </span>
-                                    </span>
-                                </a>
-                            </span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Counter -->
-    <div class="counters container">
-        <div class="row">
-            @foreach (var component in Model.Counter.Components)
-            {
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="counter text-dark appear-animation"
-                         data-appear-animation="fadeInLeftShorter"
-                         data-appear-animation-delay="100">
-                        <i class="@Html.Raw(component.LinkMedia)"></i>
-                        <strong data-to="@Html.Raw(component.SubTitle)">0</strong>
-                        <label class="font-weight-light">@Html.Raw(component.MainTitle)</label>
-                    </div>
-                </div>
             }
         </div>
     </div>
@@ -448,7 +680,7 @@
 </section>
 
 <!-- Feature Product -->
-<section class="section pt-5 pb-0">
+@*<section class="section pt-5 pb-0">
     <div class="container">
         <div class="row align-items-end mb-5">
             <div class="col-md-3 mb-4 mb-md-0">
@@ -459,15 +691,6 @@
                         @Html.Raw(Resources.FeaturedProduct)
                     </h2>
                 </div>
-                <!-- <div class="overflow-hidden">
-                  <p
-                    class="text-color-light-3 mb-0 appear-animation"
-                    data-appear-animation="maskUp"
-                    data-appear-animation-delay="200"
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </div> -->
             </div>
             <div class="col-md-9 appear-animation"
                  data-appear-animation="fadeInRightShorter"
@@ -530,7 +753,7 @@
             </div>
         </div>
     </div>
-</section>
+</section>*@
 
 <!-- Quy trình sản xuất -->
 @if (Model.QuyTrinhSanXuat != null)
@@ -626,7 +849,7 @@
 }
 
 <!-- Certificates -->
-@if (Model.Certificates != null)
+@*@if (Model.Certificates != null)
 {
     <section class="section bg-dark-4">
         <div class="container">
@@ -662,7 +885,7 @@
             </div>
         </div>
     </section>
-}
+}*@
 
 <!-- Customer -->
 <div class="section bg-light-5">

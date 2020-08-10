@@ -304,6 +304,15 @@ namespace CMS {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VI.
+        /// </summary>
+        public static string Lang {
+            get {
+                return ResourceManager.GetString("Lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Liên kết trang.
         /// </summary>
         public static string LinkPage {

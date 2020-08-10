@@ -6,107 +6,173 @@
 
 <!-- CONTENT -->
 <div class="container about" style="margin-bottom: 40px">
-    <div class="row">
-        <!-- Sidebar -->
-        @Html.Partial("~/Views/Shared/_SidebarAboutUs.cshtml", "AboutUs")
+    <!-- About Us -->
+    <section class="section" style="padding-bottom: 15px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="appear-animation"
+                         data-appear-animation="fadeInUpShorter"
+                         data-appear-animation-delay="100">
+                        <span class="top-sub-title text-color-primary text-uppercase">@Html.Raw(Model.Intro.SubTitle)</span>
 
-        <!-- Main -->
-        <div class="col-md-9 col-lg-9 order-1 order-md-2 mb-5 mb-md-0">
-            <section class="section pb-lg-0" style="padding-top: 30px;">
-                <div class="container">
-                    <div class="row">
-                        <!-- Tầm nhìn & Sứ mệnh -->
-                        <div class="col-md-6 order-2 order-md-1">
-                            <!-- Tầm nhìn -->
-                            @if (Model.Vision != null)
-                            {
-                                <div class="overflow-hidden mb-3">
-                                    <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                        <span class="title text-uppercase">
-                                            @Html.Raw(Model.Vision.MainTitle)
-                                        </span>
-                                    </h2>
-                                </div>
-                                <div class="overflow-hidden mb-3">
-                                    <p class="mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="600">
-                                        @Html.Raw(Model.Vision.Content)
-                                    </p>
-                                </div>
-                            }
+                        <h2 class="word-rotator letters type font-weight-bold text-5 mb-3">
+                            <span class="text-uppercase">@Html.Raw(Model.Intro.MainTitle)</span>
+                        </h2>
+                    </div>
 
-                            <!-- Sứ mệnh -->
-                            @if (Model.Mission != null)
-                            {
-                                <div class="overflow-hidden mb-3" style="margin-top: 30px">
-                                    <h2 class="font-weight-bold text-5 mb-0 appear-animation float-right" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                        <span class="title text-uppercase">
-                                            @Html.Raw(Model.Mission.MainTitle)
-                                        </span>
-                                    </h2>
-                                </div>
-                                <div class="overflow-hidden mb-3">
-                                    <p class="mb-0 appear-animation text-right" data-appear-animation="maskUp" data-appear-animation-delay="600">
-                                        @Html.Raw(Model.Mission.Content)
-                                    </p>
-                                </div>
-                            }
-                        </div>
+                    @Html.Raw(Model.Intro.Content)
 
-                        <!-- Image -->
-                        @if (Model.Image != null)
-                        {
-                            <div class="col-md-6 order-1 order-md-2 overflow-hidden">
-                                <img style="margin: 30px 0px" loading="lazy" src="@Model.Image.LinkMedia" class="img-fluid appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0" title="@Html.Raw(Resources.NamThuanGroup)" alt="@Html.Raw(Resources.NamThuanGroup)" />
-                            </div>
-                        }
-
-                        <!-- Giá trị cốt lõi -->
-                        @if (Model.CoreValues != null)
-                        {
-                            <div class="col-md-12 order-3" style="margin-top: 30px">
-                                <div class="overflow-hidden mb-3">
-                                    <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                        <span class="title text-uppercase">@Html.Raw(Model.CoreValues.MainTitle)</span>
-                                    </h2>
-                                </div>
-                                <div class="overflow-hidden mb-3">
-                                    @Html.Raw(Model.CoreValues.Content)
-                                </div>
-                            </div>
-                        }
-
-                        <!-- Tầm nhìn doanh nghiệp -->
-                        @if (Model.BrandingVision != null)
-                        {
-                            <div class="col-md-12 order-3" style="margin-top: 30px">
-                                <div class="overflow-hidden mb-3">
-                                    <h2 class="font-weight-bold text-5 mb-0 appear-animation float-right" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                        <span class="title text-uppercase">@Html.Raw(Model.BrandingVision.MainTitle)</span>
-                                    </h2>
-                                </div>
-                                <div class="overflow-hidden mb-3">
-                                    @Html.Raw(Model.BrandingVision.Content)
-                                </div>
-                            </div>
-                        }
-
-                        <!-- Chiến lược phát triển -->
-                        @if (Model.PlanningVision != null)
-                        {
-                            <div class="col-md-12 order-3" style="margin-top: 30px">
-                                <div class="overflow-hidden mb-3">
-                                    <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                        <span class="title text-uppercase">@Html.Raw(Model.PlanningVision.MainTitle)</span>
-                                    </h2>
-                                </div>
-                                <div class="overflow-hidden mb-3">
-                                    @Html.Raw(Model.PlanningVision.Content)
-                                </div>
-                            </div>
-                        }
+                    <div class="d-block d-sm-inline-block text-center appear-animation"
+                         data-appear-animation="fadeInUpShorter"
+                         data-appear-animation-delay="700">
+                        <a href="/about-us"
+                           class="btn btn-outline btn-rounded btn-primary btn-v-3 btn-h-4 font-weight-bold mt-3 text-0">
+                            @Html.Raw(Model.Intro.TextButton)
+                        </a>
+                        <span class="d-block mt-3">
+                            @Html.Raw(Resources.Or)
+                            <a class="text-underline ml-2 text-0" href="@Html.Raw(Model.Intro.Link)">
+                                @Html.Raw(Resources.ContactUs)
+                            </a>
+                        </span>
                     </div>
                 </div>
-            </section>
+                <div class="col-10 col-md-5 mx-auto ml-md-auto appear-animation"
+                     data-appear-animation="fadeInUpShorter"
+                     data-appear-animation-delay="500">
+                    <div class="card card-style-4 border-0 absolute-y-center">
+                        <div class="image-frame rounded">
+                            <span class="image-frame-wrapper">
+                                <img src="~/Content/Frontend/img/about/background-video.jpg" loading="lazy" class="card-img-top rounded" alt="@Html.Raw(Resources.CompanyName)" title="@Html.Raw(Resources.CompanyName)" />
+                                <span class="image-frame-info image-frame-info-show flex-column align-items-center">
+                                    <a href="@Html.Raw(Model.Intro.LinkMedia)" class="popup-vimeo">
+                                        <span class="icon-box icon-box-style-4 hover-anim hover-anim-effect-1">
+                                            <span class="icon-box-icon bg-primary">
+                                                <i class="fas fa-play text-5"></i>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- Counter -->
+        <div class="counters container">
+            <div class="row">
+                @foreach (var component in Model.Counter.Components)
+                {
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="counter text-dark appear-animation"
+                             data-appear-animation="fadeInLeftShorter"
+                             data-appear-animation-delay="100">
+                            <i class="@Html.Raw(component.LinkMedia)"></i>
+                            <strong data-to="@Html.Raw(component.SubTitle)">0</strong>
+                            <label class="font-weight-light">@Html.Raw(component.MainTitle)</label>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="section pb-lg-0" style="padding-top: 30px;">
+        <div class="container">
+            <div class="row">
+                <!-- Tầm nhìn & Sứ mệnh -->
+                <div class="col-md-6 order-2 order-md-1">
+                    <!-- Tầm nhìn -->
+                    @if (Model.Vision != null)
+                    {
+                        <div class="overflow-hidden mb-3">
+                            <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                <span class="title text-uppercase">
+                                    @Html.Raw(Model.Vision.MainTitle)
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="overflow-hidden mb-3">
+                            <p class="mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="600">
+                                @Html.Raw(Model.Vision.Content)
+                            </p>
+                        </div>
+                    }
+
+                    <!-- Sứ mệnh -->
+                    @if (Model.Mission != null)
+                    {
+                        <div class="overflow-hidden mb-3" style="margin-top: 30px">
+                            <h2 class="font-weight-bold text-5 mb-0 appear-animation float-right" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                <span class="title text-uppercase">
+                                    @Html.Raw(Model.Mission.MainTitle)
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="overflow-hidden mb-3">
+                            <p class="mb-0 appear-animation text-right" data-appear-animation="maskUp" data-appear-animation-delay="600">
+                                @Html.Raw(Model.Mission.Content)
+                            </p>
+                        </div>
+                    }
+                </div>
+
+                <!-- Image -->
+                @if (Model.Image != null)
+                {
+                    <div class="col-md-6 order-1 order-md-2 overflow-hidden">
+                        <img style="margin: 30px 0px" loading="lazy" src="@Model.Image.LinkMedia" class="img-fluid appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="0" title="@Html.Raw(Resources.NamThuanGroup)" alt="@Html.Raw(Resources.NamThuanGroup)" />
+                    </div>
+                }
+
+                <!-- Giá trị cốt lõi -->
+                @if (Model.CoreValues != null)
+                {
+                    <div class="col-md-12 order-3" style="margin-top: 30px">
+                        <div class="overflow-hidden mb-3">
+                            <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                <span class="title text-uppercase">@Html.Raw(Model.CoreValues.MainTitle)</span>
+                            </h2>
+                        </div>
+                        <div class="overflow-hidden mb-3">
+                            @Html.Raw(Model.CoreValues.Content)
+                        </div>
+                    </div>
+                }
+
+                <!-- Tầm nhìn doanh nghiệp -->
+                @if (Model.BrandingVision != null)
+                {
+                    <div class="col-md-12 order-3" style="margin-top: 30px">
+                        <div class="overflow-hidden mb-3">
+                            <h2 class="font-weight-bold text-5 mb-0 appear-animation float-right" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                <span class="title text-uppercase">@Html.Raw(Model.BrandingVision.MainTitle)</span>
+                            </h2>
+                        </div>
+                        <div class="overflow-hidden mb-3">
+                            @Html.Raw(Model.BrandingVision.Content)
+                        </div>
+                    </div>
+                }
+
+                <!-- Chiến lược phát triển -->
+                @if (Model.PlanningVision != null)
+                {
+                    <div class="col-md-12 order-3" style="margin-top: 30px">
+                        <div class="overflow-hidden mb-3">
+                            <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
+                                <span class="title text-uppercase">@Html.Raw(Model.PlanningVision.MainTitle)</span>
+                            </h2>
+                        </div>
+                        <div class="overflow-hidden mb-3">
+                            @Html.Raw(Model.PlanningVision.Content)
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
 </div>

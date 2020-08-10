@@ -9,17 +9,14 @@
     <meta http-equiv="Content-Language" content="VN">
 
     <title>@ViewBag.title | namthuangroup</title>
-
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="@Html.Raw("")" />
     <meta name="description" content="@Html.Raw("")" />
+    <link rel="canonical" href="https://namthuangroup.com" />
+
     <meta name="language" content="vi" />
     <meta name="robots" content="archive,follow,imageindex,index,odp,snippet,translate" />
     <!--<meta name="revised" content="Sunday, July 18th, 2010, 5:15 pm" /> --><!-- Thời gian sửa đổi -->
-    <meta name="author" content="hoanlk93@gmail.com" />
-    <meta name="designer" content="hoanlk93@gmail.com" />
-    <meta name="copyright" content="hoanlk93@gmail.com" />
-    <meta name="reply-to" content="hoanlk93@gmail.com" />
-    <meta name="owner" content="@Html.Raw("Nam Thuan Group")" />
+
     <meta name="url" content="https://www.namthuangroup.com" />
     <meta name="identifier-URL" content="https://www.namthuangroup.com" />
     <meta name="coverage" content="Worldwide" />
@@ -28,37 +25,24 @@
     <meta name="revisit-after" content="7 days" />
     <meta http-equiv="Expires" content="0" />
 
-    <link rel="canonical" href="https://namthuangroup.com" />
-
     <!-- Declare that your website is family-safe -->
     <meta name="target" content="all" />
     <meta name="audience" content="all" />
     <meta name="coverage" content="Worldwide" />
     <meta name="distribution" content="Global" />
     <meta name="rating" content="safe for kids" />
-    <meta name="application-name" content="Nam Thuan Group" />
 
     <!-- OpenGraph Meta Tags -->
-    <meta name="fb:page_id" content="" />
-
-    <meta name="og:site_name" content="@Html.Raw("Nam Thuan Group")" />
     <meta name="og:title" content="@Html.Raw("")" />
-    <meta name="og:locale" content="vi_VN" />
-    <meta name="og:type" content="website" />
     <meta name="og:url" content="https://www.namthuangroup.com" />
-    <meta name="og:image" content="@(!string.IsNullOrEmpty(ViewBag.image) ? ViewBag.image : "")" />
-    <meta name="og:image:secure_url" content="@(!string.IsNullOrEmpty(ViewBag.image) ? ViewBag.image : "")" />
+    <meta name="og:image" content="@Html.Raw("")" />
+    <meta name="og:image:secure_url" content="@Html.Raw("")" />
     <meta name="og:description" content="@Html.Raw("")" />
 
-    <meta name="og:email" content="" />
-    <meta name="og:phone_number" content="" />
-    <meta name="og:fax_number" content="" />
+    <meta name="og:locale" content="vi_VN" />
+    <meta name="og:type" content="website" />
 
-    <meta name="og:latitude" content="" />
-    <meta name="og:longitude" content="" />
-    <meta name="og:street-address" content="" />
-    <meta name="og:locality" content="" />
-    <meta name="og:region" content="" />
+    <!-- FIXED -->
     <meta name="og:postal-code" content="180000" />
     <meta name="og:country-name" content="VietNam" />
 
@@ -66,11 +50,7 @@
     <meta name="twitter:description" content="@Html.Raw("")" />
     <meta name="twitter:title" content="@Html.Raw("")" />
 
-    <meta name="geo.placename" content="@Html.Raw("Hải Phòng")" />
     <meta name="geo.region" content="VN" />
-    <meta name="geo.position" content="" />
-    <meta name="ICBM" content="" /> <!-- 21.123123, 105.345345345 -->
-    <meta name="google-site-verification" content="" />
 
     <!-- Apple Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -80,21 +60,12 @@
     <meta name="viewport" content="width = device-width" />
     <meta name="viewport" content="initial-scale = 1.0" />
     <meta name="viewport" content="initial-scale = 2.3, user-scalable = no" />
-    <link rel="apple-touch-icon" href="" />
-    <link rel="apple-touch-icon" sizes="57x57" href="" />
-    <link rel="apple-touch-icon" sizes="60x60" href="" />
-    <link rel="apple-touch-icon" sizes="72x72" href="" />
-    <link rel="apple-touch-icon" sizes="76x76" href="" />
-    <link rel="apple-touch-icon" sizes="114x114" href="" />
-    <link rel="apple-touch-icon" sizes="120x120" href="" />
-    <link rel="apple-touch-icon" sizes="144x144" href="" />
-    <link rel="apple-touch-icon" sizes="152x152" href="" />
-    <link rel="apple-touch-icon" sizes="180x180" href="" />
-    <link rel="apple-touch-startup-image" href="" />
-    <link rel="apple-touch-icon-precomposed" href="">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no" />
+
+    <!-- FIX META -->
+    @Html.Action("HeaderFixed", "Layout")
 
     <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,900%7COpen+Sans:300,400,600,700,800" rel="stylesheet" type="text/css" />
@@ -111,9 +82,6 @@
     <!-- Modernizr -->
     @Scripts.Render("~/modernizr")
 
-    <!-- Favicon Icon -->
-    <link rel="icon" type="image/png" href="~/Content/Frontend/img/logo.png" />
-    <link rel="shortcut icon" type="image/png" href="~/Content/Frontend/img/logo.png" />
 </head>
 <body>
     <div class="body">

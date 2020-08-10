@@ -1,0 +1,45 @@
+﻿@using CMS.Models
+@model Info
+
+<meta name="author" content="@Html.Raw(Model.Author)" />
+<meta name="designer" content="@Html.Raw(Model.Designer)" />
+<meta name="copyright" content="@Html.Raw(Model.Copyright)" />
+<meta name="reply-to" content="@Html.Raw(Model.ReplyTo)" />
+<meta name="owner" content="@Html.Raw(Model.Owner)" />
+
+<meta name="application-name" content="@Html.Raw(Model.SiteName)" />
+
+<meta name="fb:page_id" content="@Html.Raw(Model.IdFacebook)" />
+<meta name="og:site_name" content="@Html.Raw(Model.SiteName)" />
+
+<meta name="og:email" content="@Html.Raw(Model.Email)" />
+<meta name="og:phone_number" content="@Html.Raw(Model.PhoneNumber)" />
+<meta name="og:fax_number" content="@Html.Raw(Model.Fax)" />
+<meta name="og:latitude" content="@Model.Latitude" />
+<meta name="og:longitude" content="@Model.Longitude" />
+<meta name="og:street-address" content="@Html.Raw(Model.StreetAddress)" />
+<meta name="og:locality" content="@Html.Raw(Model.Locality)" />
+<meta name="og:region" content="@Html.Raw(Model.Region)" />
+
+<meta name="google-site-verification" content="@Model.GoogleSiteVerification" />
+
+<meta name="geo.placename" content="@Html.Raw(Model.StreetAddress)" />
+<meta name="geo.position" content="@Html.Raw(Model.Address)" />
+<meta name="ICBM" content="@Model.Latitude,@Model.Longitude" /> <!-- 21.123123, 105.345345345 -->
+
+<link rel="apple-touch-icon" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="57x57" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="60x60" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="72x72" hhref="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="76x76" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="114x114" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="120x120" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="144x144" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="152x152" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon" sizes="180x180" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-startup-image" href="@Html.Raw(Model.AppleIcon)" />
+<link rel="apple-touch-icon-precomposed" href="@Html.Raw(Model.AppleIcon)">
+
+<!-- Favicon Icon -->
+<link rel="icon" type="image/png" href="@Model.Logo" />
+<link rel="shortcut icon" type="image/png" href="@Model.Logo" />

@@ -1,13 +1,9 @@
 ﻿using CMS.Models;
 using CMS.Models.ViewModels;
-using CMS.Services;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace CMS.Controllers
@@ -21,6 +17,13 @@ namespace CMS.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult HeaderFixed()
+        {
+            var model = _db.Infoes.Find(1);
+
+            return PartialView("~/Views/Shared/_HeaderFixed.cshtml", model);
         }
 
         // GET: MenuProduct

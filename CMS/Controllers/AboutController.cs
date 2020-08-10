@@ -66,6 +66,8 @@ namespace CMS.Controllers
 
             AboutUsViewModel model = new AboutUsViewModel()
             {
+                Intro = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Intro"))),
+                Counter = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:aboutus:Counter"))),
                 Image = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Image"))),
                 Vision = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Vision"))),
                 Mission = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Mission"))),

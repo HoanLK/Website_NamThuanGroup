@@ -73,8 +73,6 @@ namespace CMS.Controllers
             {
                 EmailContact = new SendEmailContactViewModel(),
                 GioiThieuDacDiem = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:GioiThieuDacDiem"))),
-                GioiThieuNamThuanGroup = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:GioiThieuNamThuanGroup"))),
-                Counter = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:Counter"))),
                 QuyTrinhSanXuat = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:QuyTrinhSanXuat"))),
                 QuyTrinhKiemSoatChatLuong = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:home:QuyTrinhKiemSoatChatLuong"))),
                 ProductCategories = await _db.ProductCategories.Where(p => p.Published == true)

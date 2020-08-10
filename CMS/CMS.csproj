@@ -6511,6 +6511,7 @@
     <Content Include="Content\Frontend\img\shop\product-bg-8.jpg" />
     <Content Include="Content\Frontend\img\shop\product-bg-9.jpg" />
     <Content Include="Content\Frontend\img\signature.png" />
+    <Content Include="Content\Frontend\img\slides\banner\slide1-1.jpg" />
     <Content Include="Content\Frontend\img\slides\banner\slide1.jpg" />
     <Content Include="Content\Frontend\img\slides\banner\slide2.jpg" />
     <Content Include="Content\Frontend\img\slides\misc\mobile-right.png" />
@@ -6584,10 +6585,21 @@
     <Content Include="Content\Frontend\js\theme.init.js" />
     <Content Include="Content\Frontend\js\theme.js" />
     <Content Include="Content\Frontend\js\views\view.contact.js" />
-    <Content Include="Content\Images\images\AboutUs\about-1.jpg" />
+    <Content Include="Content\Images\images\AboutUs\image-website.jpg" />
     <Content Include="Content\Images\images\AboutUs\tq_img_1.png" />
     <Content Include="Content\Images\images\AboutUs\tq_img_2.png" />
     <Content Include="Content\Images\images\AboutUs\tq_img_4.png" />
+    <Content Include="Content\Images\images\Certificates\CFS.png" />
+    <Content Include="Content\Images\images\Certificates\FDA IWP.png" />
+    <Content Include="Content\Images\images\Certificates\FDA LYU.png" />
+    <Content Include="Content\Images\images\Certificates\FDA MSH.png" />
+    <Content Include="Content\Images\images\Certificates\FDA OEA.png" />
+    <Content Include="Content\Images\images\Certificates\FDA QKR.png" />
+    <Content Include="Content\Images\images\Certificates\ISO 13485 2016.png" />
+    <Content Include="Content\Images\images\Certificates\MDD.png" />
+    <Content Include="Content\Images\images\Certificates\Test Standard EN 146832019.png" />
+    <Content Include="Content\Images\images\Certificates\Wrap 2019.png" />
+    <Content Include="Content\Images\images\favicon.png" />
     <Content Include="Content\Images\images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-01.jpg" />
     <Content Include="Content\Images\images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-02.jpg" />
     <Content Include="Content\Images\images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-03.jpg" />
@@ -6617,6 +6629,10 @@
     <Content Include="Content\Images\images\Home\tay-nghe-cao\tay-nghe-cao-02.jpg" />
     <Content Include="Content\Images\images\Home\tay-nghe-cao\tay-nghe-cao-03.jpg" />
     <Content Include="Content\Images\images\Home\tay-nghe-cao\tay-nghe-cao-04.jpg" />
+    <Content Include="Content\Images\images\image-website.jpg" />
+    <Content Include="Content\Images\images\image-website.png" />
+    <Content Include="Content\Images\images\logo-white.png" />
+    <Content Include="Content\Images\images\logo.png" />
     <Content Include="Content\Images\images\Posts\1.jpg" />
     <Content Include="Content\Images\images\Posts\about-1.jpg" />
     <Content Include="Content\Images\images\Posts\banner-product-categories.jpg" />
@@ -6654,10 +6670,21 @@
     <Content Include="Content\Images\images\Products\T-shirt\t-shirt-08.jpg" />
     <Content Include="Content\Images\images\Products\T-shirt\t-shirt-09.jpg" />
     <Content Include="Content\Images\images\Products\T-shirt\t-shirt-10.jpg" />
-    <Content Include="Content\Images\_thumbs\Images\AboutUs\about-1.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\AboutUs\image-website.jpg" />
     <Content Include="Content\Images\_thumbs\Images\AboutUs\tq_img_1.png" />
     <Content Include="Content\Images\_thumbs\Images\AboutUs\tq_img_2.png" />
     <Content Include="Content\Images\_thumbs\Images\AboutUs\tq_img_4.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\CFS.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\FDA IWP.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\FDA LYU.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\FDA MSH.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\FDA OEA.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\FDA QKR.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\ISO 13485 2016.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\MDD.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\Test Standard EN 146832019.png" />
+    <Content Include="Content\Images\_thumbs\Images\Certificates\Wrap 2019.png" />
+    <Content Include="Content\Images\_thumbs\Images\favicon.png" />
     <Content Include="Content\Images\_thumbs\Images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-01.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-02.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-03.jpg" />
@@ -6687,6 +6714,10 @@
     <Content Include="Content\Images\_thumbs\Images\Home\tay-nghe-cao\tay-nghe-cao-02.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Home\tay-nghe-cao\tay-nghe-cao-03.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Home\tay-nghe-cao\tay-nghe-cao-04.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\image-website.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\image-website.png" />
+    <Content Include="Content\Images\_thumbs\Images\logo-white.png" />
+    <Content Include="Content\Images\_thumbs\Images\logo.png" />
     <Content Include="Content\Images\_thumbs\Images\Posts\1.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Posts\about-1.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Posts\banner-product-categories.jpg" />
@@ -7360,6 +7391,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\Shared\_HomeContact.cshtml" />
+    <Content Include="Views\Shared\_HeaderFixed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Content\" />
@@ -7367,8 +7399,6 @@
     <Folder Include="Content\Images\files\" />
     <Folder Include="Content\Images\flash\" />
     <Folder Include="Content\Images\_thumbs\Files\" />
-    <Folder Include="Views\InfoAPI\" />
-    <Folder Include="Views\Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />

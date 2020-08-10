@@ -198,6 +198,9 @@
   <data name="IntroHome2" xml:space="preserve">
     <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget. Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis.</value>
   </data>
+  <data name="Lang" xml:space="preserve">
+    <value>VI</value>
+  </data>
   <data name="LinkPage" xml:space="preserve">
     <value>Liên kết trang</value>
   </data>
