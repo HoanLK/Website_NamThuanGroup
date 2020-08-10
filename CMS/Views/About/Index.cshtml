@@ -71,7 +71,7 @@
                              data-appear-animation="fadeInLeftShorter"
                              data-appear-animation-delay="100">
                             <i class="@Html.Raw(component.LinkMedia)"></i>
-                            <strong data-to="@Html.Raw(component.SubTitle)">0</strong>
+                            <strong>@Html.Raw(component.SubTitle)</strong>
                             <label class="font-weight-light">@Html.Raw(component.MainTitle)</label>
                         </div>
                     </div>
@@ -154,21 +154,6 @@
                         </div>
                         <div class="overflow-hidden mb-3">
                             @Html.Raw(Model.BrandingVision.Content)
-                        </div>
-                    </div>
-                }
-
-                <!-- Chiến lược phát triển -->
-                @if (Model.PlanningVision != null)
-                {
-                    <div class="col-md-12 order-3" style="margin-top: 30px">
-                        <div class="overflow-hidden mb-3">
-                            <h2 class="font-weight-bold text-5 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="200">
-                                <span class="title text-uppercase">@Html.Raw(Model.PlanningVision.MainTitle)</span>
-                            </h2>
-                        </div>
-                        <div class="overflow-hidden mb-3">
-                            @Html.Raw(Model.PlanningVision.Content)
                         </div>
                     </div>
                 }

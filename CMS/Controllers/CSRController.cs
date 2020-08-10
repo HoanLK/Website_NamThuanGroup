@@ -3,22 +3,20 @@ using CMS.Models;
 using CMS.Models.ViewModels;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data.Entity;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace CMS.Controllers
 {
-    [RoutePrefix("about-us")]
-    public class AboutController : BaseController
+    [RoutePrefix("csr")]
+    public class CSRController : BaseController
     {
         private readonly CMSEntities _db = new CMSEntities();
         private readonly Mapper _mapper;
         private CultureInfo _culture;
 
-        public AboutController()
+        public CSRController()
         {
             // MAPPER
             var config = new MapperConfiguration(
@@ -56,59 +54,25 @@ namespace CMS.Controllers
             _mapper = new Mapper(config);
         }
 
-        // GET: /about-us
+        // GET: /csr
         [Route()]
         public async Task<ActionResult> Index()
         {
             var info = _db.Infoes.Find(1);
 
-            ViewBag.currentMenu = "AboutUs";
+            ViewBag.currentMenu = "CSR";
             // SEO
-            ViewBag.title = Resources.MenuAboutUs;
+            ViewBag.title = Resources.CSR;
             ViewBag.keywords = info.Keywords;
             ViewBag.description = info.Description;
-            ViewBag.url = info.URL + "/about-us";
+            ViewBag.url = info.URL + "/csr";
             ViewBag.image = info.URL + info.Image;
 
             _culture = CultureInfo.CurrentCulture;
 
-            AboutUsViewModel model = new AboutUsViewModel()
+            CSRViewModel model = new CSRViewModel()
             {
-                Intro = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Intro"))),
-                Counter = _mapper.Map<Module, ModuleViewModel>(await _db.Modules.FindAsync(GetComponentId("template:aboutus:Counter"))),
-                Image = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Image"))),
-                Vision = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Vision"))),
-                Mission = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:Mission"))),
-                CoreValues = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:CoreValues"))),
-                BrandingVision = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:aboutus:BrandingVision"))),
-            };
-
-            return View(model);
-        }
-
-        // GET: /about-us/development-history
-        [Route("development-history")]
-        public async Task<ActionResult> DevelopmentHistory()
-        {
-            var info = _db.Infoes.Find(1);
-
-            ViewBag.currentMenu = "AboutUs";
-            // SEO
-            ViewBag.title = Resources.DevelopmentHistory;
-            ViewBag.keywords = info.Keywords;
-            ViewBag.description = info.Description;
-            ViewBag.url = info.URL + "/about-us/development-history";
-            ViewBag.image = info.URL + info.Image;
-
-            _culture = CultureInfo.CurrentCulture;
-
-            int? id = GetComponentId("template:aboutus:DevelopmentHistory");
-            DevelopmentHistoryViewModel model = new DevelopmentHistoryViewModel()
-            {
-                Components = _mapper.Map<List<Component>, List<ComponentViewModel>>(await _db.Components.Where(p => p.Published == true && p.ModuleId == id)
-                                                              .AsNoTracking()
-                                                              .OrderBy(p => p.SortOrder)
-                                                              .ToListAsync())
+                CSR = _mapper.Map<Component, ComponentViewModel>(await _db.Components.FindAsync(GetComponentId("template:csr"))),
             };
 
             return View(model);

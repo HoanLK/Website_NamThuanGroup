@@ -281,6 +281,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CertificatesController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\CSRController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
@@ -371,6 +372,7 @@
     <Compile Include="Models\Resources\Product\ProductEditResource.cs" />
     <Compile Include="Models\ViewModels\AboutUsViewModel.cs" />
     <Compile Include="Models\ViewModels\ComponentViewModel.cs" />
+    <Compile Include="Models\ViewModels\CSRViewModel.cs" />
     <Compile Include="Models\ViewModels\DetailProductCategoryViewModel.cs" />
     <Compile Include="Models\ViewModels\DevelopmentHistoryViewModel.cs" />
     <Compile Include="Models\ViewModels\FooterViewModel.cs" />
@@ -5842,7 +5844,7 @@
     <Content Include="Content\Frontend\img\about\2004.jpg" />
     <Content Include="Content\Frontend\img\about\about-1.jpg" />
     <Content Include="Content\Frontend\img\about\background-video.jpg" />
-    <Content Include="Content\Frontend\img\about\banner-about-us-page.jpg" />
+    <Content Include="Content\Frontend\img\about\banner-about-us-page-1.jpg" />
     <Content Include="Content\Frontend\img\about\co-so-ha-tang-01.jpg" />
     <Content Include="Content\Frontend\img\about\co-so-ha-tang-02.jpg" />
     <Content Include="Content\Frontend\img\about\co-so-ha-tang-03.jpg" />
@@ -6599,6 +6601,13 @@
     <Content Include="Content\Images\images\Certificates\MDD.png" />
     <Content Include="Content\Images\images\Certificates\Test Standard EN 146832019.png" />
     <Content Include="Content\Images\images\Certificates\Wrap 2019.png" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-1.jpg" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-3 %281%29.jpg" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-3 %282%29.jpg" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-4.png" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-5.jpg" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-6.jpg" />
+    <Content Include="Content\Images\images\CSR\trao-qua-gia-dinh-kho-khan-7.jpg" />
     <Content Include="Content\Images\images\favicon.png" />
     <Content Include="Content\Images\images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-01.jpg" />
     <Content Include="Content\Images\images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-02.jpg" />
@@ -6684,6 +6693,13 @@
     <Content Include="Content\Images\_thumbs\Images\Certificates\MDD.png" />
     <Content Include="Content\Images\_thumbs\Images\Certificates\Test Standard EN 146832019.png" />
     <Content Include="Content\Images\_thumbs\Images\Certificates\Wrap 2019.png" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-1.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-3 %281%29.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-3 %282%29.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-4.png" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-5.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-6.jpg" />
+    <Content Include="Content\Images\_thumbs\Images\CSR\trao-qua-gia-dinh-kho-khan-7.jpg" />
     <Content Include="Content\Images\_thumbs\Images\favicon.png" />
     <Content Include="Content\Images\_thumbs\Images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-01.jpg" />
     <Content Include="Content\Images\_thumbs\Images\Home\co-so-ha-tang-hien-dai\co-so-ha-tang-02.jpg" />
@@ -7392,6 +7408,7 @@
     <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\Shared\_HomeContact.cshtml" />
     <Content Include="Views\Shared\_HeaderFixed.cshtml" />
+    <Content Include="Views\CSR\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Content\" />

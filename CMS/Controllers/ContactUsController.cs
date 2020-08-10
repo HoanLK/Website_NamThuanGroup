@@ -1,4 +1,5 @@
-﻿using CMS.Models.ViewModels;
+﻿using CMS.Models;
+using CMS.Models.ViewModels;
 using CMS.Services;
 using System.IO;
 using System.Threading.Tasks;
@@ -9,10 +10,22 @@ namespace CMS.Controllers
     [RoutePrefix("contact-us")]
     public class ContactUsController : BaseController
     {
+        private readonly CMSEntities _db = new CMSEntities();
+
         [Route()]
         // GET: ContactUs
         public ActionResult Index()
         {
+            var info = _db.Infoes.Find(1);
+
+            ViewBag.currentMenu = "Contact";
+            // SEO
+            ViewBag.title = Resources.Contact;
+            ViewBag.keywords = info.Keywords;
+            ViewBag.description = info.Description;
+            ViewBag.url = info.URL + "/contact-us";
+            ViewBag.image = info.URL + info.Image;
+
             return View();
         }
 

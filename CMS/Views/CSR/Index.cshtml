@@ -1,0 +1,49 @@
+﻿@using CMS.Models.ViewModels
+@model CSRViewModel
+
+<!-- Banner -->
+@Html.Partial("~/Views/Shared/_BannerAboutUs.cshtml")
+
+<!-- CONTENT -->
+<div class="container about">
+    <section class="section">
+        <div class="container pb-md-3 mb-lg-3">
+            <div class="row justify-content-center pb-3">
+                <div class="col-lg-12 text-center">
+                    <div class="appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" style="animation-delay: 100ms;">
+                        <span class="top-sub-title text-color-primary">@Html.Raw(Model.CSR.MainTitle)</span>
+                        <h4>
+                            @Html.Raw(Model.CSR.Content)
+                        </h4>
+                        <hr class="mb-4">
+                    </div>
+                    <div class="row lightbox" style="min-height: 400px" data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}">
+                        @foreach (var image in Model.CSR.ComponentImages)
+                        {
+                            <div class="col-sm-6 col-md-4 p-0 appear-animation" data-appear-animation="fadeInScale" data-appear-animation-delay="100">
+                                <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                    <div class="image-frame-wrapper">
+                                        <img src="@Html.Raw(image.Link)"
+                                             loading="lazy" class="img-fluid"
+                                             alt="Trao quà gia đình khó khăn"
+                                             title="Trao quà gia đình khó khăn">
+                                        <span class="image-frame-inner-border"></span>
+                                        <div class="image-frame-info flex-column align-items-center">
+                                            <h3 class="text-color-light font-weight-bold text-4 mb-2">Trao quà gia đình khó khăn</h3>
+                                            <a href="@Html.Raw(image.Link)"
+                                               class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold"
+                                               title="Trao quà gia đình khó khăn">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -19,9 +19,17 @@ namespace CMS.Controllers
         [Route()]
         public async Task<ActionResult> Index()
         {
-            _culture = CultureInfo.CurrentCulture;
+            var info = _db.Infoes.Find(1);
 
             ViewBag.currentMenu = "Products";
+            // SEO
+            ViewBag.title = Resources.MenuProduct;
+            ViewBag.keywords = info.Keywords;
+            ViewBag.description = info.Description;
+            ViewBag.url = info.URL + "/product-categories";
+            ViewBag.image = info.URL + info.Image;
+
+            _culture = CultureInfo.CurrentCulture;
 
             List<ProductCategoryViewModel> model = await _db.ProductCategories.Where(p => p.Published == true)
                                                                                    .OrderBy(p => p.SortOrder)
@@ -43,15 +51,23 @@ namespace CMS.Controllers
         [Route("{id}")]
         public async Task<ActionResult> Detail(int id)
         {
-            var category = await _db.ProductCategories.FindAsync(id);
+            _culture = CultureInfo.CurrentCulture;
+
+            var info = _db.Infoes.Find(1);
+            var category = _db.ProductCategories.Find(id);
+
+            ViewBag.currentMenu = "Products";
+            // SEO
+            ViewBag.title = (_culture.Name == "vi") ? category.VN_Name : category.EN_Name;
+            ViewBag.keywords = category.SEO_Keywords;
+            ViewBag.description = category.SEO_Description;
+            ViewBag.url = info.URL + "/product-categories/" + id;
+            ViewBag.image = info.URL + category.Image;
 
             if (category == null)
             {
                 return View("~/Views/Shared/_NotFound.cshtml");
             }
-
-            _culture = CultureInfo.CurrentCulture;
-            ViewBag.currentMenu = "Products";
 
             DetailProductCategoryViewModel model = new DetailProductCategoryViewModel()
             {

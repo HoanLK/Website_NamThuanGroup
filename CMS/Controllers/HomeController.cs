@@ -63,9 +63,15 @@ namespace CMS.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            // Set Title
-            ViewBag.title = "Trang chủ";
+            var info = _db.Infoes.Find(1);
+
             ViewBag.currentMenu = "Home";
+            // SEO
+            ViewBag.title = Resources.MenuHome;
+            ViewBag.keywords = info.Keywords;
+            ViewBag.description = info.Description;
+            ViewBag.url = info.URL;
+            ViewBag.image = info.URL + info.Image;
 
             _culture = CultureInfo.CurrentCulture;
 
@@ -84,24 +90,7 @@ namespace CMS.Controllers
                                                                    Image = p.Image,
                                                                    Featured = p.Featured,
                                                                    SortOrder = p.SortOrder
-                                                               }).AsNoTracking().ToListAsync(),
-                Products = await _db.Products.Where(p => p.Published == true & p.Featured == true && p.ProductCategory.Featured == true)
-                                                               .OrderBy(p => p.ProductCategory.SortOrder)
-                                                                    .ThenBy(p => p.SortOrder)
-                                                               .Select(p => new ProductViewModel
-                                                               {
-                                                                   Id = p.Id,
-                                                                   Name = (_culture.Name == "vi") ? p.VN_Name : p.EN_Name,
-                                                                   Image = p.Image,
-                                                                   CategoryId = p.CategoryId,
-                                                                   CategoryName = (_culture.Name == "vi") ? p.ProductCategory.VN_Name : p.ProductCategory.EN_Name,
-                                                                   SortOrder = p.SortOrder
-                                                               })
-                                                               .Take(12)
-                                                               .AsNoTracking().ToListAsync(),
-                Certificates = await _db.Certificates.Where(p => p.Published == true && p.Featured == true)
-                                                     .AsNoTracking()
-                                                     .ToListAsync()
+                                                               }).AsNoTracking().ToListAsync()
             };
 
             return View(model);

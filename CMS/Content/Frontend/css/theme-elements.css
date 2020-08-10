@@ -7337,7 +7337,7 @@ html.ie .card-img-top {
             border-radius: 100%;
             display: block;
             height: 2.4em;
-            font-size: 1.1em;
+            font-size: 1.2em;
             line-height: 2.4em;
             width: 2.4em;
             text-align: center;
@@ -7417,7 +7417,7 @@ html.ie .card-img-top {
     .social-icons.header-social-icons li a {
         width: 2.6em;
         height: 2.6em;
-        font-size: 0.9em;
+        font-size: 1.2em;
         line-height: 2.6em;
         color: #1c1f21;
     }

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="vi" ⚡="" amp-version="2003101714470" class="i-amphtml-singledoc i-amphtml-standalone">
+<html lang="@Resources.Lang.ToString().ToLower()" ⚡="" amp-version="2003101714470" class="i-amphtml-singledoc i-amphtml-standalone">
 <head>
     <!-- Basic -->
     <meta charset="utf-8" />
@@ -8,17 +8,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Language" content="VN">
 
-    <title>@ViewBag.title | namthuangroup</title>
-    <meta name="keywords" content="@Html.Raw("")" />
-    <meta name="description" content="@Html.Raw("")" />
-    <link rel="canonical" href="https://namthuangroup.com" />
+    <title>@Html.Raw(ViewBag.title) | namthuangroup</title>
+    <meta name="keywords" content="@Html.Raw(ViewBag.keywords)" />
+    <meta name="description" content="@Html.Raw(ViewBag.description)" />
+    <link rel="canonical" href="@Html.Raw(ViewBag.url)" />
 
     <meta name="language" content="vi" />
     <meta name="robots" content="archive,follow,imageindex,index,odp,snippet,translate" />
     <!--<meta name="revised" content="Sunday, July 18th, 2010, 5:15 pm" /> --><!-- Thời gian sửa đổi -->
 
-    <meta name="url" content="https://www.namthuangroup.com" />
-    <meta name="identifier-URL" content="https://www.namthuangroup.com" />
+    <meta name="url" content="@Html.Raw(ViewBag.url)" />
+    <meta name="identifier-URL" content="@Html.Raw(ViewBag.url)" />
     <meta name="coverage" content="Worldwide" />
     <meta name="distribution" content="Global" />
     <meta name="rating" content="General" />
@@ -33,11 +33,11 @@
     <meta name="rating" content="safe for kids" />
 
     <!-- OpenGraph Meta Tags -->
-    <meta name="og:title" content="@Html.Raw("")" />
-    <meta name="og:url" content="https://www.namthuangroup.com" />
-    <meta name="og:image" content="@Html.Raw("")" />
-    <meta name="og:image:secure_url" content="@Html.Raw("")" />
-    <meta name="og:description" content="@Html.Raw("")" />
+    <meta name="og:title" content="@Html.Raw(ViewBag.title)" />
+    <meta name="og:url" content="@Html.Raw(ViewBag.url)" />
+    <meta name="og:image" content="@Html.Raw(ViewBag.image)" />
+    <meta name="og:image:secure_url" content="@Html.Raw(ViewBag.image)" />
+    <meta name="og:description" content="@Html.Raw(ViewBag.description)" />
 
     <meta name="og:locale" content="vi_VN" />
     <meta name="og:type" content="website" />
@@ -47,8 +47,8 @@
     <meta name="og:country-name" content="VietNam" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:description" content="@Html.Raw("")" />
-    <meta name="twitter:title" content="@Html.Raw("")" />
+    <meta name="twitter:description" content="@Html.Raw(ViewBag.description)" />
+    <meta name="twitter:title" content="@Html.Raw(ViewBag.title)" />
 
     <meta name="geo.region" content="VN" />
 
