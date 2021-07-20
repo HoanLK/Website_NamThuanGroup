@@ -65,7 +65,7 @@ namespace CMS
                 "~/Content/Frontend/js/examples/examples.lightboxes.js"
             ));
 
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

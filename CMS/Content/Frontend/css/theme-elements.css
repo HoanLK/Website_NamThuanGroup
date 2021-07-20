@@ -4352,7 +4352,7 @@ html.ie .accordion .accordion-body {
 
 .owl-carousel.carousel-center-active-items.carousel-center-active-items-style-6 {
     width: 133vw;
-    max-height: 40vw;
+    /* max-height: 40vw; */
     cursor: move;
     cursor: -webkit-grab;
     overflow: hidden;
@@ -4365,8 +4365,8 @@ html.ie .accordion .accordion-body {
         bottom: -30px;
         width: 100%;
         height: 36vh;
-        background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(90%, white));
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 90%);
+        /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(90%, white));
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 90%); */
         pointer-events: none;
     }
 
@@ -4397,8 +4397,8 @@ html.ie .accordion .accordion-body {
 }
 
 .bg-light-5 .carousel-center-active-items.carousel-center-active-items-style-6.bottom-degrade:after {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(241, 243, 247, 0)), color-stop(90%, #f1f3f7));
-    background: linear-gradient(to bottom, rgba(241, 243, 247, 0) 0%, #f1f3f7 90%);
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(241, 243, 247, 0)), color-stop(90%, #f1f3f7));
+    background: linear-gradient(to bottom, rgba(241, 243, 247, 0) 0%, #f1f3f7 90%); */
 }
 
 .bg-dark-1 .carousel-center-active-items.carousel-center-active-items-style-6.bottom-degrade:after {

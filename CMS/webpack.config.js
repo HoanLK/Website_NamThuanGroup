@@ -4,8 +4,8 @@ var path = require("path");
 var WebpackNotifierPlugin = require("webpack-notifier");
 
 module.exports = {
-    mode: 'development',
-    //mode: 'production',
+    //mode: 'development',
+    mode: 'production',
     entry: {
         main: "./Scripts/Backend/app.js"
     },

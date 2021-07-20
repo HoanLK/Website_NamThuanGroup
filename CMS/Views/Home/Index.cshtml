@@ -157,7 +157,6 @@
 
                     <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold"
                        href="/about-us"
-                       data-hash
                        data-hash-offset="65"
                        data-x="center"
                        data-y="center"
@@ -484,7 +483,6 @@ else
 
                     <a class="tp-caption btn btn-rounded btn-primary font-weight-semibold"
                        href="/about-us"
-                       data-hash
                        data-hash-offset="65"
                        data-x="center"
                        data-y="center"
@@ -681,79 +679,79 @@ else
 
 <!-- Feature Product -->
 @*<section class="section pt-5 pb-0">
-    <div class="container">
-        <div class="row align-items-end mb-5">
-            <div class="col-md-3 mb-4 mb-md-0">
-                <div class="overflow-hidden mb-2">
-                    <h2 class="font-weight-bold mb-0 appear-animation text-uppercase"
-                        style="font-size: 1.4rem"
-                        data-appear-animation="maskUp">
-                        @Html.Raw(Resources.FeaturedProduct)
-                    </h2>
+        <div class="container">
+            <div class="row align-items-end mb-5">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="overflow-hidden mb-2">
+                        <h2 class="font-weight-bold mb-0 appear-animation text-uppercase"
+                            style="font-size: 1.4rem"
+                            data-appear-animation="maskUp">
+                            @Html.Raw(Resources.FeaturedProduct)
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-9 appear-animation"
+                     data-appear-animation="fadeInRightShorter"
+                     data-appear-animation-delay="400">
+                    <ul class="nav sort-source custom-nav-style-1 justify-content-center justify-content-md-end"
+                        data-sort-id="portfolio"
+                        data-option-key="filter"
+                        data-plugin-options="{'layoutMode': 'masonry', 'filter': '*'}">
+                        <li class="nav-item" data-option-value="*">
+                            <a class="nav-link active pl-3 text-uppercase" href="#" title="@Html.Raw(Resources.ShowAll)">@Html.Raw(Resources.ShowAll)</a>
+                        </li>
+                        @foreach (var category in Model.ProductCategories.Where(p => p.Featured == true))
+                        {
+                            <li class="nav-item" data-option-value=".@category.Id">
+                                <a class="nav-link text-uppercase" href="#" title="@Html.Raw(category.Name)">@category.Name</a>
+                            </li>
+                        }
+                    </ul>
                 </div>
             </div>
-            <div class="col-md-9 appear-animation"
-                 data-appear-animation="fadeInRightShorter"
-                 data-appear-animation-delay="400">
-                <ul class="nav sort-source custom-nav-style-1 justify-content-center justify-content-md-end"
-                    data-sort-id="portfolio"
-                    data-option-key="filter"
-                    data-plugin-options="{'layoutMode': 'masonry', 'filter': '*'}">
-                    <li class="nav-item" data-option-value="*">
-                        <a class="nav-link active pl-3 text-uppercase" href="#" title="@Html.Raw(Resources.ShowAll)">@Html.Raw(Resources.ShowAll)</a>
-                    </li>
-                    @foreach (var category in Model.ProductCategories.Where(p => p.Featured == true))
-                    {
-                        <li class="nav-item" data-option-value=".@category.Id">
-                            <a class="nav-link text-uppercase" href="#" title="@Html.Raw(category.Name)">@category.Name</a>
-                        </li>
-                    }
-                </ul>
-            </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col p-0">
-                <div class="sort-destination-loader sort-destination-loader-showing">
-                    <div class="portfolio-list sort-destination lightbox"
-                         data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}"
-                         data-sort-id="portfolio">
-                        @{
-                            int i = 0;
-                        }
-                        @foreach (var product in Model.Products)
-                        {
-                            i++;
-                            string typeClass = (i != 9) ? "col-sm-4 col-md-4 col-lg-1-5" : "col-lg-2-5";
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col p-0">
+                    <div class="sort-destination-loader sort-destination-loader-showing">
+                        <div class="portfolio-list sort-destination lightbox"
+                             data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}"
+                             data-sort-id="portfolio">
+                            @{
+                                int i = 0;
+                            }
+                            @foreach (var product in Model.Products)
+                            {
+                                i++;
+                                string typeClass = (i != 9) ? "col-sm-4 col-md-4 col-lg-1-5" : "col-lg-2-5";
 
-                            <div class="@typeClass p-0 isotope-item @product.CategoryId">
-                                <div class="portfolio-item appear-animation"
-                                     data-appear-animation="fadeInUpShorter"
-                                     data-appear-animation-delay="200">
-                                    <div class="image-frame image-frame-style-1 image-frame-effect-1">
-                                        <div class="image-frame-wrapper">
-                                            <img class="img-fluid" src="@Html.Raw(product.Image)" loading="lazy" alt="@Html.Raw(product.Name)" title="@Html.Raw(product.Name)">
-                                            <div class="image-frame-info flex-column align-items-center">
-                                                <h3 class="text-color-light font-weight-bold text-4 mb-2">@Html.Raw(product.Name)</h3>
-                                                <div class="category text-color-light mb-4">@Html.Raw(product.CategoryName)</div>
-                                                <a href="@Html.Raw(product.Image)"
-                                                   class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold"
-                                                   title="@Html.Raw(product.Name)">
-                                                    <i class="fas fa-search"></i>
-                                                </a>
+                                <div class="@typeClass p-0 isotope-item @product.CategoryId">
+                                    <div class="portfolio-item appear-animation"
+                                         data-appear-animation="fadeInUpShorter"
+                                         data-appear-animation-delay="200">
+                                        <div class="image-frame image-frame-style-1 image-frame-effect-1">
+                                            <div class="image-frame-wrapper">
+                                                <img class="img-fluid" src="@Html.Raw(product.Image)" loading="lazy" alt="@Html.Raw(product.Name)" title="@Html.Raw(product.Name)">
+                                                <div class="image-frame-info flex-column align-items-center">
+                                                    <h3 class="text-color-light font-weight-bold text-4 mb-2">@Html.Raw(product.Name)</h3>
+                                                    <div class="category text-color-light mb-4">@Html.Raw(product.CategoryName)</div>
+                                                    <a href="@Html.Raw(product.Image)"
+                                                       class="btn btn-primary btn-rounded btn-v-2 btn-h-2 text-color-light font-weight-semibold"
+                                                       title="@Html.Raw(product.Name)">
+                                                        <i class="fas fa-search"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>*@
+    </section>*@
 
 <!-- Quy trình sản xuất -->
 @if (Model.QuyTrinhSanXuat != null)
@@ -850,42 +848,42 @@ else
 
 <!-- Certificates -->
 @*@if (Model.Certificates != null)
-{
-    <section class="section bg-dark-4">
-        <div class="container">
-            <div class="row justify-content-center text-center mb-4">
-                <div class="col-11 col-md-9 col-lg-7">
-                    <div class="overflow-hidden mb-2">
-                        <h2 class="font-weight-bold text-color-light mb-0 appear-animation text-uppercase" data-appear-animation="maskUp" data-appear-animation-delay="200">@Html.Raw(Resources.Certificate)</h2>
+    {
+        <section class="section bg-dark-4">
+            <div class="container">
+                <div class="row justify-content-center text-center mb-4">
+                    <div class="col-11 col-md-9 col-lg-7">
+                        <div class="overflow-hidden mb-2">
+                            <h2 class="font-weight-bold text-color-light mb-0 appear-animation text-uppercase" data-appear-animation="maskUp" data-appear-animation-delay="200">@Html.Raw(Resources.Certificate)</h2>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container-fluid lightbox" data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}">
-            <div class="row justify-content-center appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="600">
-                <div class="col-10 col-sm-8 col-md-12 overflow-hidden p-0">
-                    <div class="owl-carousel carousel-center-active-items carousel-center-active-items-style-2 stage-py-1 dots-style-3 pb-4 mb-0" data-plugin-carousel data-plugin-options="{'autoplay': true, 'autoplayHoverPause': true, 'dots': false, 'nav': false, 'loop': true, 'margin': 40, 'responsive': { '0': {'items': 1}, '576': {'items': 1}, '768': {'items': 3}, '992': {'items': 3}, '1200': {'items': 5}}}">
+            <div class="container-fluid lightbox" data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}">
+                <div class="row justify-content-center appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="600">
+                    <div class="col-10 col-sm-8 col-md-12 overflow-hidden p-0">
+                        <div class="owl-carousel carousel-center-active-items carousel-center-active-items-style-2 stage-py-1 dots-style-3 pb-4 mb-0" data-plugin-carousel data-plugin-options="{'autoplay': true, 'autoplayHoverPause': true, 'dots': false, 'nav': false, 'loop': true, 'margin': 40, 'responsive': { '0': {'items': 1}, '576': {'items': 1}, '768': {'items': 3}, '992': {'items': 3}, '1200': {'items': 5}}}">
 
-                        @foreach (var certificate in Model.Certificates)
-                        {
-                            <div class="hover-effect-3">
-                                <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
-                                    <div class="card-body p-0">
-                                        <div class="image-frame">
-                                            <a href="@certificate.Image" class="sw-view-site" data-sw-color="#2389ee" title="@certificate.Name">
-                                                <img src="@certificate.Image" class="img-fluid" alt="@certificate.Name" title="@certificate.Name" />
-                                            </a>
+                            @foreach (var certificate in Model.Certificates)
+                            {
+                                <div class="hover-effect-3">
+                                    <div class="card rounded p-0 overflow-hidden bg-transparent border-0">
+                                        <div class="card-body p-0">
+                                            <div class="image-frame">
+                                                <a href="@certificate.Image" class="sw-view-site" data-sw-color="#2389ee" title="@certificate.Name">
+                                                    <img src="@certificate.Image" class="img-fluid" alt="@certificate.Name" title="@certificate.Name" />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-}*@
+        </section>
+    }*@
 
 <!-- Customer -->
 <div class="section bg-light-5">
@@ -918,13 +916,6 @@ else
                                  title="fabletics" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="aritzia"
-                                 title="aritzia" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
                             <img src="~/Content/Frontend/img/logo/kuhl-960x566.png"
                                  class="img-fluid rounded"
                                  loading="lazy"
@@ -942,14 +933,14 @@ else
 
                     <div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/customers/uniqlo-real.png"
+                            <img src="~/Content/Frontend/img/customers/uniqlo-real-1.png"
                                  class="img-fluid rounded"
                                  loading="lazy"
                                  alt="uniqlo"
                                  title="uniqlo" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/customers/zaza-real.png"
+                            <img src="~/Content/Frontend/img/customers/zaza-real-1.png"
                                  class="img-fluid rounded"
                                  loading="lazy"
                                  alt="zaza"
@@ -990,28 +981,14 @@ else
                                  title="gap" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/mountain-960x638.png"
+                            <img src="~/Content/Frontend/img/customers/old-navy-real.png"
                                  class="img-fluid rounded"
                                  loading="lazy"
-                                 alt="mountain"
-                                 title="mountain" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="aritzia"
-                                 title="aritzia" />
+                                 alt="old navy"
+                                 title="old navy" />
                         </div>
                     </div>
                     <div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/kuhl-960x566.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="kuhl"
-                                 title="kuhl" />
-                        </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
                             <img src="~/Content/Frontend/img/logo/vaude-960x638.png"
                                  class="img-fluid rounded"
@@ -1049,52 +1026,8 @@ else
                                  alt="alo"
                                  title="alo" />
                         </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/gymshark-960x501.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="gymshark"
-                                 title="gymshark" />
-                        </div>
                     </div>
                     <div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/asics-855x300.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="asics"
-                                 title="asics" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/fabletics-960x638.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="fabletics"
-                                 title="fabletics" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="aritzia"
-                                 title="aritzia" />
-                        </div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/mountain-960x638.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="mountain"
-                                 title="mountain" />
-                        </div>
-                    </div>
-                    <div>
-                        <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
-                                 class="img-fluid rounded"
-                                 loading="lazy"
-                                 alt="aritzia"
-                                 title="aritzia" />
-                        </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
                             <img src="~/Content/Frontend/img/logo/ov-902x567.png"
                                  class="img-fluid rounded"
@@ -1103,11 +1036,18 @@ else
                                  title="ov" />
                         </div>
                         <div class="image-frame pb-2 mb-2 mb-sm-4">
-                            <img src="~/Content/Frontend/img/logo/nike-960x465.png"
+                            <img src="~/Content/Frontend/img/logo/gymshark-960x501.png"
                                  class="img-fluid rounded"
                                  loading="lazy"
-                                 alt="nike"
-                                 title="nike" />
+                                 alt="gymshark"
+                                 title="gymshark" />
+                        </div>
+                        <div class="image-frame pb-2 mb-2 mb-sm-4">
+                            <img src="~/Content/Frontend/img/logo/aritzia-960x500.png"
+                                 class="img-fluid rounded"
+                                 loading="lazy"
+                                 alt="aritzia"
+                                 title="aritzia" />
                         </div>
                     </div>
                 </div>
