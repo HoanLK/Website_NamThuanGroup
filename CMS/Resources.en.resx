@@ -160,12 +160,13 @@
     <value>Customers</value>
   </data>
   <data name="DesAboutUs" xml:space="preserve">
-    <value>Nam Thuan Group is proud to be a garment company providing top quality services in the
-region. The quality of the products and the working style have created the brand of Nam Thuan
-Group with the spirit of constantly learning: &lt;q&gt;Always innovating, looking forward to the future&lt;/q&gt;.</value>
+    <value>At Nam Thuan, WE are a distinguished garment manufacturing company that prioritizes the creation of employment opportunities for the betterment of society and the growth of workforce in Vietnam. With this goal in mind, we aim to achieve high-quality products and services to gain trust of our valued Customers as well as raise Vietnamese garment manufacturing reputation on a global scale.</value>
+  </data>
+  <data name="DesCSR" xml:space="preserve">
+    <value>At Nam Thuan, our hearts beat in unison with the struggles of our People and Community</value>
   </data>
   <data name="DesProductCategory" xml:space="preserve">
-    <value>Diverse in designs and excellence in quality - Keep up with trends - Competitive price - Large production capacity</value>
+    <value>At Nam Thuan, we are not just making clothes, we are making a difference. We are driven by our passion for creating high-quality products because we believe that high-quality clothes will uplift people’s lives. Our garments are shipped worldwide so we want everyone to experience the comfort and elegance when wearing our garments. We only use the finest materials and the most sophisticated sewing techniques to craft durable and stylish clothing. We are always eager to learn and innovate to adapt to the changing needs and tastes of our valued Customers. We believe that our garments are more than just pieces of fabric, they are expressions of our vision and values.</value>
   </data>
   <data name="Detail" xml:space="preserve">
     <value>Detail</value>

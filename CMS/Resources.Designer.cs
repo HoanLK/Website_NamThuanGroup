@@ -19,7 +19,7 @@ namespace CMS {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -192,6 +192,15 @@ namespace CMS {
         public static string DesAboutUs {
             get {
                 return ResourceManager.GetString("DesAboutUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tại Nam Thuận, trái tim chúng ta hòa chung nhịp đập với cuộc đấu tranh của Người dân và Cộng đồng.
+        /// </summary>
+        public static string DesCSR {
+            get {
+                return ResourceManager.GetString("DesCSR", resourceCulture);
             }
         }
         
