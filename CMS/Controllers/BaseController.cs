@@ -17,9 +17,10 @@ namespace CMS.Controllers
             if (cultureCookie != null)
                 cultureName = cultureCookie.Value;
             else
-                cultureName = Request.UserLanguages != null && Request.UserLanguages.Length > 0 ?
-                        Request.UserLanguages[0] :  // obtain it from HTTP header AcceptLanguages
-                        null;
+                cultureName = "en";
+                //cultureName = Request.UserLanguages != null && Request.UserLanguages.Length > 0 ?
+                //        Request.UserLanguages[0] :  // obtain it from HTTP header AcceptLanguages
+                //        null;
             // Validate culture name
             cultureName = CultureHelper.GetImplementedCulture(cultureName); // This is safe
 
