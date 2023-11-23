@@ -115,7 +115,7 @@ namespace CMS {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to info@namthuangroup.com.
+        ///   Looks up a localized string similar to info@namthuan.vn.
         /// </summary>
         public static string CompanyEmail {
             get {

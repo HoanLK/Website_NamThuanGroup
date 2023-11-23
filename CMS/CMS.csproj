@@ -5899,8 +5899,9 @@
     <Content Include="Content\Frontend\img\icons\trophy.svg" />
     <Content Include="Content\Frontend\img\icons\yarns.png" />
     <Content Include="Content\Frontend\img\icons\yarns.svg" />
-    <Content Include="Content\Frontend\img\logo-footer.png" />
-    <Content Include="Content\Frontend\img\logo.png" />
+    <Content Include="Content\Frontend\img\logo-2023.png" />
+    <Content Include="Content\Frontend\img\logo-footer-2023.png" />
+    <Content Include="Content\Frontend\img\logo-mobile-2023.png" />
     <Content Include="Content\Frontend\img\logo\alo-720x553.png" />
     <Content Include="Content\Frontend\img\logo\aritzia-960x500.png" />
     <Content Include="Content\Frontend\img\logo\asics-855x300.png" />

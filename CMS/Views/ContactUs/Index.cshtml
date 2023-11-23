@@ -18,6 +18,7 @@
                                 <p class="text-color-light text-2 opacity-8 mb-0">@Html.Raw(Resources.CompanyAddress)</p>
                             </div>
                         </div>
+
                         <div class="icon-box icon-box-style-4 align-items-center mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
                             <div class="icon-box-icon bg-dark-4 p-4">
                                 <i class="fad fa-envelope text-color-light text-7"></i>
@@ -29,6 +30,7 @@
                                 <p class="text-color-light text-2 opacity-8 mb-0">@Html.Raw(Resources.CompanyEmail)</p>
                             </div>
                         </div>
+
                         <div class="icon-box icon-box-style-4 align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
                             <div class="icon-box-icon bg-dark-4 p-4">
                                 <i class="fad fa-phone-alt text-color-light text-7"></i>
@@ -48,54 +50,107 @@
                     <div class="col-half-section pr-md-5 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600">
                         <div class="row">
                             <div class="col">
-                                <span class="top-sub-title text-color-light opacity-6">@Html.Raw(Resources.QuickContact)</span>
-                                <h2 class="text-color-light font-weight-bold mb-4">@Html.Raw(Resources.ContactUs)</h2>
+                                <h2 class="text-color-light font-weight-bold mb-4">Contact Us</h2>
                             </div>
                         </div>
+                        <div class="row mb-5">
+                            <div class="col">
+                                <h3 class="text-color-light font-weight-bold mb-4">Mr.Duong Tran - General Manager</h3>
+
+                                <div class="icon-box icon-box-style-4 align-items-center mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                                    <div class="icon-box-icon bg-dark-4 p-4">
+                                        <i class="fad fa-phone-alt text-color-light text-7"></i>
+                                    </div>
+                                    <div class="icon-box-info">
+                                        <div class="icon-box-info-title">
+                                            <h2 class="font-weight-bold text-color-light text-4 mb-0">Phone number</h2>
+                                        </div>
+                                        <p class="text-color-light text-2 opacity-8 mb-0">(+84) 913 030 608</p>
+                                    </div>
+                                </div>
+
+                                <div class="icon-box icon-box-style-4 align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                                    <div class="icon-box-icon bg-dark-4 p-4">
+                                        <i class="fad fa-envelope text-color-light text-7"></i>
+                                    </div>
+                                    <div class="icon-box-info">
+                                        <div class="icon-box-info-title">
+                                            <h2 class="font-weight-bold text-color-light text-4 mb-0">Email</h2>
+                                        </div>
+                                        <p class="text-color-light text-2 opacity-8 mb-0">duong.tran@namthuan.vn</p>
+                                    </div>
+                                </div>
+
+                                @*@using (Ajax.BeginForm("EmailContact", "ContactUs", new AjaxOptions { HttpMethod = "POST", OnSuccess = "onEmailNotifySuccess" }, new { @id = "EmailNotifyformId", @class = "contact-form form-style-3 form-errors-light", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            @Html.TextBoxFor(m => m.Name, new { placeHolder = Resources.FormName, @class = "form-control", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            @Html.TextBoxFor(m => m.Email, new { type = "email", placeHolder = "Email", @class = "form-control", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { placeHolder = Resources.FormPhoneNumber, @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            @Html.TextBoxFor(m => m.Company, new { placeHolder = Resources.FormCompanyName, @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            @Html.TextAreaFor(m => m.Content, 5, 1, new { placeHolder = Resources.FormMessage, @class = "form-control", required = "required" })
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <button id="sendBtn" type="submit" class="btn btn-dark btn-rounded btn-4 font-weight-semibold text-0 text-uppercase">
+                                @Resources.Send
+                            </button>
+                            <button id="sendingBtn" class="btn btn-dark btn-rounded btn-4 font-weight-semibold text-0 text-uppercase" style="display: none" disabled>
+                                <i class="fa fa-spinner fa-spin" style="font-size: 16px; margin-right: 10px"></i> @Resources.Sending
+                            </button>
+                        </div>
+                    </div>
+                }*@
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col">
-                                @using (Ajax.BeginForm("EmailContact", "ContactUs", new AjaxOptions { HttpMethod = "POST", OnSuccess = "onEmailNotifySuccess" }, new { @id = "EmailNotifyformId", @class = "contact-form form-style-3 form-errors-light", role = "form" }))
-                                {
-                                    @Html.AntiForgeryToken()
+                                <h3 class="text-color-light font-weight-bold mb-4">Ms.Kiko Linh - Sales Junior Manager</h3>
 
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            @Html.TextBoxFor(m => m.Name, new { placeHolder = Resources.FormName, @class = "form-control", required = "required" })
-                                        </div>
+                                <div class="icon-box icon-box-style-4 align-items-center mb-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                                    <div class="icon-box-icon bg-dark-4 p-4">
+                                        <i class="fad fa-phone-alt text-color-light text-7"></i>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            @Html.TextBoxFor(m => m.Email, new { type = "email", placeHolder = "Email", @class = "form-control", required = "required" })
+                                    <div class="icon-box-info">
+                                        <div class="icon-box-info-title">
+                                            <h2 class="font-weight-bold text-color-light text-4 mb-0">Phone number</h2>
                                         </div>
+                                        <p class="text-color-light text-2 opacity-8 mb-0">(+84) 366 665 370</p>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            @Html.TextBoxFor(m => m.PhoneNumber, new { placeHolder = Resources.FormPhoneNumber, @class = "form-control" })
+                                </div>
+
+                                <div class="icon-box icon-box-style-4 align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+                                    <div class="icon-box-icon bg-dark-4 p-4">
+                                        <i class="fad fa-envelope text-color-light text-7"></i>
+                                    </div>
+                                    <div class="icon-box-info">
+                                        <div class="icon-box-info-title">
+                                            <h2 class="font-weight-bold text-color-light text-4 mb-0">Email</h2>
                                         </div>
+                                        <p class="text-color-light text-2 opacity-8 mb-0">linh.phamthethuy@namthuan.vn</p>
                                     </div>
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            @Html.TextBoxFor(m => m.Company, new { placeHolder = Resources.FormCompanyName, @class = "form-control" })
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col">
-                                            @Html.TextAreaFor(m => m.Content, 5, 1, new { placeHolder = Resources.FormMessage, @class = "form-control", required = "required" })
-                                        </div>
-                                    </div>
-                                    <div class="form-row mt-2">
-                                        <div class="col">
-                                            <!-- Send Button -->
-                                            <button id="sendBtn" type="submit" class="btn btn-dark btn-rounded btn-4 font-weight-semibold text-0 text-uppercase">
-                                                @Resources.Send
-                                            </button>
-                                            <!-- Sending Button -->
-                                            <button id="sendingBtn" class="btn btn-dark btn-rounded btn-4 font-weight-semibold text-0 text-uppercase" style="display: none" disabled>
-                                                <i class="fa fa-spinner fa-spin" style="font-size: 16px; margin-right: 10px"></i> @Resources.Sending
-                                            </button>
-                                        </div>
-                                    </div>
-                                }
+                                </div>
                             </div>
                         </div>
                     </div>
