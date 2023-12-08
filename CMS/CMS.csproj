@@ -5905,14 +5905,18 @@
     <Content Include="Content\Frontend\img\logo\alo-720x553.png" />
     <Content Include="Content\Frontend\img\logo\aritzia-960x500.png" />
     <Content Include="Content\Frontend\img\logo\asics-855x300.png" />
+    <Content Include="Content\Frontend\img\logo\boden.png" />
     <Content Include="Content\Frontend\img\logo\fabletics-960x638.png" />
     <Content Include="Content\Frontend\img\logo\gymshark-960x501.png" />
     <Content Include="Content\Frontend\img\logo\kuhl-960x566.png" />
+    <Content Include="Content\Frontend\img\logo\llbean.png" />
     <Content Include="Content\Frontend\img\logo\lululemon-960x404.png" />
+    <Content Include="Content\Frontend\img\logo\mango.png" />
     <Content Include="Content\Frontend\img\logo\mountain-960x638.png" />
     <Content Include="Content\Frontend\img\logo\nike-960x465.png" />
     <Content Include="Content\Frontend\img\logo\ov-902x567.png" />
     <Content Include="Content\Frontend\img\logo\spyder-960x367.png" />
+    <Content Include="Content\Frontend\img\logo\uniqlo.png" />
     <Content Include="Content\Frontend\img\logo\vaude-960x638.png" />
     <Content Include="Content\Frontend\img\menu\product.jpg" />
     <Content Include="Content\Frontend\img\new-logo.jpg" />
@@ -6837,7 +6841,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

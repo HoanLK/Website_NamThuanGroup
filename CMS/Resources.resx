@@ -137,6 +137,7 @@
   </data>
   <data name="CompanyEmail" xml:space="preserve">
     <value>info@namthuan.vn</value>
+    <comment>info@namthuan.vn</comment>
   </data>
   <data name="CompanyName" xml:space="preserve">
     <value>Công ty TNHH Nam Thuận</value>

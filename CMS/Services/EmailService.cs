@@ -11,26 +11,24 @@ namespace CMS.Services
         {
             try
             {
-                MailMessage mail = new MailMessage
-                {
-                    From = new MailAddress("noreply@namthuangroup.com"),
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true
-                };
+                MailMessage mail = new MailMessage();
+
                 mail.To.Add(new MailAddress(email));
 
-                SmtpClient smtp = new SmtpClient
-                {
-                    Host = "mail.namthuangroup.com",
-                    Port = 587,
-                    Credentials = new NetworkCredential(
-                        userName: "noreply@namthuangroup.com",
-                        password: "Abcd@1234"),
-                    EnableSsl = false,
-                    
-                };
-                await smtp.SendMailAsync(mail);
+                mail.From = new MailAddress("myowebco@gmail.com", "Nam Thuận Website");
+
+                // Subject and Multipart/alternative Body
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+
+                // Init SmtpClient and send
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                NetworkCredential credentials = new NetworkCredential("myowebco@gmail.com", "apuk alzt wkfi azdh");
+                smtpClient.Credentials = credentials;
+                smtpClient.EnableSsl = true;
+
+                await smtpClient.SendMailAsync(mail);
 
                 return true;
             }
